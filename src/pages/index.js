@@ -1,24 +1,11 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
-import {
-  ColorPalette as CP,
-  StyledH1,
-  StyledUl,
-  StyledLi,
-  StyledP
-} from '../theme/globalStyle'
-
-const BrandTitle = StyledH1.extend`
-  grid-area: brand;
-  color: ${CP.primary.light};
-  font-size: 1.6em;
-  padding: 0.5rem;
-`
+import { StyledH1, StyledP } from "../theme/globalStyle";
 
 const IndexPage = () => (
   <div>
-    <BrandTitle>Hi people</BrandTitle>
+    <StyledH1>Hi people</StyledH1>
     <StyledP>Welcome to your new Gatsby site.</StyledP>
     <p>Now go build something great.</p>
     <Link to="/page-2/">Go to page 2</Link>

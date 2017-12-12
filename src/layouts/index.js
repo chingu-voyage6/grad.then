@@ -1,60 +1,48 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Link from 'gatsby-link';
+import Helmet from 'react-helmet';
+import styled from 'styled-components';
 
-import './index.css'
+import Header from "./components/Header.js";
+import Footer from "./components/Footer.js";
 
-const Header = () => (
-  <div
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem'
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem'
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none'
-          }}
-        >
-          Gatsby
-        </Link>
-      </h1>
-    </div>
-  </div>
-)
+//import './index.css'
+
+export const PageContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    "hd hd hd hd hd hd hd hd hd hd hd hd"
+    ". main main main main main main main main main main ."
+    "ft ft ft ft ft ft ft ft ft ft ft ft";
+`;
+
+// min-height is just for the purpose of nice looking page
+const Main = styled.div`
+  grid-area: main;
+  min-height: 800px;
+`;
 
 const TemplateWrapper = ({ children }) => (
-  <div>
+  <PageContainer>
     <Helmet
-      title="Gatsby Default Starter"
+      title="grad.then()"
       meta={[
         { name: 'description', content: 'Sample' },
         { name: 'keywords', content: 'sample, something' }
       ]}
     />
     <Header />
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '0px 1.0875rem 1.45rem',
-        paddingTop: 0
-      }}
-    >
+
+    <Main>
       {children()}
-    </div>
-  </div>
+    </Main>
+
+    <Footer />
+  </PageContainer>
+
 )
 
 TemplateWrapper.propTypes = {
