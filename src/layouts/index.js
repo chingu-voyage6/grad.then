@@ -31,7 +31,7 @@ const TemplateWrapper = ({ children }) => (
       title="grad.then()"
       meta={[
         { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
+        { name: 'keywords', content: 'sample, something' }
       ]}
     />
     <Header />
@@ -46,7 +46,7 @@ const TemplateWrapper = ({ children }) => (
 )
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.func,
+  children: PropTypes.func
 }
 
 export default TemplateWrapper
