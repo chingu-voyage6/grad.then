@@ -4,7 +4,8 @@ import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
 
-import Header from "./Header.js";
+import Header from "./components/Header.js";
+import Footer from "./components/Footer.js";
 
 //import './index.css'
 
@@ -18,8 +19,10 @@ export const PageContainer = styled.div`
     "ft ft ft ft ft ft ft ft ft ft ft ft";
 `;
 
+// min-height is just for the purpose of nice looking page
 const Main = styled.div`
   grid-area: main;
+  min-height: 800px;
 `;
 
 const TemplateWrapper = ({ children }) => (
@@ -37,6 +40,7 @@ const TemplateWrapper = ({ children }) => (
       {children()}
     </Main>
 
+    <Footer />
   </PageContainer>
 
 )
