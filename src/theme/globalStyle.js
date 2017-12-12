@@ -57,3 +57,20 @@ export const StyledA = styled.a`
   padding: 1.75rem;
   margin: 0.5rem;
 `
+// based on ColorPalette4 http://www.color-hex.com/color-palette/51527
+export const ColorPalette = {
+  text: "#333",
+  white: "#fff",
+  primary: {
+    dark: "#453463",
+    light: "#755f9f"
+  },
+  secondary: {
+    green: "#8ac3a9",
+    yellow: "#fcdeb6",
+    red: "#ff8463"
+  },
+  shades: {
+    //add shades with progress
+  }
+}

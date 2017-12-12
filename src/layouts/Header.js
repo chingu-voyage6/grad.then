@@ -2,38 +2,56 @@ import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 
-import { StyledH1, StyledUl, StyledLi } from "../theme/globalStyle";
+import { StyledH1, StyledUl, StyledLi, ColorPalette as CP } from "../theme/globalStyle";
+import { PageContainer } from "./index.js";
 
 
 const StyledHeader = styled.div`
+  grid-area: hd;
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    ". brand brand . . . nav nav nav nav nav .";
 `;
 
-
 const BrandTitle = StyledH1.extend`
-  color: #755f9f;
+  grid-area: brand;
+  color: ${CP.primary.light};
   font-size: 1.6em;
+  padding: 0.5rem;
 `;
 
 const BrandLink = styled(Link)`
+  color: inherit;
   &:visited, &:active {
      color: inherit;
   }
 `;
 
 const NavMenu = StyledUl.extend`
+  grid-area: nav;
+  padding: 0;
   display: inline-grid;
   grid-template-columns: repeat(5, 1fr);
-  padding: 0;
 `;
 
-const NavLink = StyledLi.extend`
+const NavItem = StyledLi.extend`
   display: inline;
   text-transform: uppercase;
-  color: #755f9f;
+  color: ${CP.primary.light};
+  padding: 0.5rem;
 `;
 
+const NavLink = styled(Link)`
+  color: inherit;
+  &:visited, &:active {
+     color: inherit;
+  }
+  &:hover {
+    color: ${CP.secondary.red};
+  }
+`;
 
 const Header = () => (
   <StyledHeader>
@@ -42,11 +60,21 @@ const Header = () => (
     </BrandTitle>
 
     <NavMenu>
-      <NavLink>jobs</NavLink>
-      <NavLink>learn</NavLink>
-      <NavLink>events</NavLink>
-      <NavLink>support</NavLink>
-      <NavLink>stories</NavLink>
+      <NavItem to="/jobs">
+        <NavLink>jobs</NavLink>
+      </NavItem>
+      <NavItem>
+        <NavLink to="/learn">learn</NavLink>
+      </NavItem>
+      <NavItem>
+        <NavLink to="/events">events</NavLink>
+      </NavItem>
+      <NavItem>
+        <NavLink to="/support">support</NavLink>
+      </NavItem>
+      <NavItem>
+        <NavLink to="/stories">stories</NavLink>
+      </NavItem>
     </NavMenu>
 
   </StyledHeader>
