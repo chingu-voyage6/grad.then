@@ -1,6 +1,6 @@
 # grad.then()
 
-[![Waffle.io - Columns and their card count](https://badge.waffle.io/chingu-voyage3/bears-16.svg?columns=all)](https://waffle.io/chingu-voyage3/bears-16)
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/chingu-voyage3/grad.then.svg?columns=all)](https://waffle.io/chingu-voyage3/grad.then)
 
 ## Chingu Voyage 3 project (bears-16 team)
 
@@ -21,4 +21,4 @@ We are *aspiring developers* and *eager learners*.
 
 **And this is the very beginning.**
 
-[![Throughput Graph](https://graphs.waffle.io/chingu-voyage3/bears-16/throughput.svg)](https://waffle.io/chingu-voyage3/bears-16/metrics/throughput)
+[![Throughput Graph](https://graphs.waffle.io/chingu-voyage3/grad.then/throughput.svg)](https://waffle.io/chingu-voyage3/grad.then/metrics/throughput)
