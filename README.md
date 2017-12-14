@@ -30,6 +30,20 @@ We are _aspiring developers_ and _eager learners_.
 * development: Upcoming change to be merged into master.
 * developer branch: Individual branches for each developer.
 
+`development` will have PR's from developer branches merged into it, to do this:
+
+```bash
+# make your development branch
+git branch development-myUserName/issuenumber/description
+# make your change and push to the development branch
+git push origin development-myUserName:development
+```
+
+Complete your PR through the GitHub UI
+
+As a good working practice request that another team member review and merge
+your PR for a sanity check
+
 ## Authors
 
 | Name                        | Location         |
@@ -38,6 +52,8 @@ We are _aspiring developers_ and _eager learners_.
 | [Miljan Djordjevic][miljan] | Belgrade, Serbia |
 | [Hasan Hacioglu][hasan]     | Istanbul, TR     |
 | [Scott Spence][scott]       | London, UK       |
+
+<!-- links -->
 
 [marina]: https://github.com/mar-bi
 [miljan]: https://github.com/miljan-fsd
