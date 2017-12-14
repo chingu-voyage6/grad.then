@@ -7,8 +7,6 @@ import styled from 'styled-components';
 import Header from "./components/Header.js";
 import Footer from "./components/Footer.js";
 
-//import './index.css'
-
 export const PageContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
