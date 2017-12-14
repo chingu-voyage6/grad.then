@@ -37,3 +37,7 @@ We are _aspiring developers_ and _eager learners_.
 [miljan]: https://github.com/miljan-fsd
 [hasan]: https://github.com/asanhix
 [scott]: https://github.com/spences10
+
+## Licence
+
+[MIT](https://tldrlegal.com/license/mit-license)
