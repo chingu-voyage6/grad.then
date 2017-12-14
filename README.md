@@ -67,9 +67,9 @@ npm run dev
 
 ```bash
 # make your development branch
-git branch development-myUserName/issuenumber/description
+git branch dev-myUserName-issuenumber-description
 # make your change and push to the development branch
-git push origin development-myUserName:development
+git push origin dev-myUserName-issuenumber-description:development
 ```
 
 Complete your PR through the GitHub UI
