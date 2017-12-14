@@ -24,6 +24,12 @@ We are _aspiring developers_ and _eager learners_.
 
 [![Throughput Graph](https://graphs.waffle.io/chingu-voyage3/grad.then/throughput.svg)](https://waffle.io/chingu-voyage3/grad.then/metrics/throughput)
 
+## Git workflow
+
+* master: production release.
+* development: Upcoming change to be merged into master.
+* developer branch: Individual branches for each developer.
+
 ## Authors
 
 | Name                        | Location         |
