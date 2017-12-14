@@ -26,7 +26,14 @@ We are _aspiring developers_ and _eager learners_.
 
 ## Authors
 
-* [Marina Biletska](https://github.com/mar-bi)
-* [Miljan Djordjevic](https://github.com/miljan-fsd)
-* [Hasan Hacioglu](https://github.com/asanhix)
-* [Scott Spence](https://github.com/spences10)
+| Name                        | Location         |
+| :-------------------------- | :--------------- |
+| [Marina Biletska][marina]   | Hurghada, Egypt  |
+| [Miljan Djordjevic][miljan] | Belgrade, Serbia |
+| [Hasan Hacioglu][hasan]     | Istanbul, TR     |
+| [Scott Spence][scott]       | London, UK       |
+
+[marina]: https://github.com/mar-bi
+[miljan]: https://github.com/miljan-fsd
+[hasan]: https://github.com/asanhix
+[scott]: https://github.com/spences10
