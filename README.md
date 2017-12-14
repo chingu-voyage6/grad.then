@@ -16,9 +16,17 @@ get a job after completing your training.
 ---
 
 ## Project Progress
-We are proud to work as a team, and here is our **project progress**.  
-We are *aspiring developers* and *eager learners*.
+
+We are proud to work as a team, and here is our **project progress**.\
+We are _aspiring developers_ and _eager learners_.
 
 **And this is the very beginning.**
 
 [![Throughput Graph](https://graphs.waffle.io/chingu-voyage3/grad.then/throughput.svg)](https://waffle.io/chingu-voyage3/grad.then/metrics/throughput)
+
+## Authors
+
+* [Marina Biletska](https://github.com/mar-bi)
+* [Miljan Djordjevic](https://github.com/miljan-fsd)
+* [Hasan Hacioglu](https://github.com/asanhix)
+* [Scott Spence](https://github.com/spences10)
