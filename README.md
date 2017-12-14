@@ -24,6 +24,22 @@ We are _aspiring developers_ and _eager learners_.
 
 [![Throughput Graph](https://graphs.waffle.io/chingu-voyage3/grad.then/throughput.svg)](https://waffle.io/chingu-voyage3/grad.then/metrics/throughput)
 
+## Built With
+
+The main libraries used in the development of IdeaNebulae are shown in the
+following table. For a complete list of libraries consult the `package.json`
+file.
+
+| Library                      | Purpose                                      |
+| :--------------------------- | :------------------------------------------- |
+| [Gatsby][gatsby]             | Blazing-fast static site generator for React |
+| [Styled Components][sty-cmp] | Visual primitives for the component age.     |
+
+<!-- links -->
+
+[gatsby]: https://www.gatsbyjs.org/
+[sty-cmp]: https://www.styled-components.com/
+
 ## Git workflow
 
 * master: production release.
