@@ -40,6 +40,23 @@ file.
 [gatsby]: https://www.gatsbyjs.org/
 [sty-cmp]: https://www.styled-components.com/
 
+## Get started
+
+To use the project clone this repo with:
+
+```bash
+git clone https://github.com/chingu-voyage3/grad.then.git
+# or if you use SSH
+git clone git@github.com:chingu-voyage3/grad.then.git
+# change directory
+cd grad.then
+# install dependencies
+npm install
+# once complete run
+npm run dev
+# open localhost:8000
+```
+
 ## Git workflow
 
 * master: production release.
