@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import faker from 'faker'
 
-import { StyledH1, StyledP } from "../theme/globalStyle"
+import { StyledH1, StyledP } from '../theme/globalStyle'
 
 const IndexPage = () => (
   <div>
