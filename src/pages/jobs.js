@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { StyledH1, StyledP } from "../theme/globalStyle"
+import { StyledH1, StyledP } from '../theme/globalStyle'
 
 const JobsPage = () => (
   <div>

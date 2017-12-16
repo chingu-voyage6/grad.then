@@ -19,17 +19,16 @@
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
-    "format": "prettier --trailing-comma none --no-semi --single-quote --write \"src/**/*.js\""
+    "format":
+      "prettier --trailing-comma none --no-semi --single-quote --write \"src/**/*.js\"",
+    "pre-commit": "npm run format"
   },
+  "pre-commit": "npm run format",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chingu-voyage3/bears-16.git"
   },
-  "keywords": [
-    "gatsby",
-    "grad",
-    "then"
-  ],
+  "keywords": ["gatsby", "grad", "then"],
   "author": "",
   "license": "MIT",
   "bugs": {

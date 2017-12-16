@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 import faker from 'faker'
 import styled from 'styled-components'
 
+<<<<<<< HEAD
 import { StyledH1, StyledP, ColorPalette as CP } from '../theme/globalStyle'
 import { ICONS } from '../theme/constants.js'
 import Icon from '../layouts/components/Icons.js'
@@ -19,6 +20,11 @@ const IconContainer = styled.div`
   align-items: center;
   border: 2px solid ${CP.primary.dark};
 `
+||||||| merged common ancestors
+import { StyledH1, StyledP } from "../theme/globalStyle"
+=======
+import { StyledH1, StyledP } from '../theme/globalStyle'
+>>>>>>> development
 
 const IndexPage = () => (
   <div>
