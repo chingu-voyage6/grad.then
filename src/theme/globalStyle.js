@@ -37,6 +37,11 @@ export const StyledH1 = styled.h1`
   margin: 0.5rem;
 `
 
+export const StyledH2 = styled.h2`
+  padding: 1.75rem;
+  margin: 0.5rem;
+`
+
 export const StyledP = styled.p`
   padding: 1.75rem;
   margin: 0.5rem;
