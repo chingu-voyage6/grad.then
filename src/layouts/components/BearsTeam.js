@@ -10,6 +10,7 @@ const StyledBears = StyledA.extend`
   display: block;
   justify-self: start;
   margin:10px 0 10px 10px;
+  padding: 0;
   &:visited, &:active {
      color: inherit;
   }
@@ -19,7 +20,7 @@ const StyledBears = StyledA.extend`
 `
 
 const BearsTeam = () => (
-  <StyledBears>
+  <StyledBears href="https://github.com/chingu-voyage3/grad.then#authors">
     <Icon
       icon={ICONS.BEAR_DARK}
       size={34}
