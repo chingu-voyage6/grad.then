@@ -4,11 +4,11 @@ import styled from 'styled-components'
 import { StyledH1, ColorPalette as CP } from '../../theme/globalStyle'
 
 export const Button = styled.button`
-  color: ${CP.text};
+  color: ${props => props.color};
   font-size: 1rem;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  border: 2px solid ${CP.primary.light};
+  border: 1px solid ${props => props.border};
   background-color: Transparent;
   border-radius: 4px;
   transition: all 0.1s;
