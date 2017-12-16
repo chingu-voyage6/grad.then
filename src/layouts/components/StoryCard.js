@@ -28,22 +28,9 @@ const StoryText = StyledP.extend`
 const Text = styled.div`
   grid-area: text;
   padding: 0.5rem;
-  margin: 0rem;
+  margin: 0.5rem;
   color: ${CP.text};
 `
-
-// const Image = styled.div`
-//   grid-area: img;
-//   justify-self: center;
-//   padding: 1.75rem;
-//   margin: 1.3rem 0.5rem 0.5rem 0.5rem;
-//   border-radius: 90px;
-//   border: 1px solid #000;
-//   background-image: url(${img});
-//   background-size: 100px;
-//   width: 40px;
-//   height: 40px;
-// `
 
 const Image = styled.img`
   grid-area: img;
@@ -51,8 +38,8 @@ const Image = styled.img`
   margin: 1.3rem 0.5rem 0.5rem 0.5rem;
   border-radius: 90px;
   border: 1px solid #000;
-  width: 100px;
-  height: 100px;
+  width: 6.25rem;
+  height: 6.25rem;
 `
 
 class StoryCard extends React.Component {
