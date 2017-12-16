@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 import { StyledH1, StyledP, ColorPalette as CP } from '../theme/globalStyle'
 import { ICONS } from '../theme/constants.js'
-import Icon from '../layouts/components/Icons.js'
+import Icon from '../layouts/components/Icon.js'
 
 // for illustration of icons usage
 const IconContainer = styled.div`
