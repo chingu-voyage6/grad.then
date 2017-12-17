@@ -10,6 +10,7 @@ export const Button = styled.button`
   cursor: pointer;
   border: 1px solid ${props => props.border};
   background-color: Transparent;
+  text-transform: uppercase;
   border-radius: 4px;
   transition: all 0.1s;
   &:hover {
