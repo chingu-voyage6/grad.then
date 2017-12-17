@@ -13,7 +13,7 @@ export const PageContainer = styled.div`
   grid-template-rows: auto;
   grid-template-areas:
     'hd hd hd hd hd hd hd hd hd hd hd hd'
-    '. main main main main main main main main main main .'
+    'main main main main main main main main main main main main'
     'ft ft ft ft ft ft ft ft ft ft ft ft';
 `
 

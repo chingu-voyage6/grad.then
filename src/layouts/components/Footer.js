@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import { ColorPalette as CP } from '../../theme/globalStyle'
 import PageNav from './PageNav.js'
+import BearsTeam from './BearsTeam'
 
 const StyledFooter = styled.footer`
   background: ${CP.primary.dark};
@@ -12,20 +13,13 @@ const StyledFooter = styled.footer`
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   grid-template-areas: '. nav nav nav nav nav . . . team team .';
-`
-
-const Team = styled.p`
-  grid-area: team;
-  color: ${CP.white};
-  padding: 0.5rem;
-  margin: 1rem;
-  font-size: 1rem;
+  align-items: center;
 `
 
 const Footer = () => (
   <StyledFooter>
     <PageNav header={false} />
-    <Team>made by bears-16</Team>
+    <BearsTeam />
   </StyledFooter>
 )
 

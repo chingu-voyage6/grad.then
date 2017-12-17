@@ -61,7 +61,9 @@ const IndexPage = () => (
         viewbox={`0 0 512 496`}
       />
     </IconContainer>
-    <Divider justify={'center'}><h3>Hello world!</h3></Divider>
+    <Divider justify={'center'}>
+      <h3>Hello world!</h3>
+    </Divider>
     <Divider justify={'space-around'}>
       <Icon icon={ICONS.RULER} size={50} color={'white'} />
       <Icon icon={ICONS.BLOG} size={50} color={'white'} />
