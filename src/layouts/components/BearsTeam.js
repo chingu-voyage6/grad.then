@@ -9,38 +9,40 @@ import Icon from './Icon'
 const StyledLink = StyledA.extend`
   display: block;
   justify-self: start;
-  margin:10px 0 10px 10px;
+  margin: 10px 0 10px 10px;
   padding: 0;
-  &:visited, &:active {
-     color: inherit;
+  &:visited,
+  &:active {
+    color: inherit;
   }
 `
 
 class Bears extends React.Component {
-  constructor(props){
-    super(props);
+  constructor(props) {
+    super(props)
     this.state = {
       color: CP.white,
-      swap: CP.secondary.green,
+      swap: CP.secondary.green
     }
     this.handleHover = this.handleHover.bind(this)
   }
 
-  handleHover(){
-    const {color, swap } = this.state
+  handleHover() {
+    const { color, swap } = this.state
 
     this.setState({
       color: swap,
-      swap: color,
+      swap: color
     })
   }
 
-  render(){
+  render() {
     return (
       <StyledLink
         href="https://github.com/chingu-voyage3/grad.then#authors"
         onMouseOver={this.handleHover}
-        onMouseOut={this.handleHover}>
+        onMouseOut={this.handleHover}
+      >
         <Icon
           icon={ICONS.BEAR_DARK}
           size={34}
@@ -65,15 +67,15 @@ const Team = styled.div`
     justify-self: end;
     color: ${CP.white};
     font-size: 1rem;
-    padding:0;
-    margin:0;
+    padding: 0;
+    margin: 0;
     &:hover {
-      color: ${CP.secondary.green}
+      color: ${CP.secondary.green};
     }
   }
 `
 
-const BearsTeam = () =>(
+const BearsTeam = () => (
   <Team>
     <p>made by</p>
     <Bears />
