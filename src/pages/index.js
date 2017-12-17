@@ -8,6 +8,8 @@ import { ICONS } from '../theme/constants.js'
 import Icon from '../layouts/components/Icon.js'
 import Divider from '../layouts/components/Divider'
 import { ButtonBig, ButtonSmall } from '../layouts/components/Button'
+import Hero from '../layouts/components/Hero'
+
 
 // for illustration of icons usage
 const IconContainer = styled.div`
@@ -24,6 +26,7 @@ const IconContainer = styled.div`
 
 const IndexPage = () => (
   <div>
+    <Hero type='main' />
     <StyledH1>Hi people</StyledH1>
     <StyledP>{faker.lorem.paragraph()}</StyledP>
     <p>Now go build something great.</p>
