@@ -68,14 +68,20 @@ npm run dev
 ```bash
 # make your development branch
 git branch dev-myUserName-issuenumber-description
-# make your change and push to the development branch
-git push origin dev-myUserName-issuenumber-description:development
+# make your change and push to origin
+git push --set-upstream origin dev-myUserName-issuenumber-description
 ```
 
 Complete your PR through the GitHub UI
 
 As a good working practice request that another team member review and merge
 your PR for a sanity check
+
+The `master` and `development` branches are protected so that the person
+submitting the PR can not merge it.
+
+this will ensure at least one other team mate has seen the code before merging
+with either `master` or `development` branches.
 
 ## Authors
 
