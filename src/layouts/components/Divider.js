@@ -2,12 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { StyledH1, ColorPalette as CP } from '../../theme/globalStyle'
-const validJustifyValues = ['center',
-                            'flex-end',
-                            'flex-start',
-                            'space-between',
-                            'space-around'
-                            ]
+const validJustifyValues = [
+  'center',
+  'flex-end',
+  'flex-start',
+  'space-between',
+  'space-around'
+]
 const Wrapper = styled.div`
   color: white;
   margin: 7px 0;
@@ -15,13 +16,10 @@ const Wrapper = styled.div`
   padding: 10px 20px;
   width: 100%;
   display: flex;
-  justify-content: ${props => 
-    validJustifyValues.includes(props.set) &&
-    props.set || 'flex-end'};
+  justify-content: ${props =>
+    (validJustifyValues.includes(props.set) && props.set) || 'flex-end'};
 `
 
-const Divider = props => (
-  <Wrapper set={props.justify}>{props.children}</Wrapper>
-);
+const Divider = props => <Wrapper set={props.justify}>{props.children}</Wrapper>
 
-export default Divider;
+export default Divider
