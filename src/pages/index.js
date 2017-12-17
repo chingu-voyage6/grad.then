@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import { StyledH1, StyledP, ColorPalette as CP } from '../theme/globalStyle'
 import { ICONS } from '../theme/constants.js'
 import Icon from '../layouts/components/Icon.js'
+import Divider from '../layouts/components/Divider'
 
 // for illustration of icons usage
 const IconContainer = styled.div`
@@ -60,6 +61,12 @@ const IndexPage = () => (
         viewbox={`0 0 512 496`}
       />
     </IconContainer>
+    <Divider justify={'center'}><h3>Hello world!</h3></Divider>
+    <Divider justify={'space-around'}>
+      <Icon icon={ICONS.RULER} size={50} color={'white'} />
+      <Icon icon={ICONS.BLOG} size={50} color={'white'} />
+      <Icon icon={ICONS.RULER} size={50} color={'white'} />
+    </Divider>
   </div>
 )
 
