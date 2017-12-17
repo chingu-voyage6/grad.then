@@ -16,31 +16,10 @@ const StyledFooter = styled.footer`
   align-items: center;
 `
 
-const Team = styled.div`
-  grid-area: team;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: center;
-  padding: 0.5rem;
-  margin: 1rem;
-  p {
-    display: block;
-    justify-self: end;
-    color: ${CP.white};
-    font-size: 1rem;
-    padding:0;
-    margin:0;
-  }
-`
-
 const Footer = () => (
   <StyledFooter>
     <PageNav header={false} />
-    <Team>
-      <p>made by</p>
-      <BearsTeam />
-    </Team>
-
+    <BearsTeam />
   </StyledFooter>
 )
 
