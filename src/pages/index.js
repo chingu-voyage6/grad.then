@@ -8,6 +8,7 @@ import { ICONS } from '../theme/constants.js'
 import Icon from '../layouts/components/Icon.js'
 import Divider from '../layouts/components/Divider'
 import { ButtonBig, ButtonSmall } from '../layouts/components/Button'
+import { Pagination } from '../layouts/components/Pagination'
 
 // for illustration of icons usage
 const IconContainer = styled.div`
@@ -72,6 +73,9 @@ const IndexPage = () => (
       <Icon icon={ICONS.BLOG} size={50} color={'white'} />
       <Icon icon={ICONS.RULER} size={50} color={'white'} />
     </Divider>
+    <div style={{ display: 'flex', justifyContent: 'center', padding: '4px' }}>
+      <Pagination pageNum={5} />
+    </div>
   </div>
 )
 
