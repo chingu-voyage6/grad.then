@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: `/grad.then`,
   siteMetadata: {
     title: `grad.then()`
   },
