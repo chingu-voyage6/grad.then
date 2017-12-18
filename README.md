@@ -1,6 +1,7 @@
 # grad.then()
 
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/chingu-voyage3/grad.then.svg?columns=all)](https://waffle.io/chingu-voyage3/grad.then)
+[![Build Status](https://travis-ci.org/chingu-voyage3/grad.then.svg?branch=master)](https://travis-ci.org/chingu-voyage3/grad.then)
 
 ## Chingu Voyage 3 project (bears-16 team)
 
