@@ -1,6 +1,7 @@
 # grad.then()
 
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/chingu-voyage3/grad.then.svg?columns=all)](https://waffle.io/chingu-voyage3/grad.then)
+[![Build Status](https://travis-ci.org/chingu-voyage3/grad.then.svg?branch=master)](https://travis-ci.org/chingu-voyage3/grad.then)
 
 ## Chingu Voyage 3 project (bears-16 team)
 
@@ -65,17 +66,39 @@ npm run dev
 
 `development` will have PR's from developer branches merged into it, to do this:
 
-```bash
+```sh
 # make your development branch
 git branch dev-myUserName-issuenumber-description
-# make your change and push to the development branch
-git push origin dev-myUserName-issuenumber-description:development
+# make your change and push to origin
+git push --set-upstream origin dev-myUserName-issuenumber-description
 ```
 
 Complete your PR through the GitHub UI
 
 As a good working practice request that another team member review and merge
 your PR for a sanity check
+
+The `master` and `development` branches are protected so that the person
+submitting the PR can not merge it.
+
+this will ensure at least one other team mate has seen the code before merging
+with either `master` or `development` branches.
+
+## Deployment
+
+Deployment, managed via Travis CI deploys to Surge.sh under the URL
+http://grad-then.surge.sh/
+
+## Milestones
+
+Project milestones are available here:
+https://github.com/chingu-voyage3/grad.then/milestones?direction=asc&sort=due_date
+
+## Projects
+
+The team uses GitHub projects to manage their workload and all major parts of
+the project, they are available here:
+https://github.com/chingu-voyage3/grad.then/projects?query=is%3Aopen+sort%3Aupdated-desc
 
 ## Authors
 
