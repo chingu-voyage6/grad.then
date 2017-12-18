@@ -65,7 +65,7 @@ npm run dev
 
 `development` will have PR's from developer branches merged into it, to do this:
 
-```bash
+```sh
 # make your development branch
 git branch dev-myUserName-issuenumber-description
 # make your change and push to origin
@@ -82,6 +82,11 @@ submitting the PR can not merge it.
 
 this will ensure at least one other team mate has seen the code before merging
 with either `master` or `development` branches.
+
+## Deployment
+
+Deployment, managed via Travis CI deploys to Surge.sh under the URL
+http://grad-then.surge.sh/
 
 ## Authors
 
