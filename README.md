@@ -88,6 +88,11 @@ with either `master` or `development` branches.
 Deployment, managed via Travis CI deploys to Surge.sh under the URL
 http://grad-then.surge.sh/
 
+## Milestones
+
+Project milestones are available here:
+https://github.com/chingu-voyage3/grad.then/milestones?direction=asc&sort=due_date
+
 ## Authors
 
 | Name                        | Location         |
