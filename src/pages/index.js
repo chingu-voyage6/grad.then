@@ -24,9 +24,9 @@ const IconContainer = styled.div`
   border: 2px solid ${CP.primary.dark};
 `
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <div>
-    <Hero type='main' />
+    <Hero type='main' title={data.site.siteMetadata.title}  />
     <StyledH1>Hi people</StyledH1>
     <StyledP>{faker.lorem.paragraph()}</StyledP>
     <p>Now go build something great.</p>
@@ -77,5 +77,15 @@ const IndexPage = () => (
     </Divider>
   </div>
 )
+
+export const query = graphql`
+  query HeroQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
 
 export default IndexPage
