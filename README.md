@@ -93,6 +93,12 @@ http://grad-then.surge.sh/
 Project milestones are available here:
 https://github.com/chingu-voyage3/grad.then/milestones?direction=asc&sort=due_date
 
+## Projects
+
+The team uses GitHub projects to manage their workload and all major parts of
+the project, they are available here:
+https://github.com/chingu-voyage3/grad.then/projects?query=is%3Aopen+sort%3Aupdated-desc
+
 ## Authors
 
 | Name                        | Location         |
