@@ -1,2 +1,0 @@
-webpackJsonp([0xd2a9905f465f],{1257:function(e,t,l){"use strict";function u(e){return e&&e.__esModule?e:{default:e}}t.__esModule=!0;var n=l(3),a=u(n),d=l(11),f=function(){return a.default.createElement("div",null,a.default.createElement(d.StyledH1,null,"Jobs Page"),a.default.createElement(d.StyledP,null,"This is the Jobs page"))};t.default=f,e.exports=t.default}});
-//# sourceMappingURL=component---src-pages-jobs-js-aeec21f79e9ef3686ba8.js.map

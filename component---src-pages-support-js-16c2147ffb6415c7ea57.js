@@ -1,2 +1,0 @@
-webpackJsonp([0x82e68906bf0f],{1260:function(e,t,l){"use strict";function u(e){return e&&e.__esModule?e:{default:e}}t.__esModule=!0;var n=l(3),a=u(n),r=l(11),d=function(){return a.default.createElement("div",null,a.default.createElement(r.StyledH1,null,"Support Page"),a.default.createElement(r.StyledP,null,"This is the Support page"))};t.default=d,e.exports=t.default}});
-//# sourceMappingURL=component---src-pages-support-js-16c2147ffb6415c7ea57.js.map
