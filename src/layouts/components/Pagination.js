@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { StyledH1, ColorPalette as CP } from '../../theme/globalStyle'
+import { StyledH1 } from '../../theme/globalStyle'
 
 const PaginationButton = styled.button`
-  border: 1px solid ${CP.primary.light};
-  color: ${props => props.color || CP.primary.light};
+  border: 1px solid ${props => props.theme.primary.light};
+  color: ${props => props.color || props.theme.primary.light};
   background: ${props => props.background || 'lightgrey'};
   font-size: 1.2rem;
   min-width: 3rem;
@@ -15,7 +15,7 @@ const PaginationButton = styled.button`
   transition: all 0.2s;
   &:hover {
     color: ${props => props.background || 'lightgrey'};
-    background: ${props => props.color || CP.primary.light};
+    background: ${props => props.color || props.theme.primary.light};
   }
   &:active {
     outline: none;
