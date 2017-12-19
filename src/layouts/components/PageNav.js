@@ -16,13 +16,19 @@ const NavMenu = StyledUl.extend`
 const NavItem = StyledLi.extend`
   display: inline;
   text-transform: uppercase;
-  color: ${props => (props['data-header'] ? props => props.theme.primary.light : props => props.theme.white)};
+  color: ${props =>
+    props['data-header']
+      ? props => props.theme.primary.light
+      : props => props.theme.white};
   padding: 0.5rem;
 `
 
 // different colors for hover
 const NavLink = styled(Link).attrs({
-  color: props => (props['data-header'] ? props => props.theme.secondary.red : props => props.theme.secondary.green)
+  color: props =>
+    props['data-header']
+      ? props => props.theme.secondary.red
+      : props => props.theme.secondary.green
 })`
   color: inherit;
   &:visited,

@@ -50,7 +50,10 @@ class StoryCard extends React.Component {
         <Text>
           <StoryTitle>{this.props.title}</StoryTitle>
           <StoryText>{this.props.text}</StoryText>
-          <ButtonSmall color={props => props.theme.white} border={props => props.theme.white}>
+          <ButtonSmall
+            color={props => props.theme.white}
+            border={props => props.theme.white}
+          >
             read more
           </ButtonSmall>
         </Text>

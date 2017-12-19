@@ -34,7 +34,11 @@ const IndexPage = ({ data }) => (
 
     {/* examples of icons usage */}
     <IconContainer>
-      <Icon icon={ICONS.BRIEFCASE} size={100} color={props => props.theme.primary.dark} />
+      <Icon
+        icon={ICONS.BRIEFCASE}
+        size={100}
+        color={props => props.theme.primary.dark}
+      />
       <Icon
         icon={ICONS.BOOKS}
         size={100}
@@ -47,8 +51,16 @@ const IndexPage = ({ data }) => (
         color={props => props.theme.primary.dark}
         viewbox={`0 0 30 28`}
       />
-      <Icon icon={ICONS.RULER} size={100} color={props => props.theme.primary.dark} />
-      <Icon icon={ICONS.BLOG} size={100} color={props => props.theme.primary.dark} />
+      <Icon
+        icon={ICONS.RULER}
+        size={100}
+        color={props => props.theme.primary.dark}
+      />
+      <Icon
+        icon={ICONS.BLOG}
+        size={100}
+        color={props => props.theme.primary.dark}
+      />
     </IconContainer>
 
     <IconContainer>

@@ -3,12 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import faker from 'faker'
 
-import {
-  StyledH1,
-  StyledUl,
-  StyledLi,
-  StyledP
-} from '../../theme/globalStyle'
+import { StyledH1, StyledUl, StyledLi, StyledP } from '../../theme/globalStyle'
 import { ButtonBig } from './Button'
 import LI from '../../img/list_icon_sm.png'
 import BG from '../../img/grad_bg1.jpg'
@@ -111,7 +106,9 @@ const SimpleHero = props =>
       <SimpleHeroTitle>{props.page}</SimpleHeroTitle>
       <SimpleHeroP>{faker.lorem.sentence()}</SimpleHeroP>
       <ButtonContainer>
-        <HeroButton color={props => props.theme.white}>{buttonText[`${props.page}`]}</HeroButton>
+        <HeroButton color={props => props.theme.white}>
+          {buttonText[`${props.page}`]}
+        </HeroButton>
       </ButtonContainer>
     </StyledSimpleHero>
   ) : (
