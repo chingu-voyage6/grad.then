@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { StyledH3, StyledP, ColorPalette as CP } from '../../theme/globalStyle'
+import { StyledH3, StyledP } from '../../theme/globalStyle'
 import { ButtonSmall } from '../components/Button'
 
 const Wrapper = styled.div`
@@ -10,18 +10,18 @@ const Wrapper = styled.div`
   grid-template-columns: 1fr 2fr;
   grid-template-rows: auto;
   grid-template-areas: 'img text text';
-  background: ${CP.primary.light};
+  background: ${props => props.theme.primary.light};
   border-radius: 4px;
 `
 
 const StoryTitle = StyledH3.extend`
-  color: ${CP.white};
+  color: ${props => props.theme.white};
   margin: 0.05rem;
   padding: 0rem;
 `
 
 const StoryText = StyledP.extend`
-  color: ${CP.white};
+  color: ${props => props.theme.white};
   margin: 0.05rem;
   padding: 0rem;
 `
@@ -50,7 +50,7 @@ class StoryCard extends React.Component {
         <Text>
           <StoryTitle>{this.props.title}</StoryTitle>
           <StoryText>{this.props.text}</StoryText>
-          <ButtonSmall color={CP.white} border={CP.white}>
+          <ButtonSmall color={props => props.theme.white} border={props => props.theme.white}>
             read more
           </ButtonSmall>
         </Text>
