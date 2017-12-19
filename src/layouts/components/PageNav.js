@@ -30,6 +30,7 @@ const NavLink = styled(Link).attrs({
   }
   &:hover {
     color: ${props => props.color}
+  }
 `
 
 const PageNav = props => (
@@ -40,7 +41,9 @@ const PageNav = props => (
       </NavLink>
     </NavItem>
     <NavItem data-header={props.header}>
-      <NavLink to="/learn">learn</NavLink>
+      <NavLink to="/learn" data-header={props.header}>
+        learn
+      </NavLink>
     </NavItem>
     <NavItem data-header={props.header}>
       <NavLink to="/events" data-header={props.header}>
