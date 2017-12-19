@@ -9,6 +9,7 @@ import Icon from '../layouts/components/Icon.js'
 import Divider from '../layouts/components/Divider'
 import { ButtonBig, ButtonSmall } from '../layouts/components/Button'
 import { Pagination } from '../layouts/components/Pagination'
+import Hero from '../layouts/components/Hero'
 
 // for illustration of icons usage
 const IconContainer = styled.div`
@@ -23,8 +24,9 @@ const IconContainer = styled.div`
   border: 2px solid ${CP.primary.dark};
 `
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <div>
+    <Hero type="main" title={data.site.siteMetadata.title} />
     <StyledH1>Hi people</StyledH1>
     <StyledP>{faker.lorem.paragraph()}</StyledP>
     <p>Now go build something great.</p>
@@ -78,5 +80,15 @@ const IndexPage = () => (
     </div>
   </div>
 )
+
+export const query = graphql`
+  query HeroQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
 
 export default IndexPage
