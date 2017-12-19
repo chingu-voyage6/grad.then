@@ -25,11 +25,13 @@ const NavLink = styled(Link).attrs({
   color: props => (props['data-header'] ? CP.secondary.red : CP.secondary.green)
 })`
   color: inherit;
-  &:visited, &:active {
-     color: inherit;
+  &:visited,
+  &:active {
+    color: inherit;
   }
   &:hover {
-    color: ${props => props.color}
+    color: ${props => props.color};
+  }
 `
 
 const PageNav = props => (
@@ -40,7 +42,9 @@ const PageNav = props => (
       </NavLink>
     </NavItem>
     <NavItem data-header={props.header}>
-      <NavLink to="/learn">learn</NavLink>
+      <NavLink to="/learn" data-header={props.header}>
+        learn
+      </NavLink>
     </NavItem>
     <NavItem data-header={props.header}>
       <NavLink to="/events" data-header={props.header}>
