@@ -7,8 +7,7 @@ import {
   StyledH1,
   StyledUl,
   StyledLi,
-  StyledP,
-  ColorPalette as CP
+  StyledP
 } from '../../theme/globalStyle'
 import { ButtonBig } from './Button'
 import LI from '../../img/list_icon_sm.png'
@@ -22,14 +21,14 @@ const StyledMainHero = styled.div`
 
 const HeroTitle = StyledH1.extend`
   font-size: 4rem;
-  color: ${CP.secondary.yellow};
+  color: ${props => props.theme.secondary.yellow};
   span {
-    color: ${CP.primary.light};
+    color: ${props => props.theme.primary.light};
   }
 `
 
 const HeroUl = StyledUl.extend`
-  color: ${CP.secondary.yellow};
+  color: ${props => props.theme.secondary.yellow};
   padding: 0.5rem 1.5rem;
   margin: 0 0 1rem 0;
   list-style: none;
@@ -78,7 +77,7 @@ const StyledSimpleHero = StyledMainHero.extend`
 
 const SimpleHeroTitle = HeroTitle.extend`
   grid-column: 1 / span 12;
-  color: ${CP.white};
+  color: ${props => props.theme.white};
   text-align: center;
   text-transform: uppercase;
   font-size: 3.4rem;
@@ -87,7 +86,7 @@ const SimpleHeroTitle = HeroTitle.extend`
 
 const SimpleHeroP = StyledP.extend`
   grid-column: 1 / span 12;
-  color: ${CP.white};
+  color: ${props => props.theme.white};
   padding: 0.5rem 0;
   font-size: 1.4em;
   text-align: center;
@@ -112,7 +111,7 @@ const SimpleHero = props =>
       <SimpleHeroTitle>{props.page}</SimpleHeroTitle>
       <SimpleHeroP>{faker.lorem.sentence()}</SimpleHeroP>
       <ButtonContainer>
-        <HeroButton color={CP.white}>{buttonText[`${props.page}`]}</HeroButton>
+        <HeroButton color={props => props.theme.white}>{buttonText[`${props.page}`]}</HeroButton>
       </ButtonContainer>
     </StyledSimpleHero>
   ) : (
@@ -127,7 +126,7 @@ const StyledHero = styled.div`
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   background: ${props =>
-    props.bg === 'main' ? `url(${BG})` : CP.secondary.green};
+    props.bg === 'main' ? `url(${BG})` : props => props.theme.secondary.green};
   background-repeat: no-repeat;
   background-size: cover;
   padding: 0.5rem 0;
