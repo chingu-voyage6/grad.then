@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 
-import { StyledUl, StyledLi, ColorPalette as CP } from '../../theme/globalStyle'
+import { StyledUl, StyledLi } from '../../theme/globalStyle'
 
 //same for Header & Footer
 const NavMenu = StyledUl.extend`
@@ -16,13 +16,13 @@ const NavMenu = StyledUl.extend`
 const NavItem = StyledLi.extend`
   display: inline;
   text-transform: uppercase;
-  color: ${props => (props['data-header'] ? CP.primary.light : CP.white)};
+  color: ${props => (props['data-header'] ? props => props.theme.primary.light : props => props.theme.white)};
   padding: 0.5rem;
 `
 
 // different colors for hover
 const NavLink = styled(Link).attrs({
-  color: props => (props['data-header'] ? CP.secondary.red : CP.secondary.green)
+  color: props => (props['data-header'] ? props => props.theme.secondary.red : props => props.theme.secondary.green)
 })`
   color: inherit;
   &:visited,
