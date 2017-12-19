@@ -26,6 +26,9 @@ const BrandLink = styled(Link)`
   &:active {
     color: inherit;
   }
+  &:hover {
+    color: ${CP.secondary.red};
+  }
 `
 
 const Header = () => (
