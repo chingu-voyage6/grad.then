@@ -25,11 +25,12 @@ const NavLink = styled(Link).attrs({
   color: props => (props['data-header'] ? CP.secondary.red : CP.secondary.green)
 })`
   color: inherit;
-  &:visited, &:active {
-     color: inherit;
+  &:visited,
+  &:active {
+    color: inherit;
   }
   &:hover {
-    color: ${props => props.color}
+    color: ${props => props.color};
   }
 `
 
