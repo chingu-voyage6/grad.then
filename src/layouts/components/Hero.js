@@ -3,7 +3,13 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import faker from 'faker'
 
-import { StyledH1, StyledUl, StyledLi, StyledP, ColorPalette as CP } from '../../theme/globalStyle'
+import {
+  StyledH1,
+  StyledUl,
+  StyledLi,
+  StyledP,
+  ColorPalette as CP
+} from '../../theme/globalStyle'
 import { ButtonBig } from './Button'
 import LI from '../../img/list_icon_sm.png'
 import BG from '../../img/grad_bg1.jpg'
@@ -44,7 +50,9 @@ const HeroLi = StyledLi.extend`
 
 const MainHero = props => (
   <StyledMainHero>
-    <HeroTitle>Welcome to <span>{props.title}</span></HeroTitle>
+    <HeroTitle>
+      Welcome to <span>{props.title}</span>
+    </HeroTitle>
     <HeroUl>
       <HeroLi>{faker.company.catchPhrase()}</HeroLi>
       <HeroLi>{faker.company.catchPhrase()}</HeroLi>
@@ -57,7 +65,7 @@ const MainHero = props => (
 const buttonText = {
   stories: 'add story',
   support: 'add project',
-  events: 'add event',
+  events: 'add event'
 }
 
 const StyledSimpleHero = StyledMainHero.extend`
@@ -96,64 +104,60 @@ const HeroButton = ButtonBig.extend`
   border-width: 2px;
 `
 
-const SimpleHero = props => (
-  (props.page === 'stories' || props.page === 'support' || props.page === 'events')
-    ?(
-      <StyledSimpleHero>
-        <SimpleHeroTitle>{props.page}</SimpleHeroTitle>
-        <SimpleHeroP>{faker.lorem.sentence()}</SimpleHeroP>
-        <ButtonContainer>
-          <HeroButton color={CP.white}>
-            {buttonText[`${props.page}`] }
-          </HeroButton>
-        </ButtonContainer>
-      </StyledSimpleHero>
-    )
-    :(
-      <StyledSimpleHero>
-        <SimpleHeroTitle>{props.page}</SimpleHeroTitle>
-        <SimpleHeroP>{faker.lorem.sentence()}</SimpleHeroP>
-      </StyledSimpleHero>
-    )
-)
+const SimpleHero = props =>
+  props.page === 'stories' ||
+  props.page === 'support' ||
+  props.page === 'events' ? (
+    <StyledSimpleHero>
+      <SimpleHeroTitle>{props.page}</SimpleHeroTitle>
+      <SimpleHeroP>{faker.lorem.sentence()}</SimpleHeroP>
+      <ButtonContainer>
+        <HeroButton color={CP.white}>{buttonText[`${props.page}`]}</HeroButton>
+      </ButtonContainer>
+    </StyledSimpleHero>
+  ) : (
+    <StyledSimpleHero>
+      <SimpleHeroTitle>{props.page}</SimpleHeroTitle>
+      <SimpleHeroP>{faker.lorem.sentence()}</SimpleHeroP>
+    </StyledSimpleHero>
+  )
 
 const StyledHero = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
-  background:${props => ((props.bg === 'main')
-                        ? `url(${BG})`
-                        : CP.secondary.green)
-  };
+  background: ${props =>
+    props.bg === 'main' ? `url(${BG})` : CP.secondary.green};
   background-repeat: no-repeat;
   background-size: cover;
   padding: 0.5rem 0;
 `
 
-const Hero = (props) => (
+const Hero = props => (
   <StyledHero bg={props.type}>
-    {(props.type === 'main')
-      ? <MainHero title={props.title} />
-      : <SimpleHero page={props.type}/>
-    }
+    {props.type === 'main' ? (
+      <MainHero title={props.title} />
+    ) : (
+      <SimpleHero page={props.type} />
+    )}
   </StyledHero>
 )
 
 StyledHero.propTypes = {
-  bg: PropTypes.string.isRequired,
+  bg: PropTypes.string.isRequired
 }
 
 Hero.propTypes = {
   type: PropTypes.string.isRequired,
-  title: PropTypes.string,
+  title: PropTypes.string
 }
 
 MainHero.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
 }
 
 SimpleHero.propTypes = {
-  page: PropTypes.string.isRequired,
+  page: PropTypes.string.isRequired
 }
 
 export default Hero

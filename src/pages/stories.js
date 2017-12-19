@@ -8,7 +8,7 @@ import faker from 'faker'
 
 const StoriesPage = () => (
   <div>
-    <Hero type='stories' />
+    <Hero type="stories" />
     <StyledH1>Stories Page</StyledH1>
     <StyledP>This is the Stories page</StyledP>
     <StoryCard

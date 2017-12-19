@@ -26,7 +26,7 @@ const IconContainer = styled.div`
 
 const IndexPage = ({ data }) => (
   <div>
-    <Hero type='main' title={data.site.siteMetadata.title}  />
+    <Hero type="main" title={data.site.siteMetadata.title} />
     <StyledH1>Hi people</StyledH1>
     <StyledP>{faker.lorem.paragraph()}</StyledP>
     <p>Now go build something great.</p>
