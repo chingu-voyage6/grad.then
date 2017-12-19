@@ -2,40 +2,51 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import faker from 'faker'
+
 import { StyledH1, StyledUl, StyledLi, StyledP, ColorPalette as CP } from '../../theme/globalStyle'
 import { ButtonBig } from './Button'
+import LI from '../../img/list_icon_sm.png'
+import BG from '../../img/grad_bg1.jpg'
 
-// another hero
-// 10 cols
-// h1
-// p
-// button or nobutton
 const StyledMainHero = styled.div`
-  min-height: 400px;
+  min-height: 600px;
+  max-height: 750px;
   grid-column: 2 / span 10;
 `
+
 const HeroTitle = StyledH1.extend`
-  font-size: 3rem;
-  color: ${CP.white};
+  font-size: 4rem;
+  color: ${CP.secondary.yellow};
   span {
     color: ${CP.primary.light};
   }
 `
+
 const HeroUl = StyledUl.extend`
-  color: ${CP.primary.dark};
-  padding: 0.5rem 2rem;
-  margin: 0 0 3rem 0;
+  color: ${CP.secondary.yellow};
+  padding: 0.5rem 1.5rem;
+  margin: 0 0 1rem 0;
+  list-style: none;
 `
+
 const HeroLi = StyledLi.extend`
   font-size: 1.8rem;
-  padding: 1rem;
+  padding: 0.5rem;
   margin: 1rem;
+  text-indent: -1.5em;
+  &:before {
+    content: url(${LI});
+    display: inline-block;
+    padding: 0.3rem 2rem 0.3rem 0;
+    vertical-align: middle;
+  }
 `
 
 const MainHero = props => (
   <StyledMainHero>
     <HeroTitle>Welcome to <span>{props.title}</span></HeroTitle>
     <HeroUl>
+      <HeroLi>{faker.company.catchPhrase()}</HeroLi>
       <HeroLi>{faker.company.catchPhrase()}</HeroLi>
       <HeroLi>{faker.company.catchPhrase()}</HeroLi>
       <HeroLi>{faker.company.catchPhrase()}</HeroLi>
@@ -56,13 +67,16 @@ const StyledSimpleHero = StyledMainHero.extend`
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
 `
+
 const SimpleHeroTitle = HeroTitle.extend`
   grid-column: 1 / span 12;
+  color: ${CP.white};
   text-align: center;
   text-transform: uppercase;
   font-size: 3.4rem;
   padding: 0.5rem 0 0 0;
 `
+
 const SimpleHeroP = StyledP.extend`
   grid-column: 1 / span 12;
   color: ${CP.white};
@@ -70,9 +84,11 @@ const SimpleHeroP = StyledP.extend`
   font-size: 1.4em;
   text-align: center;
 `
+
 const ButtonContainer = styled.div`
   grid-column: 6 / span 2;
 `
+
 const HeroButton = ButtonBig.extend`
   display: block;
   font-size: 1.6rem;
@@ -106,9 +122,11 @@ const StyledHero = styled.div`
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   background:${props => ((props.bg === 'main')
-                        ? CP.secondary.red
+                        ? `url(${BG})`
                         : CP.secondary.green)
   };
+  background-repeat: no-repeat;
+  background-size: cover;
   padding: 0.5rem 0;
 `
 
