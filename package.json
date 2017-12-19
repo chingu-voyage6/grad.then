@@ -7,6 +7,7 @@
     "faker": "^4.1.0",
     "gatsby": "^1.9.127",
     "gatsby-link": "^1.6.30",
+    "gatsby-plugin-favicon": "^2.1.1",
     "gatsby-plugin-react-helmet": "^1.0.8",
     "gatsby-plugin-styled-components": "^2.0.4",
     "gatsby-source-filesystem": "^1.5.10",
@@ -20,8 +21,7 @@
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
-    "format":
-      "prettier --trailing-comma none --no-semi --single-quote --write \"src/**/*.js\"",
+    "format": "prettier --trailing-comma none --no-semi --single-quote --write \"src/**/*.js\"",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "pre-commit": "npm run format"
   },
@@ -30,7 +30,11 @@
     "type": "git",
     "url": "git+https://github.com/chingu-voyage3/bears-16.git"
   },
-  "keywords": ["gatsby", "grad", "then"],
+  "keywords": [
+    "gatsby",
+    "grad",
+    "then"
+  ],
   "author": "",
   "license": "MIT",
   "bugs": {
