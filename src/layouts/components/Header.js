@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 
-import { StyledH1, ColorPalette as CP } from '../../theme/globalStyle'
+import { StyledH1 } from '../../theme/globalStyle'
 import PageNav from './PageNav.js'
 
 const StyledHeader = styled.div`
@@ -15,7 +15,7 @@ const StyledHeader = styled.div`
 
 const BrandTitle = StyledH1.extend`
   grid-area: brand;
-  color: ${CP.primary.light};
+  color: ${props => props.theme.primary.light};
   font-size: 1.6em;
   padding: 0.5rem;
 `
@@ -27,7 +27,7 @@ const BrandLink = styled(Link)`
     color: inherit;
   }
   &:hover {
-    color: ${CP.secondary.red};
+    color: ${props => props.theme.secondary.red};
   }
 `
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { StyledH1, ColorPalette as CP } from '../../theme/globalStyle'
+import { StyledH1 } from '../../theme/globalStyle'
 const validJustifyValues = [
   'center',
   'flex-end',
@@ -12,7 +12,7 @@ const validJustifyValues = [
 const Wrapper = styled.div`
   color: white;
   margin: 7px 0;
-  background-color: ${CP.primary.light};
+  background-color: ${props => props.theme.primary.light};
   padding: 10px 20px;
   width: 100%;
   display: flex;
