@@ -3,6 +3,7 @@ import Hero from '../layouts/components/Hero'
 
 import { StyledH1, StyledP } from '../theme/globalStyle'
 import StoryCard from '../layouts/components/StoryCard'
+import CardContainer from '../layouts/components/CardContainer'
 
 import faker from 'faker'
 
@@ -11,11 +12,28 @@ const StoriesPage = () => (
     <Hero type="stories" />
     <StyledH1>Stories Page</StyledH1>
     <StyledP>This is the Stories page</StyledP>
-    <StoryCard
-      title={faker.commerce.productName()}
-      text={faker.hacker.phrase()}
-      img={faker.image.imageUrl()}
-    />
+    <CardContainer cols={3}>
+      <StoryCard
+        title={faker.commerce.productName()}
+        text={faker.hacker.phrase()}
+        img={faker.image.imageUrl()}
+      />
+      <StoryCard
+        title={faker.commerce.productName()}
+        text={faker.hacker.phrase()}
+        img={faker.image.imageUrl()}
+      />
+      <StoryCard
+        title={faker.commerce.productName()}
+        text={faker.hacker.phrase()}
+        img={faker.image.imageUrl()}
+      />
+      <StoryCard
+        title={faker.commerce.productName()}
+        text={faker.hacker.phrase()}
+        img={faker.image.imageUrl()}
+      />
+    </CardContainer>
   </div>
 )
 
