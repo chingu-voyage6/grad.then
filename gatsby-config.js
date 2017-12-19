@@ -1,6 +1,7 @@
 module.exports = {
+  pathPrefix: `/grad.then`,
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `grad.then()`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -9,9 +10,9 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `src`,
-        path: `${__dirname}/src/`,
-      },
+        path: `${__dirname}/src/`
+      }
     },
-    `gatsby-transformer-remark`,
-  ],
+    `gatsby-transformer-remark`
+  ]
 }
