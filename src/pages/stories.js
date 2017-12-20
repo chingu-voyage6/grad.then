@@ -5,8 +5,6 @@ import { StyledH2, StyledP } from '../theme/globalStyle'
 import CardContainer from '../layouts/components/CardContainer'
 import { addCards } from '../layouts/utils/helpers'
 
-import faker from 'faker'
-
 const SectionTitle = StyledH2.extend`
   text-align: center;
   text-transform: uppercase;
