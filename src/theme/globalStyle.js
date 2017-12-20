@@ -99,20 +99,3 @@ export const StyledA = styled.a`
   padding: 1.75rem;
   margin: 0.5rem;
 `
-
-export const ColorPalette = {
-  text: '#333',
-  white: '#fff',
-  primary: {
-    dark: '#453463',
-    light: '#755f9f'
-  },
-  secondary: {
-    green: '#8ac3a9',
-    yellow: '#fcdeb6',
-    red: '#ff8463'
-  },
-  shades: {
-    //add shades with progress
-  }
-}

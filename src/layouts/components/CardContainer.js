@@ -26,7 +26,8 @@ const CardContainer = props => (
 )
 
 CardContainer.propTypes = {
-  cols: PropTypes.number.isRequired
+  cols: PropTypes.number.isRequired,
+  children: PropTypes.array
 }
 
 export default CardContainer

@@ -43,13 +43,13 @@ const IndexPage = ({ data }) => (
         icon={ICONS.BOOKS}
         size={100}
         color={props => props.theme.primary.dark}
-        viewbox={`0 0 36 32`}
+        viewbox={'0 0 36 32'}
       />
       <Icon
         icon={ICONS.GROUP}
         size={100}
         color={props => props.theme.primary.dark}
-        viewbox={`0 0 30 28`}
+        viewbox={'0 0 30 28'}
       />
       <Icon
         icon={ICONS.RULER}
@@ -68,13 +68,13 @@ const IndexPage = ({ data }) => (
         icon={ICONS.BEAR_LIGHT}
         size={100}
         color={props => props.theme.primary.dark}
-        viewbox={`0 0 512 496`}
+        viewbox={'0 0 512 496'}
       />
       <Icon
         icon={ICONS.BEAR_DARK}
         size={100}
         color={props => props.theme.primary.dark}
-        viewbox={`0 0 512 496`}
+        viewbox={'0 0 512 496'}
       />
       <ButtonSmall>small</ButtonSmall>
       <ButtonBig>big</ButtonBig>
@@ -83,9 +83,9 @@ const IndexPage = ({ data }) => (
       <h3>Hello world!</h3>
     </Divider>
     <Divider justify={'space-around'}>
-      <Icon icon={ICONS.RULER} size={50} color={props.theme.white} />
-      <Icon icon={ICONS.BLOG} size={50} color={props.theme.white} />
-      <Icon icon={ICONS.RULER} size={50} color={props.theme.white} />
+      <Icon icon={ICONS.RULER} size={50} color={props => props.theme.white} />
+      <Icon icon={ICONS.BLOG} size={50} color={props => props.theme.white} />
+      <Icon icon={ICONS.RULER} size={50} color={props => props.theme.white} />
     </Divider>
     <div style={{ display: 'flex', justifyContent: 'center', padding: '4px' }}>
       <Pagination pageNum={5} />
@@ -93,6 +93,7 @@ const IndexPage = ({ data }) => (
   </div>
 )
 
+// eslint-disable-next-line
 export const query = graphql`
   query HeroQuery {
     site {

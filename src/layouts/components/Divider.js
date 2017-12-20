@@ -1,7 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { StyledH1 } from '../../theme/globalStyle'
 const validJustifyValues = [
   'center',
   'flex-end',
@@ -19,7 +19,14 @@ const Wrapper = styled.div`
   justify-content: ${props =>
     (validJustifyValues.includes(props.set) && props.set) || 'flex-end'};
 `
+Wrapper.propTypes = {
+  set: PropTypes.string.isRequired
+}
 
 const Divider = props => <Wrapper set={props.justify}>{props.children}</Wrapper>
+
+Divider.propTypes = {
+  justify: PropTypes.string.isRequired
+}
 
 export default Divider
