@@ -61,13 +61,13 @@ class JobsList extends React.Component {
           {this.props.type === 'list' ? (
             <JobLi>
               <JobTitle>
-                <JobLink>{this.props.title}</JobLink>
+                <JobLink to="/">{this.props.title}</JobLink>
               </JobTitle>
             </JobLi>
           ) : (
             <JobLi>
               <JobTitle>
-                <JobLink>{this.props.title}</JobLink>
+                <JobLink to="/">{this.props.title}</JobLink>
               </JobTitle>
               <JobText>{this.props.text}</JobText>
             </JobLi>
@@ -82,5 +82,6 @@ export default JobsList
 
 JobsList.propTypes = {
   title: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
+  type: PropTypes.string
 }

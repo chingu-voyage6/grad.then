@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 
@@ -39,6 +40,9 @@ const NavLink = styled(Link).attrs({
     color: ${props => props.color};
   }
 `
+NavLink.propTypes = {
+  'data-header': PropTypes.bool.isRequired
+}
 
 const PageNav = props => (
   <NavMenu>
@@ -69,5 +73,9 @@ const PageNav = props => (
     </NavItem>
   </NavMenu>
 )
+
+PageNav.propTypes = {
+  header: PropTypes.bool.isRequired
+}
 
 export default PageNav
