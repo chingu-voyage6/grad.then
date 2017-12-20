@@ -1,20 +1,31 @@
 import React from 'react'
 import Hero from '../layouts/components/Hero'
 
-import { StyledH1, StyledP } from '../theme/globalStyle'
-import ProjectCard from '../layouts/components/ProjectCard'
-import faker from 'faker'
+import { StyledH2, StyledP } from '../theme/globalStyle'
+import CardContainer from '../layouts/components/CardContainer'
+import { addCards } from '../layouts/utils/helpers'
+
+
+const SectionTitle = StyledH2.extend`
+  text-align: center;
+  text-transform: uppercase;
+  color: ${props => props.theme.primary.light}
+`
 
 const LearnPage = () => (
   <div>
     <Hero type="learn" />
-    <StyledH1>Learn Page</StyledH1>
-    <StyledP>This is the Learn page</StyledP>
-    <ProjectCard
-      title={faker.commerce.productName()}
-      text={faker.hacker.phrase()}
-      img={faker.image.imageUrl()}
-    />
+    <SectionTitle>featured courses</SectionTitle>
+
+    <CardContainer cols={5}>
+      {addCards(5, 'project')}
+    </CardContainer>
+
+    <SectionTitle>coding interviews</SectionTitle>
+
+    <CardContainer cols={5}>
+      {addCards(5, 'project')}
+    </CardContainer>
   </div>
 )
 

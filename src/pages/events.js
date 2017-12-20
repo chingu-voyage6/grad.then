@@ -1,21 +1,23 @@
 import React from 'react'
 import Hero from '../layouts/components/Hero'
 
-import { StyledH1, StyledP } from '../theme/globalStyle'
-import ProjectCard from '../layouts/components/ProjectCard'
-import faker from 'faker'
+import { StyledH2, StyledP } from '../theme/globalStyle'
+import CardContainer from '../layouts/components/CardContainer'
+import { addCards } from '../layouts/utils/helpers'
 
+const SectionTitle = StyledH2.extend`
+  text-align: center;
+  text-transform: uppercase;
+  color: ${props => props.theme.primary.light}
+`
 const EventsPage = () => (
   <div>
     <Hero type="events" />
-    <StyledH1>Events Page</StyledH1>
-    <StyledP>This is the Events page</StyledP>
-    <ProjectCard
-      type="list"
-      title={faker.commerce.productName()}
-      text={faker.hacker.phrase()}
-      img={faker.image.imageUrl()}
-    />
+    <SectionTitle>featured events</SectionTitle>
+
+    <CardContainer cols={4}>
+      {addCards(4, 'project', 'list')}
+    </CardContainer>
   </div>
 )
 
