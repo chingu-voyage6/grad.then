@@ -27,14 +27,11 @@ const JobLink = styled(Link).attrs({
     color: ${props => props.color};
   }
 `
-const JobItem = StyledLi.extend`
+const JobLi = StyledLi.extend`
   display: inline;
-  text-transform: uppercase;
-  color: ${props =>
-    props['data-header']
-      ? props => props.theme.primary.light
-      : props => props.theme.white};
-  padding: 0.5rem;
+  color: ${props => props.theme.primary.light};
+  margin: 0rem;
+  padding: 0rem;
 `
 
 const JobTitle = StyledH3.extend`
@@ -51,8 +48,8 @@ const JobText = StyledP.extend`
 
 const Text = styled.div`
   /* grid-area: text; */
+  /* margin: 0.5rem; */
   padding: 0.5rem;
-  margin: 0.5rem;
 `
 
 class JobsList extends React.Component {
@@ -60,9 +57,20 @@ class JobsList extends React.Component {
     return (
       <Wrapper>
         <Text>
-          <JobLink>hello</JobLink>
-          <JobTitle>{this.props.title}</JobTitle>
-          <JobText>{this.props.text}</JobText>
+          {this.props.type === 'list' ? (
+            <JobLi>
+              <JobTitle>
+                <JobLink>{this.props.title}</JobLink>
+              </JobTitle>
+            </JobLi>
+          ) : (
+            <JobLi>
+              <JobTitle>
+                <JobLink>{this.props.title}</JobLink>
+              </JobTitle>
+              <JobText>{this.props.text}</JobText>
+            </JobLi>
+          )}
         </Text>
       </Wrapper>
     )
