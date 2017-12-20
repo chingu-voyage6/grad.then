@@ -2,10 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 
 import Header from './components/Header.js'
 import Footer from './components/Footer.js'
+
+import { theme } from '../theme/globalStyle'
 
 export const PageContainer = styled.div`
   display: grid;
@@ -24,20 +26,22 @@ const Main = styled.div`
 `
 
 const TemplateWrapper = ({ children }) => (
-  <PageContainer>
-    <Helmet
-      title="grad.then()"
-      meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' }
-      ]}
-    />
-    <Header />
+  <ThemeProvider theme={theme}>
+    <PageContainer>
+      <Helmet
+        title="grad.then()"
+        meta={[
+          { name: 'description', content: 'Sample' },
+          { name: 'keywords', content: 'sample, something' }
+        ]}
+      />
+      <Header />
 
-    <Main>{children()}</Main>
+      <Main>{children()}</Main>
 
-    <Footer />
-  </PageContainer>
+      <Footer />
+    </PageContainer>
+  </ThemeProvider>
 )
 
 TemplateWrapper.propTypes = {

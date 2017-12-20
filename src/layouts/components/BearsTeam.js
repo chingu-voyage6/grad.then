@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { StyledA, ColorPalette as CP } from '../../theme/globalStyle'
+import { StyledA } from '../../theme/globalStyle'
 import { ICONS } from '../../theme/constants'
 import Icon from './Icon'
 
@@ -21,8 +21,8 @@ class Bears extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      color: CP.white,
-      swap: CP.secondary.green
+      color: props => props.theme.white,
+      swap: props => props.theme.secondary.green
     }
     this.handleHover = this.handleHover.bind(this)
   }
@@ -65,12 +65,12 @@ const Team = styled.div`
     display: block;
     cursor: pointer;
     justify-self: end;
-    color: ${CP.white};
+    color: ${props => props.theme.white};
     font-size: 1rem;
     padding: 0;
     margin: 0;
     &:hover {
-      color: ${CP.secondary.green};
+      color: ${props => props.theme.secondary.green};
     }
   }
 `
