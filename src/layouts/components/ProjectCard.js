@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { StyledH3, StyledP, StyledUl, StyledLi } from '../../theme/globalStyle'
-import { ButtonSmall } from '../components/Button'
 
 import faker from 'faker'
 
@@ -95,7 +94,7 @@ ProjectCard.propTypes = {
   width: PropTypes.string,
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  image: PropTypes.string,
+  img: PropTypes.string,
   type: PropTypes.string,
   heading: PropTypes.string
 }

@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { StyledH1 } from '../../theme/globalStyle'
-
 export const Button = styled.button`
   color: ${props => props.color};
   font-size: 1rem;

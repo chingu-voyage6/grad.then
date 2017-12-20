@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { StyledA } from '../../theme/globalStyle'
@@ -47,7 +46,7 @@ class Bears extends React.Component {
           icon={ICONS.BEAR_DARK}
           size={34}
           color={this.state.color}
-          viewbox={`0 0 512 496`}
+          viewbox={'0 0 512 496'}
         />
       </StyledLink>
     )
