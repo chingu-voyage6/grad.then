@@ -9,7 +9,7 @@ import Footer from './components/Footer.js'
 
 import { theme } from '../theme/globalStyle'
 
-export const PageContainer = styled.div`
+const PageContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;

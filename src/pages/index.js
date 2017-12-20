@@ -83,9 +83,9 @@ const IndexPage = ({ data }) => (
       <h3>Hello world!</h3>
     </Divider>
     <Divider justify={'space-around'}>
-      <Icon icon={ICONS.RULER} size={50} color={'white'} />
-      <Icon icon={ICONS.BLOG} size={50} color={'white'} />
-      <Icon icon={ICONS.RULER} size={50} color={'white'} />
+      <Icon icon={ICONS.RULER} size={50} color={props.theme.white} />
+      <Icon icon={ICONS.BLOG} size={50} color={props.theme.white} />
+      <Icon icon={ICONS.RULER} size={50} color={props.theme.white} />
     </Divider>
     <div style={{ display: 'flex', justifyContent: 'center', padding: '4px' }}>
       <Pagination pageNum={5} />
