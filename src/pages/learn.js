@@ -1,7 +1,7 @@
 import React from 'react'
 import Hero from '../layouts/components/Hero'
 
-import { StyledH2, StyledP } from '../theme/globalStyle'
+import { StyledH2 } from '../theme/globalStyle'
 import CardContainer from '../layouts/components/CardContainer'
 import { addCards } from '../layouts/utils/helpers'
 

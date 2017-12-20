@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
-const Quote = styled.blockquote`
+const QuoteText = styled.blockquote`
   color: ${props => props.theme.primary.dark};
   font-size: 1.5rem;
   font-family: Open Sans;
@@ -21,9 +22,15 @@ const Wrapper = styled.div`
   margin: 2rem 0;
 `
 
-export default props => (
+const Quote = props => (
   <Wrapper>
     <Separator />
-    <Quote>{props.children}</Quote>
+    <QuoteText>{props.children}</QuoteText>
   </Wrapper>
 )
+
+export default Quote
+
+Quote.propTypes = {
+  children: PropTypes.string
+}

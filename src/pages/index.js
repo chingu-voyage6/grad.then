@@ -43,13 +43,13 @@ const IndexPage = ({ data }) => (
         icon={ICONS.BOOKS}
         size={100}
         color={props => props.theme.primary.dark}
-        viewbox={`0 0 36 32`}
+        viewbox={'0 0 36 32'}
       />
       <Icon
         icon={ICONS.GROUP}
         size={100}
         color={props => props.theme.primary.dark}
-        viewbox={`0 0 30 28`}
+        viewbox={'0 0 30 28'}
       />
       <Icon
         icon={ICONS.RULER}
@@ -68,13 +68,13 @@ const IndexPage = ({ data }) => (
         icon={ICONS.BEAR_LIGHT}
         size={100}
         color={props => props.theme.primary.dark}
-        viewbox={`0 0 512 496`}
+        viewbox={'0 0 512 496'}
       />
       <Icon
         icon={ICONS.BEAR_DARK}
         size={100}
         color={props => props.theme.primary.dark}
-        viewbox={`0 0 512 496`}
+        viewbox={'0 0 512 496'}
       />
       <ButtonSmall>small</ButtonSmall>
       <ButtonBig>big</ButtonBig>
@@ -93,6 +93,7 @@ const IndexPage = ({ data }) => (
   </div>
 )
 
+// eslint-disable-next-line
 export const query = graphql`
   query HeroQuery {
     site {

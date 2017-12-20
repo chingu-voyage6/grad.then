@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-
-import { StyledH1 } from '../../theme/globalStyle'
+import PropTypes from 'prop-types'
 
 const PaginationButton = styled.button`
   border: 1px solid ${props => props.theme.primary.light};
@@ -54,4 +53,12 @@ export const Pagination = props => {
       </ButtonRight>
     </PaginationContainer>
   )
+}
+
+Pagination.propTypes = {
+  background: PropTypes.string,
+  color: PropTypes.string,
+  pageNum: PropTypes.number,
+  backward: PropTypes.bool,
+  forward: PropTypes.bool
 }
