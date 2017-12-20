@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
+import PropTypes from 'prop-types'
 
 import { StyledH3, StyledP, StyledLi } from '../../theme/globalStyle'
 
@@ -78,3 +79,8 @@ class JobsList extends React.Component {
 }
 
 export default JobsList
+
+JobsList.propTypes = {
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired
+}
