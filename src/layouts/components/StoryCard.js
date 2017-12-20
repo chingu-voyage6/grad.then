@@ -36,7 +36,7 @@ const Text = styled.div`
   margin: 0.5rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows:repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   align-content: start;
 `
 
@@ -53,7 +53,6 @@ const ButtonContainer = styled.div`
   grid-column: 2 / span 2;
   grid-row: 4 / span 1;
 `
-
 
 class StoryCard extends React.Component {
   render() {
@@ -80,7 +79,7 @@ class StoryCard extends React.Component {
 StoryCard.propTypes = {
   title: PropTypes.string,
   text: PropTypes.string,
-  img: PropTypes.string,
+  img: PropTypes.string
 }
 
 export default StoryCard

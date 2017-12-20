@@ -5,11 +5,10 @@ import { StyledH2, StyledP } from '../theme/globalStyle'
 import CardContainer from '../layouts/components/CardContainer'
 import { addCards } from '../layouts/utils/helpers'
 
-
 const SectionTitle = StyledH2.extend`
   text-align: center;
   text-transform: uppercase;
-  color: ${props => props.theme.primary.light}
+  color: ${props => props.theme.primary.light};
 `
 
 const LearnPage = () => (
@@ -17,15 +16,11 @@ const LearnPage = () => (
     <Hero type="learn" />
     <SectionTitle>featured courses</SectionTitle>
 
-    <CardContainer cols={5}>
-      {addCards(5, 'project')}
-    </CardContainer>
+    <CardContainer cols={5}>{addCards(5, 'project')}</CardContainer>
 
     <SectionTitle>coding interviews</SectionTitle>
 
-    <CardContainer cols={5}>
-      {addCards(5, 'project')}
-    </CardContainer>
+    <CardContainer cols={5}>{addCards(5, 'project')}</CardContainer>
   </div>
 )
 

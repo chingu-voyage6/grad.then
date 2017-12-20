@@ -10,7 +10,7 @@ import faker from 'faker'
 const SectionTitle = StyledH2.extend`
   text-align: center;
   text-transform: uppercase;
-  color: ${props => props.theme.primary.light}
+  color: ${props => props.theme.primary.light};
 `
 const SectionP = StyledP.extend`
   color: ${props => props.theme.text};
@@ -26,15 +26,11 @@ const SupportPage = () => (
 
     <SectionTitle>featured projects</SectionTitle>
 
-    <CardContainer cols={5}>
-      {addCards(5, 'project')}
-    </CardContainer>
+    <CardContainer cols={5}>{addCards(5, 'project')}</CardContainer>
 
     <SectionTitle>search &#38; filter here</SectionTitle>
 
-    <CardContainer cols={5}>
-      {addCards(10, 'project')}
-    </CardContainer>
+    <CardContainer cols={5}>{addCards(10, 'project')}</CardContainer>
   </div>
 )
 

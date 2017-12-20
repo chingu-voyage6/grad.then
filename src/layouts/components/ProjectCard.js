@@ -8,7 +8,7 @@ import { ButtonSmall } from '../components/Button'
 import faker from 'faker'
 
 const Wrapper = styled.div`
-  width: ${props => props.width || 'auto'} ;
+  width: ${props => props.width || 'auto'};
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: minmax(100px, auto);
@@ -43,7 +43,7 @@ const ProjectTitle = StyledH3.extend`
   margin: 0.5rem;
   padding: 0;
   text-align: center;
-  display: ${props => props.visibility || "block"};
+  display: ${props => props.visibility || 'block'};
 `
 
 const ProjectP = StyledP.extend`
@@ -71,7 +71,6 @@ const ProjectLi = () => (
   </CardUl>
 )
 
-
 class ProjectCard extends React.Component {
   render() {
     return (
@@ -98,7 +97,7 @@ ProjectCard.propTypes = {
   text: PropTypes.string.isRequired,
   image: PropTypes.string,
   type: PropTypes.string,
-  heading: PropTypes.string,
+  heading: PropTypes.string
 }
 
 export default ProjectCard

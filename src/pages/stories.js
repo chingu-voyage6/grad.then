@@ -10,7 +10,7 @@ import faker from 'faker'
 const SectionTitle = StyledH2.extend`
   text-align: center;
   text-transform: uppercase;
-  color: ${props => props.theme.primary.light}
+  color: ${props => props.theme.primary.light};
 `
 
 const StoriesPage = () => (
@@ -18,9 +18,7 @@ const StoriesPage = () => (
     <Hero type="stories" />
     <SectionTitle>Stories Page</SectionTitle>
 
-    <CardContainer cols={2}>
-      {addCards(4, 'story')}
-    </CardContainer>
+    <CardContainer cols={2}>{addCards(4, 'story')}</CardContainer>
   </div>
 )
 
