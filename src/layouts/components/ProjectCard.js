@@ -7,11 +7,11 @@ import { ButtonSmall } from '../components/Button'
 const Wrapper = styled.div`
   width: 400px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1fr);
   grid-template-rows: auto;
   grid-template-areas:
-    'img img img'
-    'text text text';
+    'img'
+    'text';
   background: ${props => props.theme.primary.light};
   border-radius: 4px;
 `
@@ -33,24 +33,24 @@ const Text = styled.div`
 const ProjectTitle = StyledH3.extend`
   color: ${props => props.theme.white};
   margin: 0.5rem;
-  padding: 0rem;
+  padding: 0;
 `
 
 const ProjectP = StyledP.extend`
   color: ${props => props.theme.white};
   margin: 0.5rem;
-  padding: 0rem;
+  padding: 0;
 `
 
 const CardUl = StyledUl.extend`
   color: ${props => props.theme.white};
   list-style-type: circle;
   margin: 1rem;
-  padding: 0rem;
+  padding: 0;
 `
 
 const CardLi = StyledLi.extend`
-  padding: 0rem;
+  padding: 0;
 `
 
 class ProjectCard extends React.Component {

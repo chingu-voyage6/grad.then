@@ -11,7 +11,6 @@ const LearnPage = () => (
     <StyledH1>Learn Page</StyledH1>
     <StyledP>This is the Learn page</StyledP>
     <ProjectCard
-      type="list"
       title={faker.commerce.productName()}
       text={faker.hacker.phrase()}
       img={faker.image.imageUrl()}
