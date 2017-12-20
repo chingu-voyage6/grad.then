@@ -61,13 +61,13 @@ class JobsList extends React.Component {
           {this.props.type === 'list' ? (
             <JobLi>
               <JobTitle>
-                <JobLink to='/'>{this.props.title}</JobLink>
+                <JobLink to="/">{this.props.title}</JobLink>
               </JobTitle>
             </JobLi>
           ) : (
             <JobLi>
               <JobTitle>
-                <JobLink to='/'>{this.props.title}</JobLink>
+                <JobLink to="/">{this.props.title}</JobLink>
               </JobTitle>
               <JobText>{this.props.text}</JobText>
             </JobLi>
