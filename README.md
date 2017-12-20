@@ -26,7 +26,7 @@ We are _aspiring developers_ and _eager learners_.
 
 ## Built With
 
-The main libraries used in the development of IdeaNebulae are shown in the
+The main libraries used in the development of `grad.then()` are shown in the
 following table. For a complete list of libraries consult the `package.json`
 file.
 

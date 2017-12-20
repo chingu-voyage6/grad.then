@@ -1,21 +1,24 @@
 import React from 'react'
 import Hero from '../layouts/components/Hero'
 
-import { StyledH1, StyledP } from '../theme/globalStyle'
-import StoryCard from '../layouts/components/StoryCard'
+import { StyledH2, StyledP } from '../theme/globalStyle'
+import CardContainer from '../layouts/components/CardContainer'
+import { addCards } from '../layouts/utils/helpers'
 
 import faker from 'faker'
+
+const SectionTitle = StyledH2.extend`
+  text-align: center;
+  text-transform: uppercase;
+  color: ${props => props.theme.primary.light};
+`
 
 const StoriesPage = () => (
   <div>
     <Hero type="stories" />
-    <StyledH1>Stories Page</StyledH1>
-    <StyledP>This is the Stories page</StyledP>
-    <StoryCard
-      title={faker.commerce.productName()}
-      text={faker.hacker.phrase()}
-      img={faker.image.imageUrl()}
-    />
+    <SectionTitle>Stories Page</SectionTitle>
+
+    <CardContainer cols={2}>{addCards(4, 'story')}</CardContainer>
   </div>
 )
 
