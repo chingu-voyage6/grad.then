@@ -38,10 +38,11 @@ const NavLink = styled(Link).attrs({
   }
   &:hover {
     color: ${props => props.color};
-    border: 1px solid ${props => props.border};
+    // border: 1px solid ${props => props.border};
+    box-shadow: 0 1px 3px ${props => props.border};
     transition: all 0.3s ease;
-    border-radius: 25px;
-    margin: -6px;
+    border-radius: 10px;
+    margin: -5px;
     padding: 5px;
   }
 `
