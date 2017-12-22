@@ -6,11 +6,16 @@ import { StyledH1 } from '../../theme/globalStyle'
 import PageNav from './PageNav.js'
 
 const StyledHeader = styled.div`
+  position: fixed;
+  top: 0;
+  width: 100%;
   grid-area: hd;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   grid-template-areas: '. brand brand . . . nav nav nav nav nav .';
+  background-color: ${props => props.theme.white};
+  border-bottom: 1px solid ${props => props.theme.primary.light};
 `
 
 const BrandTitle = StyledH1.extend`
