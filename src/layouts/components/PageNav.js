@@ -38,8 +38,18 @@ const NavLink = styled(Link).attrs({
   }
   &:hover {
     color: ${props => props.color};
+    // border: 1px solid ${props => props.border};
+    box-shadow: 0 0 0 1px ${props => props.border};
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    margin: -5px;
+    padding: 5px;
+  }
+  &.activeLink {
+    color: ${props => props.theme.secondary.red};
   }
 `
+
 NavLink.propTypes = {
   'data-header': PropTypes.bool.isRequired
 }
@@ -47,27 +57,47 @@ NavLink.propTypes = {
 const PageNav = props => (
   <NavMenu>
     <NavItem data-header={props.header}>
-      <NavLink to="/jobs" data-header={props.header}>
+      <NavLink
+        to="/jobs"
+        data-header={props.header}
+        activeClassName="activeLink"
+      >
         jobs
       </NavLink>
     </NavItem>
     <NavItem data-header={props.header}>
-      <NavLink to="/learn" data-header={props.header}>
+      <NavLink
+        to="/learn"
+        data-header={props.header}
+        activeClassName="activeLink"
+      >
         learn
       </NavLink>
     </NavItem>
     <NavItem data-header={props.header}>
-      <NavLink to="/events" data-header={props.header}>
+      <NavLink
+        to="/events"
+        data-header={props.header}
+        activeClassName="activeLink"
+      >
         events
       </NavLink>
     </NavItem>
     <NavItem data-header={props.header}>
-      <NavLink to="/support" data-header={props.header}>
+      <NavLink
+        to="/support"
+        data-header={props.header}
+        activeClassName="activeLink"
+      >
         support
       </NavLink>
     </NavItem>
     <NavItem data-header={props.header}>
-      <NavLink to="/stories" data-header={props.header}>
+      <NavLink
+        to="/stories"
+        data-header={props.header}
+        activeClassName="activeLink"
+      >
         stories
       </NavLink>
     </NavItem>

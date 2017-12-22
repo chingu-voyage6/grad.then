@@ -1,5 +1,11 @@
 import styled, { injectGlobal } from 'styled-components'
 
+/* TODO
+  take a look at using
+  box sizing
+  https://www.paulirish.com/2012/box-sizing-border-box-ftw/
+*/
+
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto|VT323');
 
@@ -10,7 +16,7 @@ injectGlobal`
     font-size: 20px;
     line-height: 1.3125;
   }
-
+  
   a {
     text-decoration: none;
   }
