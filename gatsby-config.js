@@ -1,21 +1,21 @@
 module.exports = {
-  pathPrefix: `/grad.then`,
+  pathPrefix: '/grad.then',
   siteMetadata: {
-    title: `grad.then()`
+    title: 'grad.then()'
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-styled-components`,
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-styled-components',
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `src`,
+        name: 'src',
         path: `${__dirname}/src/`
       }
     },
-    `gatsby-transformer-remark`,
+    'gatsby-transformer-remark',
     {
-      resolve: `gatsby-plugin-favicon`,
+      resolve: 'gatsby-plugin-favicon',
       options: {
         logo: './src/img/favicon.png',
         injectHTML: true,

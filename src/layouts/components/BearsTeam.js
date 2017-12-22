@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import { StyledA } from '../../theme/globalStyle'
 import { ICONS } from '../../theme/constants'
@@ -80,5 +81,10 @@ const BearsTeam = () => (
     <Bears />
   </Team>
 )
+
+Bears.propTypes = {
+  theme: PropTypes.object,
+  secondary: PropTypes.string
+}
 
 export default BearsTeam

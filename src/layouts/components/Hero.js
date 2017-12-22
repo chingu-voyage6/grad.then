@@ -102,21 +102,21 @@ const SimpleHero = props =>
   props.page === 'stories' ||
   props.page === 'support' ||
   props.page === 'events' ? (
-    <StyledSimpleHero>
-      <SimpleHeroTitle>{props.page}</SimpleHeroTitle>
-      <SimpleHeroP>{faker.lorem.sentence()}</SimpleHeroP>
-      <ButtonContainer>
-        <HeroButton color={props => props.theme.white}>
-          {buttonText[`${props.page}`]}
-        </HeroButton>
-      </ButtonContainer>
-    </StyledSimpleHero>
-  ) : (
-    <StyledSimpleHero>
-      <SimpleHeroTitle>{props.page}</SimpleHeroTitle>
-      <SimpleHeroP>{faker.lorem.sentence()}</SimpleHeroP>
-    </StyledSimpleHero>
-  )
+      <StyledSimpleHero>
+        <SimpleHeroTitle>{props.page}</SimpleHeroTitle>
+        <SimpleHeroP>{faker.lorem.sentence()}</SimpleHeroP>
+        <ButtonContainer>
+          <HeroButton color={props => props.theme.white}>
+            {buttonText[`${props.page}`]}
+          </HeroButton>
+        </ButtonContainer>
+      </StyledSimpleHero>
+    ) : (
+      <StyledSimpleHero>
+        <SimpleHeroTitle>{props.page}</SimpleHeroTitle>
+        <SimpleHeroP>{faker.lorem.sentence()}</SimpleHeroP>
+      </StyledSimpleHero>
+    )
 
 const StyledHero = styled.div`
   display: grid;
@@ -149,11 +149,12 @@ Hero.propTypes = {
 }
 
 MainHero.propTypes = {
-  title: PropTypes.string.isRequired
+  title: PropTypes.string
 }
 
 SimpleHero.propTypes = {
-  page: PropTypes.string.isRequired
+  page: PropTypes.string.isRequired,
+  theme: PropTypes.object
 }
 
 export default Hero
