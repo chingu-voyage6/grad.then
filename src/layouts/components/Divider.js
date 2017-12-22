@@ -26,7 +26,8 @@ Wrapper.propTypes = {
 const Divider = props => <Wrapper set={props.justify}>{props.children}</Wrapper>
 
 Divider.propTypes = {
-  justify: PropTypes.string.isRequired
+  justify: PropTypes.string.isRequired,
+  children: PropTypes.node
 }
 
 export default Divider
