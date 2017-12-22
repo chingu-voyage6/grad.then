@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import styled, { ThemeProvider } from 'styled-components'
 
@@ -23,6 +22,7 @@ const PageContainer = styled.div`
 const Main = styled.div`
   grid-area: main;
   min-height: 800px;
+  margin-top: 4.625rem;
 `
 
 const TemplateWrapper = ({ children }) => (
