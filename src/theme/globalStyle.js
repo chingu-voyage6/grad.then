@@ -9,6 +9,10 @@ import styled, { injectGlobal } from 'styled-components'
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto|VT323');
 
+  html {
+    box-sizing: border-box;
+  }
+
   body {
     padding: 0;
     margin: 0;
@@ -16,9 +20,23 @@ injectGlobal`
     font-size: 20px;
     line-height: 1.3125;
   }
-  
+
   a {
     text-decoration: none;
+  }
+
+  a:active, a:focus {
+    outline: 0;
+    border: none;
+    -moz-outline-style: none
+  }
+
+  :focus {
+    outline:none;
+  }
+  
+  ::-moz-focus-inner {
+    border:0;
   }
 
   ul {
