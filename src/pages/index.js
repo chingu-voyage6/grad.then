@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import faker from 'faker'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
@@ -11,6 +10,7 @@ import Divider from '../layouts/components/Divider'
 import { ButtonBig, ButtonSmall } from '../layouts/components/Button'
 import { Pagination } from '../layouts/components/Pagination'
 import Hero from '../layouts/components/Hero'
+import FilterAndSearch from '../layouts/components/FilterAndSearch'
 
 // for illustration of icons usage
 const IconContainer = styled.div`
@@ -30,8 +30,8 @@ const IndexPage = ({ data }) => (
     <Hero type="main" title={data.site.siteMetadata.title} />
     <StyledH1>Hi people</StyledH1>
     <StyledP>{faker.lorem.paragraph()}</StyledP>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
+
+    <FilterAndSearch />
 
     {/* examples of icons usage */}
     <IconContainer>
