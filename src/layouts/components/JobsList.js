@@ -6,14 +6,10 @@ import PropTypes from 'prop-types'
 import { StyledH3, StyledP, StyledLi } from '../../theme/globalStyle'
 
 const Wrapper = styled.div`
-  width: 400px;
-  display: grid;
-  /* grid-template-columns: 3fr;
-  grid-template-rows: auto; */
-  grid-template-areas: 'text text text';
   background: ${props => props.theme.white};
   border-radius: 4px;
   border: 1px solid ${props => props.theme.primary.light};
+  margin: 0.5rem 0;
 `
 
 const JobLink = styled(Link).attrs({
@@ -28,51 +24,60 @@ const JobLink = styled(Link).attrs({
     color: ${props => props.color};
   }
 `
-const JobLi = StyledLi.extend`
-  display: inline;
+const JobLi = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
   color: ${props => props.theme.primary.light};
   margin: 0rem;
   padding: 0rem;
 `
 
 const JobTitle = StyledH3.extend`
+  grid-column: 1 / span 3;
   color: ${props => props.theme.primary.light};
-  margin: 0.05rem;
-  padding: 0rem;
+  margin: 0.2rem;
+  padding: 0.2rem;
+`
+
+const JobItem = StyledP.extend`
+  font-weight: 600;
+  font-size: 1rem;
+  color: ${props => props.theme.text};
+  text-transform: capitalize;
+  margin: 0.2rem;
+  padding: 0.2rem;
 `
 
 const JobText = StyledP.extend`
-  color: ${props => props.theme.primary.light};
-  margin: 0.05rem;
-  padding: 0rem;
-`
-
-const Text = styled.div`
-  /* grid-area: text; */
-  /* margin: 0.5rem; */
-  padding: 0.5rem;
+  grid-column: 1 / span 3;
+  font-size: 1.1rem;
+  color: ${props => props.theme.text};
+  margin: 0.2rem;
+  padding: 0.2rem;
 `
 
 class JobsList extends React.Component {
   render() {
     return (
-      <Wrapper>
-        <Text>
-          {this.props.type === 'list' ? (
-            <JobLi>
-              <JobTitle>
-                <JobLink to="/">{this.props.title}</JobLink>
-              </JobTitle>
-            </JobLi>
-          ) : (
-            <JobLi>
-              <JobTitle>
-                <JobLink to="/">{this.props.title}</JobLink>
-              </JobTitle>
-              <JobText>{this.props.text}</JobText>
-            </JobLi>
-          )}
-        </Text>
+      <Wrapper area={this.props.area}>
+        {this.props.type === 'list' ? (
+          <JobLi>
+            <JobTitle>
+              <JobLink to="/">{this.props.title}</JobLink>
+            </JobTitle>
+          </JobLi>
+        ) : (
+          <JobLi>
+            <JobTitle>
+              <JobLink to="/">{this.props.title}</JobLink>
+            </JobTitle>
+            <JobItem>{`Type: ${this.props.text.type}`}</JobItem>
+            <JobItem>{`Role: ${this.props.text.role}`}</JobItem>
+            <JobItem>{`Location: ${this.props.text.location}`}</JobItem>
+            <JobText>{this.props.text.description}</JobText>
+          </JobLi>
+        )}
       </Wrapper>
     )
   }
@@ -80,8 +85,12 @@ class JobsList extends React.Component {
 
 export default JobsList
 
+Wrapper.propTypes = {
+  area: PropTypes.string.isRequired
+}
+
 JobsList.propTypes = {
   title: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  type: PropTypes.string
+  text: PropTypes.object.isRequired,
+  type: PropTypes.string,
 }
