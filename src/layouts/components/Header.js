@@ -16,6 +16,7 @@ const StyledHeader = styled.div`
   grid-template-areas: '. brand brand . . . nav nav nav nav nav .';
   background-color: ${props => props.theme.white};
   border-bottom: 1px solid ${props => props.theme.primary.light};
+  z-index: 101;
 `
 
 const BrandTitle = StyledH1.extend`
