@@ -9,7 +9,7 @@ import { ICONS } from '../theme/constants.js'
 import Icon from '../layouts/components/Icon.js'
 import Divider from '../layouts/components/Divider'
 import { ButtonBig, ButtonSmall } from '../layouts/components/Button'
-import { Pagination } from '../layouts/components/Pagination'
+import Pagination from '../layouts/components/Pagination'
 import Hero from '../layouts/components/Hero'
 
 // for illustration of icons usage

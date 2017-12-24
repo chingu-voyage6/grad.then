@@ -33,14 +33,21 @@ const ButtonLeft = PaginationButton.extend`
 //⏪⏩
 const PaginationContainer = styled.div`
   display: flex;
+  max-width: 200px;
   border: none;
-  margin: 0;
+  margin: 1rem auto;
   padding: 0;
+
 `
-export const Pagination = props => {
+const Pagination = props => {
   const pageNum = props.pageNum
   const numButtons = Array.from({ length: pageNum }, (v, k) => (
-    <PaginationButton key={k.toString()}>{k + 1}</PaginationButton>
+    <PaginationButton
+      key={k.toString()}
+      background={props.background}
+      color={props.color}>
+      {k + 1}
+    </PaginationButton>
   ))
   return (
     <PaginationContainer>
@@ -56,9 +63,11 @@ export const Pagination = props => {
 }
 
 Pagination.propTypes = {
-  background: PropTypes.string,
-  color: PropTypes.string,
+  background: PropTypes.func,
+  color: PropTypes.func,
   pageNum: PropTypes.number,
   backward: PropTypes.bool,
   forward: PropTypes.bool
 }
+
+export default Pagination
