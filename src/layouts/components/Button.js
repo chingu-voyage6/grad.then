@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 export const Button = styled.button`
   color: ${props => props.color};
@@ -25,3 +26,7 @@ export const ButtonBig = Button.extend`
   padding: 0.75rem 2rem;
   margin: 0.5rem;
 `
+
+Button.propTypes = {
+  color: PropTypes.func.isRequired
+}
