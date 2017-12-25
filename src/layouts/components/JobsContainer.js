@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import JobsFilter from './JobsFilter'
 import JobsList from './JobsList'
 import Pagination from './Pagination'
+import FilterAndSearch from './FilterAndSearch'
 import { fakeCallToAPI } from '../utils/helpers'
 
 const Wrapper = styled.div`
@@ -13,7 +14,9 @@ const Wrapper = styled.div`
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   grid-column-gap: 1rem;
-  grid-template-areas: '. filt filt filt lst lst lst lst lst lst lst .';
+  grid-template-areas:
+  '. fs fs fs fs fs fs fs fs fs fs .'
+  '. filt filt filt lst lst lst lst lst lst lst .';
   margin-top: 2.5rem;
 `
 
@@ -27,6 +30,7 @@ class JobsContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      menuFilter: ['all', 'latest', 'last week', 'last month'],
       filter: ['any', 'any', 'any', 'any'],
       query: [
         {
@@ -41,6 +45,7 @@ class JobsContainer extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.submitQuery = this.submitQuery.bind(this)
     this.changePage = this.changePage.bind(this)
+    this.handleDates = this.handleDates.bind(this)
   }
 
   componentDidMount() {
@@ -81,10 +86,20 @@ class JobsContainer extends React.Component {
     }
   }
 
+  handleDates(str){
+    // imitation of new query
+    this.submitQuery()
+  }
+
   render() {
     const arr = this.state.query
     return (
       <Wrapper>
+        <FilterAndSearch
+          area="fs"
+          items={this.state.menuFilter}
+          onChange={this.handleDates}
+        />
         <JobsFilter
           titles={this.state.filter}
           onChange={this.handleChange}
