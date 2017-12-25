@@ -30,7 +30,7 @@ export const addCards = (num, cardType, projectCardType, titleVisibility) => {
 
 export function fakeCallToAPI(length=7, data=['any','any','any','any']){
   // data: type, role, location, interval
-  const response = Array.from({ length: length }, (el, i) => {
+  const response = Array.from({ length: length }, () => {
     return {
       title: faker.commerce.productName(),
       type: data[0],
@@ -38,6 +38,6 @@ export function fakeCallToAPI(length=7, data=['any','any','any','any']){
       location: data[2],
       description: faker.hacker.phrase()
     }
-  });
-  return response;
+  })
+  return response
 }

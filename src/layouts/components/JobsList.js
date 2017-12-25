@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Link from 'gatsby-link'
 import PropTypes from 'prop-types'
 
-import { StyledH3, StyledP, StyledLi } from '../../theme/globalStyle'
+import { StyledH3, StyledP } from '../../theme/globalStyle'
 
 const Wrapper = styled.div`
   background: ${props => props.theme.white};
@@ -93,4 +93,5 @@ JobsList.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.object.isRequired,
   type: PropTypes.string,
+  area: PropTypes.string.isRequired
 }

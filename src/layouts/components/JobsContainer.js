@@ -26,7 +26,7 @@ const List = styled.div`
 
 class JobsContainer extends React.Component {
   constructor(props){
-    super(props);
+    super(props)
     this.state = {
       filter:['any','any','any','any'],
       query: [{
@@ -36,51 +36,51 @@ class JobsContainer extends React.Component {
         location: '',
         description: ''
       }]
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.submitQuery = this.submitQuery.bind(this);
-    this.changePage = this.changePage.bind(this);
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.submitQuery = this.submitQuery.bind(this)
+    this.changePage = this.changePage.bind(this)
   }
 
   componentDidMount(){
-    const result = fakeCallToAPI();
+    const result = fakeCallToAPI()
     this.setState({
       query: result
-    });
+    })
   }
 
   handleChange(num, data) {
-    let arr = this.state.filter.slice();
-    arr[num-1] = data;
+    let arr = this.state.filter.slice()
+    arr[num-1] = data
 
     this.setState({
       filter: arr
-     });
+    })
   }
 
   submitQuery(){
-    const data = this.state.filter;
-    const result = fakeCallToAPI(10, data);
+    const data = this.state.filter
+    const result = fakeCallToAPI(10, data)
     this.setState({
       query: result
-    });
+    })
   }
 
   changePage(num){
     //for now it immitates querying different pages
     if (num === -1) { //get previous page
-      this.submitQuery();
+      this.submitQuery()
     }
     else if (num === 0) { // get next page
-      this.submitQuery();
+      this.submitQuery()
     }
     else { //get page #num
-      this.submitQuery();
+      this.submitQuery()
     }
   }
 
   render() {
-    const arr = this.state.query;
+    const arr = this.state.query
     return (
       <Wrapper>
         <JobsFilter
@@ -89,24 +89,31 @@ class JobsContainer extends React.Component {
           onSubmit={this.submitQuery}
         />
         <List>
-        {
-          arr.map((elem, index) => (
-            <JobsList key={index}
-              area='lst'
-              title={elem.title}
-              text={elem}
-            />
-          ))
-        }
-        <Pagination
+          {
+            arr.map((elem, index) => (
+              <JobsList key={index}
+                area='lst'
+                title={elem.title}
+                text={elem}
+              />
+            ))
+          }
+          <Pagination
             onChange={this.changePage}
             background={this.props.theme.white}
             pageNum={2}
           />
-      </List>
+        </List>
       </Wrapper>
     )
   }
 }
 
 export default withTheme(JobsContainer)
+
+JobsContainer.propTypes = {
+  theme: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.object
+  ])
+}

@@ -82,46 +82,43 @@ const SubmitButton = Button.extend`
 
 class JobsFilter extends React.Component {
   constructor(props){
-    super(props);
+    super(props)
 
-    this.handleClick = this.handleClick.bind(this);
-    this.handleOption = this.handleOption.bind(this);
-    this.handleMouseLeave = this.handleMouseLeave.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-
+    this.handleClick = this.handleClick.bind(this)
+    this.handleOption = this.handleOption.bind(this)
+    this.handleMouseLeave = this.handleMouseLeave.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   // events on FilterName
   handleClick(e){
     const targetId = e.target.id,
-          currOptionId = `opt-cont-${targetId.substr(-1)}`,
-          currOption = document.getElementById(currOptionId);
-    currOption.classList.toggle("show");
+      currOptionId = `opt-cont-${targetId.substr(-1)}`,
+      currOption = document.getElementById(currOptionId)
+    currOption.classList.toggle('show')
   }
 
   // events on OptionContainer
   handleOption(e) {
     const targetId = e.target.parentNode.id,
-          num = targetId.substr(-1),
-          targetParent = e.target.parentNode,
-          targetText = e.target.innerText,
-          currFilterId = `filter${num}`,
-          currFilter = document.getElementById(currFilterId);
-    currFilter.innerHTML = targetText;
-    targetParent.classList.remove("show");
+      num = targetId.substr(-1),
+      targetParent = e.target.parentNode,
+      targetText = e.target.innerText,
+      currFilterId = `filter${num}`,
+      currFilter = document.getElementById(currFilterId)
+    currFilter.innerHTML = targetText
+    targetParent.classList.remove('show')
 
-    this.props.onChange(num, targetText.toLowerCase());
+    this.props.onChange(num, targetText.toLowerCase())
   }
 
   handleMouseLeave(e){
-    const targetParent = e.target.parentNode;
-    targetParent.classList.remove("show");
+    const targetParent = e.target.parentNode
+    targetParent.classList.remove('show')
   }
 
-
-
   handleSubmit(){
-    this.props.onSubmit();
+    this.props.onSubmit()
   }
 
   render() {
@@ -194,7 +191,11 @@ class JobsFilter extends React.Component {
 JobsFilter.propTypes = {
   titles: PropTypes.array.isRequired,
   onChange: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  theme: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.object
+  ])
 }
 
 export default withTheme(JobsFilter)
