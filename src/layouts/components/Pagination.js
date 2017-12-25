@@ -37,7 +37,6 @@ const PaginationContainer = styled.div`
   border: none;
   margin: 1rem auto;
   padding: 0;
-
 `
 const Pagination = props => {
   const pageNum = props.pageNum
@@ -46,7 +45,8 @@ const Pagination = props => {
       key={k.toString()}
       background={props.background}
       color={props.color}
-      onClick={()=> goPage(k)}>
+      onClick={() => goPage(k)}
+    >
       {k + 1}
     </PaginationButton>
   ))
@@ -60,14 +60,16 @@ const Pagination = props => {
       <ButtonLeft
         background={props.background}
         color={props.color}
-        onClick={goPrevious}>
+        onClick={goPrevious}
+      >
         {props.backward || '⏪'}
       </ButtonLeft>
       {numButtons}
       <ButtonRight
         background={props.background}
         color={props.color}
-        onClick={goNext}>
+        onClick={goNext}
+      >
         {props.forward || '⏩'}
       </ButtonRight>
     </PaginationContainer>
@@ -75,14 +77,8 @@ const Pagination = props => {
 }
 
 Pagination.propTypes = {
-  background: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func
-  ]),
-  color: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func
-  ]),
+  background: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  color: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   pageNum: PropTypes.number,
   backward: PropTypes.bool,
   forward: PropTypes.bool,

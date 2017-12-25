@@ -12,7 +12,6 @@ const FilterContainer = styled.div`
   margin: 0 auto;
   margin-top: 0.1rem;
   margin-bottom: 11rem;
-
 `
 
 const StyledFilter = styled.div`
@@ -34,10 +33,11 @@ const FilterName = styled.button`
   padding: 1rem;
   font-size: 1.2rem;
   background-color: ${props => props.theme.primary.light};
-  color:${props => props.theme.white};
+  color: ${props => props.theme.white};
   text-transform: uppercase;
   border: none;
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background-color: ${props => props.theme.secondary.red};
   }
 `
@@ -47,7 +47,7 @@ const OptionContainer = styled.div`
   position: absolute;
   background-color: ${props => props.theme.white};
   min-width: 10rem;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   &.show {
     display: block;
@@ -81,7 +81,7 @@ const SubmitButton = Button.extend`
 `
 
 class JobsFilter extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
 
     this.handleClick = this.handleClick.bind(this)
@@ -91,7 +91,7 @@ class JobsFilter extends React.Component {
   }
 
   // events on FilterName
-  handleClick(e){
+  handleClick(e) {
     const targetId = e.target.id,
       currOptionId = `opt-cont-${targetId.substr(-1)}`,
       currOption = document.getElementById(currOptionId)
@@ -112,12 +112,12 @@ class JobsFilter extends React.Component {
     this.props.onChange(num, targetText.toLowerCase())
   }
 
-  handleMouseLeave(e){
+  handleMouseLeave(e) {
     const targetParent = e.target.parentNode
     targetParent.classList.remove('show')
   }
 
-  handleSubmit(){
+  handleSubmit() {
     this.props.onSubmit()
   }
 
@@ -129,7 +129,7 @@ class JobsFilter extends React.Component {
           <FilterName id="filter1" onClick={this.handleClick}>
             {this.props.titles[0]}
           </FilterName>
-          <OptionContainer id='opt-cont-1' onMouseLeave={this.handleMouseLeave}>
+          <OptionContainer id="opt-cont-1" onMouseLeave={this.handleMouseLeave}>
             <FilterOption onClick={this.handleOption}>any</FilterOption>
             <FilterOption onClick={this.handleOption}>full-time</FilterOption>
             <FilterOption onClick={this.handleOption}>part-time</FilterOption>
@@ -143,7 +143,7 @@ class JobsFilter extends React.Component {
           <FilterName id="filter2" onClick={this.handleClick}>
             {this.props.titles[1]}
           </FilterName>
-          <OptionContainer id='opt-cont-2' onMouseLeave={this.handleMouseLeave}>
+          <OptionContainer id="opt-cont-2" onMouseLeave={this.handleMouseLeave}>
             <FilterOption onClick={this.handleOption}>any</FilterOption>
             <FilterOption onClick={this.handleOption}>front-end</FilterOption>
             <FilterOption onClick={this.handleOption}>back-end</FilterOption>
@@ -157,7 +157,7 @@ class JobsFilter extends React.Component {
           <FilterName id="filter3" onClick={this.handleClick}>
             {this.props.titles[2]}
           </FilterName>
-          <OptionContainer id='opt-cont-3' onMouseLeave={this.handleMouseLeave}>
+          <OptionContainer id="opt-cont-3" onMouseLeave={this.handleMouseLeave}>
             <FilterOption onClick={this.handleOption}>any</FilterOption>
             <FilterOption onClick={this.handleOption}>earth</FilterOption>
             <FilterOption onClick={this.handleOption}>mars</FilterOption>
@@ -170,7 +170,7 @@ class JobsFilter extends React.Component {
           <FilterName id="filter4" onClick={this.handleClick}>
             {this.props.titles[3]}
           </FilterName>
-          <OptionContainer id='opt-cont-4' onMouseLeave={this.handleMouseLeave}>
+          <OptionContainer id="opt-cont-4" onMouseLeave={this.handleMouseLeave}>
             <FilterOption onClick={this.handleOption}>any</FilterOption>
             <FilterOption onClick={this.handleOption}>latest</FilterOption>
             <FilterOption onClick={this.handleOption}>last week</FilterOption>
@@ -178,8 +178,11 @@ class JobsFilter extends React.Component {
           </OptionContainer>
         </StyledFilter>
 
-        <SubmitButton color={this.props.theme.primary.light} type='submit'
-          onClick={this.handleSubmit}>
+        <SubmitButton
+          color={this.props.theme.primary.light}
+          type="submit"
+          onClick={this.handleSubmit}
+        >
           Submit
         </SubmitButton>
       </FilterContainer>
@@ -187,15 +190,11 @@ class JobsFilter extends React.Component {
   }
 }
 
-
 JobsFilter.propTypes = {
   titles: PropTypes.array.isRequired,
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  theme: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.object
-  ])
+  theme: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
 }
 
 export default withTheme(JobsFilter)

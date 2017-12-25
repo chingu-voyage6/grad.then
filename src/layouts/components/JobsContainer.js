@@ -13,8 +13,7 @@ const Wrapper = styled.div`
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   grid-column-gap: 1rem;
-  grid-template-areas:
-    '. filt filt filt lst lst lst lst lst lst lst .';
+  grid-template-areas: '. filt filt filt lst lst lst lst lst lst lst .';
   margin-top: 2.5rem;
 `
 
@@ -25,24 +24,26 @@ const List = styled.div`
 `
 
 class JobsContainer extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
-      filter:['any','any','any','any'],
-      query: [{
-        title:'',
-        type: '',
-        role: '',
-        location: '',
-        description: ''
-      }]
+      filter: ['any', 'any', 'any', 'any'],
+      query: [
+        {
+          title: '',
+          type: '',
+          role: '',
+          location: '',
+          description: ''
+        }
+      ]
     }
     this.handleChange = this.handleChange.bind(this)
     this.submitQuery = this.submitQuery.bind(this)
     this.changePage = this.changePage.bind(this)
   }
 
-  componentDidMount(){
+  componentDidMount() {
     const result = fakeCallToAPI()
     this.setState({
       query: result
@@ -51,14 +52,14 @@ class JobsContainer extends React.Component {
 
   handleChange(num, data) {
     let arr = this.state.filter.slice()
-    arr[num-1] = data
+    arr[num - 1] = data
 
     this.setState({
       filter: arr
     })
   }
 
-  submitQuery(){
+  submitQuery() {
     const data = this.state.filter
     const result = fakeCallToAPI(10, data)
     this.setState({
@@ -66,15 +67,16 @@ class JobsContainer extends React.Component {
     })
   }
 
-  changePage(num){
+  changePage(num) {
     //for now it immitates querying different pages
-    if (num === -1) { //get previous page
+    if (num === -1) {
+      //get previous page
       this.submitQuery()
-    }
-    else if (num === 0) { // get next page
+    } else if (num === 0) {
+      // get next page
       this.submitQuery()
-    }
-    else { //get page #num
+    } else {
+      //get page #num
       this.submitQuery()
     }
   }
@@ -89,15 +91,9 @@ class JobsContainer extends React.Component {
           onSubmit={this.submitQuery}
         />
         <List>
-          {
-            arr.map((elem, index) => (
-              <JobsList key={index}
-                area='lst'
-                title={elem.title}
-                text={elem}
-              />
-            ))
-          }
+          {arr.map((elem, index) => (
+            <JobsList key={index} area="lst" title={elem.title} text={elem} />
+          ))}
           <Pagination
             onChange={this.changePage}
             background={this.props.theme.white}
@@ -112,8 +108,5 @@ class JobsContainer extends React.Component {
 export default withTheme(JobsContainer)
 
 JobsContainer.propTypes = {
-  theme: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.object
-  ])
+  theme: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
 }

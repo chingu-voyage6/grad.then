@@ -28,7 +28,7 @@ export const addCards = (num, cardType, projectCardType, titleVisibility) => {
   }
 }
 
-export function fakeCallToAPI(length=7, data=['any','any','any','any']){
+export function fakeCallToAPI(length = 7, data = ['any', 'any', 'any', 'any']) {
   // data: type, role, location, interval
   const response = Array.from({ length: length }, () => {
     return {
