@@ -45,17 +45,29 @@ const Pagination = props => {
     <PaginationButton
       key={k.toString()}
       background={props.background}
-      color={props.color}>
+      color={props.color}
+      onClick={()=> goPage(k)}>
       {k + 1}
     </PaginationButton>
   ))
+
+  const goPage = num => props.onChange(num + 1)
+  const goPrevious = () => props.onChange(-1)
+  const goNext = () => props.onChange(0)
+
   return (
     <PaginationContainer>
-      <ButtonLeft background={props.background} color={props.color}>
+      <ButtonLeft
+        background={props.background}
+        color={props.color}
+        onClick={goPrevious}>
         {props.backward || '⏪'}
       </ButtonLeft>
       {numButtons}
-      <ButtonRight background={props.background} color={props.color}>
+      <ButtonRight
+        background={props.background}
+        color={props.color}
+        onClick={goNext}>
         {props.forward || '⏩'}
       </ButtonRight>
     </PaginationContainer>
@@ -63,11 +75,18 @@ const Pagination = props => {
 }
 
 Pagination.propTypes = {
-  background: PropTypes.func,
-  color: PropTypes.func,
+  background: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func
+  ]),
+  color: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func
+  ]),
   pageNum: PropTypes.number,
   backward: PropTypes.bool,
-  forward: PropTypes.bool
+  forward: PropTypes.bool,
+  onChange: PropTypes.func
 }
 
 export default Pagination
