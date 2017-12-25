@@ -8,8 +8,6 @@ import JobsList from './JobsList'
 import Pagination from './Pagination'
 import { fakeCallToAPI } from '../utils/helpers'
 
-import faker from 'faker'
-
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -41,11 +39,11 @@ class JobsContainer extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.submitQuery = this.submitQuery.bind(this);
+    this.changePage = this.changePage.bind(this);
   }
 
   componentDidMount(){
     const result = fakeCallToAPI();
-    //console.log(result);
     this.setState({
       query: result
     });
@@ -61,13 +59,24 @@ class JobsContainer extends React.Component {
   }
 
   submitQuery(){
-    // call function with this.state.filter as arg
     const data = this.state.filter;
     const result = fakeCallToAPI(10, data);
-    //console.log(result);
     this.setState({
       query: result
     });
+  }
+
+  changePage(num){
+    //for now it immitates querying different pages
+    if (num === -1) { //get previous page
+      this.submitQuery();
+    }
+    else if (num === 0) { // get next page
+      this.submitQuery();
+    }
+    else { //get page #num
+      this.submitQuery();
+    }
   }
 
   render() {
@@ -90,6 +99,7 @@ class JobsContainer extends React.Component {
           ))
         }
         <Pagination
+            onChange={this.changePage}
             background={this.props.theme.white}
             pageNum={2}
           />
