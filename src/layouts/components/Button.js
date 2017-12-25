@@ -28,5 +28,8 @@ export const ButtonBig = Button.extend`
 `
 
 Button.propTypes = {
-  color: PropTypes.func.isRequired
+  color: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.func.isRequired
+  ])
 }
