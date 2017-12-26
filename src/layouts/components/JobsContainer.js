@@ -7,7 +7,7 @@ import JobsFilter from './JobsFilter'
 import JobsList from './JobsList'
 import Pagination from './Pagination'
 import FilterAndSearch from './FilterAndSearch'
-import { fakeCallToAPI } from '../utils/helpers'
+import { fakeCallToAPI, fakeAPISearch } from '../utils/helpers'
 
 const Wrapper = styled.div`
   display: grid;
@@ -23,7 +23,7 @@ const Wrapper = styled.div`
 const List = styled.div`
   grid-area: lst;
   margin: 0;
-  padding: 0.3rem;
+  padding: 0rem;
 `
 
 class JobsContainer extends React.Component {
@@ -31,6 +31,7 @@ class JobsContainer extends React.Component {
     super(props)
     this.state = {
       menuFilter: ['all', 'latest', 'last week', 'last month'],
+      searchQuery: '',
       filter: ['any', 'any', 'any', 'any'],
       query: [
         {
@@ -46,6 +47,8 @@ class JobsContainer extends React.Component {
     this.submitQuery = this.submitQuery.bind(this)
     this.changePage = this.changePage.bind(this)
     this.handleDates = this.handleDates.bind(this)
+    this.handleSearch = this.handleSearch.bind(this)
+    this.handleInput = this.handleInput.bind(this)
   }
 
   componentDidMount() {
@@ -74,21 +77,65 @@ class JobsContainer extends React.Component {
 
   changePage(num) {
     //for now it immitates querying different pages
-    if (num === -1) {
-      //get previous page
-      this.submitQuery()
+    const fakePage = () => {
+      let result = []
+      if (this.state.searchQuery) {
+        const searchQuery = this.state.searchQuery
+        result = fakeCallToAPI(undefined, undefined, searchQuery)
+      }
+      else {
+        result = fakeCallToAPI()
+      }
+      this.setState({
+        query: result
+      })
+    }
+
+    if (num === -1) {  //get previous page
+      fakePage()
     } else if (num === 0) {
       // get next page
-      this.submitQuery()
+      fakePage()
     } else {
       //get page #num
-      this.submitQuery()
+      fakePage()
     }
   }
 
   handleDates(str){
-    // imitation of new query
-    this.submitQuery()
+    // immitation of new query
+    const currLength = (this.state.query.length < 5)? 7 : this.state.query.length,
+      length = (str === 'all')? 7 : Math.floor(Math.random()*(currLength + 1))
+    let result = []
+
+    if (this.state.searchQuery) {
+      const searchQuery = this.state.searchQuery
+      result = fakeCallToAPI(length, undefined, searchQuery)
+    }
+    else {
+      result = fakeCallToAPI(length)
+    }
+
+    this.setState({
+      query: result
+    })
+  }
+
+  handleSearch(){
+    //immitation of search query
+    if (this.state.searchQuery) {
+      const query = this.state.searchQuery
+      const result = fakeAPISearch(query)
+      this.setState({
+        query: result
+      })
+    }
+  }
+
+  handleInput(val){
+    this.setState({
+      searchQuery: val
+    })
   }
 
   render() {
@@ -98,7 +145,9 @@ class JobsContainer extends React.Component {
         <FilterAndSearch
           area="fs"
           items={this.state.menuFilter}
-          onChange={this.handleDates}
+          changeDates={this.handleDates}
+          search={this.handleSearch}
+          input={this.handleInput}
         />
         <JobsFilter
           titles={this.state.filter}

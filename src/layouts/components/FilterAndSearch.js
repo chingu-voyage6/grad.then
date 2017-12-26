@@ -23,6 +23,7 @@ import filterOptions from '../utils/filterOptions'
 
 const StyledInput = styled.input`
   padding: 8px 4px;
+  font-size: 1rem;
   border: 2px solid ${({ theme }) => theme.secondary.red};
   color: ${({ theme }) => theme.primary.dark};
 `
@@ -39,8 +40,8 @@ const StyledButton = styled.button`
   font-size: 1rem;
   &:hover,
   &:focus {
-    background-color: ${props => props.theme.primary.light};
-    color: ${props => props.theme.white};
+    background-color: ${({ theme }) => theme.primary.light};
+    color: ${({ theme }) => theme.white};
     border-color: ${({ theme }) => theme.primary.light};
   }
 `
@@ -50,8 +51,8 @@ const StyledForm = styled.form`
   display: grid;
   grid-template-columns: 2fr 1fr 2fr;
   grid-template-rows: auto;
-  ${'' /* justify-content: center;
-  align-items: center; */}
+  justify-content: center;
+  align-items: center;
   font-size: 1rem;
   margin: 1rem 0 2rem 0;
 `
@@ -59,6 +60,7 @@ const StyledForm = styled.form`
 const StyledSearch = styled.div`
   grid-column: 4 / span 2;
   justify-self: end;
+  margin-left: 0.2rem;
 `
 //
 // const Filter = ({ term }) => {
@@ -101,7 +103,8 @@ const FilterButton = styled.button`
   background-color: ${props => props.theme.secondary.yellow};
   color: ${props => props.theme.primary.dark};
   text-transform: uppercase;
-  border: none;
+  ${'' /* border: none; */}
+  border: 2px solid transparent;
   cursor: pointer;
   &:hover,
   &:focus {
@@ -128,7 +131,6 @@ const Filter = props => {
     current.classList.add('active')
   }
 
-
   return (
     <StyledFilter>
       {
@@ -144,11 +146,23 @@ const Filter = props => {
   )
 }
 
-const Search = () => {
+// controlled Input
+// click on button fires request
+const Search = props => {
+  const handleInput = e => {
+    //console.log(e.target.value)
+    props.input(e.target.value)
+  }
+  const handleClick = (e) => {
+    e.preventDefault()
+    //console.log('send search request')
+    props.search()
+  }
   return (
     <StyledSearch>
-      <StyledInput type="text" placeholder="Enter search term" />
-      <StyledButton>Search</StyledButton>
+      <StyledInput type="text" placeholder="Enter search term"
+      onChange={handleInput} />
+      <StyledButton onClick={handleClick}>Search</StyledButton>
     </StyledSearch>
   )
 }
@@ -159,9 +173,9 @@ class SearchAndFilter extends Component {
       <StyledForm area={this.props.area}>
         {/* <Filters /> */}
         <Filter menuItems={this.props.items}
-          onChange={this.props.onChange}
+          onChange={this.props.changeDates}
         />
-        <Search />
+        <Search search={this.props.search} input={this.props.input}/>
       </StyledForm>
     )
   }
@@ -176,6 +190,11 @@ Filter.propTypes = {
   onChange: PropTypes.func.isRequired
 }
 
+Search.propTypes = {
+  search: PropTypes.func.isRequired,
+  input: PropTypes.func.isRequired
+}
+
 StyledForm.propTypes = {
   area: PropTypes.string.isRequired
 }
@@ -183,7 +202,9 @@ StyledForm.propTypes = {
 SearchAndFilter.propTypes = {
   area: PropTypes.string.isRequired,
   items: PropTypes.array.isRequired,
-  onChange: PropTypes.func.isRequired
+  changeDates: PropTypes.func.isRequired,
+  search: PropTypes.func.isRequired,
+  input: PropTypes.func.isRequired
 }
 
 export default SearchAndFilter

@@ -28,11 +28,11 @@ export const addCards = (num, cardType, projectCardType, titleVisibility) => {
   }
 }
 
-export function fakeCallToAPI(length = 7, data = ['any', 'any', 'any', 'any']) {
+export function fakeCallToAPI(length = 7, data = ['any', 'any', 'any', 'any'], title='') {
   // data: type, role, level, location
   const response = Array.from({ length: length }, () => {
     return {
-      title: faker.commerce.productName(),
+      title: title? title : faker.commerce.productName(),
       type: data[0],
       role: data[1],
       level: data[2],
@@ -41,4 +41,11 @@ export function fakeCallToAPI(length = 7, data = ['any', 'any', 'any', 'any']) {
     }
   })
   return response
+}
+
+// fake API for search
+
+export const fakeAPISearch = str => {
+  const random = Math.floor(Math.random()*11)
+  return fakeCallToAPI(random, undefined, str)
 }
