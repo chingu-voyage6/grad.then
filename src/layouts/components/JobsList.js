@@ -26,7 +26,7 @@ const JobLink = styled(Link).attrs({
 `
 const JobLi = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
   color: ${props => props.theme.primary.light};
   margin: 0rem;
@@ -34,7 +34,7 @@ const JobLi = styled.div`
 `
 
 const JobTitle = StyledH3.extend`
-  grid-column: 1 / span 3;
+  grid-column: 1 / span 4;
   color: ${props => props.theme.primary.light};
   margin: 0.2rem;
   padding: 0.2rem;
@@ -50,7 +50,7 @@ const JobItem = StyledP.extend`
 `
 
 const JobText = StyledP.extend`
-  grid-column: 1 / span 3;
+  grid-column: 1 / span 4;
   font-size: 1.1rem;
   color: ${props => props.theme.text};
   margin: 0.2rem;
@@ -74,6 +74,7 @@ class JobsList extends React.Component {
             </JobTitle>
             <JobItem>{`Type: ${this.props.text.type}`}</JobItem>
             <JobItem>{`Role: ${this.props.text.role}`}</JobItem>
+            <JobItem>{`Level: ${this.props.text.level}`}</JobItem>
             <JobItem>{`Location: ${this.props.text.location}`}</JobItem>
             <JobText>{this.props.text.description}</JobText>
           </JobLi>

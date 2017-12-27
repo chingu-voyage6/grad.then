@@ -10,7 +10,6 @@ import Divider from '../layouts/components/Divider'
 import { ButtonBig, ButtonSmall } from '../layouts/components/Button'
 import Pagination from '../layouts/components/Pagination'
 import Hero from '../layouts/components/Hero'
-import FilterAndSearch from '../layouts/components/FilterAndSearch'
 
 // for illustration of icons usage
 const IconContainer = styled.div`
@@ -30,8 +29,6 @@ const IndexPage = ({ data }) => (
     <Hero type="main" title={data.site.siteMetadata.title} />
     <StyledH1>Hi people</StyledH1>
     <StyledP>{faker.lorem.paragraph()}</StyledP>
-
-    <FilterAndSearch />
 
     {/* examples of icons usage */}
     <IconContainer>

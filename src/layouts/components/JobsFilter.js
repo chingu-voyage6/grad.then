@@ -153,28 +153,29 @@ class JobsFilter extends React.Component {
         </StyledFilter>
 
         <StyledFilter>
-          <FilterTitle>location</FilterTitle>
+          <FilterTitle>level</FilterTitle>
           <FilterName id="filter3" onClick={this.handleClick}>
             {this.props.titles[2]}
           </FilterName>
           <OptionContainer id="opt-cont-3" onMouseLeave={this.handleMouseLeave}>
             <FilterOption onClick={this.handleOption}>any</FilterOption>
-            <FilterOption onClick={this.handleOption}>earth</FilterOption>
-            <FilterOption onClick={this.handleOption}>mars</FilterOption>
-            <FilterOption onClick={this.handleOption}>our galaxy</FilterOption>
+            <FilterOption onClick={this.handleOption}>junior</FilterOption>
+            <FilterOption onClick={this.handleOption}>middle</FilterOption>
+            <FilterOption onClick={this.handleOption}>senior</FilterOption>
+            <FilterOption onClick={this.handleOption}>wizard</FilterOption>
           </OptionContainer>
         </StyledFilter>
 
         <StyledFilter>
-          <FilterTitle>time period</FilterTitle>
+          <FilterTitle>location</FilterTitle>
           <FilterName id="filter4" onClick={this.handleClick}>
             {this.props.titles[3]}
           </FilterName>
           <OptionContainer id="opt-cont-4" onMouseLeave={this.handleMouseLeave}>
             <FilterOption onClick={this.handleOption}>any</FilterOption>
-            <FilterOption onClick={this.handleOption}>latest</FilterOption>
-            <FilterOption onClick={this.handleOption}>last week</FilterOption>
-            <FilterOption onClick={this.handleOption}>last month</FilterOption>
+            <FilterOption onClick={this.handleOption}>my city</FilterOption>
+            <FilterOption onClick={this.handleOption}>my country</FilterOption>
+            <FilterOption onClick={this.handleOption}>earth</FilterOption>
           </OptionContainer>
         </StyledFilter>
 
