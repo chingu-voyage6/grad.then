@@ -1,10 +1,17 @@
-import styled, { injectGlobal } from 'styled-components'
+import styled, { injectGlobal, css } from 'styled-components'
 
 /* TODO
   take a look at using
   box sizing
   https://www.paulirish.com/2012/box-sizing-border-box-ftw/
 */
+
+const sizes = {
+  giant: 1170,
+  desktop: 992,
+  tablet: 768,
+  phone: 376
+}
 
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto|VT323');
@@ -34,7 +41,7 @@ injectGlobal`
   :focus {
     outline:none;
   }
-  
+
   ::-moz-focus-inner {
     border:0;
   }
@@ -55,6 +62,19 @@ injectGlobal`
     }
   }
 `
+
+// iterate through the sizes and create a media template
+export const media = Object.keys(sizes).reduce((accumulator, label) => {
+  // use em in breakpoints to work properly cross-browser and support users
+  // changing their browsers font-size: https://zellwk.com/blog/media-query-units/
+  const emSize = sizes[label] / 16
+  accumulator[label] = (...args) => css`
+    @media (max-width: ${emSize}em) {
+      ${css(...args)}
+    }
+  `
+  return accumulator
+}, {})
 
 export const theme = {
   text: '#333',
