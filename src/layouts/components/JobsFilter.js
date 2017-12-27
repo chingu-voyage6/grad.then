@@ -175,7 +175,7 @@ class JobsFilter extends React.Component {
             <FilterOption onClick={this.handleOption}>any</FilterOption>
             <FilterOption onClick={this.handleOption}>my city</FilterOption>
             <FilterOption onClick={this.handleOption}>my country</FilterOption>
-            <FilterOption onClick={this.handleOption}>earch</FilterOption>
+            <FilterOption onClick={this.handleOption}>earth</FilterOption>
           </OptionContainer>
         </StyledFilter>
 
