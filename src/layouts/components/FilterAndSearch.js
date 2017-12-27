@@ -2,25 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import filterOptions from '../utils/filterOptions'
-
-// const StyledSelect = styled.select`
-//   padding: 8px 0;
-//   width: 100px;
-//   background-color: ${({ theme }) => theme.white};
-//   border-color: ${({ theme }) => theme.primary.light};
-//   color: ${({ theme }) => theme.primary.dark};
-// `
-//
-// const StyledFilter = styled.div`
-//   padding: 5px;
-// `
-//
-// const StyledFilters = styled.div`
-//   display: flex;
-//   margin: 5px;
-// `
-
 const StyledInput = styled.input`
   padding: 8px 4px;
   font-size: 1rem;
@@ -62,39 +43,12 @@ const StyledSearch = styled.div`
   justify-self: end;
   margin-left: 0.2rem;
 `
-//
-// const Filter = ({ term }) => {
-//   return (
-//     <StyledFilter>
-//       <StyledSelect name={term} id={term}>
-//         <option value="-1">{term.toUpperCase()}</option>
-//         {filterOptions[term].map((filterBy, index) => {
-//           return (
-//             <option key={index} value={index}>
-//               {filterBy}
-//             </option>
-//           )
-//         })}
-//       </StyledSelect>
-//     </StyledFilter>
-//   )
-// }
-//
-// const Filters = () => {
-//   const terms = Object.keys(filterOptions)
-//
-//   return (
-//     <StyledFilters>
-//       {terms.map((term, index) => {
-//         return <Filter key={index} term={term} />
-//       })}
-//     </StyledFilters>
-//   )
-// }
+
 const StyledFilter = styled.div`
   grid-column: 1 / span 2;
   justify-self: start;
 `
+
 const FilterButton = styled.button`
   min-width: 7rem;
   padding: 0.5rem;
@@ -103,7 +57,6 @@ const FilterButton = styled.button`
   background-color: ${props => props.theme.secondary.yellow};
   color: ${props => props.theme.primary.dark};
   text-transform: uppercase;
-  ${'' /* border: none; */}
   border: 2px solid transparent;
   cursor: pointer;
   &:hover,
@@ -115,7 +68,6 @@ const FilterButton = styled.button`
     background-color: ${props => props.theme.secondary.red};
   }
 `
-
 
 const Filter = props => {
   const arr = props.menuItems
@@ -133,15 +85,15 @@ const Filter = props => {
 
   return (
     <StyledFilter>
-      {
-        arr.map((elem, index) => (
-          <FilterButton key={index}
-            onClick={handleClick}
-            className={!index? 'active' : ''}>
-            {elem}
-          </FilterButton>
-        ))
-      }
+      {arr.map((elem, index) => (
+        <FilterButton
+          key={index}
+          onClick={handleClick}
+          className={!index ? 'active' : ''}
+        >
+          {elem}
+        </FilterButton>
+      ))}
     </StyledFilter>
   )
 }
@@ -153,15 +105,18 @@ const Search = props => {
     //console.log(e.target.value)
     props.input(e.target.value)
   }
-  const handleClick = (e) => {
+  const handleClick = e => {
     e.preventDefault()
     //console.log('send search request')
     props.search()
   }
   return (
     <StyledSearch>
-      <StyledInput type="text" placeholder="Enter search term"
-      onChange={handleInput} />
+      <StyledInput
+        type="text"
+        placeholder="Enter search term"
+        onChange={handleInput}
+      />
       <StyledButton onClick={handleClick}>Search</StyledButton>
     </StyledSearch>
   )
@@ -172,18 +127,15 @@ class SearchAndFilter extends Component {
     return (
       <StyledForm area={this.props.area}>
         {/* <Filters /> */}
-        <Filter menuItems={this.props.items}
+        <Filter
+          menuItems={this.props.items}
           onChange={this.props.changeDates}
         />
-        <Search search={this.props.search} input={this.props.input}/>
+        <Search search={this.props.search} input={this.props.input} />
       </StyledForm>
     )
   }
 }
-
-// Filter.propTypes = {
-//   term: PropTypes.string.isRequired
-// }
 
 Filter.propTypes = {
   menuItems: PropTypes.array.isRequired,

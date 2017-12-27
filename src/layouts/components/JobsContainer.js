@@ -9,15 +9,14 @@ import Pagination from './Pagination'
 import FilterAndSearch from './FilterAndSearch'
 import { fakeAPI, fakeAPISearch } from '../utils/api'
 
-
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   grid-column-gap: 1rem;
   grid-template-areas:
-  '. fs fs fs fs fs fs fs fs fs fs .'
-  '. filt filt filt lst lst lst lst lst lst lst .';
+    '. fs fs fs fs fs fs fs fs fs fs .'
+    '. filt filt filt lst lst lst lst lst lst lst .';
   margin-top: 2.5rem;
 `
 
@@ -77,14 +76,14 @@ class JobsContainer extends React.Component {
       if (this.state.searchQuery) {
         const searchQuery = this.state.searchQuery
         result = fakeAPI(undefined, undefined, searchQuery)
-      }
-      else {
+      } else {
         result = fakeAPI()
       }
       result.then(query => this.setState({ query }))
     }
 
-    if (num === -1) {  //get previous page
+    if (num === -1) {
+      //get previous page
       fakePage()
     } else if (num === 0) {
       // get next page
@@ -95,24 +94,24 @@ class JobsContainer extends React.Component {
     }
   }
 
-  handleDates(str){
+  handleDates(str) {
     // immitation of new query
-    const currLength = (this.state.query.length < 5)? 7 : this.state.query.length,
-      length = (str === 'all')? 7 : Math.floor(Math.random()*(currLength + 1))
+    const currLength =
+        this.state.query.length < 5 ? 7 : this.state.query.length,
+      length = str === 'all' ? 7 : Math.floor(Math.random() * (currLength + 1))
     var result
 
     if (this.state.searchQuery) {
       const searchQuery = this.state.searchQuery
       result = fakeAPI(length, undefined, searchQuery)
-    }
-    else {
+    } else {
       result = fakeAPI(length)
     }
 
     result.then(query => this.setState({ query }))
   }
 
-  handleSearch(){
+  handleSearch() {
     //immitation of search query
     if (this.state.searchQuery) {
       const searchStr = this.state.searchQuery
@@ -120,7 +119,7 @@ class JobsContainer extends React.Component {
     }
   }
 
-  handleInput(val){
+  handleInput(val) {
     this.setState({
       searchQuery: val
     })
