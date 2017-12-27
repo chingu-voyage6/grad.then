@@ -7,7 +7,8 @@ import JobsFilter from './JobsFilter'
 import JobsList from './JobsList'
 import Pagination from './Pagination'
 import FilterAndSearch from './FilterAndSearch'
-import { fakeCallToAPI, fakeAPISearch } from '../utils/helpers'
+import { fakeAPI, fakeAPISearch } from '../utils/api'
+
 
 const Wrapper = styled.div`
   display: grid;
@@ -52,10 +53,7 @@ class JobsContainer extends React.Component {
   }
 
   componentDidMount() {
-    const result = fakeCallToAPI()
-    this.setState({
-      query: result
-    })
+    fakeAPI().then(query => this.setState({ query }))
   }
 
   handleChange(num, data) {
@@ -69,26 +67,21 @@ class JobsContainer extends React.Component {
 
   submitQuery() {
     const data = this.state.filter
-    const result = fakeCallToAPI(10, data)
-    this.setState({
-      query: result
-    })
+    fakeAPI(10, data).then(query => this.setState({ query }))
   }
 
   changePage(num) {
     //for now it immitates querying different pages
     const fakePage = () => {
-      let result = []
+      var result
       if (this.state.searchQuery) {
         const searchQuery = this.state.searchQuery
-        result = fakeCallToAPI(undefined, undefined, searchQuery)
+        result = fakeAPI(undefined, undefined, searchQuery)
       }
       else {
-        result = fakeCallToAPI()
+        result = fakeAPI()
       }
-      this.setState({
-        query: result
-      })
+      result.then(query => this.setState({ query }))
     }
 
     if (num === -1) {  //get previous page
@@ -106,29 +99,24 @@ class JobsContainer extends React.Component {
     // immitation of new query
     const currLength = (this.state.query.length < 5)? 7 : this.state.query.length,
       length = (str === 'all')? 7 : Math.floor(Math.random()*(currLength + 1))
-    let result = []
+    var result
 
     if (this.state.searchQuery) {
       const searchQuery = this.state.searchQuery
-      result = fakeCallToAPI(length, undefined, searchQuery)
+      result = fakeAPI(length, undefined, searchQuery)
     }
     else {
-      result = fakeCallToAPI(length)
+      result = fakeAPI(length)
     }
 
-    this.setState({
-      query: result
-    })
+    result.then(query => this.setState({ query }))
   }
 
   handleSearch(){
     //immitation of search query
     if (this.state.searchQuery) {
-      const query = this.state.searchQuery
-      const result = fakeAPISearch(query)
-      this.setState({
-        query: result
-      })
+      const searchStr = this.state.searchQuery
+      fakeAPISearch(searchStr).then(query => this.setState({ query }))
     }
   }
 
