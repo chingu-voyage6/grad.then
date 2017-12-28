@@ -1,2 +1,0 @@
-webpackJsonp([0x74191c3604b3],{1258:function(e,t,l){"use strict";function n(e){return e&&e.__esModule?e:{default:e}}t.__esModule=!0;var u=l(3),a=n(u),r=l(11),d=function(){return a.default.createElement("div",null,a.default.createElement(r.StyledH1,null,"Learn Page"),a.default.createElement(r.StyledP,null,"This is the Learn page"))};t.default=d,e.exports=t.default}});
-//# sourceMappingURL=component---src-pages-learn-js-a96451e735e8f25a02a9.js.map
