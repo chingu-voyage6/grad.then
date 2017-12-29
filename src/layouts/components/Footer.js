@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { media } from '../../theme/globalStyle'
 import PageNav from './PageNav.js'
 import BearsTeam from './BearsTeam'
 
@@ -12,6 +13,19 @@ const StyledFooter = styled.footer`
   grid-template-rows: auto;
   grid-template-areas: '. nav nav nav nav nav . . . team team .';
   align-items: center;
+
+  ${media.giant`
+    grid-template-areas: '. nav nav nav nav nav nav . . team team .';
+  `}
+  ${media.desktop`
+    grid-template-areas: 'nav nav nav nav nav nav nav . . team team team';
+  `}
+  ${media.tablet`
+    grid-template-areas: '. team team team team team team team team team team .';
+    & > ul {
+      display: none;
+    };
+  `}
 `
 
 const Footer = () => (
