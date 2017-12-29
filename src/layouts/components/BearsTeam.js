@@ -75,11 +75,10 @@ const Team = styled.div`
   }
   ${media.desktop`
     justify-self: end;
-  `}
-  ${media.tablet`
+  `} ${media.tablet`
     justify-self: center;
     margin: 0.2rem;
-  `}
+  `};
 `
 
 const BearsTeam = () => (

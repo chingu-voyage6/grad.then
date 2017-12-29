@@ -17,21 +17,19 @@ const StyledFooter = styled.footer`
 
   ${media.giant`
     grid-template-areas: '. nav nav nav nav nav nav . . team team .';
-  `}
-  ${media.desktop`
+  `} ${media.desktop`
     grid-template-areas: 'nav nav nav nav nav nav nav . . team team team';
-  `}
-  ${media.tablet`
+  `} ${media.tablet`
     grid-template-areas: '. team team team team team team team team team team .';
     & > ul {
       display: none;
     };
-  `}
+  `};
 `
 
 const Footer = props => (
   <StyledFooter>
-    <PageNav header={false} nav={props.navItems}/>
+    <PageNav header={false} nav={props.navItems} />
     <BearsTeam />
   </StyledFooter>
 )
