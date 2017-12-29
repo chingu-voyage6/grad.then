@@ -25,7 +25,7 @@ const Main = styled.div`
   margin-top: 4.625rem;
 `
 
-const TemplateWrapper = ({ children }) => (
+const TemplateWrapper = ({ data, children }) => (
   <ThemeProvider theme={theme}>
     <PageContainer>
       <Helmet
@@ -35,17 +35,28 @@ const TemplateWrapper = ({ children }) => (
           { name: 'keywords', content: 'sample, something' }
         ]}
       />
-      <Header />
+      <Header navItems={data.site.siteMetadata.pages} />
 
       <Main>{children()}</Main>
 
-      <Footer />
+      <Footer navItems={data.site.siteMetadata.pages} />
     </PageContainer>
   </ThemeProvider>
 )
 
 TemplateWrapper.propTypes = {
+  data: PropTypes.object,
   children: PropTypes.func
 }
+
+export const query = graphql`
+  query NavQuery {
+    site {
+      siteMetadata {
+        pages
+      }
+    }
+  }
+`
 
 export default TemplateWrapper

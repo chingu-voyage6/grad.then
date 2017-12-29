@@ -25,7 +25,7 @@ const Icon = props => (
 
 Icon.propTypes = {
   icon: PropTypes.string.isRequired,
-  color: PropTypes.func.isRequired,
+  color: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   size: PropTypes.number,
   viewbox: PropTypes.string
 }
