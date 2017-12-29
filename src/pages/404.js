@@ -1,10 +1,16 @@
 import React from 'react'
+import Link from 'gatsby-link'
+import styled from 'styled-components'
+
+const Page = styled.div`
+  color: red;
+`
 
 const NotFoundPage = () => (
-  <div>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </div>
+  <Page>
+    <h1>OOPS, PAGE NOT FOUND!</h1>
+    <Link to="/">Go to Homepage</Link>
+  </Page>
 )
 
 export default NotFoundPage
