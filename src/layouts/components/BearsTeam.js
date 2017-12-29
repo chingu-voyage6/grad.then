@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { StyledA } from '../../theme/globalStyle'
+import { StyledA, media } from '../../theme/globalStyle'
 import { ICONS } from '../../theme/constants'
 import Icon from './Icon'
 
@@ -73,6 +73,12 @@ const Team = styled.div`
       color: ${props => props.theme.secondary.green};
     }
   }
+  ${media.desktop`
+    justify-self: end;
+  `} ${media.tablet`
+    justify-self: center;
+    margin: 0.2rem;
+  `};
 `
 
 const BearsTeam = () => (
