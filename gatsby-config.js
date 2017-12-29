@@ -1,7 +1,8 @@
 module.exports = {
   pathPrefix: '/grad.then',
   siteMetadata: {
-    title: 'grad.then()'
+    title: 'grad.then()',
+    pages: ['jobs', 'learn', 'events', 'support', 'stories']
   },
   plugins: [
     'gatsby-plugin-react-helmet',
