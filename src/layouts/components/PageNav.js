@@ -125,7 +125,13 @@ const PageNav = ({ header, nav, theme }) => {
     const menu = document.getElementById('topnav')
     menu.classList.toggle('responsive')
   }
-
+  const closeNav = () => {
+    const width = window.innerWidth
+    if (width < 769) {
+      const menu = document.getElementById('topnav')
+      menu.classList.remove('responsive')
+    }
+  }
 
   return (
     header ?
@@ -146,6 +152,7 @@ const PageNav = ({ header, nav, theme }) => {
               to={`/${elem}`}
               data-header={header}
               activeClassName="activeLink"
+              onClick={closeNav}
             >
               { elem }
             </NavLink>
