@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { media } from '../../theme/globalStyle'
@@ -28,11 +29,15 @@ const StyledFooter = styled.footer`
   `}
 `
 
-const Footer = () => (
+const Footer = props => (
   <StyledFooter>
-    <PageNav header={false} />
+    <PageNav header={false} nav={props.navItems}/>
     <BearsTeam />
   </StyledFooter>
 )
+
+Footer.propTypes = {
+  navItems: PropTypes.array.isRequired
+}
 
 export default Footer
