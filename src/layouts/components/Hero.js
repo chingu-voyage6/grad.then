@@ -148,11 +148,32 @@ const buttonText = {
 }
 
 const StyledSimpleHero = StyledMainHero.extend`
-  min-height: auto;
-  height: 260px;
+  min-height: 200px;
+  height: 200px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
+  ${media.giant`min-height: 200px;`}
+  ${media.desktop`
+    grid-column: 2 / span 10;
+    min-height: 200px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+  `}
+  ${media.tablet`
+    grid-column: none;
+    min-height: 200px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0rem;
+  `}
+  ${media.phone`
+    grid-column: none;
+    min-height: 220px;
+    height: auto;
+    margin-bottom: 1rem;
+  `}
 `
 
 const SimpleHeroTitle = HeroTitle.extend`
@@ -162,6 +183,22 @@ const SimpleHeroTitle = HeroTitle.extend`
   text-transform: uppercase;
   font-size: 3.4rem;
   padding: 0.5rem 0 0 0;
+  ${media.giant`
+    font-size: 3.4rem;
+    padding: 0.5rem 0 0 0;
+  `}
+  ${media.desktop`
+    grid-column: 1 / span 12;
+    padding: 0.5rem 0 0 0;
+    font-size: 3.4rem;
+  `}
+  ${media.tablet`
+    font-size: 3.4rem;
+    padding: 0.5rem 0 1.4rem 0;
+  `}
+  ${media.phone`
+    font-size: 3.4rem;
+  `}
 `
 
 const SimpleHeroP = StyledP.extend`
@@ -173,7 +210,7 @@ const SimpleHeroP = StyledP.extend`
 `
 
 const ButtonContainer = styled.div`
-  grid-column: 6 / span 2;
+  grid-column: 5 / span 4;
 `
 
 const HeroButton = ButtonBig.extend`
@@ -189,7 +226,6 @@ const SimpleHero = props =>
   props.page === 'events' ? (
       <StyledSimpleHero>
         <SimpleHeroTitle>{props.page}</SimpleHeroTitle>
-        <SimpleHeroP>{faker.lorem.sentence()}</SimpleHeroP>
         <ButtonContainer>
           <HeroButton color={props => props.theme.white}>
             {buttonText[`${props.page}`]}
@@ -220,7 +256,7 @@ const StyledHero = styled.div`
   `}
   ${media.phone`
     background: ${props =>
-      props.bg === 'main' ? `url(${BGmob})` : props => props.theme.secondary.green};
+    props.bg === 'main' ? `url(${BGmob})` : props => props.theme.secondary.green};
     background-size: 100% 100%;
   `}
 `
