@@ -31,7 +31,7 @@ const IndexPage = ({ data }) => (
     <StyledP>{faker.lorem.paragraph()}</StyledP>
 
     {/* examples of icons usage */}
-    <IconContainer>
+    {/* <IconContainer>
       <Icon
         icon={ICONS.BRIEFCASE}
         size={100}
@@ -59,9 +59,9 @@ const IndexPage = ({ data }) => (
         size={100}
         color={({ theme }) => theme.primary.dark}
       />
-    </IconContainer>
+    </IconContainer> */}
 
-    <IconContainer>
+    {/* <IconContainer>
       <Icon
         icon={ICONS.BEAR_LIGHT}
         size={100}
@@ -76,18 +76,18 @@ const IndexPage = ({ data }) => (
       />
       <ButtonSmall>small</ButtonSmall>
       <ButtonBig>big</ButtonBig>
-    </IconContainer>
-    <Divider justify={'center'}>
+    </IconContainer> */}
+    {/* <Divider justify={'center'}>
       <h3>Hello world!</h3>
-    </Divider>
-    <Divider justify={'space-around'}>
+    </Divider> */}
+    {/* <Divider justify={'space-around'}>
       <Icon icon={ICONS.RULER} size={50} color={({ theme }) => theme.white} />
       <Icon icon={ICONS.BLOG} size={50} color={({ theme }) => theme.white} />
       <Icon icon={ICONS.RULER} size={50} color={({ theme }) => theme.white} />
-    </Divider>
-    <div style={{ display: 'flex', justifyContent: 'center', padding: '4px' }}>
+    </Divider> */}
+    {/* <div style={{ display: 'flex', justifyContent: 'center', padding: '4px' }}>
       <Pagination pageNum={5} />
-    </div>
+    </div> */}
   </div>
 )
 
