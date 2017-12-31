@@ -76,7 +76,7 @@ const HeroUl = StyledUl.extend`
     max-width: 65%;
   `} ${media.phone`
     max-width: 90%;
-    background-color: rgba(69, 52, 99, 0.5);
+    background-color: ${props => props.theme.shades.dark};
     border: 1px solid transparent;
     border-radius: 3px;
     margin: 1rem 0;
