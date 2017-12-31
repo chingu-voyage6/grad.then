@@ -3,21 +3,34 @@ import styled from 'styled-components'
 import { withTheme } from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { StyledA, StyledH3 } from '../../theme/globalStyle'
+import { StyledA, StyledH3, media } from '../../theme/globalStyle'
 import { Button } from './Button'
 
 const FilterContainer = styled.div`
   grid-area: filt;
-  display: block;
-  margin: 0 auto;
+  ${'' /* display: block;
+  margin: 0 auto; */}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 0.1rem;
   margin-bottom: 11rem;
+  ${media.phone`
+    flex-flow: row wrap;
+    align-items: flex-end;
+    padding: 0.25rem;
+    margin-bottom: 0.6rem;
+    justify-content: space-around;
+  `}
 `
 
 const StyledFilter = styled.div`
   position: relative;
   margin-bottom: 0.5rem;
   padding: 0.5rem;
+  ${media.phone`
+    padding: 0.2rem;
+  `}
 `
 
 const FilterTitle = StyledH3.extend`
@@ -26,6 +39,18 @@ const FilterTitle = StyledH3.extend`
   color: ${props => props.theme.primary.light};
   margin: 0.5rem;
   padding: 0.5rem;
+  ${media.giant`
+    font-size: 1rem;
+    padding: 0;
+    margin: 0.3rem 0;
+  `}
+  ${media.desktop`
+    padding: 0.3rem 0;
+  `}
+  ${media.phone`
+    text-align: center;
+    font-size: 0.8rem;
+  `}
 `
 
 const FilterName = styled.button`
@@ -40,6 +65,21 @@ const FilterName = styled.button`
   &:focus {
     background-color: ${props => props.theme.secondary.red};
   }
+  ${media.giant`
+    min-width: 140px;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+  `}
+  ${media.desktop`
+    min-width: 120px;
+    font-size: 1rem;
+  `}
+  ${media.phone`
+    min-width: 90px;
+    font-size: 0.9rem;
+    text-transform: lowercase;
+    flex: 1 0 80px;
+  `}
 `
 
 const OptionContainer = styled.div`
@@ -52,6 +92,15 @@ const OptionContainer = styled.div`
   &.show {
     display: block;
   }
+  ${media.giant`
+    min-width: 140px;
+  `}
+  ${media.desktop`
+    min-width: 120px;
+  `}
+  ${media.phone`
+    min-width: 90px;
+  `}
 `
 
 const FilterOption = StyledA.extend`
@@ -69,6 +118,19 @@ const FilterOption = StyledA.extend`
     color: ${props => props.theme.white};
     background-color: ${props => props.theme.primary.light};
   }
+  ${media.desktop`
+    padding: 0.5rem 0.2rem;
+    font-size: 1.15rem;
+  `}
+  ${media.desktop`
+    padding: 0.5rem 0.2rem;
+    font-size: 1rem;
+  `}
+  ${media.phone`
+    font-size: 0.9rem;
+    padding: 0.2rem 0.1rem;
+    text-transform: lowercase;
+  `}
 `
 const SubmitButton = Button.extend`
   display: block;
@@ -78,6 +140,23 @@ const SubmitButton = Button.extend`
   font-weight: 600;
   border-width: 2px;
   margin: 3rem 0 0 0.5rem;
+  ${media.giant`
+    min-width: 140px;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    margin-top: 2.5rem;
+  `}
+  ${media.desktop`
+    min-width: 120px;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    margin: 2rem 0 0 0;
+  `}
+  ${media.phone`
+    min-width: 90px;
+    font-size: 0.9rem;
+    margin: 0.6rem 0;
+  `}
 `
 
 class JobsFilter extends React.Component {

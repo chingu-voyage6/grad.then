@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { withTheme } from 'styled-components'
 import PropTypes from 'prop-types'
 
+import { media } from '../../theme/globalStyle'
 import JobsFilter from './JobsFilter'
 import JobsList from './JobsList'
 import Pagination from './Pagination'
@@ -18,12 +19,28 @@ const Wrapper = styled.div`
     '. fs fs fs fs fs fs fs fs fs fs .'
     '. filt filt filt lst lst lst lst lst lst lst .';
   margin-top: 2.5rem;
+  ${media.tablet`
+    grid-column-gap: 0.5rem;
+    grid-template-areas:
+      'fs fs fs fs fs fs fs fs fs fs fs fs'
+      'filt filt filt filt lst lst lst lst lst lst lst .';
+  `}
+  ${media.phone`
+    grid-column-gap: 0.5rem;
+    grid-template-areas:
+      'fs fs fs fs fs fs fs fs fs fs fs fs'
+      'filt filt filt filt filt filt filt filt filt filt filt filt'
+      '. lst lst lst lst lst lst lst lst lst lst .';
+  `}
 `
 
 const List = styled.div`
   grid-area: lst;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   margin: 0;
-  padding: 0rem;
+  padding: 0;
 `
 
 class JobsContainer extends React.Component {
