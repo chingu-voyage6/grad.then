@@ -4,6 +4,9 @@ import Hero from '../layouts/components/Hero'
 import { StyledH2, StyledP } from '../theme/globalStyle'
 import CardContainer from '../layouts/components/CardContainer'
 import { addCards } from '../layouts/utils/helpers'
+import Divider from '../layouts/components/Divider'
+import { ICONS } from '../theme/constants.js'
+import Icon from '../layouts/components/Icon.js'
 
 import faker from 'faker'
 
@@ -31,6 +34,16 @@ const SupportPage = () => (
     <SectionTitle>search &#38; filter here</SectionTitle>
 
     <CardContainer cols={5}>{addCards(10, 'project')}</CardContainer>
+
+  <Divider justify={'center'}>
+    <h3>Hello world!</h3>
+  </Divider>
+  <Divider justify={'space-around'}>
+    <Icon icon={ICONS.RULER} size={50} color={({ theme }) => theme.white} />
+    <Icon icon={ICONS.BLOG} size={50} color={({ theme }) => theme.white} />
+    <Icon icon={ICONS.RULER} size={50} color={({ theme }) => theme.white} />
+  </Divider>
+
   </div>
 )
 
