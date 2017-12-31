@@ -70,7 +70,6 @@ const IconText = StyledP.extend`
   padding: 0.3rem;
 `
 
-
 const IndexPage = ({ data }) => (
   <div>
     <Hero type="main" title={data.site.siteMetadata.title} />
@@ -78,55 +77,54 @@ const IndexPage = ({ data }) => (
       <MainTitle>explore what is next</MainTitle>
       <MainSubtitle>{faker.lorem.sentence()}</MainSubtitle>
 
-    <IconContainer>
-      <IconWrapper to={`/${data.site.siteMetadata.pages[0]}`}>
-        <Icon
-          icon={ICONS.BRIEFCASE}
-          size={100}
-          color={({ theme }) => theme.primary.dark}
-        />
-        <IconText>Get a job</IconText>
-      </IconWrapper>
+      <IconContainer>
+        <IconWrapper to={`/${data.site.siteMetadata.pages[0]}`}>
+          <Icon
+            icon={ICONS.BRIEFCASE}
+            size={100}
+            color={({ theme }) => theme.primary.dark}
+          />
+          <IconText>Get a job</IconText>
+        </IconWrapper>
 
-      <IconWrapper to={`/${data.site.siteMetadata.pages[1]}`}>
-        <Icon
-          icon={ICONS.BOOKS}
-          size={100}
-          color={({ theme }) => theme.primary.dark}
-          viewbox={'0 0 36 32'}
-        />
-        <IconText>Boost skills</IconText>
-      </IconWrapper>
+        <IconWrapper to={`/${data.site.siteMetadata.pages[1]}`}>
+          <Icon
+            icon={ICONS.BOOKS}
+            size={100}
+            color={({ theme }) => theme.primary.dark}
+            viewbox={'0 0 36 32'}
+          />
+          <IconText>Boost skills</IconText>
+        </IconWrapper>
 
-      <IconWrapper to={`/${data.site.siteMetadata.pages[2]}`}>
-        <Icon
-          icon={ICONS.GROUP}
-          size={90}
-          color={({ theme }) => theme.primary.dark}
-          viewbox={'0 0 30 28'}
-        />
-        <IconText>Find a community</IconText>
-      </IconWrapper>
+        <IconWrapper to={`/${data.site.siteMetadata.pages[2]}`}>
+          <Icon
+            icon={ICONS.GROUP}
+            size={90}
+            color={({ theme }) => theme.primary.dark}
+            viewbox={'0 0 30 28'}
+          />
+          <IconText>Find a community</IconText>
+        </IconWrapper>
 
-      <IconWrapper to={`/${data.site.siteMetadata.pages[3]}`}>
-        <Icon
-          icon={ICONS.RULER}
-          size={90}
-          color={({ theme }) => theme.primary.dark}
-        />
-        <IconText>Help nonprofits</IconText>
-      </IconWrapper>
+        <IconWrapper to={`/${data.site.siteMetadata.pages[3]}`}>
+          <Icon
+            icon={ICONS.RULER}
+            size={90}
+            color={({ theme }) => theme.primary.dark}
+          />
+          <IconText>Help nonprofits</IconText>
+        </IconWrapper>
 
-      <IconWrapper to={`/${data.site.siteMetadata.pages[4]}`}>
-        <Icon
-          icon={ICONS.BLOG}
-          size={90}
-          color={({ theme }) => theme.primary.dark}
-        />
-        <IconText>Share an experience</IconText>
-      </IconWrapper>
-    </IconContainer>
-
+        <IconWrapper to={`/${data.site.siteMetadata.pages[4]}`}>
+          <Icon
+            icon={ICONS.BLOG}
+            size={90}
+            color={({ theme }) => theme.primary.dark}
+          />
+          <IconText>Share an experience</IconText>
+        </IconWrapper>
+      </IconContainer>
     </PageContainer>
   </div>
 )

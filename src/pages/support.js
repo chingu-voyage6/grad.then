@@ -35,15 +35,14 @@ const SupportPage = () => (
 
     <CardContainer cols={5}>{addCards(10, 'project')}</CardContainer>
 
-  <Divider justify={'center'}>
-    <h3>Hello world!</h3>
-  </Divider>
-  <Divider justify={'space-around'}>
-    <Icon icon={ICONS.RULER} size={50} color={({ theme }) => theme.white} />
-    <Icon icon={ICONS.BLOG} size={50} color={({ theme }) => theme.white} />
-    <Icon icon={ICONS.RULER} size={50} color={({ theme }) => theme.white} />
-  </Divider>
-
+    <Divider justify={'center'}>
+      <h3>Hello world!</h3>
+    </Divider>
+    <Divider justify={'space-around'}>
+      <Icon icon={ICONS.RULER} size={50} color={({ theme }) => theme.white} />
+      <Icon icon={ICONS.BLOG} size={50} color={({ theme }) => theme.white} />
+      <Icon icon={ICONS.RULER} size={50} color={({ theme }) => theme.white} />
+    </Divider>
   </div>
 )
 

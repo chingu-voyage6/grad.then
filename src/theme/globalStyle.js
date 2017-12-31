@@ -89,7 +89,7 @@ export const theme = {
     red: '#ff8463'
   },
   shades: {
-    dark: 'rgba(69, 52, 99, 0.5)' 
+    dark: 'rgba(69, 52, 99, 0.5)'
   },
   tints: {
     brightgreen: '#57a984'
