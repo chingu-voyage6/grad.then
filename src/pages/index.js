@@ -14,6 +14,13 @@ const PageContainer = styled.div`
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   margin: 3rem 0;
+  ${media.giant`
+    margin: 1.5rem 0 0 0;
+  `} ${media.desktop`
+    margin: 1rem 0 0 0;
+  `} ${media.tablet`
+    margin: 1rem 0;
+  `};
 `
 
 const MainTitle = StyledH2.extend`
@@ -24,6 +31,12 @@ const MainTitle = StyledH2.extend`
   text-transform: uppercase;
   color: ${props => props.theme.primary.light};
   padding-bottom: 0.5rem;
+  ${media.tablet`
+    font-size: 2.6rem;
+  `} ${media.phone`
+    font-size: 2rem;
+    padding: 0.5rem;
+  `};
 `
 
 const MainSubtitle = StyledP.extend`
@@ -34,6 +47,11 @@ const MainSubtitle = StyledP.extend`
   color: ${props => props.theme.secondary.red};
   margin: 0.5rem;
   padding: 0.3rem;
+  ${media.tablet`
+    font-size: 1.4rem;
+  `} ${media.phone`
+    font-size: 1.2rem;
+  `};
 `
 
 const IconContainer = styled.div`
@@ -42,12 +60,21 @@ const IconContainer = styled.div`
   margin: 1rem 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: baseline;
+  ${media.giant`
+    grid-column: 3 / span 8;
+    justify-content: space-around;
+  `} ${media.tablet`
+    grid-column: 1 / span 12;
+    margin: 0.5rem 0;
+  `} ${media.phone`
+    margin: 0;
+  `};
 `
 
 const IconWrapper = styled(Link)`
-  min-width: 150px;
+  min-width: 140px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,6 +88,14 @@ const IconWrapper = styled(Link)`
       fill: ${props => props.theme.tints.brightgreen};
     }
   }
+  ${media.giant`
+    min-width: 180px;
+  `} ${media.tablet`
+    margin: 0.2rem;
+  `} ${media.phone`
+    margin: 0.2rem;
+    padding: 0.2rem;
+  `};
 `
 const IconText = StyledP.extend`
   font-size: 1.25rem;
