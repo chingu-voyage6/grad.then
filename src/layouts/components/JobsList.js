@@ -38,10 +38,9 @@ const JobTitle = StyledH3.extend`
   padding: 0.2rem 0.2rem 0.2rem 0;
   ${media.desktop`
     font-size: 1.2rem;
-  `}
-  ${media.tablet`
+  `} ${media.tablet`
     font-size: 1rem;
-  `}
+  `};
 `
 const Items = styled.div`
   display: flex;
@@ -58,7 +57,7 @@ const JobItem = StyledP.extend`
   padding: 0.2rem 0.2rem 0.2rem 0;
   ${media.tablet`
     font-size: 0.8rem;
-  `}
+  `};
 `
 
 const JobText = StyledP.extend`
@@ -68,7 +67,7 @@ const JobText = StyledP.extend`
   padding: 0.2rem 0.2rem 0.2rem 0;
   ${media.tablet`
     font-size: 0.95rem;
-  `}
+  `};
 `
 
 class JobsList extends React.Component {

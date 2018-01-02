@@ -21,7 +21,7 @@ const FilterContainer = styled.div`
     padding: 0.25rem;
     margin-bottom: 0.6rem;
     justify-content: space-around;
-  `}
+  `};
 `
 
 const StyledFilter = styled.div`
@@ -30,7 +30,7 @@ const StyledFilter = styled.div`
   padding: 0.5rem;
   ${media.phone`
     padding: 0.2rem;
-  `}
+  `};
 `
 
 const FilterTitle = StyledH3.extend`
@@ -43,14 +43,12 @@ const FilterTitle = StyledH3.extend`
     font-size: 1rem;
     padding: 0;
     margin: 0.3rem 0;
-  `}
-  ${media.desktop`
+  `} ${media.desktop`
     padding: 0.3rem 0;
-  `}
-  ${media.phone`
+  `} ${media.phone`
     text-align: center;
     font-size: 0.8rem;
-  `}
+  `};
 `
 
 const FilterName = styled.button`
@@ -74,16 +72,13 @@ const FilterName = styled.button`
       width: 1.2rem;
       height: 1.2rem;
     }
-  `}
-  ${media.desktop`
+  `} ${media.desktop`
     min-width: 9rem;
     font-size: 1rem;
     padding: 0.8rem;
-  `}
-  ${media.tablet`
+  `} ${media.tablet`
     min-width: 8.5rem;
-  `}
-  ${media.phone`
+  `} ${media.phone`
     min-width: 9rem;
     font-size: 1rem;
     text-transform: lowercase;
@@ -92,7 +87,7 @@ const FilterName = styled.button`
       width: 1rem;
       height: 1rem;
     }
-  `}
+  `};
 `
 
 const OptionContainer = styled.div`
@@ -107,16 +102,13 @@ const OptionContainer = styled.div`
   }
   ${media.giant`
     min-width: 10rem;
-  `}
-  ${media.desktop`
+  `} ${media.desktop`
     min-width: 9rem;
-  `}
-  ${media.tablet`
+  `} ${media.tablet`
     min-width: 8.5rem;
-  `}
-  ${media.phone`
+  `} ${media.phone`
     min-width: 9rem;
-  `}
+  `};
 `
 
 const FilterOption = StyledA.extend`
@@ -136,16 +128,14 @@ const FilterOption = StyledA.extend`
   ${media.desktop`
     padding: 0.5rem 0.2rem;
     font-size: 1.15rem;
-  `}
-  ${media.desktop`
+  `} ${media.desktop`
     padding: 0.5rem 0.6rem;
     font-size: 1rem;
-  `}
-  ${media.phone`
+  `} ${media.phone`
     font-size: 1rem;
     padding: 0.4rem 0.6rem;
     text-transform: lowercase;
-  `}
+  `};
 `
 const SubmitButton = Button.extend`
   display: block;
@@ -160,21 +150,18 @@ const SubmitButton = Button.extend`
     padding: 0.5rem;
     font-size: 1.2rem;
     margin-top: 2.5rem;
-  `}
-  ${media.desktop`
+  `} ${media.desktop`
     min-width: 7rem;
     padding: 0.5rem;
     font-size: 1.2rem;
     margin: 2rem 0 0 0;
-  `}
-  ${media.tablet`
+  `} ${media.tablet`
     min-width: 6.5rem;
-  `}
-  ${media.phone`
+  `} ${media.phone`
     min-width: 10rem;
     font-size: 0.9rem;
     margin: 0.9rem 0;
-  `}
+  `};
 `
 
 class JobsFilter extends React.Component {

@@ -23,13 +23,11 @@ const Wrapper = styled.div`
   margin: 1rem 0;
   ${media.giant`
     margin: 0.8rem 0;
-  `}
-  ${media.desktop`
+  `} ${media.desktop`
     margin: 0.6rem 0;
-  `}
-  ${media.tablet`
+  `} ${media.tablet`
     margin: 0.4rem 0;
-  `}
+  `};
 `
 
 const Quote = props => (

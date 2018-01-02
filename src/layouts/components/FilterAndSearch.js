@@ -11,14 +11,13 @@ const StyledFilter = styled.div`
   ${media.desktop`
     max-width: 260px;
     flex-wrap: wrap;
-  `}
-  ${media.tablet`
+  `} ${media.tablet`
     max-width: 100%;
     width: 100%;
     justify-content: center;
     margin-bottom: 1rem;
     padding: 0 0.3rem;
-  `}
+  `};
 `
 
 const FilterButton = styled.button`
@@ -41,14 +40,12 @@ const FilterButton = styled.button`
   }
   ${media.giant`
     min-width: 100px;
-  `}
-  ${media.desktop`
+  `} ${media.desktop`
     min-width: 120px;
-  `}
-  ${media.tablet`
+  `} ${media.tablet`
     min-width: 110px;
     font-size: 0.9rem;
-  `}
+  `};
 `
 
 const Filter = props => {
@@ -80,14 +77,13 @@ const Filter = props => {
   )
 }
 
-
 // Search component----------------------------------
 const StyledSearch = styled.div`
   margin-left: 0.2rem;
   justify-self: flex-end;
   ${media.tablet`
     width: auto;
-  `}
+  `};
 `
 
 const StyledInput = styled.input`
@@ -98,7 +94,7 @@ const StyledInput = styled.input`
   ${media.tablet`
     max-width: 75%;
     font-size: 0.9rem;
-  `}
+  `};
 `
 
 const StyledButton = styled.button`
@@ -119,7 +115,7 @@ const StyledButton = styled.button`
   }
   ${media.tablet`
     font-size: 0.9rem;
-  `}
+  `};
 `
 
 // controlled Input
@@ -146,7 +142,6 @@ const Search = props => {
   )
 }
 
-
 // Search & Fiter component
 // container for search & filter
 const StyledForm = styled.form`
@@ -160,11 +155,10 @@ const StyledForm = styled.form`
     margin-top: 0.2rem;
     margin-bottom: 1rem;
     align-items: center;
-  `}
-  ${media.tablet`
+  `} ${media.tablet`
     flex-wrap: wrap;
     justify-content: center;
-  `}
+  `};
 `
 
 class SearchAndFilter extends Component {

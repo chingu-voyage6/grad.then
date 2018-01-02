@@ -28,8 +28,7 @@ const PaginationButton = styled.button`
     font-size: 1rem;
     min-width: 2rem;
     min-height: 2rem;
-  `}
-
+  `};
 `
 const ButtonRight = PaginationButton.extend`
   border-radius: 0px 4px 4px 0px;
