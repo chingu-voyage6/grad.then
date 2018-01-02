@@ -3,13 +3,15 @@ import styled from 'styled-components'
 import Link from 'gatsby-link'
 import PropTypes from 'prop-types'
 
-import { StyledH3, StyledP } from '../../theme/globalStyle'
+import { StyledH3, StyledP, media } from '../../theme/globalStyle'
+import Quote from './Quote'
 
 const Wrapper = styled.div`
   background: ${props => props.theme.white};
   border-radius: 4px;
   border: 1px solid ${props => props.theme.primary.light};
   margin: 0.5rem 0;
+  padding: 0.5rem 0.5rem 0.5rem 0.7rem;
 `
 
 const JobLink = styled(Link).attrs({
@@ -25,19 +27,25 @@ const JobLink = styled(Link).attrs({
   }
 `
 const JobLi = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto;
   color: ${props => props.theme.primary.light};
   margin: 0rem;
   padding: 0rem;
 `
 
 const JobTitle = StyledH3.extend`
-  grid-column: 1 / span 4;
   color: ${props => props.theme.primary.light};
-  margin: 0.2rem;
-  padding: 0.2rem;
+  margin: 0.2rem 0.2rem 0.2rem 0;
+  padding: 0.2rem 0.2rem 0.2rem 0;
+  ${media.desktop`
+    font-size: 1.2rem;
+  `} ${media.tablet`
+    font-size: 1rem;
+  `};
+`
+const Items = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 `
 
 const JobItem = StyledP.extend`
@@ -45,16 +53,21 @@ const JobItem = StyledP.extend`
   font-size: 1rem;
   color: ${props => props.theme.text};
   text-transform: capitalize;
-  margin: 0.2rem;
-  padding: 0.2rem;
+  margin: 0.2rem 0.2rem 0.2rem 0;
+  padding: 0.2rem 0.2rem 0.2rem 0;
+  ${media.tablet`
+    font-size: 0.8rem;
+  `};
 `
 
 const JobText = StyledP.extend`
-  grid-column: 1 / span 4;
   font-size: 1.1rem;
   color: ${props => props.theme.text};
-  margin: 0.2rem;
-  padding: 0.2rem;
+  margin: 0.2rem 0.2rem 0.2rem 0;
+  padding: 0.2rem 0.2rem 0.2rem 0;
+  ${media.tablet`
+    font-size: 0.95rem;
+  `};
 `
 
 class JobsList extends React.Component {
@@ -72,10 +85,13 @@ class JobsList extends React.Component {
             <JobTitle>
               <JobLink to="/">{this.props.title}</JobLink>
             </JobTitle>
-            <JobItem>{`Type: ${this.props.text.type}`}</JobItem>
-            <JobItem>{`Role: ${this.props.text.role}`}</JobItem>
-            <JobItem>{`Level: ${this.props.text.level}`}</JobItem>
-            <JobItem>{`Location: ${this.props.text.location}`}</JobItem>
+            <Quote />
+            <Items>
+              <JobItem>{`Type: ${this.props.text.type}`}</JobItem>
+              <JobItem>{`Role: ${this.props.text.role}`}</JobItem>
+              <JobItem>{`Level: ${this.props.text.level}`}</JobItem>
+              <JobItem>{`Location: ${this.props.text.location}`}</JobItem>
+            </Items>
             <JobText>{this.props.text.description}</JobText>
           </JobLi>
         )}

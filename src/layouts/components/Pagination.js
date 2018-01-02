@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
+import { media } from '../../theme/globalStyle'
+
 const PaginationButton = styled.button`
   border: 1px solid ${props => props.theme.primary.light};
   color: ${props => props.color || props.theme.primary.light};
@@ -19,10 +21,14 @@ const PaginationButton = styled.button`
   &:active {
     outline: none;
   }
-
   &:visited {
     outline: none;
   }
+  ${media.desktop`
+    font-size: 1rem;
+    min-width: 2rem;
+    min-height: 2rem;
+  `};
 `
 const ButtonRight = PaginationButton.extend`
   border-radius: 0px 4px 4px 0px;

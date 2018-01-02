@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
+import { media } from '../../theme/globalStyle'
 const QuoteText = styled.blockquote`
   color: ${props => props.theme.primary.dark};
   font-size: 1.5rem;
@@ -19,7 +20,14 @@ const Separator = styled.hr`
 `
 
 const Wrapper = styled.div`
-  margin: 2rem 0;
+  margin: 1rem 0;
+  ${media.giant`
+    margin: 0.8rem 0;
+  `} ${media.desktop`
+    margin: 0.6rem 0;
+  `} ${media.tablet`
+    margin: 0.4rem 0;
+  `};
 `
 
 const Quote = props => (

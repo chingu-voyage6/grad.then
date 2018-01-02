@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { withTheme } from 'styled-components'
 import PropTypes from 'prop-types'
 
+import { media } from '../../theme/globalStyle'
 import JobsFilter from './JobsFilter'
 import JobsList from './JobsList'
 import Pagination from './Pagination'
@@ -18,12 +19,27 @@ const Wrapper = styled.div`
     '. fs fs fs fs fs fs fs fs fs fs .'
     '. filt filt filt lst lst lst lst lst lst lst .';
   margin-top: 2.5rem;
+  ${media.tablet`
+    grid-column-gap: 0.5rem;
+    grid-template-areas:
+      'fs fs fs fs fs fs fs fs fs fs fs fs'
+      'filt filt filt filt lst lst lst lst lst lst lst .';
+  `} ${media.phone`
+    grid-column-gap: 0.5rem;
+    grid-template-areas:
+      'fs fs fs fs fs fs fs fs fs fs fs fs'
+      'filt filt filt filt filt filt filt filt filt filt filt filt'
+      '. lst lst lst lst lst lst lst lst lst lst .';
+  `};
 `
 
 const List = styled.div`
   grid-area: lst;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   margin: 0;
-  padding: 0rem;
+  padding: 0;
 `
 
 class JobsContainer extends React.Component {
@@ -96,6 +112,7 @@ class JobsContainer extends React.Component {
 
   handleDates(str) {
     // immitation of new query
+    const data = this.state.filter
     const currLength =
         this.state.query.length < 5 ? 7 : this.state.query.length,
       length = str === 'all' ? 7 : Math.floor(Math.random() * (currLength + 1))
@@ -105,7 +122,7 @@ class JobsContainer extends React.Component {
       const searchQuery = this.state.searchQuery
       result = fakeAPI(length, undefined, searchQuery)
     } else {
-      result = fakeAPI(length)
+      result = fakeAPI(length, data)
     }
 
     result.then(query => this.setState({ query }))
