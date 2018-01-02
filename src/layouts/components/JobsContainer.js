@@ -113,6 +113,7 @@ class JobsContainer extends React.Component {
 
   handleDates(str) {
     // immitation of new query
+    const data = this.state.filter
     const currLength =
         this.state.query.length < 5 ? 7 : this.state.query.length,
       length = str === 'all' ? 7 : Math.floor(Math.random() * (currLength + 1))
@@ -122,7 +123,7 @@ class JobsContainer extends React.Component {
       const searchQuery = this.state.searchQuery
       result = fakeAPI(length, undefined, searchQuery)
     } else {
-      result = fakeAPI(length)
+      result = fakeAPI(length, data)
     }
 
     result.then(query => this.setState({ query }))

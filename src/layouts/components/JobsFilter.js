@@ -5,11 +5,11 @@ import PropTypes from 'prop-types'
 
 import { StyledA, StyledH3, media } from '../../theme/globalStyle'
 import { Button } from './Button'
+import Icon from './Icon'
+import { ICONS } from '../../theme/constants'
 
 const FilterContainer = styled.div`
   grid-area: filt;
-  ${'' /* display: block;
-  margin: 0 auto; */}
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,31 +54,44 @@ const FilterTitle = StyledH3.extend`
 `
 
 const FilterName = styled.button`
-  min-width: 10rem;
+  min-width: 12rem;
   padding: 1rem;
   font-size: 1.2rem;
   background-color: ${props => props.theme.primary.light};
   color: ${props => props.theme.white};
-  text-transform: uppercase;
   border: none;
+  display: flex;
+  justify-content: space-between;
   &:hover,
   &:focus {
     background-color: ${props => props.theme.secondary.red};
   }
   ${media.giant`
-    min-width: 140px;
-    padding: 0.5rem;
+    min-width: 10rem;
+    padding: 0.7rem;
     font-size: 1.2rem;
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
   `}
   ${media.desktop`
-    min-width: 120px;
+    min-width: 9rem;
     font-size: 1rem;
+    padding: 0.8rem;
+  `}
+  ${media.tablet`
+    min-width: 8.5rem;
   `}
   ${media.phone`
-    min-width: 90px;
-    font-size: 0.9rem;
+    min-width: 9rem;
+    font-size: 1rem;
     text-transform: lowercase;
     flex: 1 0 80px;
+    svg {
+      width: 1rem;
+      height: 1rem;
+    }
   `}
 `
 
@@ -86,20 +99,23 @@ const OptionContainer = styled.div`
   display: none;
   position: absolute;
   background-color: ${props => props.theme.white};
-  min-width: 10rem;
+  min-width: 12rem;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   &.show {
     display: block;
   }
   ${media.giant`
-    min-width: 140px;
+    min-width: 10rem;
   `}
   ${media.desktop`
-    min-width: 120px;
+    min-width: 9rem;
+  `}
+  ${media.tablet`
+    min-width: 8.5rem;
   `}
   ${media.phone`
-    min-width: 90px;
+    min-width: 9rem;
   `}
 `
 
@@ -107,7 +123,6 @@ const FilterOption = StyledA.extend`
   padding: 12px 16px;
   margin: 0;
   display: block;
-  text-transform: uppercase;
   font-size: 1.1rem;
   color: ${props => props.theme.primary.dark};
   &:visited,
@@ -123,12 +138,12 @@ const FilterOption = StyledA.extend`
     font-size: 1.15rem;
   `}
   ${media.desktop`
-    padding: 0.5rem 0.2rem;
+    padding: 0.5rem 0.6rem;
     font-size: 1rem;
   `}
   ${media.phone`
-    font-size: 0.9rem;
-    padding: 0.2rem 0.1rem;
+    font-size: 1rem;
+    padding: 0.4rem 0.6rem;
     text-transform: lowercase;
   `}
 `
@@ -139,23 +154,26 @@ const SubmitButton = Button.extend`
   font-size: 1.4rem;
   font-weight: 600;
   border-width: 2px;
-  margin: 3rem 0 0 0.5rem;
+  margin: 3rem 0 0 0;
   ${media.giant`
-    min-width: 140px;
+    min-width: 8rem;
     padding: 0.5rem;
     font-size: 1.2rem;
     margin-top: 2.5rem;
   `}
   ${media.desktop`
-    min-width: 120px;
+    min-width: 7rem;
     padding: 0.5rem;
     font-size: 1.2rem;
     margin: 2rem 0 0 0;
   `}
+  ${media.tablet`
+    min-width: 6.5rem;
+  `}
   ${media.phone`
-    min-width: 90px;
+    min-width: 10rem;
     font-size: 0.9rem;
-    margin: 0.6rem 0;
+    margin: 0.9rem 0;
   `}
 `
 
@@ -185,7 +203,7 @@ class JobsFilter extends React.Component {
       targetText = e.target.innerText,
       currFilterId = `filter${num}`,
       currFilter = document.getElementById(currFilterId)
-    currFilter.innerHTML = targetText
+    currFilter.firstChild.innerHTML = targetText
     targetParent.classList.remove('show')
 
     this.props.onChange(num, targetText.toLowerCase())
@@ -206,7 +224,12 @@ class JobsFilter extends React.Component {
         <StyledFilter>
           <FilterTitle>jobs type</FilterTitle>
           <FilterName id="filter1" onClick={this.handleClick}>
-            {this.props.titles[0]}
+            <span>{this.props.titles[0]}</span>
+            <Icon
+              icon={ICONS.CIRCLEDOWN}
+              size={24}
+              color={({ theme }) => theme.white}
+            />
           </FilterName>
           <OptionContainer id="opt-cont-1" onMouseLeave={this.handleMouseLeave}>
             <FilterOption onClick={this.handleOption}>any</FilterOption>
@@ -220,7 +243,12 @@ class JobsFilter extends React.Component {
         <StyledFilter>
           <FilterTitle>jobs role</FilterTitle>
           <FilterName id="filter2" onClick={this.handleClick}>
-            {this.props.titles[1]}
+            <span>{this.props.titles[1]}</span>
+            <Icon
+              icon={ICONS.CIRCLEDOWN}
+              size={24}
+              color={({ theme }) => theme.white}
+            />
           </FilterName>
           <OptionContainer id="opt-cont-2" onMouseLeave={this.handleMouseLeave}>
             <FilterOption onClick={this.handleOption}>any</FilterOption>
@@ -234,7 +262,12 @@ class JobsFilter extends React.Component {
         <StyledFilter>
           <FilterTitle>level</FilterTitle>
           <FilterName id="filter3" onClick={this.handleClick}>
-            {this.props.titles[2]}
+            <span>{this.props.titles[2]}</span>
+            <Icon
+              icon={ICONS.CIRCLEDOWN}
+              size={24}
+              color={({ theme }) => theme.white}
+            />
           </FilterName>
           <OptionContainer id="opt-cont-3" onMouseLeave={this.handleMouseLeave}>
             <FilterOption onClick={this.handleOption}>any</FilterOption>
@@ -248,7 +281,12 @@ class JobsFilter extends React.Component {
         <StyledFilter>
           <FilterTitle>location</FilterTitle>
           <FilterName id="filter4" onClick={this.handleClick}>
-            {this.props.titles[3]}
+            <span>{this.props.titles[3]}</span>
+            <Icon
+              icon={ICONS.CIRCLEDOWN}
+              size={24}
+              color={({ theme }) => theme.white}
+            />
           </FilterName>
           <OptionContainer id="opt-cont-4" onMouseLeave={this.handleMouseLeave}>
             <FilterOption onClick={this.handleOption}>any</FilterOption>
