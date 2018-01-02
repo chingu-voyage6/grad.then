@@ -2,57 +2,28 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const StyledInput = styled.input`
-  padding: 8px 4px;
-  font-size: 1rem;
-  border: 2px solid ${({ theme }) => theme.secondary.red};
-  color: ${({ theme }) => theme.primary.dark};
-`
+import { media } from '../../theme/globalStyle'
 
-const StyledButton = styled.button`
-  margin: 0;
-  padding: 9px 4px;
-  border: 1px solid ${({ theme }) => theme.secondary.red};
-  border-left-width: 0;
-  background-color: ${({ theme }) => theme.secondary.red};
-  color: ${({ theme }) => theme.primary.dark};
-  cursor: pointer;
-  text-transform: uppercase;
-  font-size: 1rem;
-  &:hover,
-  &:focus {
-    background-color: ${({ theme }) => theme.primary.light};
-    color: ${({ theme }) => theme.white};
-    border-color: ${({ theme }) => theme.primary.light};
-  }
-`
-
-const StyledForm = styled.form`
-  grid-area: ${props => props.area};
-  display: grid;
-  grid-template-columns: 2fr 1fr 2fr;
-  grid-template-rows: auto;
-  justify-content: center;
-  align-items: center;
-  font-size: 1rem;
-  margin: 1rem 0 2rem 0;
-`
-
-const StyledSearch = styled.div`
-  grid-column: 4 / span 2;
-  justify-self: end;
-  margin-left: 0.2rem;
-`
-
+// Filter component ------------------------------------
 const StyledFilter = styled.div`
-  grid-column: 1 / span 2;
-  justify-self: start;
+  display: flex;
+  justify-content: flex-start;
+  ${media.desktop`
+    max-width: 260px;
+    flex-wrap: wrap;
+  `} ${media.tablet`
+    max-width: 100%;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 1rem;
+    padding: 0 0.3rem;
+  `};
 `
 
 const FilterButton = styled.button`
-  min-width: 7rem;
+  min-width: 120px;
   padding: 0.5rem;
-  margin-left: 0.2rem;
+  margin: 0 0 0.2rem 0.2rem;
   font-size: 1rem;
   background-color: ${props => props.theme.secondary.yellow};
   color: ${props => props.theme.primary.dark};
@@ -67,6 +38,14 @@ const FilterButton = styled.button`
   &.active {
     background-color: ${props => props.theme.secondary.red};
   }
+  ${media.giant`
+    min-width: 100px;
+  `} ${media.desktop`
+    min-width: 120px;
+  `} ${media.tablet`
+    min-width: 110px;
+    font-size: 0.9rem;
+  `};
 `
 
 const Filter = props => {
@@ -98,6 +77,47 @@ const Filter = props => {
   )
 }
 
+// Search component----------------------------------
+const StyledSearch = styled.div`
+  margin-left: 0.2rem;
+  justify-self: flex-end;
+  ${media.tablet`
+    width: auto;
+  `};
+`
+
+const StyledInput = styled.input`
+  padding: 8px 4px;
+  font-size: 1rem;
+  border: 2px solid ${({ theme }) => theme.secondary.red};
+  color: ${({ theme }) => theme.primary.dark};
+  ${media.tablet`
+    max-width: 75%;
+    font-size: 0.9rem;
+  `};
+`
+
+const StyledButton = styled.button`
+  margin: 0;
+  padding: 9px 4px;
+  border: 1px solid ${({ theme }) => theme.secondary.red};
+  border-left-width: 0;
+  background-color: ${({ theme }) => theme.secondary.red};
+  color: ${({ theme }) => theme.primary.dark};
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 1rem;
+  &:hover,
+  &:focus {
+    background-color: ${({ theme }) => theme.primary.light};
+    color: ${({ theme }) => theme.white};
+    border-color: ${({ theme }) => theme.primary.light};
+  }
+  ${media.tablet`
+    font-size: 0.9rem;
+  `};
+`
+
 // controlled Input
 // click on button fires request
 const Search = props => {
@@ -121,6 +141,25 @@ const Search = props => {
     </StyledSearch>
   )
 }
+
+// Search & Fiter component
+// container for search & filter
+const StyledForm = styled.form`
+  grid-area: ${props => props.area};
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 1rem;
+  margin: 1rem 0 2rem 0;
+  ${media.desktop`
+    margin-top: 0.2rem;
+    margin-bottom: 1rem;
+    align-items: center;
+  `} ${media.tablet`
+    flex-wrap: wrap;
+    justify-content: center;
+  `};
+`
 
 class SearchAndFilter extends Component {
   render() {
