@@ -46,6 +46,9 @@ const Items = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  ${media.phone`
+    justify-content: flex-start;
+  `};
 `
 
 const JobItem = StyledP.extend`
@@ -57,6 +60,9 @@ const JobItem = StyledP.extend`
   padding: 0.2rem 0.2rem 0.2rem 0;
   ${media.tablet`
     font-size: 0.8rem;
+  `};
+  ${media.phone`
+    flex: 1 0 50%;
   `};
 `
 
@@ -79,6 +85,14 @@ class JobsList extends React.Component {
             <JobTitle>
               <JobLink to="/">{this.props.title}</JobLink>
             </JobTitle>
+            <Quote />
+            <Items>
+              <JobItem>{`Starting date: ${this.props.text.date}`}</JobItem>
+              <JobItem>{`Duration: ${this.props.text.period}`}</JobItem>
+              <JobItem>{`Level: ${this.props.text.level}`}</JobItem>
+              <JobItem>{`Topic: ${this.props.text.topic}`}</JobItem>
+            </Items>
+            <JobText>{this.props.text.description}</JobText>
           </JobLi>
         ) : (
           <JobLi>
