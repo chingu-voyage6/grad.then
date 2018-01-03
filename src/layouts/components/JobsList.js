@@ -63,7 +63,7 @@ const JobItem = StyledP.extend`
   `};
   ${media.phone`
     flex: 1 0 50%;
-  `}
+  `};
 `
 
 const JobText = StyledP.extend`

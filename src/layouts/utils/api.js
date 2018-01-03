@@ -33,10 +33,7 @@ export const fakeAPISearch = str => {
 }
 
 // fake learn API
-export function fakeLearnAPI(
-  length = 5,
-  title = ''
-) {
+export function fakeLearnAPI(length = 5, title = '') {
   const getDate = () => {
     const date = faker.date.future()
     return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
@@ -44,8 +41,8 @@ export function fakeLearnAPI(
 
   const getPeriod = () => {
     const number = Math.floor(Math.random() * 13),
-      noun = (Math.random() < 0.49)? 'week' : 'month'
-    return (number === 1)? `${number} ${noun}` : `${number} ${noun}s`
+      noun = Math.random() < 0.49 ? 'week' : 'month'
+    return number === 1 ? `${number} ${noun}` : `${number} ${noun}s`
   }
   // Returns a promise that's resolved after 2 seconds.
   // By default, it will resolve an array of objects
@@ -57,7 +54,7 @@ export function fakeLearnAPI(
         date: getDate(),
         period: getPeriod(),
         level: faker.company.catchPhraseAdjective(),
-        topic: title? title : faker.company.catchPhraseNoun(),
+        topic: title ? title : faker.company.catchPhraseNoun(),
         description: faker.hacker.phrase()
       }
     })
@@ -69,7 +66,7 @@ export function fakeLearnAPI(
 
 // seaching the fake LEARN API
 export const fakeLearnAPISearch = str => {
-  const random = Math.floor(Math.random() * 11)
-  const title = str.slice(0,1).toUpperCase() + str.slice(1)
+  const random = Math.floor(Math.random() * 6)
+  const title = str.slice(0, 1).toUpperCase() + str.slice(1)
   return fakeLearnAPI(random, title)
 }

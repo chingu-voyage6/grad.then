@@ -23,14 +23,11 @@ const Wrapper = styled.div`
     grid-template-areas:
       '. fs fs fs fs fs fs fs fs fs fs .'
       '. lst lst lst lst lst lst lst lst lst lst .';
-  `}
-  ${media.tablet`
-    grid-column-gap: 0.5rem;
+  `} ${media.tablet`
     grid-template-areas:
       'fs fs fs fs fs fs fs fs fs fs fs fs'
       '. lst lst lst lst lst lst lst lst lst lst .';
   `} ${media.phone`
-    grid-column-gap: 0.5rem;
     grid-template-areas:
       'fs fs fs fs fs fs fs fs fs fs fs fs'
       '. lst lst lst lst lst lst lst lst lst lst .';
@@ -73,7 +70,6 @@ class CoursesContainer extends React.Component {
     fakeLearnAPI().then(query => this.setState({ query }))
   }
 
-
   changePage(num) {
     //for now it immitates querying different pages
     const fakePage = () => {
@@ -101,7 +97,6 @@ class CoursesContainer extends React.Component {
 
   handleDates(str) {
     // immitation of new query
-    const data = this.state.filter
     const currLength =
         this.state.query.length < 5 ? 7 : this.state.query.length,
       length = str === 'all' ? 7 : Math.floor(Math.random() * (currLength + 1))
@@ -144,7 +139,13 @@ class CoursesContainer extends React.Component {
         />
         <List>
           {arr.map((elem, index) => (
-            <JobsList key={index} area="lst" type="list" title={elem.title}  text={elem}/>
+            <JobsList
+              key={index}
+              area="lst"
+              type="list"
+              title={elem.title}
+              text={elem}
+            />
           ))}
           <Pagination
             onChange={this.changePage}

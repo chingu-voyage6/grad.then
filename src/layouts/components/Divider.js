@@ -21,23 +21,21 @@ const Wrapper = styled.div`
     (validJustifyValues.includes(props.set) && props.set) || 'flex-end'};
   ${media.desktop`
     padding: 0.5em;
-  `}
+  `};
 `
 Wrapper.propTypes = {
   set: PropTypes.string.isRequired
 }
 
-const Divider = props => <Wrapper
-  set={props.justify}
-  color={props.background}
-  >{props.children}</Wrapper>
+const Divider = props => (
+  <Wrapper set={props.justify} color={props.background}>
+    {props.children}
+  </Wrapper>
+)
 
 Divider.propTypes = {
   justify: PropTypes.string.isRequired,
-  background: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func
-  ]),
+  background: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   children: PropTypes.node
 }
 
