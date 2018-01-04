@@ -246,12 +246,14 @@ const StyledHero = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
+    margin-bottom: 1.5rem;
   `} ${media.phone`
     background: ${props =>
       props.bg === 'main'
         ? `url(${BGmob})`
         : props => props.theme.secondary.green};
     background-size: 100% 100%;
+    margin-bottom: 1rem;
   `};
 `
 
