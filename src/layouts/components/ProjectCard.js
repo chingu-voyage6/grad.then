@@ -2,64 +2,87 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { StyledH3, StyledP, StyledUl, StyledLi } from '../../theme/globalStyle'
+import { StyledH3, StyledP, StyledUl, StyledLi, media } from '../../theme/globalStyle'
 
 import faker from 'faker'
 
 const Wrapper = styled.div`
-  width: ${props => props.width || 'auto'};
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: minmax(100px, auto);
-  grid-template-areas:
-    'img'
-    'text';
-  align-content: start;
+  flex: 1 0 10em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   background: ${props => props.theme.primary.light};
   border-radius: 4px;
+
+  ${media.tablet`
+    flex: 1 0 8em;
+  `}
+  ${media.phone`
+    flex: 1 1 10em;
+  `}
 `
 
 const Image = styled.img`
-  grid-area: img;
-  justify-self: center;
   border-radius: 2px;
   display: block;
   width: 80%;
   margin: 1rem 0.5rem;
-`
-
-const Text = styled.div`
-  grid-area: text;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  padding: 0.5rem;
-  margin: 0.3rem;
+  ${media.phone`
+    width: 65%;
+  `}
 `
 
 const ProjectTitle = StyledH3.extend`
+  min-height: 3.5em;
   color: ${props => props.theme.white};
   margin: 0.5rem;
-  padding: 0;
+  margin-bottom: auto;
+  padding: 0 0.5rem;
   text-align: center;
   display: ${props => props.visibility || 'block'};
+  ${media.giant`
+    font-size: 1.25rem;
+  `}
+  ${media.desktop`
+    font-size: 1.125rem;
+  `}
+  ${media.tablet`
+    min-height: 1.5em;
+    font-size: 1.125rem;
+  `}
+  ${media.phone`
+    font-size: 1.2rem;
+  `}
 `
 
 const ProjectP = StyledP.extend`
   color: ${props => props.theme.white};
-  margin: 0.5rem;
-  padding: 0;
+  margin-top: auto;
+  padding: 0 0.5rem 0.8rem 0.5rem;
+  font-size: 1.125rem;
+  ${media.desktop`
+    font-size: 1rem;
+  `}
+  ${media.phone`
+    font-size: 1.125rem;
+    padding: 0.5rem 0.5rem 1.2rem 0.5rem;
+  `}
 `
 
 const CardUl = StyledUl.extend`
   color: ${props => props.theme.white};
   list-style-type: circle;
   margin: 1rem;
-  padding: 0;
+  padding: 0 0.5rem;
 `
 
 const CardLi = StyledLi.extend`
   padding: 0;
+  font-size: 1.125rem;
+  ${media.desktop`
+    font-size: 1rem;
+  `}
 `
 
 const ProjectLi = () => (
@@ -75,23 +98,20 @@ class ProjectCard extends React.Component {
     return (
       <Wrapper>
         <Image src={this.props.img} />
-        <Text>
-          <ProjectTitle visibility={this.props.heading}>
-            {this.props.title}
-          </ProjectTitle>
-          {this.props.type === 'list' ? (
-            <ProjectLi />
-          ) : (
-            <ProjectP>{this.props.text}</ProjectP>
-          )}
-        </Text>
+        <ProjectTitle visibility={this.props.heading}>
+          {this.props.title}
+        </ProjectTitle>
+        {this.props.type === 'list' ? (
+          <ProjectLi />
+        ) : (
+          <ProjectP>{this.props.text}</ProjectP>
+        )}
       </Wrapper>
     )
   }
 }
 
 ProjectCard.propTypes = {
-  width: PropTypes.string,
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   img: PropTypes.string,
