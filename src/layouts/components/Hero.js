@@ -189,6 +189,8 @@ const SimpleHeroTitle = HeroTitle.extend`
     padding: 0.5rem 0 1.4rem 0;
   `} ${media.phone`
     font-size: 3.4rem;
+    margin-bottom: 0;
+    padding-bottom: 0.5rem;
   `};
 `
 

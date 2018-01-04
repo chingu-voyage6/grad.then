@@ -8,6 +8,7 @@ const SectionTitle = StyledH2.extend`
     font-size: 1.8rem;
   `} ${media.phone`
     font-size: 1.46rem;
+    padding: 1.4rem; 
   `};
 `
 export default SectionTitle

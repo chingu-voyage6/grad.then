@@ -22,6 +22,10 @@ const Wrapper = styled.div`
   ${media.desktop`
     padding: 0.5em;
   `};
+  ${media.phone`
+    margin-top: 2.5rem;
+  `}
+
 `
 Wrapper.propTypes = {
   set: PropTypes.string.isRequired
