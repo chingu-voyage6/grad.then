@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { StyledH3, StyledP } from '../../theme/globalStyle'
+import { StyledH3, StyledP, media } from '../../theme/globalStyle'
 import { ButtonBig } from '../components/Button'
 
 const Wrapper = styled.div`
@@ -12,34 +12,16 @@ const Wrapper = styled.div`
   grid-template-areas: 'img text text';
   background: ${props => props.theme.primary.light};
   border-radius: 4px;
+  ${media.tablet`
+    grid-template-areas:
+    'img img img'
+    'text text text';
+    //grid-template-rows: 30% minmax(17em, auto);
+  `}
+  ${media.phone`
+    margin: 0;
+  `}
 `
-
-const StoryTitle = StyledH3.extend`
-  color: ${props => props.theme.white};
-  margin: 0.5rem 0;
-  padding: 0rem;
-  grid-column: 1 / span 4;
-  grid-row: 1 / span 1;
-`
-
-const StoryText = StyledP.extend`
-  color: ${props => props.theme.white};
-  margin: 0.2rem 0.2rem 1rem 0.2rem;
-  padding: 0rem;
-  grid-column: 1 / span 4;
-  grid-row: 2 / span 2;
-`
-
-const Text = styled.div`
-  grid-area: text;
-  padding: 0.5rem;
-  margin: 0.5rem;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  align-content: start;
-`
-
 const Image = styled.img`
   grid-area: img;
   justify-self: center;
@@ -48,10 +30,82 @@ const Image = styled.img`
   border: 1px solid #000;
   width: 6.25rem;
   height: 6.25rem;
+  ${media.desktop`
+    width: 6rem;
+    height: 6rem;
+  `}
 `
+
+const Text = styled.div`
+  grid-area: text;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  ${media.desktop`
+    justify-content: space-between;
+  `}
+  ${media.tablet`
+    justify-content: space-between;
+    padding-top: 0;
+    margin-top: 0.5rem;
+  `}
+  ${media.phone`
+    padding: 0 0.3rem;
+    margin-top: 0;
+  `}
+`
+
+const StoryTitle = StyledH3.extend`
+  grid-column: 1 / span 4;
+  color: ${props => props.theme.white};
+  margin: 0.5rem 0;
+  padding: 0rem;
+  ${media.desktop`
+    font-size: 1.2rem;
+  `}
+  ${media.phone`
+    padding: 0.5rem;
+    font-size: 1.25rem;
+  `}
+`
+
+const StoryText = StyledP.extend`
+  grid-column: 1 / span 4;
+  color: ${props => props.theme.white};
+  margin: 0.2rem 0.2rem 1.2rem 0.2rem;
+  padding: 0;
+  ${media.giant`
+    font-size: 1.1rem;
+  `}
+  ${media.desktop`
+    font-size: 1rem;
+  `}
+  ${media.tablet`
+  `}
+  ${media.phone`
+    margin-top:0;
+    padding: 0 0.25rem;
+    font-size: 1.05rem;
+  `}
+`
+
 const ButtonContainer = styled.div`
-  grid-column: 2 / span 2;
-  grid-row: 4 / span 1;
+  grid-column: 1 / span 4;
+  align-self: center;
+  justify-self: center;
+  margin-top: auto;
+  ${media.desktop`
+    margin-bottom: 1rem;
+  `}
+  ${media.tablet`
+    margin-bottom: 0.5rem;
+    & > button {
+      padding: 0.75rem 1.5rem;
+    }
+  `}
 `
 
 class StoryCard extends React.Component {
