@@ -47,7 +47,7 @@ class CoursesContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      menuFilter: ['all', 'new', 'popular'],
+      menuFilter: ['all', 'new', 'courses', 'interviews'],
       searchQuery: '',
       query: [
         {

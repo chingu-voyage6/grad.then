@@ -50,11 +50,15 @@ const LearnPage = props => (
     <Hero type="learn" />
     <SectionTitle>featured courses</SectionTitle>
 
-    <CardContainer cols={5}>{addCards(5, 'project')}</CardContainer>
+    <CardContainer cols={5} cards={6}>
+      {addCards(6, 'project')}
+    </CardContainer>
 
     <SectionTitle>coding interviews</SectionTitle>
 
-    <CardContainer cols={5}>{addCards(5, 'project')}</CardContainer>
+    <CardContainer cols={5} cards={6}>
+      {addCards(6, 'project')}
+    </CardContainer>
 
     <Divider justify={'space-around'} background={props.theme.secondary.green}>
       <IconWrapper>
