@@ -204,6 +204,15 @@ const SimpleHeroP = StyledP.extend`
 
 const ButtonContainer = styled.div`
   grid-column: 5 / span 4;
+  ${media.desktop`
+    button {
+      padding: 0.75rem 1.2rem;
+
+    }
+  `}
+  ${media.phone`
+    margin-top: 1rem;
+  `}
 `
 
 const HeroButton = ButtonBig.extend`
