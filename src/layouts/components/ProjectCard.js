@@ -75,6 +75,13 @@ const CardUl = StyledUl.extend`
   list-style-type: circle;
   margin: 1rem;
   padding: 0 0.5rem;
+  ${media.tablet`
+    align-self: flex-start;
+    margin-left: 10%;
+  `}
+  ${media.phone`
+    margin-left: 15%;
+  `}
 `
 
 const CardLi = StyledLi.extend`
