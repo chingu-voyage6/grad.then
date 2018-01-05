@@ -164,7 +164,7 @@ const StyledSimpleHero = StyledMainHero.extend`
     padding: 0rem;
   `} ${media.phone`
     grid-column: none;
-    min-height: 220px;
+    min-height: 200px;
     height: auto;
     margin-bottom: 1rem;
   `};
@@ -189,6 +189,8 @@ const SimpleHeroTitle = HeroTitle.extend`
     padding: 0.5rem 0 1.4rem 0;
   `} ${media.phone`
     font-size: 3.4rem;
+    margin-bottom: 0;
+    padding-bottom: 0.5rem;
   `};
 `
 
@@ -202,6 +204,14 @@ const SimpleHeroP = StyledP.extend`
 
 const ButtonContainer = styled.div`
   grid-column: 5 / span 4;
+  ${media.desktop`
+    button {
+      padding: 0.75rem 1.2rem;
+
+    }
+  `} ${media.phone`
+    margin-top: 1rem;
+  `};
 `
 
 const HeroButton = ButtonBig.extend`
@@ -244,12 +254,14 @@ const StyledHero = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
+    margin-bottom: 1.5rem;
   `} ${media.phone`
     background: ${props =>
       props.bg === 'main'
         ? `url(${BGmob})`
         : props => props.theme.secondary.green};
     background-size: 100% 100%;
+    margin-bottom: 1rem;
   `};
 `
 

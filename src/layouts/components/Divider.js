@@ -21,6 +21,10 @@ const Wrapper = styled.div`
     (validJustifyValues.includes(props.set) && props.set) || 'flex-end'};
   ${media.desktop`
     padding: 0.5em;
+    margin-top: 2.5rem;
+  `};
+  ${media.phone`
+    margin-top: 2.5rem;
   `};
 `
 Wrapper.propTypes = {

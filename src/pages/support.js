@@ -1,7 +1,7 @@
 import React from 'react'
 import Hero from '../layouts/components/Hero'
 
-import { StyledH2, StyledP } from '../theme/globalStyle'
+import { StyledH2, StyledP, media } from '../theme/globalStyle'
 import CardContainer from '../layouts/components/CardContainer'
 import { addCards } from '../layouts/utils/helpers'
 import Divider from '../layouts/components/Divider'
@@ -17,6 +17,10 @@ const SectionTitle = StyledH2.extend`
 `
 const SectionP = StyledP.extend`
   color: ${props => props.theme.text};
+  ${media.tablet`
+    font-size: 1rem;
+    padding: 0.5rem;
+  `};
 `
 
 const SupportPage = () => (
@@ -29,7 +33,9 @@ const SupportPage = () => (
 
     <SectionTitle>featured projects</SectionTitle>
 
-    <CardContainer cols={5}>{addCards(5, 'project')}</CardContainer>
+    <CardContainer cols={5} cards={6}>
+      {addCards(6, 'project')}
+    </CardContainer>
 
     <SectionTitle>search &#38; filter here</SectionTitle>
 
