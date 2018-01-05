@@ -164,7 +164,7 @@ const StyledSimpleHero = StyledMainHero.extend`
     padding: 0rem;
   `} ${media.phone`
     grid-column: none;
-    min-height: 220px;
+    min-height: 200px;
     height: auto;
     margin-bottom: 1rem;
   `};
