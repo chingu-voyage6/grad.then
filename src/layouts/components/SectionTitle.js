@@ -6,8 +6,7 @@ const SectionTitle = StyledH2.extend`
   color: ${props => props.theme.primary.light};
   ${media.desktop`
     margin: 1.5rem 0;
-  `}
-  ${media.tablet`
+  `} ${media.tablet`
     font-size: 1.8rem;
     margin: 0.5rem 0;
   `} ${media.phone`

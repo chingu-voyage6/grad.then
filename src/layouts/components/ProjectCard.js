@@ -2,7 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { StyledH3, StyledP, StyledUl, StyledLi, media } from '../../theme/globalStyle'
+import {
+  StyledH3,
+  StyledP,
+  StyledUl,
+  StyledLi,
+  media
+} from '../../theme/globalStyle'
 
 import faker from 'faker'
 
@@ -17,10 +23,9 @@ const Wrapper = styled.div`
 
   ${media.tablet`
     flex: 1 0 8em;
-  `}
-  ${media.phone`
+  `} ${media.phone`
     flex: 1 1 10em;
-  `}
+  `};
 `
 
 const Image = styled.img`
@@ -30,7 +35,7 @@ const Image = styled.img`
   margin: 1rem 0.5rem;
   ${media.phone`
     width: 65%;
-  `}
+  `};
 `
 
 const ProjectTitle = StyledH3.extend`
@@ -43,17 +48,14 @@ const ProjectTitle = StyledH3.extend`
   display: ${props => props.visibility || 'block'};
   ${media.giant`
     font-size: 1.25rem;
-  `}
-  ${media.desktop`
+  `} ${media.desktop`
     font-size: 1.125rem;
-  `}
-  ${media.tablet`
+  `} ${media.tablet`
     min-height: 1.5em;
     font-size: 1.125rem;
-  `}
-  ${media.phone`
+  `} ${media.phone`
     font-size: 1.2rem;
-  `}
+  `};
 `
 
 const ProjectP = StyledP.extend`
@@ -63,11 +65,10 @@ const ProjectP = StyledP.extend`
   font-size: 1.125rem;
   ${media.desktop`
     font-size: 1rem;
-  `}
-  ${media.phone`
+  `} ${media.phone`
     font-size: 1.125rem;
     padding: 0.5rem 0.5rem 1.2rem 0.5rem;
-  `}
+  `};
 `
 
 const CardUl = StyledUl.extend`
@@ -78,10 +79,9 @@ const CardUl = StyledUl.extend`
   ${media.tablet`
     align-self: flex-start;
     margin-left: 10%;
-  `}
-  ${media.phone`
+  `} ${media.phone`
     margin-left: 15%;
-  `}
+  `};
 `
 
 const CardLi = StyledLi.extend`
@@ -89,7 +89,7 @@ const CardLi = StyledLi.extend`
   font-size: 1.125rem;
   ${media.desktop`
     font-size: 1rem;
-  `}
+  `};
 `
 
 const ProjectLi = () => (

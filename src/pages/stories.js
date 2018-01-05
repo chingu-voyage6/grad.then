@@ -17,7 +17,9 @@ const StoriesPage = () => (
     <Hero type="stories" />
     <SectionTitle>Stories Page</SectionTitle>
 
-    <CardContainer cols={2} story={true}>{addCards(4, 'story')}</CardContainer>
+    <CardContainer cols={2} story={true}>
+      {addCards(4, 'story')}
+    </CardContainer>
     <div style={{ display: 'flex', justifyContent: 'center', padding: '4px' }}>
       <Pagination pageNum={5} />
     </div>

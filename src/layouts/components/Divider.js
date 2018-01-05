@@ -25,8 +25,7 @@ const Wrapper = styled.div`
   `};
   ${media.phone`
     margin-top: 2.5rem;
-  `}
-
+  `};
 `
 Wrapper.propTypes = {
   set: PropTypes.string.isRequired

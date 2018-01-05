@@ -17,10 +17,9 @@ const Wrapper = styled.div`
     'img img img'
     'text text text';
     //grid-template-rows: 30% minmax(17em, auto);
-  `}
-  ${media.phone`
+  `} ${media.phone`
     margin: 0;
-  `}
+  `};
 `
 const Image = styled.img`
   grid-area: img;
@@ -33,7 +32,7 @@ const Image = styled.img`
   ${media.desktop`
     width: 6rem;
     height: 6rem;
-  `}
+  `};
 `
 
 const Text = styled.div`
@@ -46,16 +45,14 @@ const Text = styled.div`
   align-items: center;
   ${media.desktop`
     justify-content: space-between;
-  `}
-  ${media.tablet`
+  `} ${media.tablet`
     justify-content: space-between;
     padding-top: 0;
     margin-top: 0.5rem;
-  `}
-  ${media.phone`
+  `} ${media.phone`
     padding: 0 0.3rem;
     margin-top: 0;
-  `}
+  `};
 `
 
 const StoryTitle = StyledH3.extend`
@@ -65,11 +62,10 @@ const StoryTitle = StyledH3.extend`
   padding: 0rem;
   ${media.desktop`
     font-size: 1.2rem;
-  `}
-  ${media.phone`
+  `} ${media.phone`
     padding: 0.5rem;
     font-size: 1.25rem;
-  `}
+  `};
 `
 
 const StoryText = StyledP.extend`
@@ -79,17 +75,14 @@ const StoryText = StyledP.extend`
   padding: 0;
   ${media.giant`
     font-size: 1.1rem;
-  `}
-  ${media.desktop`
+  `} ${media.desktop`
     font-size: 1rem;
-  `}
-  ${media.tablet`
-  `}
-  ${media.phone`
+  `} ${media.tablet`
+  `} ${media.phone`
     margin-top:0;
     padding: 0 0.25rem;
     font-size: 1.05rem;
-  `}
+  `};
 `
 
 const ButtonContainer = styled.div`
@@ -99,13 +92,12 @@ const ButtonContainer = styled.div`
   margin-top: auto;
   ${media.desktop`
     margin-bottom: 1rem;
-  `}
-  ${media.tablet`
+  `} ${media.tablet`
     margin-bottom: 0.5rem;
     & > button {
       padding: 0.75rem 1.5rem;
     }
-  `}
+  `};
 `
 
 class StoryCard extends React.Component {

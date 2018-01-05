@@ -209,10 +209,9 @@ const ButtonContainer = styled.div`
       padding: 0.75rem 1.2rem;
 
     }
-  `}
-  ${media.phone`
+  `} ${media.phone`
     margin-top: 1rem;
-  `}
+  `};
 `
 
 const HeroButton = ButtonBig.extend`

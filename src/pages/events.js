@@ -15,7 +15,9 @@ const EventsPage = () => (
     <Hero type="events" />
     <SectionTitle>featured events</SectionTitle>
 
-    <CardContainer cols={4} cards={4}>{addCards(4, 'project', 'list')}</CardContainer>
+    <CardContainer cols={4} cards={4}>
+      {addCards(4, 'project', 'list')}
+    </CardContainer>
   </div>
 )
 

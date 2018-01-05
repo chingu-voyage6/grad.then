@@ -20,7 +20,7 @@ const SectionP = StyledP.extend`
   ${media.tablet`
     font-size: 1rem;
     padding: 0.5rem;
-  `}
+  `};
 `
 
 const SupportPage = () => (
@@ -33,7 +33,9 @@ const SupportPage = () => (
 
     <SectionTitle>featured projects</SectionTitle>
 
-    <CardContainer cols={5} cards={6}>{addCards(6, 'project')}</CardContainer>
+    <CardContainer cols={5} cards={6}>
+      {addCards(6, 'project')}
+    </CardContainer>
 
     <SectionTitle>search &#38; filter here</SectionTitle>
 
