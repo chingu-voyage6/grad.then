@@ -6,8 +6,10 @@ import PropTypes from 'prop-types'
 import { media } from '../../theme/globalStyle'
 import FilterAndSearch from './FilterAndSearch'
 import CardContainer from './CardContainer'
-import { addCards } from '../utils/helpers'
+import ProjectCard from './ProjectCard'
+// import { addCards } from '../utils/helpers'
 import Pagination from './Pagination'
+import { fakeEventsAPI, fakeEventsAPISearch } from '../utils/api'
 
 const Wrapper = styled.div`
   display: grid;
@@ -32,83 +34,89 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
   grid-area: cont;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 `
 
 class EventsContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      menuFilter: ['all', 'featured', 'in my area'],
+      menuFilter: ['all', 'featured', 'my area'],
       searchQuery: '',
       query: [
         {
           title: '',
+          image: '',
           date: '',
-          period: '',
-          level: '',
-          topic: '',
+          city: '',
+          country: '',
           description: ''
         }
       ]
     }
+    this.CARDS = {cols: 5, items: 6}
+
     this.changePage = this.changePage.bind(this)
     this.handleDates = this.handleDates.bind(this)
     this.handleSearch = this.handleSearch.bind(this)
     this.handleInput = this.handleInput.bind(this)
   }
 
-  // componentDidMount() {
-  //   fakeLearnAPI().then(query => this.setState({ query }))
-  // }
+  componentDidMount() {
+    fakeEventsAPI(this.CARDS.items).then(query => this.setState({ query }))
+  }
 
   changePage(num) {
     //for now it immitates querying different pages
-    // const fakePage = () => {
-    //   var result
-    //   if (this.state.searchQuery) {
-    //     const searchQuery = this.state.searchQuery
-    //     result = fakeLearnAPI(undefined, searchQuery)
-    //   } else {
-    //     result = fakeLearnAPI()
-    //   }
-    //   result.then(query => this.setState({ query }))
-    // }
-    //
-    // if (num === -1) {
-    //   //get previous page
-    //   fakePage()
-    // } else if (num === 0) {
-    //   // get next page
-    //   fakePage()
-    // } else {
-    //   //get page #num
-    //   fakePage()
-    // }
+    const fakePage = () => {
+      const length = this.CARDS.items
+      let result
+      if (this.state.searchQuery) {
+        const searchQuery = this.state.searchQuery
+        result = fakeEventsAPI(length, undefined, undefined, searchQuery)
+      } else {
+        result = fakeEventsAPI(length)
+      }
+      result.then(query => this.setState({ query }))
+    }
+
+    if (num === -1) {
+      //get previous page
+      fakePage()
+    } else if (num === 0) {
+      // get next page
+      fakePage()
+    } else {
+      //get page #num
+      fakePage()
+    }
   }
 
   handleDates(str) {
     // immitation of new query
-    // const currLength =
-    //     this.state.query.length < 5 ? 7 : this.state.query.length,
-    //   length = str === 'all' ? 7 : Math.floor(Math.random() * (currLength + 1))
-    // var result
-    //
-    // if (this.state.searchQuery) {
-    //   const searchQuery = this.state.searchQuery
-    //   result = fakeLearnAPI(length, searchQuery)
-    // } else {
-    //   result = fakeLearnAPI(length)
-    // }
-    //
-    // result.then(query => this.setState({ query }))
+    const length = str === 'all' ? this.CARDS.items : Math.floor(Math.random() * (this.CARDS.items + 1)),
+      city = str === 'my area'? 'My City' : '',
+      country = str === 'my area'? 'My Country': ''
+    let result
+
+    if (this.state.searchQuery) {
+      const searchQuery = this.state.searchQuery
+      result = fakeEventsAPI(length, city, country, searchQuery)
+    } else {
+      result = fakeEventsAPI(length, city, country)
+    }
+
+    result.then(query => this.setState({ query }))
   }
 
   handleSearch() {
     //immitation of search query
-    // if (this.state.searchQuery) {
-    //   const searchStr = this.state.searchQuery
-    //   fakeLearnAPISearch(searchStr).then(query => this.setState({ query }))
-    // }
+    if (this.state.searchQuery) {
+      const searchStr = this.state.searchQuery
+      fakeEventsAPISearch(searchStr, this.CARDS.items).then(query => this.setState({ query }))
+    }
   }
 
   handleInput(val) {
@@ -118,6 +126,7 @@ class EventsContainer extends React.Component {
   }
 
   render() {
+    const arr = [...this.state.query]
     return (
       <Wrapper>
         <FilterAndSearch
@@ -128,9 +137,18 @@ class EventsContainer extends React.Component {
           input={this.handleInput}
         />
         <Container>
-          <CardContainer cols={5} cards={6}>
-            {addCards(6, 'project', 'list')}
-          </CardContainer>
+          <CardContainer cols={this.CARDS.cols} cards={this.CARDS.items}>
+            {arr.map((elem, index) => (
+              <ProjectCard
+                key={index}
+                type='list'
+                title={elem.title}
+                text={elem.description}
+                img={elem.image}
+                list={[elem.date, elem.city, elem.country]}
+              />
+            ))}
+            </CardContainer>
           <Pagination
             onChange={this.changePage}
             background={this.props.theme.white}

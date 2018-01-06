@@ -92,13 +92,18 @@ const CardLi = StyledLi.extend`
   `};
 `
 
-const ProjectLi = () => (
+const ProjectLi = props => (
   <CardUl>
-    <CardLi>{faker.date.future().toTimeString()}</CardLi>
-    <CardLi>{`${faker.address.city()}, ${faker.address.country()}`}</CardLi>
-    <CardLi>{faker.company.bs()}</CardLi>
+    <CardLi>{props.data[0] || faker.date.future().toTimeString()}</CardLi>
+    <CardLi>{`${props.data[1] || faker.address.city()}, ${props.data[2] || faker.address.country()}`}</CardLi>
+    <CardLi>{props.text}</CardLi>
   </CardUl>
 )
+
+ProjectLi.propTypes = {
+  data: PropTypes.array.isRequired,
+  text: PropTypes.string.isRequired
+}
 
 class ProjectCard extends React.Component {
   render() {
@@ -109,7 +114,7 @@ class ProjectCard extends React.Component {
           {this.props.title}
         </ProjectTitle>
         {this.props.type === 'list' ? (
-          <ProjectLi />
+          <ProjectLi data={this.props.list} text={this.props.text}/>
         ) : (
           <ProjectP>{this.props.text}</ProjectP>
         )}
@@ -119,11 +124,12 @@ class ProjectCard extends React.Component {
 }
 
 ProjectCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  img: PropTypes.string,
-  type: PropTypes.string,
-  heading: PropTypes.string
+  title: PropTypes.string.isRequired, // card heading
+  text: PropTypes.string.isRequired, // card text
+  img: PropTypes.string, // img src
+  type: PropTypes.string, // 'list' or 'text'
+  heading: PropTypes.string, // 'none' or 'block'
+  list: PropTypes.array
 }
 
 export default ProjectCard
