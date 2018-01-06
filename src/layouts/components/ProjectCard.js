@@ -99,7 +99,8 @@ const CardLi = StyledLi.extend`
 const ProjectLi = props => (
   <CardUl lang="en">
     <CardLi>{props.data[0] || faker.date.future().toTimeString()}</CardLi>
-    <CardLi>{`${props.data[1] || faker.address.city()}, ${props.data[2] || faker.address.country()}`}</CardLi>
+    <CardLi>{`${props.data[1] || faker.address.city()}, ${props.data[2] ||
+      faker.address.country()}`}</CardLi>
     <CardLi>{props.text}</CardLi>
   </CardUl>
 )
@@ -118,7 +119,7 @@ class ProjectCard extends React.Component {
           {this.props.title}
         </ProjectTitle>
         {this.props.type === 'list' ? (
-          <ProjectLi data={this.props.list} text={this.props.text}/>
+          <ProjectLi data={this.props.list} text={this.props.text} />
         ) : (
           <ProjectP>{this.props.text}</ProjectP>
         )}

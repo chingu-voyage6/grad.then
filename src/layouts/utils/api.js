@@ -70,14 +70,8 @@ export const fakeLearnAPISearch = str => {
   return fakeLearnAPI(random, title)
 }
 
-
 // fake events API
-export function fakeEventsAPI(
-  length,
-  city,
-  country,
-  title = ''
-) {
+export function fakeEventsAPI(length, city, country, title = '') {
   // Returns a promise that's resolved after 1 seconds.
   // By default, it will resolve an array of objects
   return new Promise(resolve => {

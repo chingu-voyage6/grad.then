@@ -56,7 +56,7 @@ class EventsContainer extends React.Component {
         }
       ]
     }
-    this.CARDS = {cols: 5, items: 6}
+    this.CARDS = { cols: 5, items: 6 }
 
     this.changePage = this.changePage.bind(this)
     this.handleDates = this.handleDates.bind(this)
@@ -96,9 +96,12 @@ class EventsContainer extends React.Component {
 
   handleDates(str) {
     // immitation of new query
-    const length = str === 'all' ? this.CARDS.items : Math.floor(Math.random() * (this.CARDS.items + 1)),
-      city = str === 'my area'? 'My City' : '',
-      country = str === 'my area'? 'My Country': ''
+    const length =
+        str === 'all'
+          ? this.CARDS.items
+          : Math.floor(Math.random() * (this.CARDS.items + 1)),
+      city = str === 'my area' ? 'My City' : '',
+      country = str === 'my area' ? 'My Country' : ''
     let result
 
     if (this.state.searchQuery) {
@@ -115,7 +118,9 @@ class EventsContainer extends React.Component {
     //immitation of search query
     if (this.state.searchQuery) {
       const searchStr = this.state.searchQuery
-      fakeEventsAPISearch(searchStr, this.CARDS.items).then(query => this.setState({ query }))
+      fakeEventsAPISearch(searchStr, this.CARDS.items).then(query =>
+        this.setState({ query })
+      )
     }
   }
 
@@ -141,14 +146,14 @@ class EventsContainer extends React.Component {
             {arr.map((elem, index) => (
               <ProjectCard
                 key={index}
-                type='list'
+                type="list"
                 title={elem.title}
                 text={elem.description}
                 img={elem.image}
                 list={[elem.date, elem.city, elem.country]}
               />
             ))}
-            </CardContainer>
+          </CardContainer>
           <Pagination
             onChange={this.changePage}
             background={this.props.theme.white}
