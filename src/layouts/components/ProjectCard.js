@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   align-items: center;
   background: ${props => props.theme.primary.light};
   border-radius: 4px;
-
+  padding-bottom: 1rem;
   ${media.tablet`
     flex: 1 0 8em;
   `} ${media.phone`
@@ -60,9 +60,11 @@ const ProjectTitle = StyledH3.extend`
 
 const ProjectP = StyledP.extend`
   color: ${props => props.theme.white};
-  margin-top: auto;
+  margin-top: 0.5rem;
+  margin-bottom: auto;
   padding: 0 0.5rem 0.8rem 0.5rem;
   font-size: 1.125rem;
+  hyphens: auto;
   ${media.desktop`
     font-size: 1rem;
   `} ${media.phone`
@@ -76,6 +78,7 @@ const CardUl = StyledUl.extend`
   list-style-type: circle;
   margin: 1rem;
   padding: 0 0.5rem;
+  margin-bottom: auto;
   ${media.tablet`
     align-self: flex-start;
     margin-left: 10%;
@@ -87,13 +90,14 @@ const CardUl = StyledUl.extend`
 const CardLi = StyledLi.extend`
   padding: 0;
   font-size: 1.125rem;
+  hyphens: auto;
   ${media.desktop`
     font-size: 1rem;
   `};
 `
 
 const ProjectLi = props => (
-  <CardUl>
+  <CardUl lang="en">
     <CardLi>{props.data[0] || faker.date.future().toTimeString()}</CardLi>
     <CardLi>{`${props.data[1] || faker.address.city()}, ${props.data[2] || faker.address.country()}`}</CardLi>
     <CardLi>{props.text}</CardLi>
@@ -108,7 +112,7 @@ ProjectLi.propTypes = {
 class ProjectCard extends React.Component {
   render() {
     return (
-      <Wrapper>
+      <Wrapper lang="en">
         <Image src={this.props.img} />
         <ProjectTitle visibility={this.props.heading}>
           {this.props.title}
