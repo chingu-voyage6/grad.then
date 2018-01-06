@@ -18,10 +18,8 @@ const PageContainer = styled.div`
     'ft ft ft ft ft ft ft ft ft ft ft ft';
 `
 
-// min-height is just for the purpose of nice looking page
 const Main = styled.div`
   grid-area: main;
-  min-height: 800px;
   margin-top: 4.625rem;
 `
 
