@@ -28,6 +28,7 @@ const IconWrapper = styled.div`
   `} ${media.tablet`
     width: 6em;
     padding: 0.3rem;
+    margin-top: 1rem;
   `} ${media.phone`
     width: 4em;
   `};
