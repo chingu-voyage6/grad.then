@@ -15,7 +15,6 @@ const Wrapper = styled.div`
   margin: 7px 0;
   background-color: ${props => props.color || props.theme.secondary.green};
   padding: 10px 20px;
-  width: 100%;
   display: flex;
   justify-content: ${props =>
     (validJustifyValues.includes(props.set) && props.set) || 'flex-end'};

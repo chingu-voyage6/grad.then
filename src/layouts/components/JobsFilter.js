@@ -176,7 +176,7 @@ class JobsFilter extends React.Component {
 
   // events on FilterName
   handleClick(e) {
-    const targetId = e.target.id,
+    const targetId = e.currentTarget.id,
       currOptionId = `opt-cont-${targetId.substr(-1)}`,
       currOption = document.getElementById(currOptionId)
     currOption.classList.toggle('show')
