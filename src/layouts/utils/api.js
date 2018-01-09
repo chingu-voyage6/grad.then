@@ -33,20 +33,19 @@ export const fakeAPISearch = str => {
 }
 
 // fake learn API
-export function fakeLearnAPI(length = 5, title = '') {
-  const getDate = () => {
-    const date = faker.date.future()
-    return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
-  }
+const getDate = () => {
+  const date = faker.date.future()
+  return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
+}
 
+export function fakeLearnAPI(length = 5, title = '') {
   const getPeriod = () => {
     const number = Math.floor(Math.random() * 13),
       noun = Math.random() < 0.49 ? 'week' : 'month'
     return number === 1 ? `${number} ${noun}` : `${number} ${noun}s`
   }
-  // Returns a promise that's resolved after 2 seconds.
+  // Returns a promise that's resolved after 1 seconds.
   // By default, it will resolve an array of objects
-  // data: type, role, level, location
   return new Promise(resolve => {
     const response = Array.from({ length: length }, () => {
       return {
@@ -69,4 +68,31 @@ export const fakeLearnAPISearch = str => {
   const random = Math.floor(Math.random() * 6)
   const title = str.slice(0, 1).toUpperCase() + str.slice(1)
   return fakeLearnAPI(random, title)
+}
+
+// fake events API
+export function fakeEventsAPI(length, city, country, title = '') {
+  // Returns a promise that's resolved after 1 seconds.
+  // By default, it will resolve an array of objects
+  return new Promise(resolve => {
+    const response = Array.from({ length: length }, () => {
+      return {
+        title: title || faker.commerce.productName(),
+        image: faker.image.imageUrl(),
+        date: getDate(),
+        city: city || faker.address.city(),
+        country: country || faker.address.country(),
+        description: faker.company.bs()
+      }
+    })
+    setTimeout(() => {
+      resolve(response)
+    }, 1000)
+  })
+}
+
+export const fakeEventsAPISearch = (str, items) => {
+  const random = Math.floor(Math.random() * (items + 1))
+  const title = str.slice(0, 1).toUpperCase() + str.slice(1)
+  return fakeEventsAPI(random, undefined, undefined, title)
 }

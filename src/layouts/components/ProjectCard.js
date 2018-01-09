@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   align-items: center;
   background: ${props => props.theme.primary.light};
   border-radius: 4px;
-
+  padding-bottom: 1rem;
   ${media.tablet`
     flex: 1 0 8em;
   `} ${media.phone`
@@ -60,9 +60,11 @@ const ProjectTitle = StyledH3.extend`
 
 const ProjectP = StyledP.extend`
   color: ${props => props.theme.white};
-  margin-top: auto;
+  margin-top: 0.5rem;
+  margin-bottom: auto;
   padding: 0 0.5rem 0.8rem 0.5rem;
   font-size: 1.125rem;
+  hyphens: auto;
   ${media.desktop`
     font-size: 1rem;
   `} ${media.phone`
@@ -76,7 +78,12 @@ const CardUl = StyledUl.extend`
   list-style-type: circle;
   margin: 1rem;
   padding: 0 0.5rem;
-  ${media.tablet`
+  margin-bottom: auto;
+  ${media.desktop`
+    margin-left: 1rem;
+    margin-right: 0.2rem;
+    padding: 0;
+  `} ${media.tablet`
     align-self: flex-start;
     margin-left: 10%;
   `} ${media.phone`
@@ -87,29 +94,40 @@ const CardUl = StyledUl.extend`
 const CardLi = StyledLi.extend`
   padding: 0;
   font-size: 1.125rem;
+  hyphens: auto;
   ${media.desktop`
+    font-size: 0.9rem;
+    margin: 0.25rem;
+  `};
+  ${media.tablet`
     font-size: 1rem;
   `};
 `
 
-const ProjectLi = () => (
-  <CardUl>
-    <CardLi>{faker.date.future().toTimeString()}</CardLi>
-    <CardLi>{`${faker.address.city()}, ${faker.address.country()}`}</CardLi>
-    <CardLi>{faker.company.bs()}</CardLi>
+const ProjectLi = props => (
+  <CardUl lang="en">
+    <CardLi>{props.data[0] || faker.date.future().toTimeString()}</CardLi>
+    <CardLi>{`${props.data[1] || faker.address.city()}, ${props.data[2] ||
+      faker.address.country()}`}</CardLi>
+    <CardLi>{props.text}</CardLi>
   </CardUl>
 )
+
+ProjectLi.propTypes = {
+  data: PropTypes.array.isRequired,
+  text: PropTypes.string.isRequired
+}
 
 class ProjectCard extends React.Component {
   render() {
     return (
-      <Wrapper>
+      <Wrapper lang="en">
         <Image src={this.props.img} />
         <ProjectTitle visibility={this.props.heading}>
           {this.props.title}
         </ProjectTitle>
         {this.props.type === 'list' ? (
-          <ProjectLi />
+          <ProjectLi data={this.props.list} text={this.props.text} />
         ) : (
           <ProjectP>{this.props.text}</ProjectP>
         )}
@@ -119,11 +137,12 @@ class ProjectCard extends React.Component {
 }
 
 ProjectCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  img: PropTypes.string,
-  type: PropTypes.string,
-  heading: PropTypes.string
+  title: PropTypes.string.isRequired, // card heading
+  text: PropTypes.string.isRequired, // card text
+  img: PropTypes.string, // img src
+  type: PropTypes.string, // 'list' or 'text'
+  heading: PropTypes.string, // 'none' or 'block'
+  list: PropTypes.array
 }
 
 export default ProjectCard
