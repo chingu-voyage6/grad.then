@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import styled, { ThemeProvider } from 'styled-components'
 
-import { theme } from '../../theme/globalStyle'
-import logo from '../../img/favicon.png'
+import { theme } from '../theme/globalStyle'
+import logo from '../img/favicon.png'
 
 const PageContainer = styled.div`
   display: grid;
