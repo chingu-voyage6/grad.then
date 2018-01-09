@@ -79,7 +79,11 @@ const CardUl = StyledUl.extend`
   margin: 1rem;
   padding: 0 0.5rem;
   margin-bottom: auto;
-  ${media.tablet`
+  ${media.desktop`
+    margin-left: 1rem;
+    margin-right: 0.2rem;
+    padding: 0;
+  `} ${media.tablet`
     align-self: flex-start;
     margin-left: 10%;
   `} ${media.phone`
@@ -92,6 +96,10 @@ const CardLi = StyledLi.extend`
   font-size: 1.125rem;
   hyphens: auto;
   ${media.desktop`
+    font-size: 0.9rem;
+    margin: 0.25rem;
+  `};
+  ${media.tablet`
     font-size: 1rem;
   `};
 `
