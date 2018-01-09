@@ -31,6 +31,10 @@ const SupportPage = ( { data }) => (
       {addCards(2, 'project', undefined, 'none')}
     </CardContainer>
 
+    <Divider justify={'center'}>
+      <h3>Hello world!</h3>
+    </Divider>
+
     <SectionTitle>featured projects</SectionTitle>
 
     <CardContainer cols={5} cards={6}>
@@ -41,14 +45,6 @@ const SupportPage = ( { data }) => (
 
     <CardContainer cols={5}>{addCards(10, 'project')}</CardContainer>
 
-    <Divider justify={'center'}>
-      <h3>Hello world!</h3>
-    </Divider>
-    <Divider justify={'space-around'}>
-      <Icon icon={ICONS.RULER} size={50} color={({ theme }) => theme.white} />
-      <Icon icon={ICONS.BLOG} size={50} color={({ theme }) => theme.white} />
-      <Icon icon={ICONS.RULER} size={50} color={({ theme }) => theme.white} />
-    </Divider>
   </div>
 )
 

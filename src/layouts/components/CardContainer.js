@@ -8,10 +8,8 @@ const StyledCardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
-  margin: 1.5rem 0 3rem 0;
-  ${media.desktop`
-    margin: 0;
-  `} ${media.phone`
+  margin: 1.5rem 0 2rem 0;
+  ${media.phone`
     margin: 0.5rem 0 1rem 0;
   `};
 `
