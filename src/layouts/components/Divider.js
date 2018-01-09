@@ -12,7 +12,7 @@ const validJustifyValues = [
 ]
 const Wrapper = styled.div`
   color: white;
-  margin: 7px 0;
+  margin: 3rem 0 1rem 0;
   background-color: ${props => props.color || props.theme.secondary.green};
   padding: 10px 20px;
   display: flex;

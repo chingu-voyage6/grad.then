@@ -5,10 +5,11 @@ import PropTypes from 'prop-types'
 
 import { media } from '../../theme/globalStyle'
 import FilterAndSearch from './FilterAndSearch'
-import JobsList from './JobsList'
-import Pagination from './Pagination'
+import CardContainer from './CardContainer'
+import StoryCard from './StoryCard'
 import { LoadingContent } from './Titles'
-import { fakeLearnAPI, fakeLearnAPISearch } from '../utils/api'
+import Pagination from './Pagination'
+import { fakeStoriesAPI, fakeStoriesAPISearch } from '../utils/api'
 
 const Wrapper = styled.div`
   display: grid;
@@ -17,34 +18,28 @@ const Wrapper = styled.div`
   grid-column-gap: 1rem;
   grid-template-areas:
     '. . fs fs fs fs fs fs fs fs . .'
-    '. . lst lst lst lst lst lst lst lst . .';
+    'cont cont cont cont cont cont cont cont cont cont cont cont';
   margin-top: 2.5rem;
   ${media.giant`
     grid-column-gap: 0.5rem;
     grid-template-areas:
       '. fs fs fs fs fs fs fs fs fs fs .'
-      '. lst lst lst lst lst lst lst lst lst lst .';
+      'cont cont cont cont cont cont cont cont cont cont cont cont';
   `} ${media.tablet`
     grid-template-areas:
       'fs fs fs fs fs fs fs fs fs fs fs fs'
-      '. lst lst lst lst lst lst lst lst lst lst .';
-  `} ${media.phone`
-    grid-template-areas:
-      'fs fs fs fs fs fs fs fs fs fs fs fs'
-      '. lst lst lst lst lst lst lst lst lst lst .';
+      'cont cont cont cont cont cont cont cont cont cont cont cont';
   `};
 `
 
-const List = styled.div`
-  grid-area: lst;
+const Container = styled.div`
+  grid-area: cont;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  margin: 0;
-  padding: 0;
+  align-content: center;
 `
 
-class CoursesContainer extends React.Component {
+class StoriesContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -53,14 +48,13 @@ class CoursesContainer extends React.Component {
       query: [
         {
           title: '',
-          date: '',
-          period: '',
-          level: '',
-          topic: '',
+          image: '',
           description: ''
         }
       ]
     }
+    this.CARDS = { cols: 2, items: 6 }
+
     this.changePage = this.changePage.bind(this)
     this.handleDates = this.handleDates.bind(this)
     this.handleSearch = this.handleSearch.bind(this)
@@ -69,18 +63,21 @@ class CoursesContainer extends React.Component {
 
   componentDidMount() {
     const loading = false
-    fakeLearnAPI().then(query => this.setState({ loading, query }))
+    fakeStoriesAPI(this.CARDS.items).then(query =>
+      this.setState({ loading, query })
+    )
   }
 
   changePage(num) {
     //for now it immitates querying different pages
     const fakePage = () => {
-      var result
+      const length = this.CARDS.items
+      let result
       if (this.state.searchQuery) {
         const searchQuery = this.state.searchQuery
-        result = fakeLearnAPI(undefined, searchQuery)
+        result = fakeStoriesAPI(length, searchQuery)
       } else {
-        result = fakeLearnAPI()
+        result = fakeStoriesAPI(length)
       }
       result.then(query => this.setState({ query }))
     }
@@ -99,16 +96,16 @@ class CoursesContainer extends React.Component {
 
   handleDates(str) {
     // immitation of new query
-    const currLength =
-        this.state.query.length < 5 ? 7 : this.state.query.length,
-      length = str === 'all' ? 7 : Math.floor(Math.random() * (currLength + 1))
-    var result
+    const random = Math.floor(Math.random() * (this.CARDS.items + 1))
+    const length =
+      str === 'all' ? this.CARDS.items : random % 2 === 0 ? random : random + 1
+    let result
 
     if (this.state.searchQuery) {
       const searchQuery = this.state.searchQuery
-      result = fakeLearnAPI(length, searchQuery)
+      result = fakeStoriesAPI(length, searchQuery)
     } else {
-      result = fakeLearnAPI(length)
+      result = fakeStoriesAPI(length)
     }
 
     result.then(query => this.setState({ query }))
@@ -118,7 +115,9 @@ class CoursesContainer extends React.Component {
     //immitation of search query
     if (this.state.searchQuery) {
       const searchStr = this.state.searchQuery
-      fakeLearnAPISearch(searchStr).then(query => this.setState({ query }))
+      fakeStoriesAPISearch(searchStr, this.CARDS.items).then(query =>
+        this.setState({ query })
+      )
     }
   }
 
@@ -141,36 +140,33 @@ class CoursesContainer extends React.Component {
           input={this.handleInput}
         />
         {loading ? (
-          <LoadingContent area="lst">Loading...</LoadingContent>
+          <LoadingContent area="cont">Loading...</LoadingContent>
         ) : (
-          <List>
-            {arr.map((elem, index) => (
-              <JobsList
-                key={index}
-                area="lst"
-                type="list"
-                title={elem.title}
-                text={elem}
-              />
-            ))}
+          <Container>
+            <CardContainer cols={this.CARDS.cols} story={true}>
+              {arr.map((elem, index) => (
+                <StoryCard
+                  key={index}
+                  title={elem.title}
+                  text={elem.description}
+                  img={elem.image}
+                />
+              ))}
+            </CardContainer>
             <Pagination
               onChange={this.changePage}
               background={this.props.theme.white}
               pageNum={2}
             />
-          </List>
+          </Container>
         )}
       </Wrapper>
     )
   }
 }
+export default withTheme(StoriesContainer)
 
-CoursesContainer.propTypes = {
-  menuFilter: PropTypes.array.isRequired
-}
-
-export default withTheme(CoursesContainer)
-
-CoursesContainer.propTypes = {
-  theme: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
+StoriesContainer.propTypes = {
+  menuFilter: PropTypes.array.isRequired,
+  theme: PropTypes.PropTypes.oneOfType([PropTypes.func, PropTypes.object])
 }
