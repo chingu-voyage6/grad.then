@@ -91,6 +91,7 @@ const StyledInput = styled.input`
   font-size: 1rem;
   border: 2px solid ${({ theme }) => theme.secondary.red};
   color: ${({ theme }) => theme.primary.dark};
+  max-width: 190px;
   ${media.tablet`
     max-width: 75%;
     font-size: 0.9rem;
