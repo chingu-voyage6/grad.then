@@ -5,8 +5,6 @@ import { StyledH2, StyledP, media } from '../theme/globalStyle'
 import CardContainer from '../layouts/components/CardContainer'
 import { addCards } from '../layouts/utils/helpers'
 import Divider from '../layouts/components/Divider'
-import { ICONS } from '../theme/constants.js'
-import Icon from '../layouts/components/Icon.js'
 
 import faker from 'faker'
 
@@ -23,13 +21,17 @@ const SectionP = StyledP.extend`
   `};
 `
 
-const SupportPage = () => (
+const SupportPage = ({ data }) => (
   <div>
     <Hero type="support" />
     <CardContainer cols={3}>
       <SectionP>{faker.lorem.paragraph()}</SectionP>
       {addCards(2, 'project', undefined, 'none')}
     </CardContainer>
+
+    <Divider justify={'center'}>
+      <h3>Hello world!</h3>
+    </Divider>
 
     <SectionTitle>featured projects</SectionTitle>
 
@@ -40,16 +42,23 @@ const SupportPage = () => (
     <SectionTitle>search &#38; filter here</SectionTitle>
 
     <CardContainer cols={5}>{addCards(10, 'project')}</CardContainer>
-
-    <Divider justify={'center'}>
-      <h3>Hello world!</h3>
-    </Divider>
-    <Divider justify={'space-around'}>
-      <Icon icon={ICONS.RULER} size={50} color={({ theme }) => theme.white} />
-      <Icon icon={ICONS.BLOG} size={50} color={({ theme }) => theme.white} />
-      <Icon icon={ICONS.RULER} size={50} color={({ theme }) => theme.white} />
-    </Divider>
   </div>
 )
+
+// inject data.site.siteMetadata.filterOptions.support into
+// SupportContainer and pass to FilterAndSearch component to
+// form filter menu
+
+export const query = graphql`
+  query SupportQuery {
+    site {
+      siteMetadata {
+        filterOptions {
+          support
+        }
+      }
+    }
+  }
+`
 
 export default SupportPage

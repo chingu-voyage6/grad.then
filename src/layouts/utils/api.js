@@ -96,3 +96,28 @@ export const fakeEventsAPISearch = (str, items) => {
   const title = str.slice(0, 1).toUpperCase() + str.slice(1)
   return fakeEventsAPI(random, undefined, undefined, title)
 }
+
+// fake stories API
+export function fakeStoriesAPI(length, title = '') {
+  // Returns a promise that's resolved after 1 seconds.
+  // By default, it will resolve an array of objects
+  return new Promise(resolve => {
+    const response = Array.from({ length: length }, () => {
+      return {
+        title: title || faker.commerce.productName(),
+        image: faker.image.imageUrl(),
+        description: faker.lorem.sentences()
+      }
+    })
+    setTimeout(() => {
+      resolve(response)
+    }, 1000)
+  })
+}
+
+export const fakeStoriesAPISearch = (str, items) => {
+  const random = Math.floor(Math.random() * (items + 1))
+  const length = random % 2 === 0 ? random : random + 1
+  const title = str.slice(0, 1).toUpperCase() + str.slice(1)
+  return fakeStoriesAPI(length, title)
+}

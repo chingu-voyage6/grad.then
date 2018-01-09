@@ -8,10 +8,8 @@ const StyledCardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
-  margin: 1.5rem 0 3rem 0;
-  ${media.desktop`
-    margin: 0;
-  `} ${media.phone`
+  margin: 1.5rem 0 2rem 0;
+  ${media.phone`
     margin: 0.5rem 0 1rem 0;
   `};
 `
@@ -27,7 +25,7 @@ const StyledStories = styled.div`
   padding: 0.6rem;
   & > div:last-child {
     display: ${props =>
-    props.cols < props.cards ? 'none' : props.story ? 'grid' : 'flex'};
+      props.cols < props.cards ? 'none' : props.story ? 'grid' : 'flex'};
   }
   ${media.giant`
     grid-column: 1 / span 12;
@@ -38,9 +36,9 @@ const StyledStories = styled.div`
   `} ${media.tablet`
     margin: 0.5rem 2rem;
     grid-template-columns: ${props =>
-    props.cols > 3
-      ? `repeat(${Math.floor(props.cols / 2)}, 1fr)`
-      : `repeat(${props.cols}, 1fr)`};
+      props.cols > 3
+        ? `repeat(${Math.floor(props.cols / 2)}, 1fr)`
+        : `repeat(${props.cols}, 1fr)`};
     & > div:last-child {
       display: ${props => (props.story ? 'grid' : 'flex')};
     }

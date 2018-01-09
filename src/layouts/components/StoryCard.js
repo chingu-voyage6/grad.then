@@ -39,6 +39,7 @@ const Text = styled.div`
   grid-area: text;
   padding: 0.5rem;
   margin: 0.5rem;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -46,9 +47,9 @@ const Text = styled.div`
   ${media.desktop`
     justify-content: space-between;
   `} ${media.tablet`
-    justify-content: space-between;
     padding-top: 0;
     margin-top: 0.5rem;
+    //margin-bottom: auto;
   `} ${media.phone`
     padding: 0 0.3rem;
     margin-top: 0;
