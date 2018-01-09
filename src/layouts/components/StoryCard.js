@@ -63,8 +63,7 @@ const StoryTitle = StyledH3.extend`
   padding: 0rem;
   ${media.desktop`
     font-size: 1.2rem;
-  `}
-  ${media.phone`
+  `} ${media.phone`
     padding: 0.5rem;
     font-size: 1.25rem;
   `};

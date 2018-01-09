@@ -97,7 +97,6 @@ export const fakeEventsAPISearch = (str, items) => {
   return fakeEventsAPI(random, undefined, undefined, title)
 }
 
-
 // fake stories API
 export function fakeStoriesAPI(length, title = '') {
   // Returns a promise that's resolved after 1 seconds.
@@ -118,7 +117,7 @@ export function fakeStoriesAPI(length, title = '') {
 
 export const fakeStoriesAPISearch = (str, items) => {
   const random = Math.floor(Math.random() * (items + 1))
-  const length = (random % 2 === 0)? random : random + 1
+  const length = random % 2 === 0 ? random : random + 1
   const title = str.slice(0, 1).toUpperCase() + str.slice(1)
   return fakeStoriesAPI(length, title)
 }

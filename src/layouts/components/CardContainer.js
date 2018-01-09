@@ -25,7 +25,7 @@ const StyledStories = styled.div`
   padding: 0.6rem;
   & > div:last-child {
     display: ${props =>
-    props.cols < props.cards ? 'none' : props.story ? 'grid' : 'flex'};
+      props.cols < props.cards ? 'none' : props.story ? 'grid' : 'flex'};
   }
   ${media.giant`
     grid-column: 1 / span 12;
@@ -36,9 +36,9 @@ const StyledStories = styled.div`
   `} ${media.tablet`
     margin: 0.5rem 2rem;
     grid-template-columns: ${props =>
-    props.cols > 3
-      ? `repeat(${Math.floor(props.cols / 2)}, 1fr)`
-      : `repeat(${props.cols}, 1fr)`};
+      props.cols > 3
+        ? `repeat(${Math.floor(props.cols / 2)}, 1fr)`
+        : `repeat(${props.cols}, 1fr)`};
     & > div:last-child {
       display: ${props => (props.story ? 'grid' : 'flex')};
     }

@@ -5,7 +5,7 @@ import EventsContainer from '../layouts/components/EventsContainer'
 const EventsPage = ({ data }) => (
   <div>
     <Hero type="events" />
-    <EventsContainer menuFilter={data.site.siteMetadata.filterOptions.events}/>
+    <EventsContainer menuFilter={data.site.siteMetadata.filterOptions.events} />
   </div>
 )
 

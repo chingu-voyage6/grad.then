@@ -165,5 +165,6 @@ class EventsContainer extends React.Component {
 export default withTheme(EventsContainer)
 
 EventsContainer.propTypes = {
-  menuFilter: PropTypes.array.isRequired
+  menuFilter: PropTypes.array.isRequired,
+  theme: PropTypes.PropTypes.oneOfType([PropTypes.func, PropTypes.object])
 }

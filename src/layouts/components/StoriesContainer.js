@@ -94,9 +94,7 @@ class StoriesContainer extends React.Component {
     // immitation of new query
     const random = Math.floor(Math.random() * (this.CARDS.items + 1))
     const length =
-        str === 'all'
-          ? this.CARDS.items
-          : ((random % 2 === 0)? random : random + 1)
+      str === 'all' ? this.CARDS.items : random % 2 === 0 ? random : random + 1
     let result
 
     if (this.state.searchQuery) {
@@ -160,5 +158,6 @@ class StoriesContainer extends React.Component {
 export default withTheme(StoriesContainer)
 
 StoriesContainer.propTypes = {
-  menuFilter: PropTypes.array.isRequired
+  menuFilter: PropTypes.array.isRequired,
+  theme: PropTypes.PropTypes.oneOfType([PropTypes.func, PropTypes.object])
 }

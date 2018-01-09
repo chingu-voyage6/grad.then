@@ -23,7 +23,7 @@ const SectionP = StyledP.extend`
   `};
 `
 
-const SupportPage = ( { data }) => (
+const SupportPage = ({ data }) => (
   <div>
     <Hero type="support" />
     <CardContainer cols={3}>
@@ -44,7 +44,6 @@ const SupportPage = ( { data }) => (
     <SectionTitle>search &#38; filter here</SectionTitle>
 
     <CardContainer cols={5}>{addCards(10, 'project')}</CardContainer>
-
   </div>
 )
 

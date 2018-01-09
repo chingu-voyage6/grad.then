@@ -6,7 +6,7 @@ import JobsContainer from '../layouts/components/JobsContainer'
 const JobsPage = ({ data }) => (
   <div>
     <Hero type="jobs" />
-    <JobsContainer menuFilter={data.site.siteMetadata.filterOptions.jobs}/>
+    <JobsContainer menuFilter={data.site.siteMetadata.filterOptions.jobs} />
   </div>
 )
 

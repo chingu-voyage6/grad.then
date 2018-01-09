@@ -6,7 +6,9 @@ import StoriesContainer from '../layouts/components/StoriesContainer'
 const StoriesPage = ({ data }) => (
   <div>
     <Hero type="stories" />
-    <StoriesContainer  menuFilter={data.site.siteMetadata.filterOptions.stories}/>
+    <StoriesContainer
+      menuFilter={data.site.siteMetadata.filterOptions.stories}
+    />
   </div>
 )
 
