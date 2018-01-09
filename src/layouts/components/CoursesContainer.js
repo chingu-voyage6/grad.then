@@ -7,6 +7,7 @@ import { media } from '../../theme/globalStyle'
 import FilterAndSearch from './FilterAndSearch'
 import JobsList from './JobsList'
 import Pagination from './Pagination'
+import { LoadingContent } from './Titles'
 import { fakeLearnAPI, fakeLearnAPISearch } from '../utils/api'
 
 const Wrapper = styled.div`
@@ -47,6 +48,7 @@ class CoursesContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      loading: true,
       searchQuery: '',
       query: [
         {
@@ -66,7 +68,8 @@ class CoursesContainer extends React.Component {
   }
 
   componentDidMount() {
-    fakeLearnAPI().then(query => this.setState({ query }))
+    const loading = false
+    fakeLearnAPI().then(query => this.setState({ loading, query }))
   }
 
   changePage(num) {
@@ -126,7 +129,8 @@ class CoursesContainer extends React.Component {
   }
 
   render() {
-    const arr = this.state.query
+    const arr = [...this.state.query]
+    const loading = this.state.loading
     return (
       <Wrapper>
         <FilterAndSearch
@@ -136,22 +140,26 @@ class CoursesContainer extends React.Component {
           search={this.handleSearch}
           input={this.handleInput}
         />
-        <List>
-          {arr.map((elem, index) => (
-            <JobsList
-              key={index}
-              area="lst"
-              type="list"
-              title={elem.title}
-              text={elem}
+        {loading ? (
+          <LoadingContent area="lst">Loading...</LoadingContent>
+        ) : (
+          <List>
+            {arr.map((elem, index) => (
+              <JobsList
+                key={index}
+                area="lst"
+                type="list"
+                title={elem.title}
+                text={elem}
+              />
+            ))}
+            <Pagination
+              onChange={this.changePage}
+              background={this.props.theme.white}
+              pageNum={2}
             />
-          ))}
-          <Pagination
-            onChange={this.changePage}
-            background={this.props.theme.white}
-            pageNum={2}
-          />
-        </List>
+          </List>
+        )}
       </Wrapper>
     )
   }

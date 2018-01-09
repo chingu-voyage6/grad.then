@@ -106,7 +106,7 @@ export function fakeStoriesAPI(length, title = '') {
       return {
         title: title || faker.commerce.productName(),
         image: faker.image.imageUrl(),
-        description: faker.hacker.phrase()
+        description: faker.lorem.sentences()
       }
     })
     setTimeout(() => {

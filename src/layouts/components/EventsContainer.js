@@ -8,6 +8,7 @@ import FilterAndSearch from './FilterAndSearch'
 import CardContainer from './CardContainer'
 import ProjectCard from './ProjectCard'
 import Pagination from './Pagination'
+import { LoadingContent } from './Titles'
 import { fakeEventsAPI, fakeEventsAPISearch } from '../utils/api'
 
 const Wrapper = styled.div`
@@ -42,6 +43,7 @@ class EventsContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      loading: true,
       searchQuery: '',
       query: [
         {
@@ -63,7 +65,10 @@ class EventsContainer extends React.Component {
   }
 
   componentDidMount() {
-    fakeEventsAPI(this.CARDS.items).then(query => this.setState({ query }))
+    const loading = false
+    fakeEventsAPI(this.CARDS.items).then(query =>
+      this.setState({ loading, query })
+    )
   }
 
   changePage(num) {
@@ -130,6 +135,7 @@ class EventsContainer extends React.Component {
 
   render() {
     const arr = [...this.state.query]
+    const loading = this.state.loading
     return (
       <Wrapper>
         <FilterAndSearch
@@ -139,25 +145,29 @@ class EventsContainer extends React.Component {
           search={this.handleSearch}
           input={this.handleInput}
         />
-        <Container>
-          <CardContainer cols={this.CARDS.cols} cards={this.CARDS.items}>
-            {arr.map((elem, index) => (
-              <ProjectCard
-                key={index}
-                type="list"
-                title={elem.title}
-                text={elem.description}
-                img={elem.image}
-                list={[elem.date, elem.city, elem.country]}
-              />
-            ))}
-          </CardContainer>
-          <Pagination
-            onChange={this.changePage}
-            background={this.props.theme.white}
-            pageNum={2}
-          />
-        </Container>
+        {loading ? (
+          <LoadingContent area="cont">Loading...</LoadingContent>
+        ) : (
+          <Container>
+            <CardContainer cols={this.CARDS.cols} cards={this.CARDS.items}>
+              {arr.map((elem, index) => (
+                <ProjectCard
+                  key={index}
+                  type="list"
+                  title={elem.title}
+                  text={elem.description}
+                  img={elem.image}
+                  list={[elem.date, elem.city, elem.country]}
+                />
+              ))}
+            </CardContainer>
+            <Pagination
+              onChange={this.changePage}
+              background={this.props.theme.white}
+              pageNum={2}
+            />
+          </Container>
+        )}
       </Wrapper>
     )
   }

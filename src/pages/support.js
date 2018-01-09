@@ -5,8 +5,6 @@ import { StyledH2, StyledP, media } from '../theme/globalStyle'
 import CardContainer from '../layouts/components/CardContainer'
 import { addCards } from '../layouts/utils/helpers'
 import Divider from '../layouts/components/Divider'
-import { ICONS } from '../theme/constants.js'
-import Icon from '../layouts/components/Icon.js'
 
 import faker from 'faker'
 

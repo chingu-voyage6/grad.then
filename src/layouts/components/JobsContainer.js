@@ -8,6 +8,7 @@ import JobsFilter from './JobsFilter'
 import JobsList from './JobsList'
 import Pagination from './Pagination'
 import FilterAndSearch from './FilterAndSearch'
+import { LoadingContent } from './Titles'
 import { fakeAPI, fakeAPISearch } from '../utils/api'
 
 const Wrapper = styled.div`
@@ -46,6 +47,7 @@ class JobsContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      loading: true,
       searchQuery: '',
       filter: ['any', 'any', 'any', 'any'],
       query: [
@@ -67,7 +69,8 @@ class JobsContainer extends React.Component {
   }
 
   componentDidMount() {
-    fakeAPI().then(query => this.setState({ query }))
+    const loading = false
+    fakeAPI().then(query => this.setState({ loading, query }))
   }
 
   handleChange(num, data) {
@@ -142,7 +145,8 @@ class JobsContainer extends React.Component {
   }
 
   render() {
-    const arr = this.state.query
+    const arr = [...this.state.query]
+    const loading = this.state.loading
     return (
       <Wrapper>
         <FilterAndSearch
@@ -157,16 +161,20 @@ class JobsContainer extends React.Component {
           onChange={this.handleChange}
           onSubmit={this.submitQuery}
         />
-        <List>
-          {arr.map((elem, index) => (
-            <JobsList key={index} area="lst" title={elem.title} text={elem} />
-          ))}
-          <Pagination
-            onChange={this.changePage}
-            background={this.props.theme.white}
-            pageNum={2}
-          />
-        </List>
+        {loading ? (
+          <LoadingContent area="lst">Loading...</LoadingContent>
+        ) : (
+          <List>
+            {arr.map((elem, index) => (
+              <JobsList key={index} area="lst" title={elem.title} text={elem} />
+            ))}
+            <Pagination
+              onChange={this.changePage}
+              background={this.props.theme.white}
+              pageNum={2}
+            />
+          </List>
+        )}
       </Wrapper>
     )
   }

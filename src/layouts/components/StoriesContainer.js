@@ -7,7 +7,7 @@ import { media } from '../../theme/globalStyle'
 import FilterAndSearch from './FilterAndSearch'
 import CardContainer from './CardContainer'
 import StoryCard from './StoryCard'
-
+import { LoadingContent } from './Titles'
 import Pagination from './Pagination'
 import { fakeStoriesAPI, fakeStoriesAPISearch } from '../utils/api'
 
@@ -43,6 +43,7 @@ class StoriesContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      loading: true,
       searchQuery: '',
       query: [
         {
@@ -61,7 +62,10 @@ class StoriesContainer extends React.Component {
   }
 
   componentDidMount() {
-    fakeStoriesAPI(this.CARDS.items).then(query => this.setState({ query }))
+    const loading = false
+    fakeStoriesAPI(this.CARDS.items).then(query =>
+      this.setState({ loading, query })
+    )
   }
 
   changePage(num) {
@@ -125,6 +129,7 @@ class StoriesContainer extends React.Component {
 
   render() {
     const arr = [...this.state.query]
+    const loading = this.state.loading
     return (
       <Wrapper>
         <FilterAndSearch
@@ -134,23 +139,27 @@ class StoriesContainer extends React.Component {
           search={this.handleSearch}
           input={this.handleInput}
         />
-        <Container>
-          <CardContainer cols={this.CARDS.cols} story={true}>
-            {arr.map((elem, index) => (
-              <StoryCard
-                key={index}
-                title={elem.title}
-                text={elem.description}
-                img={elem.image}
-              />
-            ))}
-          </CardContainer>
-          <Pagination
-            onChange={this.changePage}
-            background={this.props.theme.white}
-            pageNum={2}
-          />
-        </Container>
+        {loading ? (
+          <LoadingContent area="cont">Loading...</LoadingContent>
+        ) : (
+          <Container>
+            <CardContainer cols={this.CARDS.cols} story={true}>
+              {arr.map((elem, index) => (
+                <StoryCard
+                  key={index}
+                  title={elem.title}
+                  text={elem.description}
+                  img={elem.image}
+                />
+              ))}
+            </CardContainer>
+            <Pagination
+              onChange={this.changePage}
+              background={this.props.theme.white}
+              pageNum={2}
+            />
+          </Container>
+        )}
       </Wrapper>
     )
   }

@@ -12,7 +12,7 @@ import { addCards } from '../layouts/utils/helpers'
 import Divider from '../layouts/components/Divider'
 import { ICONS } from '../theme/constants'
 import Icon from '../layouts/components/Icon'
-import SectionTitle from '../layouts/components/SectionTitle'
+import { SectionTitle } from '../layouts/components/Titles'
 
 const IconWrapper = styled.div`
   min-width: 7em;
