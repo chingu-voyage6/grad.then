@@ -8,7 +8,7 @@ module.exports = {
       learn: ['all', 'new', 'courses', 'interviews'],
       events: ['all', 'by country', 'by location', 'annual'],
       support: ['all', 'popular', 'latest'],
-      stories: [ 'all', 'newest', 'popular', 'most rated']
+      stories: [ 'all', 'newest', 'popular', 'rated']
     }
   },
   plugins: [
