@@ -23,7 +23,7 @@ const SectionP = StyledP.extend`
   `};
 `
 
-const SupportPage = () => (
+const SupportPage = ( { data }) => (
   <div>
     <Hero type="support" />
     <CardContainer cols={3}>
@@ -51,5 +51,21 @@ const SupportPage = () => (
     </Divider>
   </div>
 )
+
+// inject data.site.siteMetadata.filterOptions.support into
+// SupportContainer and pass to FilterAndSearch component to
+// form filter menu
+
+export const query = graphql`
+  query SupportQuery {
+    site {
+      siteMetadata {
+        filterOptions {
+          support
+        }
+      }
+    }
+  }
+`
 
 export default SupportPage

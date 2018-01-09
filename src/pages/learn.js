@@ -46,7 +46,7 @@ const IconText = StyledP.extend`
   `};
 `
 
-const LearnPage = props => (
+const LearnPage = ({ theme, data }) => (
   <div>
     <Hero type="learn" />
     <SectionTitle>featured courses</SectionTitle>
@@ -61,27 +61,40 @@ const LearnPage = props => (
       {addCards(6, 'project')}
     </CardContainer>
 
-    <Divider justify={'space-around'} background={props.theme.secondary.green}>
+    <Divider justify={'space-around'} background={theme.secondary.green}>
       <IconWrapper>
-        <Icon icon={ICONS.RULER} size={50} color={props.theme.primary.dark} />
+        <Icon icon={ICONS.RULER} size={50} color={theme.primary.dark} />
         <IconText>{faker.commerce.productName()}</IconText>
       </IconWrapper>
 
       <IconWrapper>
-        <Icon icon={ICONS.BLOG} size={50} color={props.theme.primary.dark} />
+        <Icon icon={ICONS.BLOG} size={50} color={theme.primary.dark} />
         <IconText>{faker.commerce.productName()}</IconText>
       </IconWrapper>
       <IconWrapper>
-        <Icon icon={ICONS.RULER} size={50} color={props.theme.primary.dark} />
+        <Icon icon={ICONS.RULER} size={50} color={theme.primary.dark} />
         <IconText>{faker.commerce.productName()}</IconText>
       </IconWrapper>
     </Divider>
 
-    <CoursesContainer />
+    <CoursesContainer menuFilter={data.site.siteMetadata.filterOptions.learn} />
   </div>
 )
 
 LearnPage.propTypes = {
   theme: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
 }
+
+export const query = graphql`
+  query LearnQuery {
+    site {
+      siteMetadata {
+        filterOptions {
+          learn
+        }
+      }
+    }
+  }
+`
+
 export default withTheme(LearnPage)

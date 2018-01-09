@@ -7,7 +7,6 @@ import { media } from '../../theme/globalStyle'
 import FilterAndSearch from './FilterAndSearch'
 import CardContainer from './CardContainer'
 import ProjectCard from './ProjectCard'
-// import { addCards } from '../utils/helpers'
 import Pagination from './Pagination'
 import { fakeEventsAPI, fakeEventsAPISearch } from '../utils/api'
 
@@ -43,7 +42,6 @@ class EventsContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      menuFilter: ['all', 'featured', 'my area'],
       searchQuery: '',
       query: [
         {
@@ -136,7 +134,7 @@ class EventsContainer extends React.Component {
       <Wrapper>
         <FilterAndSearch
           area="fs"
-          items={this.state.menuFilter}
+          items={this.props.menuFilter}
           changeDates={this.handleDates}
           search={this.handleSearch}
           input={this.handleInput}
@@ -165,3 +163,7 @@ class EventsContainer extends React.Component {
   }
 }
 export default withTheme(EventsContainer)
+
+EventsContainer.propTypes = {
+  menuFilter: PropTypes.array.isRequired
+}

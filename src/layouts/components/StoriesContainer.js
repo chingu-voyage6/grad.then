@@ -43,7 +43,6 @@ class StoriesContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      menuFilter: ['all', 'latest', 'featured'],
       searchQuery: '',
       query: [
         {
@@ -72,7 +71,7 @@ class StoriesContainer extends React.Component {
       let result
       if (this.state.searchQuery) {
         const searchQuery = this.state.searchQuery
-        result = fakeStoriesAPI(length, undefined, undefined, searchQuery)
+        result = fakeStoriesAPI(length, searchQuery)
       } else {
         result = fakeStoriesAPI(length)
       }
@@ -97,7 +96,7 @@ class StoriesContainer extends React.Component {
     const length =
         str === 'all'
           ? this.CARDS.items
-          : ((random % 2 === 0)? random : random + 1) 
+          : ((random % 2 === 0)? random : random + 1)
     let result
 
     if (this.state.searchQuery) {
@@ -132,7 +131,7 @@ class StoriesContainer extends React.Component {
       <Wrapper>
         <FilterAndSearch
           area="fs"
-          items={this.state.menuFilter}
+          items={this.props.menuFilter}
           changeDates={this.handleDates}
           search={this.handleSearch}
           input={this.handleInput}
@@ -159,3 +158,7 @@ class StoriesContainer extends React.Component {
   }
 }
 export default withTheme(StoriesContainer)
+
+StoriesContainer.propTypes = {
+  menuFilter: PropTypes.array.isRequired
+}

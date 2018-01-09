@@ -2,7 +2,14 @@ module.exports = {
   pathPrefix: '/grad.then',
   siteMetadata: {
     title: 'grad.then()',
-    pages: ['jobs', 'learn', 'events', 'support', 'stories']
+    pages: ['jobs', 'learn', 'events', 'support', 'stories'],
+    filterOptions: {
+      jobs: ['all', 'latest', 'last week', 'last month'],
+      learn: ['all', 'new', 'courses', 'interviews'],
+      events: ['all', 'by country', 'by location', 'annual'],
+      support: ['all', 'popular', 'latest'],
+      stories: [ 'all', 'newest', 'popular', 'most rated']
+    }
   },
   plugins: [
     'gatsby-plugin-react-helmet',

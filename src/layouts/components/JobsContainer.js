@@ -46,7 +46,6 @@ class JobsContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      menuFilter: ['all', 'latest', 'last week', 'last month'],
       searchQuery: '',
       filter: ['any', 'any', 'any', 'any'],
       query: [
@@ -148,7 +147,7 @@ class JobsContainer extends React.Component {
       <Wrapper>
         <FilterAndSearch
           area="fs"
-          items={this.state.menuFilter}
+          items={this.props.menuFilter}
           changeDates={this.handleDates}
           search={this.handleSearch}
           input={this.handleInput}
@@ -176,5 +175,6 @@ class JobsContainer extends React.Component {
 export default withTheme(JobsContainer)
 
 JobsContainer.propTypes = {
+  menuFilter: PropTypes.array.isRequired,
   theme: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
 }

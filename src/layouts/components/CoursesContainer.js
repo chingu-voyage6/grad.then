@@ -47,7 +47,6 @@ class CoursesContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      menuFilter: ['all', 'new', 'courses', 'interviews'],
       searchQuery: '',
       query: [
         {
@@ -132,7 +131,7 @@ class CoursesContainer extends React.Component {
       <Wrapper>
         <FilterAndSearch
           area="fs"
-          items={this.state.menuFilter}
+          items={this.props.menuFilter}
           changeDates={this.handleDates}
           search={this.handleSearch}
           input={this.handleInput}
@@ -156,6 +155,10 @@ class CoursesContainer extends React.Component {
       </Wrapper>
     )
   }
+}
+
+CoursesContainer.propTypes = {
+  menuFilter: PropTypes.array.isRequired
 }
 
 export default withTheme(CoursesContainer)
