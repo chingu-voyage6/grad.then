@@ -19,14 +19,12 @@ const Main = styled.div`
   ${media.giant`
     grid-column: 2 / span 10;
     margin: 0 0 25% 0;
-  `}
-  ${media.tablet`
+  `} ${media.tablet`
     margin: 0 0 10% 0;
-  `}
-  ${media.phone`
+  `} ${media.phone`
     grid-column: 1 / span 12;
     margin: 0 1rem 18% 1rem;
-  `}
+  `};
 `
 
 const TemplateWrapper = ({ children }) => (

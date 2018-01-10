@@ -12,10 +12,9 @@ const PageTitle = StyledH1.extend`
   ${media.tablet`
     font-size: 2.5em;
     padding: 0.5rem;
-  `}
-  ${media.phone`
+  `} ${media.phone`
     padding-bottom: 0;
-  `}
+  `};
 `
 const PageContainer = styled.div`
   display: flex;
@@ -28,10 +27,9 @@ const PageContainer = styled.div`
   ${media.tablet`
     flex-wrap: wrap;
     justify-content: center;
-  `}
-  ${media.phone`
+  `} ${media.phone`
     padding: 1rem 0.5rem;
-  `}
+  `};
 `
 
 const TextContainer = styled.div`
@@ -52,11 +50,10 @@ const PageText = StyledH2.extend`
   }
   ${media.desktop`
     font-size: 1.2em;
-  `}
-  ${media.phone`
+  `} ${media.phone`
     font-size: 1em;
     padding: 0 0.3rem;
-  `}
+  `};
 `
 
 const StyledLink = styled(Link)`
@@ -73,10 +70,9 @@ const StyledLink = styled(Link)`
   }
   ${media.desktop`
     font-size: 1.2em;
-  `}
-  ${media.phone`
+  `} ${media.phone`
     font-size: 1.1em;
-  `}
+  `};
 `
 
 const IconsContainer = styled.div`
@@ -113,8 +109,7 @@ const IconsContainer = styled.div`
   }
   ${media.desktop`
     margin-left: 0;
-  `}
-  ${media.tablet`
+  `} ${media.tablet`
     width: 240px;
     height: 480px;
     flex: 0 0 12em;
@@ -131,21 +126,22 @@ const IconsContainer = styled.div`
       top: 12rem;
       left: 0;
     }
-  `}
-  ${media.phone`
+  `} ${media.phone`
     height: 466px;
-  `}
+  `};
 `
 
 const GradBear = () => (
   <IconsContainer>
-    <svg id="cap" viewBox="0 0 791.803 791.803"
-      preserveAspectRatio="xMidYMid meet">
-      <path d={ICONS.CAP}/>
+    <svg
+      id="cap"
+      viewBox="0 0 791.803 791.803"
+      preserveAspectRatio="xMidYMid meet"
+    >
+      <path d={ICONS.CAP} />
     </svg>
 
-    <svg id="bear" viewBox="0 0 512 496"
-      preserveAspectRatio="xMidYMid meet">
+    <svg id="bear" viewBox="0 0 512 496" preserveAspectRatio="xMidYMid meet">
       <path d={ICONS.BEAR_LIGHT} />
     </svg>
   </IconsContainer>
@@ -157,7 +153,9 @@ const NotFoundPage = () => (
     <PageContainer>
       <GradBear />
       <TextContainer>
-        <PageText><span>Hi there!</span></PageText>
+        <PageText>
+          <span>Hi there!</span>
+        </PageText>
         <PageText>The page you are loking for does not exist!</PageText>
         <StyledLink to="/">Back to Homepage</StyledLink>
       </TextContainer>
