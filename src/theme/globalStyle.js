@@ -28,6 +28,10 @@ injectGlobal`
     line-height: 1.3125;
   }
 
+  p {
+    font-family: OpenSans, Arial, sans-serif;
+  }
+
   a {
     text-decoration: none;
   }
@@ -79,6 +83,7 @@ export const media = Object.keys(sizes).reduce((accumulator, label) => {
 export const theme = {
   text: '#333',
   white: '#fff',
+  black: '#000',
   primary: {
     dark: '#453463',
     light: '#755f9f'
@@ -92,7 +97,8 @@ export const theme = {
     dark: 'rgba(69, 52, 99, 0.5)'
   },
   tints: {
-    brightgreen: '#57a984'
+    brightgreen: '#57a984',
+    brightred: '#ff4817'
   }
 }
 
