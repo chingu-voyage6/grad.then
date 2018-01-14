@@ -73,6 +73,7 @@ const NavLink = styled(Link).attrs({
       ? props => props.theme.secondary.red
       : props => props.theme.secondary.green
 })`
+  border: 1px solid transparent;
   color: inherit;
   &:visited,
   &:active {
@@ -80,9 +81,9 @@ const NavLink = styled(Link).attrs({
   }
   &:hover {
     color: ${props => props.color};
-    // border: 1px solid ${props => props.border};
-    box-shadow: 0 0 0 1px ${props => props.border};
-    transition: all 0.3s ease;
+    border: 1px solid ${props => props.border};
+    // box-shadow: 0 0 0 1px ${props => props.border};
+    // transition: all 0.3s ease;
     border-radius: 10px;
     margin: -5px;
     padding: 5px;
