@@ -23,11 +23,12 @@
     "pretty-quick": "1.2.0"
   },
   "scripts": {
+    "clean": "rm -rf .cache/ && rm -rf public/",
     "build": "gatsby build",
     "dev": "gatsby develop",
-    "format": "prettier --trailing-comma none --no-semi --single-quote --write \"src/**/*.js\"",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
-    "pre-commit": "npm run format"
+    "format": "pretty-quick",
+    "precommit": "pretty-quick --staged",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "pre-commit": "npm run format",
   "repository": {
