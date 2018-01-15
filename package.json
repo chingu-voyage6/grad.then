@@ -5,38 +5,40 @@
   "main": "n/a",
   "dependencies": {
     "faker": "^4.1.0",
-    "gatsby": "^1.9.127",
-    "gatsby-link": "^1.6.30",
+    "gatsby": "1.9.155",
+    "gatsby-link": "1.6.34",
     "gatsby-plugin-favicon": "^2.1.1",
-    "gatsby-plugin-react-helmet": "^1.0.8",
+    "gatsby-plugin-react-helmet": "2.0.3",
     "gatsby-plugin-styled-components": "^2.0.4",
-    "gatsby-source-filesystem": "^1.5.10",
-    "gatsby-transformer-remark": "^1.7.24",
-    "styled-components": "^2.2.4"
+    "gatsby-source-filesystem": "1.5.11",
+    "gatsby-transformer-remark": "1.7.28",
+    "react-helmet": "5.2.0",
+    "styled-components": "2.4.0"
   },
   "devDependencies": {
-    "eslint": "^4.13.1",
+    "eslint": "4.15.0",
     "eslint-plugin-react": "^7.5.1",
     "gh-pages": "1.1.0",
-    "prettier": "^1.8.2"
+    "husky": "0.14.3",
+    "prettier": "1.10.2",
+    "pretty-quick": "1.2.0"
   },
   "scripts": {
+    "clean": "rm -rf .cache/ && rm -rf public/",
     "build": "gatsby build",
     "dev": "gatsby develop",
-    "format": "prettier --trailing-comma none --no-semi --single-quote --write \"src/**/*.js\"",
+    "format": "pretty-quick",
+    "precommit": "pretty-quick --staged",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
-    "pre-commit": "npm run format"
+    "deploy:travis":
+      "gatsby build --prefix-paths && https://$GITHUB_TOKEN@github.com/chingu-voyage3/grad.then.git -d public"
   },
   "pre-commit": "npm run format",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chingu-voyage3/bears-16.git"
   },
-  "keywords": [
-    "gatsby",
-    "grad",
-    "then"
-  ],
+  "keywords": ["gatsby", "grad", "then"],
   "author": "",
   "license": "MIT",
   "bugs": {
