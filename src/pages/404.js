@@ -4,6 +4,29 @@ import styled from 'styled-components'
 import { ICONS } from '../theme/constants'
 import { StyledH1, StyledH2, media } from '../theme/globalStyle'
 
+const Wrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  background-color: ${({ theme }) => theme.secondary.yellow};
+`
+
+const Main = styled.div`
+  margin: 0 0 20.9% 0;
+  text-align: center;
+  grid-column: 3 / span 8;
+  background-color: ${({ theme }) => theme.secondary.yellow};
+  ${media.giant`
+    grid-column: 2 / span 10;
+    margin: 0 0 18% 0;
+  `} ${media.tablet`
+    margin: 0 0 10% 0;
+  `} ${media.phone`
+    grid-column: 1 / span 12;
+    margin: 0 1rem 10% 1rem;
+  `};
+`
+
 const PageTitle = StyledH1.extend`
   color: ${props => props.theme.tints.brightred};
   font-size: 3.5em;
@@ -16,6 +39,7 @@ const PageTitle = StyledH1.extend`
     padding-bottom: 0;
   `};
 `
+
 const PageContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -148,19 +172,21 @@ const GradBear = () => (
 )
 
 const NotFoundPage = () => (
-  <div>
-    <PageTitle>404</PageTitle>
-    <PageContainer>
-      <GradBear />
-      <TextContainer>
-        <PageText>
-          <span>Hi there!</span>
-        </PageText>
-        <PageText>The page you are loking for does not exist!</PageText>
-        <StyledLink to="/">Back to Homepage</StyledLink>
-      </TextContainer>
-    </PageContainer>
-  </div>
+  <Wrapper>
+    <Main>
+      <PageTitle>404</PageTitle>
+      <PageContainer>
+        <GradBear />
+        <TextContainer>
+          <PageText>
+            <span>Hi there!</span>
+          </PageText>
+          <PageText>The page you are loking for does not exist!</PageText>
+          <StyledLink to="/">Back to Homepage</StyledLink>
+        </TextContainer>
+      </PageContainer>
+    </Main>
+  </Wrapper>
 )
 
 export default NotFoundPage
