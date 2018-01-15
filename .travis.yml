@@ -19,5 +19,5 @@ script:
   - npm run clean
 
 after_script: 
-  github-token: $GITHUB_TOKEN
   - if [ "$TRAVIS_BRANCH" = "master" ]; then npm run deploy; fi 
+
