@@ -5,14 +5,15 @@
   "main": "n/a",
   "dependencies": {
     "faker": "^4.1.0",
-    "gatsby": "^1.9.127",
-    "gatsby-link": "^1.6.30",
+    "gatsby": "1.9.155",
+    "gatsby-link": "1.6.34",
     "gatsby-plugin-favicon": "^2.1.1",
-    "gatsby-plugin-react-helmet": "^1.0.8",
+    "gatsby-plugin-react-helmet": "2.0.3",
     "gatsby-plugin-styled-components": "^2.0.4",
-    "gatsby-source-filesystem": "^1.5.10",
-    "gatsby-transformer-remark": "^1.7.24",
-    "styled-components": "^2.2.4"
+    "gatsby-source-filesystem": "1.5.11",
+    "gatsby-transformer-remark": "1.7.28",
+    "react-helmet": "5.2.0",
+    "styled-components": "2.4.0"
   },
   "devDependencies": {
     "eslint": "4.15.0",
