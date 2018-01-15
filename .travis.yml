@@ -17,7 +17,7 @@ before_script:
 
 script:
   - npm run clean
-  - npm run build
 
 after_script: 
   - if [ "$TRAVIS_BRANCH" = "master" ]; then npm run deploy; fi 
+
