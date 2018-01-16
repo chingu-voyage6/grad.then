@@ -1,6 +1,6 @@
 import faker from 'faker'
 
-// fake jobs API
+// fake jobs API -----------------------------------------
 export function fakeAPI(
   length = 7,
   data = ['any', 'any', 'any', 'any'],
@@ -31,11 +31,13 @@ export const fakeAPISearch = str => {
   const random = Math.floor(Math.random() * 11)
   return fakeAPI(random, undefined, str)
 }
+// -----------------------------------------------------
 
-// fake learn API
+// fake learn API --------------------------------------
 const getDate = () => {
   const date = faker.date.future()
-  return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
+  return `${date.getDate()}.${date.getMonth() +
+    1}.${date.getFullYear()}`
 }
 
 export function fakeLearnAPI(length = 5, title = '') {
@@ -69,8 +71,9 @@ export const fakeLearnAPISearch = str => {
   const title = str.slice(0, 1).toUpperCase() + str.slice(1)
   return fakeLearnAPI(random, title)
 }
+// -----------------------------------------------------
 
-// fake events API
+// fake events API --------------------------------------
 export function fakeEventsAPI(length, city, country, title = '') {
   // Returns a promise that's resolved after 1 seconds.
   // By default, it will resolve an array of objects
@@ -96,8 +99,34 @@ export const fakeEventsAPISearch = (str, items) => {
   const title = str.slice(0, 1).toUpperCase() + str.slice(1)
   return fakeEventsAPI(random, undefined, undefined, title)
 }
+// ----------------------------------------------------
 
-// fake stories API
+// fake support API -----------------------------------
+export function fakeSupportAPI(length, title = '') {
+  // Returns a promise that's resolved after 1 seconds.
+  // By default, it will resolve an array of objects
+  return new Promise(resolve => {
+    const response = Array.from({ length: length }, () => {
+      return {
+        title: title || faker.commerce.productName(),
+        image: faker.image.imageUrl(),
+        description: faker.hacker.phrase()
+      }
+    })
+    setTimeout(() => {
+      resolve(response)
+    }, 1000)
+  })
+}
+
+export const fakeSupportAPISearch = (str, items) => {
+  const random = Math.floor(Math.random() * (items + 1))
+  const title = str.slice(0, 1).toUpperCase() + str.slice(1)
+  return fakeSupportAPI(random, title)
+}
+// -----------------------------------------------------
+
+// fake stories API----------------------------------------
 export function fakeStoriesAPI(length, title = '') {
   // Returns a promise that's resolved after 1 seconds.
   // By default, it will resolve an array of objects
@@ -116,6 +145,7 @@ export function fakeStoriesAPI(length, title = '') {
 }
 
 export const fakeStoriesAPISearch = (str, items) => {
+  // always return an even number of cards
   const random = Math.floor(Math.random() * (items + 1))
   const length = random % 2 === 0 ? random : random + 1
   const title = str.slice(0, 1).toUpperCase() + str.slice(1)

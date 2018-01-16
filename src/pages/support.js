@@ -1,36 +1,57 @@
 import React from 'react'
 import Hero from '../layouts/components/Hero'
 
-import { StyledH2, StyledP, media } from '../theme/globalStyle'
+import { StyledH3, StyledP, media } from '../theme/globalStyle'
 import CardContainer from '../layouts/components/CardContainer'
 import { addCards } from '../layouts/utils/helpers'
 import Divider from '../layouts/components/Divider'
+import { SectionTitle } from '../layouts/components/Titles'
+import SupportContainer from '../layouts/components/SupportContainer'
 
 import faker from 'faker'
 
-const SectionTitle = StyledH2.extend`
+const DividerText = StyledH3.extend`
+  font-size: 1.5em;
   text-align: center;
-  text-transform: uppercase;
-  color: ${props => props.theme.primary.light};
+  margin: 1rem;
+  ${media.giant`
+    padding: 1.25rem 1rem;
+  `} ${media.desktop`
+    padding: 1rem;
+  `} ${media.tablet`
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+    padding: 0.75rem;
+  `} ${media.phone`
+    font-size: 1.25rem;
+    padding: 0.5rem;
+  `};
 `
+
 const SectionP = StyledP.extend`
   color: ${props => props.theme.text};
   ${media.tablet`
     font-size: 1rem;
-    padding: 0.5rem;
+    padding: 0.3rem;
+  `} ${media.phone`
+    font-size: 1.125rem;
+    padding: 0.25rem;
   `};
 `
 
 const SupportPage = ({ data }) => (
   <div>
     <Hero type="support" />
+
+    <SectionTitle> how to support</SectionTitle>
+
     <CardContainer cols={3}>
       <SectionP>{faker.lorem.paragraph()}</SectionP>
       {addCards(2, 'project', undefined, 'none')}
     </CardContainer>
 
     <Divider justify={'center'}>
-      <h3>Hello world!</h3>
+      <DividerText>{faker.hacker.phrase()}</DividerText>
     </Divider>
 
     <SectionTitle>featured projects</SectionTitle>
@@ -39,9 +60,13 @@ const SupportPage = ({ data }) => (
       {addCards(6, 'project')}
     </CardContainer>
 
-    <SectionTitle>search &#38; filter here</SectionTitle>
+    <Divider justify={'center'}>
+      <DividerText>{faker.hacker.phrase()}</DividerText>
+    </Divider>
 
-    <CardContainer cols={5}>{addCards(10, 'project')}</CardContainer>
+    <SupportContainer
+      menuFilter={data.site.siteMetadata.filterOptions.support}
+    />
   </div>
 )
 
