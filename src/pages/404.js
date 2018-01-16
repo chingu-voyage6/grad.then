@@ -160,12 +160,14 @@ const GradBear = () => (
     <svg
       id="cap"
       viewBox="0 0 791.803 791.803"
-      preserveAspectRatio="xMidYMid meet"
-    >
+      preserveAspectRatio="xMidYMid meet">
       <path d={ICONS.CAP} />
     </svg>
 
-    <svg id="bear" viewBox="0 0 512 496" preserveAspectRatio="xMidYMid meet">
+    <svg
+      id="bear"
+      viewBox="0 0 512 496"
+      preserveAspectRatio="xMidYMid meet">
       <path d={ICONS.BEAR_LIGHT} />
     </svg>
   </IconsContainer>
@@ -181,7 +183,9 @@ const NotFoundPage = () => (
           <PageText>
             <span>Hi there!</span>
           </PageText>
-          <PageText>The page you are loking for does not exist!</PageText>
+          <PageText>
+            The page you are loking for does not exist!
+          </PageText>
           <StyledLink to="/">Back to Homepage</StyledLink>
         </TextContainer>
       </PageContainer>
