@@ -1,6 +1,7 @@
 # grad.then()
 
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/chingu-voyage3/grad.then.svg?columns=all)](https://waffle.io/chingu-voyage3/grad.then)
+[![Build Status](https://travis-ci.org/chingu-voyage3/grad.then.svg?branch=dev-spences10-82-deployment-setup)](https://travis-ci.org/chingu-voyage3/grad.then)
 
 ## Chingu Voyage 3 project (bears-16 team)
 
@@ -10,8 +11,8 @@ Completed your boot camp? No more freeCodeCamp challenges to take?
 
 Looks like it's time to get a job! 💪
 
-`grad.then()` is aimed at you, to give you the information and tools you need to
-get a job after completing your training.
+`grad.then()` is aimed at you, to give you the information and tools
+you need to get a job after completing your training.
 
 ---
 
@@ -26,9 +27,9 @@ We are _aspiring developers_ and _eager learners_.
 
 ## Built With
 
-The main libraries used in the development of `grad.then()` are shown in the
-following table. For a complete list of libraries consult the `package.json`
-file.
+The main libraries used in the development of `grad.then()` are shown
+in the following table. For a complete list of libraries consult the
+`package.json` file.
 
 | Library                      | Purpose                                      |
 | :--------------------------- | :------------------------------------------- |
@@ -63,19 +64,32 @@ npm run dev
 * development: Upcoming change to be merged into master.
 * developer branch: Individual branches for each developer.
 
-`development` will have PR's from developer branches merged into it, to do this:
+`development` will have PR's from developer branches merged into it,
+to do this:
 
 ```bash
 # make your development branch
 git branch dev-myUserName-issuenumber-description
 # make your change and push to the development branch
-git push origin dev-myUserName-issuenumber-description:development
+git push origin dev-myUserName-issuenumber-description
 ```
 
 Complete your PR through the GitHub UI
 
-As a good working practice request that another team member review and merge
-your PR for a sanity check
+As a good working practice request that another team member review and
+merge your PR for a sanity check
+
+## Deployment
+
+The project is currently hosted on GitHub pages and can be deployed
+from one of the teams machines with:
+
+```sh
+npm run deploy
+```
+
+This will build the site to the `public` folder and deploy to the
+`gh-pages` branch on GitHub.
 
 ## Authors
 
