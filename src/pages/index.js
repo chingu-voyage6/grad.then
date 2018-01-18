@@ -1,5 +1,4 @@
 import React from 'react'
-import faker from 'faker'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
@@ -104,7 +103,7 @@ const IconText = StyledP.extend`
   margin: 0.5rem;
   padding: 0.3rem;
 `
-//{faker.lorem.sentence()}
+
 const IndexPage = ({ data }) => (
   <div>
     <Hero type="main" title={data.site.siteMetadata.title} />

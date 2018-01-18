@@ -137,7 +137,6 @@ const MainHero = props => (
   </StyledMainHero>
 )
 
-//{faker.company.catchPhrase()}
 //-------------------SIMPLE HERO------------------------------------
 const buttonText = {
   stories: 'add story',
