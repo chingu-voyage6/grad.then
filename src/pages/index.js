@@ -104,13 +104,16 @@ const IconText = StyledP.extend`
   margin: 0.5rem;
   padding: 0.3rem;
 `
-
+//{faker.lorem.sentence()}
 const IndexPage = ({ data }) => (
   <div>
     <Hero type="main" title={data.site.siteMetadata.title} />
     <PageContainer>
       <MainTitle>explore what is next</MainTitle>
-      <MainSubtitle>{faker.lorem.sentence()}</MainSubtitle>
+      <MainSubtitle>
+        We give you the information and tools you need to get a job
+        after completing your training
+      </MainSubtitle>
 
       <IconContainer>
         <IconWrapper to={`/${data.site.siteMetadata.pages[0]}`}>
