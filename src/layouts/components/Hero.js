@@ -129,10 +129,10 @@ const MainHero = props => (
       Welcome to <span>{props.title}</span>
     </HeroTitle>
     <HeroUl>
-      <HeroLi>{faker.company.catchPhrase()}</HeroLi>
-      <HeroLi>{faker.company.catchPhrase()}</HeroLi>
-      <HeroLi>{faker.company.catchPhrase()}</HeroLi>
-      <HeroLi>{faker.company.catchPhrase()}</HeroLi>
+      <HeroLi>Completed your boot camp?</HeroLi>
+      <HeroLi>Collected all freeCodeCamp certificates?</HeroLi>
+      <HeroLi>Finished a job-ready guide?</HeroLi>
+      <HeroLi>No more challenges to take?</HeroLi>
     </HeroUl>
   </StyledMainHero>
 )
@@ -246,7 +246,9 @@ const StyledHero = styled.div`
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   background: ${props =>
-    props.bg === 'main' ? `url(${BG})` : props => props.theme.secondary.green};
+    props.bg === 'main'
+      ? `url(${BG})`
+      : props => props.theme.secondary.green};
   background-repeat: no-repeat;
   background-size: cover;
   padding: 0.5rem 0;

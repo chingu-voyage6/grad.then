@@ -1,5 +1,4 @@
 import React from 'react'
-import faker from 'faker'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
@@ -110,7 +109,10 @@ const IndexPage = ({ data }) => (
     <Hero type="main" title={data.site.siteMetadata.title} />
     <PageContainer>
       <MainTitle>explore what is next</MainTitle>
-      <MainSubtitle>{faker.lorem.sentence()}</MainSubtitle>
+      <MainSubtitle>
+        We give you the information and tools you need to get a job
+        after completing your training
+      </MainSubtitle>
 
       <IconContainer>
         <IconWrapper to={`/${data.site.siteMetadata.pages[0]}`}>
