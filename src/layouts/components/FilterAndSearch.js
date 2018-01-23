@@ -29,6 +29,7 @@ const FilterButton = styled.button`
   color: ${props => props.theme.primary.dark};
   text-transform: uppercase;
   border: 2px solid transparent;
+  border-radius: 2px;
   cursor: pointer;
   &:hover,
   &:focus {
@@ -68,8 +69,7 @@ const Filter = props => {
         <FilterButton
           key={index}
           onClick={handleClick}
-          className={!index ? 'active' : ''}
-        >
+          className={!index ? 'active' : ''}>
           {elem}
         </FilterButton>
       ))}
@@ -90,6 +90,7 @@ const StyledInput = styled.input`
   padding: 8px 4px;
   font-size: 1rem;
   border: 2px solid ${({ theme }) => theme.secondary.red};
+  border-radius: 2px 0 0 2px;
   color: ${({ theme }) => theme.primary.dark};
   max-width: 190px;
   ${media.tablet`
@@ -103,6 +104,7 @@ const StyledButton = styled.button`
   padding: 9px 4px;
   border: 1px solid ${({ theme }) => theme.secondary.red};
   border-left-width: 0;
+  border-radius: 0 2px 2px 0;
   background-color: ${({ theme }) => theme.secondary.red};
   color: ${({ theme }) => theme.primary.dark};
   cursor: pointer;
