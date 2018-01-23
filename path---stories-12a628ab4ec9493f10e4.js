@@ -1,2 +1,2 @@
-webpackJsonp([0xbf7edddec8dd],{1372:function(t,e){t.exports={data:{site:{siteMetadata:{filterOptions:{stories:["all","newest","popular","rated"]}}}},pathContext:{}}}});
+webpackJsonp([0xbf7edddec8dd],{1398:function(t,e){t.exports={data:{site:{siteMetadata:{filterOptions:{stories:["all","newest","popular","rated"]}}}},pathContext:{}}}});
 //# sourceMappingURL=path---stories-12a628ab4ec9493f10e4.js.map
