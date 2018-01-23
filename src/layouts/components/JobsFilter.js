@@ -58,6 +58,7 @@ const FilterName = styled.button`
   background-color: ${props => props.theme.primary.light};
   color: ${props => props.theme.white};
   border: none;
+  border-radius: 2px;
   display: flex;
   justify-content: space-between;
   &:hover,
@@ -94,6 +95,7 @@ const OptionContainer = styled.div`
   display: none;
   position: absolute;
   background-color: ${props => props.theme.white};
+  border-radius: 2px;
   min-width: 12rem;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -218,12 +220,24 @@ class JobsFilter extends React.Component {
               color={({ theme }) => theme.white}
             />
           </FilterName>
-          <OptionContainer id="opt-cont-1" onMouseLeave={this.handleMouseLeave}>
-            <FilterOption onClick={this.handleOption}>any</FilterOption>
-            <FilterOption onClick={this.handleOption}>full-time</FilterOption>
-            <FilterOption onClick={this.handleOption}>part-time</FilterOption>
-            <FilterOption onClick={this.handleOption}>remote</FilterOption>
-            <FilterOption onClick={this.handleOption}>internship</FilterOption>
+          <OptionContainer
+            id="opt-cont-1"
+            onMouseLeave={this.handleMouseLeave}>
+            <FilterOption onClick={this.handleOption}>
+              any
+            </FilterOption>
+            <FilterOption onClick={this.handleOption}>
+              full-time
+            </FilterOption>
+            <FilterOption onClick={this.handleOption}>
+              part-time
+            </FilterOption>
+            <FilterOption onClick={this.handleOption}>
+              remote
+            </FilterOption>
+            <FilterOption onClick={this.handleOption}>
+              internship
+            </FilterOption>
           </OptionContainer>
         </StyledFilter>
 
@@ -237,12 +251,24 @@ class JobsFilter extends React.Component {
               color={({ theme }) => theme.white}
             />
           </FilterName>
-          <OptionContainer id="opt-cont-2" onMouseLeave={this.handleMouseLeave}>
-            <FilterOption onClick={this.handleOption}>any</FilterOption>
-            <FilterOption onClick={this.handleOption}>front-end</FilterOption>
-            <FilterOption onClick={this.handleOption}>back-end</FilterOption>
-            <FilterOption onClick={this.handleOption}>full-stack</FilterOption>
-            <FilterOption onClick={this.handleOption}>santa claus</FilterOption>
+          <OptionContainer
+            id="opt-cont-2"
+            onMouseLeave={this.handleMouseLeave}>
+            <FilterOption onClick={this.handleOption}>
+              any
+            </FilterOption>
+            <FilterOption onClick={this.handleOption}>
+              front-end
+            </FilterOption>
+            <FilterOption onClick={this.handleOption}>
+              back-end
+            </FilterOption>
+            <FilterOption onClick={this.handleOption}>
+              full-stack
+            </FilterOption>
+            <FilterOption onClick={this.handleOption}>
+              santa claus
+            </FilterOption>
           </OptionContainer>
         </StyledFilter>
 
@@ -256,12 +282,24 @@ class JobsFilter extends React.Component {
               color={({ theme }) => theme.white}
             />
           </FilterName>
-          <OptionContainer id="opt-cont-3" onMouseLeave={this.handleMouseLeave}>
-            <FilterOption onClick={this.handleOption}>any</FilterOption>
-            <FilterOption onClick={this.handleOption}>junior</FilterOption>
-            <FilterOption onClick={this.handleOption}>middle</FilterOption>
-            <FilterOption onClick={this.handleOption}>senior</FilterOption>
-            <FilterOption onClick={this.handleOption}>wizard</FilterOption>
+          <OptionContainer
+            id="opt-cont-3"
+            onMouseLeave={this.handleMouseLeave}>
+            <FilterOption onClick={this.handleOption}>
+              any
+            </FilterOption>
+            <FilterOption onClick={this.handleOption}>
+              junior
+            </FilterOption>
+            <FilterOption onClick={this.handleOption}>
+              middle
+            </FilterOption>
+            <FilterOption onClick={this.handleOption}>
+              senior
+            </FilterOption>
+            <FilterOption onClick={this.handleOption}>
+              wizard
+            </FilterOption>
           </OptionContainer>
         </StyledFilter>
 
@@ -275,19 +313,28 @@ class JobsFilter extends React.Component {
               color={({ theme }) => theme.white}
             />
           </FilterName>
-          <OptionContainer id="opt-cont-4" onMouseLeave={this.handleMouseLeave}>
-            <FilterOption onClick={this.handleOption}>any</FilterOption>
-            <FilterOption onClick={this.handleOption}>my city</FilterOption>
-            <FilterOption onClick={this.handleOption}>my country</FilterOption>
-            <FilterOption onClick={this.handleOption}>earth</FilterOption>
+          <OptionContainer
+            id="opt-cont-4"
+            onMouseLeave={this.handleMouseLeave}>
+            <FilterOption onClick={this.handleOption}>
+              any
+            </FilterOption>
+            <FilterOption onClick={this.handleOption}>
+              my city
+            </FilterOption>
+            <FilterOption onClick={this.handleOption}>
+              my country
+            </FilterOption>
+            <FilterOption onClick={this.handleOption}>
+              earth
+            </FilterOption>
           </OptionContainer>
         </StyledFilter>
 
         <SubmitButton
           color={this.props.theme.primary.light}
           type="submit"
-          onClick={this.handleSubmit}
-        >
+          onClick={this.handleSubmit}>
           Submit
         </SubmitButton>
       </FilterContainer>
