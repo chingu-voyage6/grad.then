@@ -184,7 +184,7 @@ const NotFoundPage = () => (
             <span>Hi there!</span>
           </PageText>
           <PageText>
-            The page you are loking for does not exist!
+            The page you are looking for does not exist!
           </PageText>
           <StyledLink to="/">Back to Homepage</StyledLink>
         </TextContainer>
