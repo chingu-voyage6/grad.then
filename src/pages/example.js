@@ -6,7 +6,9 @@ const Product = ({ data }) => (
   <ul>
     {data.allContentfulProduct.edges.map(({ node }) => (
       <li key={node.id}>
-        <Link to={node.slug}>{node.productName.productName}</Link>
+        <Link to={`/${node.slug}`}>
+          {node.productName.productName}
+        </Link>
 
         <img
           src={node.image[0].responsiveResolution.src}
