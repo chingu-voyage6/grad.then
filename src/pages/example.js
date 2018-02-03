@@ -2,36 +2,30 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 
-const Product = ({ node }) => {
-  return (
-    <li key={node.id}>
-      <Link to={node.slug}>{node.productName.productName}</Link>
-      <img
-        src={node.image[0].responsiveResolution.src}
-        alt={node.productName.productName}
-      />
-      <div>{node.productDescription.childMarkdownRemark.excerpt}</div>
-    </li>
-  )
-}
-
-Product.propTypes = {
-  node: PropTypes.object
-}
-
-const IndexPage = ({ data }) => (
+const Product = ({ data }) => (
   <ul>
-    {data.allContentfulProduct.edges.map(edge => (
-      <Product key={edge.node.id} node={edge.node} />
+    {data.allContentfulProduct.edges.map(({ node }) => (
+      <li key={node.id}>
+        <Link to={node.slug}>{node.productName.productName}</Link>
+
+        <img
+          src={node.image[0].responsiveResolution.src}
+          alt={node.productName.productName}
+        />
+
+        <div>
+          {node.productDescription.childMarkdownRemark.excerpt}
+        </div>
+      </li>
     ))}
   </ul>
 )
 
-IndexPage.propTypes = {
+Product.propTypes = {
   data: PropTypes.object
 }
 
-export default IndexPage
+export default Product
 
 export const pageQuery = graphql`
   query pageQuery {
