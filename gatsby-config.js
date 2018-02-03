@@ -8,7 +8,7 @@ module.exports = {
       learn: ['all', 'new', 'courses', 'interviews'],
       events: ['all', 'by country', 'by location', 'annual'],
       support: ['all', 'popular', 'latest'],
-      stories: [ 'all', 'newest', 'popular', 'rated']
+      stories: ['all', 'newest', 'popular', 'rated']
     }
   },
   plugins: [
@@ -38,6 +38,16 @@ module.exports = {
           yandex: false,
           windows: false
         }
+      }
+    },
+    {
+      resolve: 'gatsby-source-contentful',
+      options: {
+        // spaseId need to change (this is only for the test purpose)
+        spaceId: 'wexwb9rlszk9',
+        // accessToken need to change (this is only for the test purpose)
+        accessToken:
+          'c29361572d1f09316b75837e9487ea25baf5987f8830a7a8f75decff25ff1713'
       }
     }
   ]
