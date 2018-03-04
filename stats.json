@@ -8,6 +8,10 @@
       "path---jobs-452f71356ca04c34b196.js",
       "path---jobs-452f71356ca04c34b196.js.map"
     ],
+    "path---new-product-of-super-awesomeness": [
+      "path---new-product-of-super-awesomeness-7bcf44e5368b267acad8.js",
+      "path---new-product-of-super-awesomeness-7bcf44e5368b267acad8.js.map"
+    ],
     "component---src-pages-index-js": [
       "component---src-pages-index-js-d733525602cb07e7b2d6.js",
       "component---src-pages-index-js-d733525602cb07e7b2d6.js.map"
@@ -33,20 +37,20 @@
       "component---src-pages-example-js-bdbd99232b6be54ca856.js.map"
     ],
     "path---miljans-product": [
-      "path---miljans-product-45cd03b002c404863ece.js",
-      "path---miljans-product-45cd03b002c404863ece.js.map"
+      "path---miljans-product-001579aa1c9cdbc0ab7f.js",
+      "path---miljans-product-001579aa1c9cdbc0ab7f.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-c252717ef13e173130cd.js",
-      "component---src-layouts-index-js-c252717ef13e173130cd.js.map"
+      "component---src-layouts-index-js-c8a63b4df1e6857c3066.js",
+      "component---src-layouts-index-js-c8a63b4df1e6857c3066.js.map"
     ],
     "path---example": [
-      "path---example-1a27f2caae3dd54227ee.js",
-      "path---example-1a27f2caae3dd54227ee.js.map"
+      "path---example-34fdd000ef264da8f3a0.js",
+      "path---example-34fdd000ef264da8f3a0.js.map"
     ],
     "component---src-pages-learn-js": [
-      "component---src-pages-learn-js-6288be7e431faa5978ac.js",
-      "component---src-pages-learn-js-6288be7e431faa5978ac.js.map"
+      "component---src-pages-learn-js-580499070c634bf64f11.js",
+      "component---src-pages-learn-js-580499070c634bf64f11.js.map"
     ],
     "component---src-templates-product-js": [
       "component---src-templates-product-js-bb011f6f5a50a4ed34ff.js",
@@ -69,8 +73,8 @@
       "component---src-pages-404-js-64aa219b4b0b6500eb64.js.map"
     ],
     "commons": [
-      "commons-f0bcda6419323c80d150.js",
-      "commons-f0bcda6419323c80d150.js.map"
+      "commons-11df095022c060cca3b7.js",
+      "commons-11df095022c060cca3b7.js.map"
     ],
     "path---404-html": [
       "path---404-html-a0e39f21c11f6a62c5ab.js",
@@ -89,8 +93,8 @@
       "path---whisk-beater-4fc54d8d13bad75a0ab8.js.map"
     ],
     "app": [
-      "app-e05398adfc4456101951.js",
-      "app-e05398adfc4456101951.js.map"
+      "app-fcf4bf1b205f446c8cd6.js",
+      "app-fcf4bf1b205f446c8cd6.js.map"
     ],
     "component---src-pages-jobs-js": [
       "component---src-pages-jobs-js-94265de08fbea495a6a5.js",
