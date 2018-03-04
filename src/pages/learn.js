@@ -39,6 +39,11 @@ const IconText = StyledP.extend`
   color: ${props => props.theme.primary.dark};
   margin: 0.5rem;
   padding: 0.3rem;
+  span {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: ${props => props.theme.white};
+  }
   ${media.desktop`
     font-size: 1rem;
   `} ${media.tablet`
@@ -61,23 +66,49 @@ const LearnPage = ({ theme, data }) => (
       {addCards(6, 'project')}
     </CardContainer>
 
-    <Divider justify={'space-around'} background={theme.secondary.green}>
+    <Divider
+      justify={'space-around'}
+      background={theme.secondary.green}>
       <IconWrapper>
-        <Icon icon={ICONS.RULER} size={50} color={theme.primary.dark} />
-        <IconText>{faker.commerce.productName()}</IconText>
+        <Icon
+          icon={ICONS.DISPLAY}
+          size={60}
+          color={theme.primary.dark}
+        />
+        <IconText>
+          <span>{faker.random.number()}</span> courses start this week
+        </IconText>
       </IconWrapper>
 
       <IconWrapper>
-        <Icon icon={ICONS.BLOG} size={50} color={theme.primary.dark} />
-        <IconText>{faker.commerce.productName()}</IconText>
+        <Icon
+          icon={ICONS.BUBBLES}
+          size={60}
+          color={theme.primary.dark}
+          viewbox="0 0 36 32"
+        />
+        <IconText>
+          <span>{faker.random.number()}</span> interview questions
+          available
+        </IconText>
       </IconWrapper>
+
       <IconWrapper>
-        <Icon icon={ICONS.RULER} size={50} color={theme.primary.dark} />
-        <IconText>{faker.commerce.productName()}</IconText>
+        <Icon
+          icon={ICONS.LIBRARY}
+          size={60}
+          color={theme.primary.dark}
+          viewbox="0 0 34 32"
+        />
+        <IconText>
+          <span>{faker.random.number()}</span> course providers found
+        </IconText>
       </IconWrapper>
     </Divider>
 
-    <CoursesContainer menuFilter={data.site.siteMetadata.filterOptions.learn} />
+    <CoursesContainer
+      menuFilter={data.site.siteMetadata.filterOptions.learn}
+    />
   </div>
 )
 
