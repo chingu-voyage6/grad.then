@@ -1,15 +1,15 @@
 # grad.then()
 
-[![Waffle.io - Columns and their card count](https://badge.waffle.io/chingu-voyage3/grad.then.svg?columns=all)](https://waffle.io/chingu-voyage3/grad.then)
-[![Build Status](https://travis-ci.org/chingu-voyage3/grad.then.svg?branch=dev-spences10-82-deployment-setup)](https://travis-ci.org/chingu-voyage3/grad.then)
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/chingu-voyage4/grad.then.svg?columns=all)](https://waffle.io/chingu-voyage4/grad.then)
+[![Build Status](https://travis-ci.org/chingu-voyage4/grad.then.svg?branch=dev-spences10-82-deployment-setup)](https://travis-ci.org/chingu-voyage4/grad.then)
 
-## Chingu Voyage 3 project (bears-16 team)
+## Chingu Voyage 4 project (bears-24 team)
 
 ### Life after freeCodeCamp
 
 Completed your boot camp? No more freeCodeCamp challenges to take?
 
-Looks like it's time to get a job! 💪
+Looks like it's time to get a job!
 
 `grad.then()` is aimed at you, to give you the information and tools
 you need to get a job after completing your training.
@@ -23,7 +23,7 @@ We are _aspiring developers_ and _eager learners_.
 
 **And this is the very beginning.**
 
-[![Throughput Graph](https://graphs.waffle.io/chingu-voyage3/grad.then/throughput.svg)](https://waffle.io/chingu-voyage3/grad.then/metrics/throughput)
+[![Throughput Graph](https://graphs.waffle.io/chingu-voyage4/grad.then/throughput.svg)](https://waffle.io/chingu-voyage4/grad.then/metrics/throughput)
 
 ## Built With
 
@@ -46,9 +46,9 @@ in the following table. For a complete list of libraries consult the
 To use the project clone this repo with:
 
 ```bash
-git clone https://github.com/chingu-voyage3/grad.then.git
+git clone https://github.com/chingu-voyage4/grad.then.git
 # or if you use SSH
-git clone git@github.com:chingu-voyage3/grad.then.git
+git clone git@github.com:chingu-voyage4/grad.then.git
 # change directory
 cd grad.then
 # install dependencies
