@@ -97,15 +97,25 @@ This will build the site to the `public` folder and deploy to the
 | :-------------------------- | :--------------- |
 | [Marina Biletska][marina]   | Hurghada, Egypt  |
 | [Miljan Djordjevic][miljan] | Belgrade, Serbia |
-| [Hasan Hacioglu][hasan]     | Istanbul, TR     |
+| [Nedu Robert][nedu]         | Lagos, Nigeria   |
 | [Scott Spence][scott]       | London, UK       |
 
 <!-- links -->
 
 [marina]: https://github.com/mar-bi
 [miljan]: https://github.com/miljan-fsd
-[hasan]: https://github.com/asanhix
+[nedu]: https://github.com/Nedu
 [scott]: https://github.com/spences10
+
+## Former Authors
+
+| Name                    | Location     |
+| :---------------------- | :----------- |
+| [Hasan Hacioglu][hasan] | Istanbul, TR |
+
+<!-- links -->
+
+[hasan]: https://github.com/asanhix
 
 ## Licence
 
