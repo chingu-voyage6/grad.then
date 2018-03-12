@@ -15,7 +15,6 @@ interactions with the project.
 
 3. Format your code with `prettier`.
 
-
 ```bash
 npm run format
 # or
@@ -26,13 +25,11 @@ yarn format
 
 5. Always write a clear log message for your commits.
 
-
 ```
 $ git commit -m "A brief summary of the commit"
 ```
 
 6. Submit the proposed changes through the next process:
-
 
 ```bash
 # make your development branch
