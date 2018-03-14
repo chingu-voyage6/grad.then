@@ -29,8 +29,12 @@ const TemplateWrapper = ({ data, children }) => (
       <Helmet
         title="grad.then()"
         meta={[
-          { name: 'description', content: 'Sample' },
-          { name: 'keywords', content: 'sample, something' }
+          { name: 'description', content: 'grad.then' },
+          {
+            name: 'keywords',
+            content:
+              'web-development, jobs, courses, open-source, events, first-dev-job, stories'
+          }
         ]}
       />
       <Header navItems={data.site.siteMetadata.pages} />

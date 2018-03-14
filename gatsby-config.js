@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: '.env.development'
+})
+
 module.exports = {
   pathPrefix: '/grad.then',
   siteMetadata: {
@@ -44,10 +48,9 @@ module.exports = {
       resolve: 'gatsby-source-contentful',
       options: {
         // spaseId need to change (this is only for the test purpose)
-        spaceId: 'wexwb9rlszk9',
+        spaceId: process.env.CONTENTFUL_ID,
         // accessToken need to change (this is only for the test purpose)
-        accessToken:
-          'c29361572d1f09316b75837e9487ea25baf5987f8830a7a8f75decff25ff1713'
+        accessToken: process.env.CONTENTFUL_TOKEN
       }
     }
   ]
