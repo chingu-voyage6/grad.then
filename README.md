@@ -1,9 +1,10 @@
 # grad.then()
 
-[![Waffle.io - Columns and their card count](https://badge.waffle.io/chingu-voyage4/grad.then.svg?columns=all)](https://waffle.io/chingu-voyage4/grad.then)
-[![Build Status](https://travis-ci.org/chingu-voyage4/grad.then.svg?branch=dev-spences10-82-deployment-setup)](https://travis-ci.org/chingu-voyage4/grad.then)
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/chingu-voyage6/grad.then.svg?columns=all)](https://waffle.io/chingu-voyage6/grad.then)
 
-## Chingu Voyage 4 project (bears-24 team)
+<!-- [![Build Status](https://travis-ci.org/chingu-voyage6/grad.then.svg?branch=dev-spences10-82-deployment-setup)](https://travis-ci.org/chingu-voyage4/grad.then) -->
+
+## Chingu Voyage 6 project (bears-01 team)
 
 ### Life after freeCodeCamp
 
@@ -18,12 +19,9 @@ you need to get a job after completing your training.
 
 ## Project Progress
 
-We are proud to work as a team, and here is our **project progress**.\
-We are _aspiring developers_ and _eager learners_.
+We are proud to work as a team, and here is our **project progress**.
 
-**And this is the very beginning.**
-
-[![Throughput Graph](https://graphs.waffle.io/chingu-voyage4/grad.then/throughput.svg)](https://waffle.io/chingu-voyage4/grad.then/metrics/throughput)
+[![Throughput Graph](https://graphs.waffle.io/chingu-voyage6/grad.then/throughput.svg)](https://waffle.io/chingu-voyage6/grad.then/metrics/throughput)
 
 ## Built With
 
@@ -41,22 +39,41 @@ in the following table. For a complete list of libraries consult the
 [gatsby]: https://www.gatsbyjs.org/
 [sty-cmp]: https://www.styled-components.com/
 
+---
+
 ## Get started
 
-To use the project clone this repo with:
+1. Clone this repo and install dependencies:
 
-```bash
-git clone https://github.com/chingu-voyage4/grad.then.git
+```sh
+git clone https://github.com/chingu-voyage6/grad.then.git
 # or if you use SSH
-git clone git@github.com:chingu-voyage4/grad.then.git
+git clone git@github.com:chingu-voyage6/grad.then.git
 # change directory
 cd grad.then
 # install dependencies
 npm install
-# once complete run
-npm run dev
-# open localhost:8000
 ```
+
+2. Read the project wiki about
+   [env variables](https://github.com/chingu-voyage6/grad.then/wiki/Env-variables).
+
+3. Create `.env.development` and `.env.production` files in the root
+   folder and add to both current values of tokens.
+
+```sh
+touch .env.development .env.production
+# open files and add env variables and their values you have got from other project members
+```
+
+4. Run the app
+
+```sh
+npm run dev
+# then open localhost:8000
+```
+
+---
 
 ## Git workflow
 
@@ -74,10 +91,12 @@ git branch dev-myUserName-issuenumber-description
 git push origin dev-myUserName-issuenumber-description
 ```
 
-Complete your PR through the GitHub UI
+Complete your PR through the GitHub UI.
 
 As a good working practice request that another team member review and
 merge your PR for a sanity check
+
+---
 
 ## Deployment
 
@@ -91,31 +110,33 @@ npm run deploy
 This will build the site to the `public` folder and deploy to the
 `gh-pages` branch on GitHub.
 
+---
+
 ## Authors
 
 | Name                        | Location         |
 | :-------------------------- | :--------------- |
 | [Marina Biletska][marina]   | Hurghada, Egypt  |
 | [Miljan Djordjevic][miljan] | Belgrade, Serbia |
-| [Nedu Robert][nedu]         | Lagos, Nigeria   |
 | [Scott Spence][scott]       | London, UK       |
 
 <!-- links -->
 
 [marina]: https://github.com/mar-bi
 [miljan]: https://github.com/miljan-fsd
-[nedu]: https://github.com/Nedu
 [scott]: https://github.com/spences10
 
-## Former Authors
+## Contributors
 
-| Name                    | Location     |
-| :---------------------- | :----------- |
-| [Hasan Hacioglu][hasan] | Istanbul, TR |
+| Name                    | Location       | Team        |
+| :---------------------- | :------------- | :---------- |
+| [Hasan Hacioglu][hasan] | Istanbul, TR   | V3-bears-16 |
+| [Nedu Robert][nedu]     | Lagos, Nigeria | V4-bears-24 |
 
 <!-- links -->
 
 [hasan]: https://github.com/asanhix
+[nedu]: https://github.com/Nedu
 
 ## Licence
 
