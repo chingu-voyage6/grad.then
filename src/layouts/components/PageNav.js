@@ -3,7 +3,12 @@ import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import styled, { withTheme } from 'styled-components'
 
-import { StyledUl, StyledLi, StyledA, media } from '../../theme/globalStyle'
+import {
+  StyledUl,
+  StyledLi,
+  StyledA,
+  media
+} from '../../theme/globalStyle'
 import { ICONS } from '../../theme/constants'
 import Icon from './Icon'
 
@@ -81,9 +86,9 @@ const NavLink = styled(Link).attrs({
   }
   &:hover {
     color: ${props => props.color};
-    border: 1px solid ${props => props.border};
-    // box-shadow: 0 0 0 1px ${props => props.border};
-    // transition: all 0.3s ease;
+    border: 1px solid ${props => props.color};
+    box-shadow: 0 0 0 1px ${props => props.color};
+    transition: all 0.3s ease;
     border-radius: 10px;
     margin: -5px;
     padding: 5px;
@@ -148,8 +153,7 @@ const PageNav = ({ header, nav, theme }) => {
             to={`/${elem}`}
             data-header={header}
             activeClassName="activeLink"
-            onClick={closeNav}
-          >
+            onClick={closeNav}>
             {elem}
           </NavLink>
         </NavItem>
@@ -162,8 +166,7 @@ const PageNav = ({ header, nav, theme }) => {
           <NavLink
             to={`/${elem}`}
             data-header={header}
-            activeClassName="activeLink"
-          >
+            activeClassName="activeLink">
             {elem}
           </NavLink>
         </NavItem>

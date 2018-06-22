@@ -10,17 +10,18 @@
     "gatsby-link": "1.6.34",
     "gatsby-plugin-favicon": "^2.1.1",
     "gatsby-plugin-react-helmet": "2.0.3",
-    "gatsby-plugin-styled-components": "^2.0.4",
-    "gatsby-source-contentful": "^1.3.36",
+    "gatsby-plugin-styled-components": "^2.0.11",
+    "gatsby-source-contentful": "^1.3.54",
     "gatsby-source-filesystem": "1.5.11",
     "gatsby-transformer-remark": "1.7.28",
     "react-helmet": "5.2.0",
     "styled-components": "2.4.0"
   },
   "devDependencies": {
+    "babel-plugin-styled-components": "^1.5.1",
     "eslint": "4.15.0",
     "eslint-plugin-graphql": "^1.5.0",
-    "eslint-plugin-react": "^7.5.1",
+    "eslint-plugin-react": "^7.9.1",
     "gh-pages": "1.1.0",
     "husky": "0.14.3",
     "prettier": "1.10.2",
@@ -29,23 +30,24 @@
   "scripts": {
     "clean": "rm -rf .cache/ && rm -rf public/",
     "build": "gatsby build",
-    "dev": "gatsby develop",
+    "dev": "NODE_ENV=development gatsby develop",
     "format": "pretty-quick",
     "precommit": "pretty-quick --staged",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "deploy:travis":
-      "gatsby build --prefix-paths && https://$GITHUB_TOKEN@github.com/chingu-voyage3/grad.then.git -d public"
+      "gatsby build --prefix-paths && https://$GITHUB_TOKEN@github.com/chingu-voyage6/grad.then.git -d public"
   },
   "pre-commit": "npm run format",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chingu-voyage3/bears-16.git"
+    "url": "git+https://github.com/chingu-voyage6/grad.then.git"
   },
   "keywords": ["gatsby", "grad", "then"],
-  "author": "",
+  "author": "bears-teams-16-24-01",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/chingu-voyage3/bears-16/issues"
+    "url": "https://github.com/chingu-voyage6/grad.then/issues"
   },
-  "homepage": "https://github.com/chingu-voyage3/bears-16#readme"
+  "homepage":
+    "https://github.com/chingu-voyage6/grad.then/blob/master/README.md"
 }
