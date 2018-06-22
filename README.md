@@ -20,9 +20,6 @@ you need to get a job after completing your training.
 ## Project Progress
 
 We are proud to work as a team, and here is our **project progress**.
-We are _aspiring developers_ and _eager learners_.
-
-**And this is the very beginning.**
 
 [![Throughput Graph](https://graphs.waffle.io/chingu-voyage6/grad.then/throughput.svg)](https://waffle.io/chingu-voyage6/grad.then/metrics/throughput)
 
