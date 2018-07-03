@@ -17,8 +17,8 @@ const Icon = props => (
     width={props.size}
     height={props.size}
     color={props.color}
-    preserveAspectRatio="xMidYMid meet"
-  >
+    className={props.className}
+    preserveAspectRatio="xMidYMid meet">
     <path d={props.icon} />
   </StyledIcon>
 )
@@ -27,7 +27,8 @@ Icon.propTypes = {
   icon: PropTypes.string.isRequired,
   color: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   size: PropTypes.number,
-  viewbox: PropTypes.string
+  viewbox: PropTypes.string,
+  className: PropTypes.string
 }
 
 Icon.defaultProps = {
