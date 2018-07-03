@@ -1,2 +1,0 @@
-webpackJsonp([0x9427c64ab85d],{214:function(e,t,n){"use strict";function u(e){return e&&e.__esModule?e:{default:e}}function l(e,t){return e.raw=t,e}t.__esModule=!0;var r=l(["\n  color: red;\n"],["\n  color: red;\n"]),a=n(3),o=u(a),d=n(31),c=u(d),f=n(5),i=u(f),s=i.default.div(r),m=function(){return o.default.createElement(s,null,o.default.createElement("h1",null,"OOPS, PAGE NOT FOUND!"),o.default.createElement(c.default,{to:"/"},"Go to Homepage"))};t.default=m,e.exports=t.default}});
-//# sourceMappingURL=component---src-pages-404-js-9369df749ffe43dfb092.js.map
