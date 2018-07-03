@@ -141,5 +141,9 @@ export const ICONS = {
 
   LIBRARY: `M32 
     30v-2h-2v-12h2v-2h-6v2h2v12h-6v-12h2v-2h-6v2h2v12h-6v-12h2v-2h-6v2h2v12h-6v-12h2v-2h-6v2h2v12h-2v2h-2v2h34v-2h-2z 
-    M16 0h2l16 10v2h-34v-2l16-10z`
+    M16 0h2l16 10v2h-34v-2l16-10z`,
+
+  LEFT_ARROW: `M18 5v10l10-10v22l-10-10v10l-11-11z`,
+
+  RIGHT_ARROW: `M16 27v-10l-10 10v-22l10 10v-10l11 11z`
 }

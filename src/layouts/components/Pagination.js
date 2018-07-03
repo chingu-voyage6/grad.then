@@ -3,20 +3,33 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { media } from '../../theme/globalStyle'
+import { ICONS } from '../../theme/constants'
+import Icon from './Icon'
+
+const PaginationIcon = styled(Icon)`
+  ${media.tablet`
+    width: 24px;
+    height: 24px;
+  `};
+`
 
 const PaginationButton = styled.button`
   border: 1px solid ${props => props.theme.primary.light};
   color: ${props => props.color || props.theme.primary.light};
-  background: ${props => props.background || 'lightgrey'};
+  background: ${props => props.background};
   font-size: 1.2rem;
   min-width: 3rem;
   min-height: 3rem;
+  padding: 1px 8px;
   cursor: pointer;
   outline: none;
   transition: all 0.2s;
   &:hover {
-    color: ${props => props.background || 'lightgrey'};
+    color: ${props => props.background};
     background: ${props => props.color || props.theme.primary.light};
+    svg path {
+      fill: ${props => props.theme.white};
+    }
   }
   &:active {
     outline: none;
@@ -29,14 +42,29 @@ const PaginationButton = styled.button`
     min-width: 2rem;
     min-height: 2rem;
   `};
+  ${media.phone`
+  padding: 1px 6px;
+  `};
 `
 const ButtonRight = PaginationButton.extend`
+  display: flex;
+  align-items: center;
   border-radius: 0px 4px 4px 0px;
+  padding: 2px 6px;
+  ${media.phone`
+    padding: 0 6px;
+  `};
 `
 const ButtonLeft = PaginationButton.extend`
+  display: flex;
+  align-items: center;
   border-radius: 4px 0px 0px 4px;
+  padding: 2px 6px;
+  ${media.phone`
+    padding: 0 6px;
+  `};
 `
-//⏪⏩
+
 const PaginationContainer = styled.div`
   display: flex;
   max-width: 200px;
@@ -51,8 +79,7 @@ const Pagination = props => {
       key={k.toString()}
       background={props.background}
       color={props.color}
-      onClick={() => goPage(k)}
-    >
+      onClick={() => goPage(k)}>
       {k + 1}
     </PaginationButton>
   ))
@@ -66,17 +93,23 @@ const Pagination = props => {
       <ButtonLeft
         background={props.background}
         color={props.color}
-        onClick={goPrevious}
-      >
-        {props.backward || '⏪'}
+        onClick={goPrevious}>
+        <PaginationIcon
+          icon={ICONS.LEFT_ARROW}
+          color={({ theme }) => theme.primary.light}
+          size={30}
+        />
       </ButtonLeft>
       {numButtons}
       <ButtonRight
         background={props.background}
         color={props.color}
-        onClick={goNext}
-      >
-        {props.forward || '⏩'}
+        onClick={goNext}>
+        <PaginationIcon
+          icon={ICONS.RIGHT_ARROW}
+          color={({ theme }) => theme.primary.light}
+          size={30}
+        />
       </ButtonRight>
     </PaginationContainer>
   )
