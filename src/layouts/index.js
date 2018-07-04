@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import styled, { ThemeProvider } from 'styled-components'
 
-import Header from './components/Header.js'
-import Footer from './components/Footer.js'
+import Header from '../components/Header.js'
+import Footer from '../components/Footer.js'
 
 import { theme } from '../theme/globalStyle'
 

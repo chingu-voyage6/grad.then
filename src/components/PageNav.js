@@ -8,8 +8,8 @@ import {
   StyledLi,
   StyledA,
   media
-} from '../../theme/globalStyle'
-import { ICONS } from '../../theme/constants'
+} from '../theme/globalStyle'
+import { ICONS } from '../theme/constants'
 import Icon from './Icon'
 
 //same for Header & Footer

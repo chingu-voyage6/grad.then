@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { withTheme } from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { media } from '../../theme/globalStyle'
+import { media } from '../theme/globalStyle'
 import FilterAndSearch from './FilterAndSearch'
 import CardContainer from './CardContainer'
 import ProjectCard from './ProjectCard'

@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import { withTheme } from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { StyledA, StyledH3, media } from '../../theme/globalStyle'
+import { StyledA, StyledH3, media } from '../theme/globalStyle'
 import { Button } from './Button'
 import Icon from './Icon'
-import { ICONS } from '../../theme/constants'
+import { ICONS } from '../theme/constants'
 
 const FilterContainer = styled.div`
   grid-area: filt;

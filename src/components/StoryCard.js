@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { StyledH3, StyledP, media } from '../../theme/globalStyle'
+import { StyledH3, StyledP, media } from '../theme/globalStyle'
 import { ButtonBig } from '../components/Button'
 
 const Wrapper = styled.div`
@@ -112,8 +112,7 @@ class StoryCard extends React.Component {
           <ButtonContainer>
             <ButtonBig
               color={props => props.theme.white}
-              border={props => props.theme.white}
-            >
+              border={props => props.theme.white}>
               read more
             </ButtonBig>
           </ButtonContainer>
