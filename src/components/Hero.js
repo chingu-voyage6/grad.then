@@ -259,7 +259,7 @@ const StyledHero = styled.div`
     background: ${props =>
       props.bg === 'main'
         ? `url(${BGmob})`
-        : props => props.theme.secondary.green};
+        : props.theme.secondary.green};
     background-size: 100% 100%;
     margin-bottom: 1rem;
   `};
