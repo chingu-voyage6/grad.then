@@ -3,13 +3,12 @@ import styled from 'styled-components'
 import { withTheme } from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { media } from '../../theme/globalStyle'
-import JobsFilter from './JobsFilter'
+import { media } from '../theme/globalStyle'
+import FilterAndSearch from './FilterAndSearch'
 import JobsList from './JobsList'
 import Pagination from './Pagination'
-import FilterAndSearch from './FilterAndSearch'
 import { LoadingContent } from './Titles'
-import { fakeAPI, fakeAPISearch } from '../utils/api'
+import { fakeLearnAPI, fakeLearnAPISearch } from '../utils/api'
 
 const Wrapper = styled.div`
   display: grid;
@@ -17,19 +16,21 @@ const Wrapper = styled.div`
   grid-template-rows: auto;
   grid-column-gap: 1rem;
   grid-template-areas:
-    '. fs fs fs fs fs fs fs fs fs fs .'
-    '. filt filt filt lst lst lst lst lst lst lst .';
+    '. . fs fs fs fs fs fs fs fs . .'
+    '. . lst lst lst lst lst lst lst lst . .';
   margin-top: 2.5rem;
-  ${media.tablet`
+  ${media.giant`
     grid-column-gap: 0.5rem;
     grid-template-areas:
+      '. fs fs fs fs fs fs fs fs fs fs .'
+      '. lst lst lst lst lst lst lst lst lst lst .';
+  `} ${media.tablet`
+    grid-template-areas:
       'fs fs fs fs fs fs fs fs fs fs fs fs'
-      'filt filt filt filt lst lst lst lst lst lst lst .';
+      '. lst lst lst lst lst lst lst lst lst lst .';
   `} ${media.phone`
-    grid-column-gap: 0.5rem;
     grid-template-areas:
       'fs fs fs fs fs fs fs fs fs fs fs fs'
-      'filt filt filt filt filt filt filt filt filt filt filt filt'
       '. lst lst lst lst lst lst lst lst lst lst .';
   `};
 `
@@ -43,25 +44,23 @@ const List = styled.div`
   padding: 0;
 `
 
-class JobsContainer extends React.Component {
+class CoursesContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       loading: true,
       searchQuery: '',
-      filter: ['any', 'any', 'any', 'any'],
       query: [
         {
           title: '',
-          type: '',
-          role: '',
-          location: '',
+          date: '',
+          period: '',
+          level: '',
+          topic: '',
           description: ''
         }
       ]
     }
-    this.handleChange = this.handleChange.bind(this)
-    this.submitQuery = this.submitQuery.bind(this)
     this.changePage = this.changePage.bind(this)
     this.handleDates = this.handleDates.bind(this)
     this.handleSearch = this.handleSearch.bind(this)
@@ -70,21 +69,7 @@ class JobsContainer extends React.Component {
 
   componentDidMount() {
     const loading = false
-    fakeAPI().then(query => this.setState({ loading, query }))
-  }
-
-  handleChange(num, data) {
-    let arr = this.state.filter.slice()
-    arr[num - 1] = data
-
-    this.setState({
-      filter: arr
-    })
-  }
-
-  submitQuery() {
-    const data = this.state.filter
-    fakeAPI(10, data).then(query => this.setState({ query }))
+    fakeLearnAPI().then(query => this.setState({ loading, query }))
   }
 
   changePage(num) {
@@ -93,9 +78,9 @@ class JobsContainer extends React.Component {
       var result
       if (this.state.searchQuery) {
         const searchQuery = this.state.searchQuery
-        result = fakeAPI(undefined, undefined, searchQuery)
+        result = fakeLearnAPI(undefined, searchQuery)
       } else {
-        result = fakeAPI()
+        result = fakeLearnAPI()
       }
       result.then(query => this.setState({ query }))
     }
@@ -114,17 +99,19 @@ class JobsContainer extends React.Component {
 
   handleDates(str) {
     // immitation of new query
-    const data = this.state.filter
     const currLength =
         this.state.query.length < 5 ? 7 : this.state.query.length,
-      length = str === 'all' ? 7 : Math.floor(Math.random() * (currLength + 1))
+      length =
+        str === 'all'
+          ? 7
+          : Math.floor(Math.random() * (currLength + 1))
     var result
 
     if (this.state.searchQuery) {
       const searchQuery = this.state.searchQuery
-      result = fakeAPI(length, undefined, searchQuery)
+      result = fakeLearnAPI(length, searchQuery)
     } else {
-      result = fakeAPI(length, data)
+      result = fakeLearnAPI(length)
     }
 
     result.then(query => this.setState({ query }))
@@ -134,7 +121,9 @@ class JobsContainer extends React.Component {
     //immitation of search query
     if (this.state.searchQuery) {
       const searchStr = this.state.searchQuery
-      fakeAPISearch(searchStr).then(query => this.setState({ query }))
+      fakeLearnAPISearch(searchStr).then(query =>
+        this.setState({ query })
+      )
     }
   }
 
@@ -156,17 +145,18 @@ class JobsContainer extends React.Component {
           search={this.handleSearch}
           input={this.handleInput}
         />
-        <JobsFilter
-          titles={this.state.filter}
-          onChange={this.handleChange}
-          onSubmit={this.submitQuery}
-        />
         {loading ? (
           <LoadingContent area="lst">Loading...</LoadingContent>
         ) : (
           <List>
             {arr.map((elem, index) => (
-              <JobsList key={index} area="lst" title={elem.title} text={elem} />
+              <JobsList
+                key={index}
+                area="lst"
+                type="list"
+                title={elem.title}
+                text={elem}
+              />
             ))}
             <Pagination
               onChange={this.changePage}
@@ -180,9 +170,12 @@ class JobsContainer extends React.Component {
   }
 }
 
-export default withTheme(JobsContainer)
+CoursesContainer.propTypes = {
+  menuFilter: PropTypes.array.isRequired
+}
 
-JobsContainer.propTypes = {
-  menuFilter: PropTypes.array.isRequired,
+export default withTheme(CoursesContainer)
+
+CoursesContainer.propTypes = {
   theme: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
 }

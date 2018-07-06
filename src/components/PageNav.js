@@ -8,8 +8,8 @@ import {
   StyledLi,
   StyledA,
   media
-} from '../../theme/globalStyle'
-import { ICONS } from '../../theme/constants'
+} from '../theme/globalStyle'
+import { ICONS } from '../theme/constants'
 import Icon from './Icon'
 
 //same for Header & Footer
@@ -46,10 +46,6 @@ const NavItem = StyledLi.extend`
   justify-self: center;
   align-self: center;
   text-transform: uppercase;
-  color: ${props =>
-    props['data-header']
-      ? props => props.theme.primary.light
-      : props => props.theme.white};
   padding: 0.5rem 0;
   &.icon {
     display: none;
@@ -75,26 +71,30 @@ const NavItem = StyledLi.extend`
 const NavLink = styled(Link).attrs({
   color: props =>
     props['data-header']
-      ? props => props.theme.secondary.red
-      : props => props.theme.secondary.green
+      ? props.theme.primary.light
+      : props.theme.white,
+  ['data-hover']: props =>
+    props['data-header']
+      ? props.theme.secondary.red
+      : props.theme.secondary.green
 })`
   border: 1px solid transparent;
-  color: inherit;
+  color: ${props => props.color};
   &:visited,
   &:active {
-    color: inherit;
+    color: ${props => props.color};
   }
   &:hover {
-    color: ${props => props.color};
-    border: 1px solid ${props => props.color};
-    box-shadow: 0 0 0 1px ${props => props.color};
+    color: ${props => props['data-hover']};
+    border: 1px solid ${props => props['data-hover']};
+    box-shadow: 0 0 0 1px ${props => props['data-hover']};
     transition: all 0.3s ease;
     border-radius: 10px;
     margin: -5px;
     padding: 5px;
   }
   &.activeLink {
-    color: ${props => props.theme.secondary.red};
+    color: ${props => props['data-hover']};
   }
 `
 

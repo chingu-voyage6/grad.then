@@ -1,12 +1,14 @@
 import React from 'react'
-import Hero from '../layouts/components/Hero'
+import Hero from '../components/Hero'
 
-import JobsContainer from '../layouts/components/JobsContainer'
+import JobsContainer from '../components/JobsContainer'
 
 const JobsPage = ({ data }) => (
   <div>
     <Hero type="jobs" />
-    <JobsContainer menuFilter={data.site.siteMetadata.filterOptions.jobs} />
+    <JobsContainer
+      menuFilter={data.site.siteMetadata.filterOptions.jobs}
+    />
   </div>
 )
 

@@ -1,4 +1,4 @@
-import { StyledH2, StyledH3, media } from '../../theme/globalStyle'
+import { StyledH2, StyledH3, media } from '../theme/globalStyle'
 
 export const SectionTitle = StyledH2.extend`
   text-align: center;

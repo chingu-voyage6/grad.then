@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { media } from '../../theme/globalStyle'
-import { ICONS } from '../../theme/constants'
+import { media } from '../theme/globalStyle'
+import { ICONS } from '../theme/constants'
 import Icon from './Icon'
 
 const PaginationIcon = styled(Icon)`

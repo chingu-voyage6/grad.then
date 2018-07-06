@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Hero from '../layouts/components/Hero'
-import StoriesContainer from '../layouts/components/StoriesContainer'
+import Hero from '../components/Hero'
+import StoriesContainer from '../components/StoriesContainer'
 
 const StoriesPage = ({ data }) => (
   <div>

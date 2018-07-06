@@ -9,11 +9,11 @@ import {
   StyledLi,
   StyledP,
   media
-} from '../../theme/globalStyle'
+} from '../theme/globalStyle'
 import { ButtonBig } from './Button'
-import LI from '../../img/list_icon_sm.png'
-import BG from '../../img/grad_bg1.jpg'
-import BGmob from '../../img/grad_bg2.jpg'
+import LI from '../img/list_icon_sm.png'
+import BG from '../img/grad_bg1.jpg'
+import BGmob from '../img/grad_bg2.jpg'
 
 //----------------------MAIN HERO-----------------------------------
 const StyledMainHero = styled.div`
@@ -246,9 +246,7 @@ const StyledHero = styled.div`
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   background: ${props =>
-    props.bg === 'main'
-      ? `url(${BG})`
-      : props => props.theme.secondary.green};
+    props.bg === 'main' ? `url(${BG})` : props.theme.secondary.green};
   background-repeat: no-repeat;
   background-size: cover;
   padding: 0.5rem 0;
@@ -261,7 +259,7 @@ const StyledHero = styled.div`
     background: ${props =>
       props.bg === 'main'
         ? `url(${BGmob})`
-        : props => props.theme.secondary.green};
+        : props.theme.secondary.green};
     background-size: 100% 100%;
     margin-bottom: 1rem;
   `};

@@ -5,8 +5,8 @@ import Link from 'gatsby-link'
 
 import { StyledH2, StyledP, media } from '../theme/globalStyle'
 import { ICONS } from '../theme/constants.js'
-import Icon from '../layouts/components/Icon.js'
-import Hero from '../layouts/components/Hero'
+import Icon from '../components/Icon.js'
+import Hero from '../components/Hero'
 
 const PageContainer = styled.div`
   display: grid;

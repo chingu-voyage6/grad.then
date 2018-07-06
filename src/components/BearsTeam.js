@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { StyledA, media } from '../../theme/globalStyle'
-import { ICONS } from '../../theme/constants'
+import { StyledA, media } from '../theme/globalStyle'
+import { ICONS } from '../theme/constants'
 import Icon from './Icon'
 
 const StyledLink = StyledA.extend`
@@ -41,8 +41,7 @@ class Bears extends React.Component {
       <StyledLink
         href="https://github.com/chingu-voyage3/grad.then#authors"
         onMouseOver={this.handleHover}
-        onMouseOut={this.handleHover}
-      >
+        onMouseOut={this.handleHover}>
         <Icon
           icon={ICONS.BEAR_DARK}
           size={34}
