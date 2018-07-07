@@ -2,11 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { media } from '../../theme/globalStyle'
+import { media } from '../theme/globalStyle'
 const QuoteText = styled.blockquote`
   color: ${props => props.theme.primary.dark};
   font-size: 1.5rem;
-  font-family: Open Sans;
   margin: 0.75rem 0 0;
   font-style: italic;
 `

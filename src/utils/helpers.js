@@ -4,7 +4,12 @@ import faker from 'faker'
 import ProjectCard from '../components/ProjectCard'
 import StoryCard from '../components/StoryCard'
 
-export const addCards = (num, cardType, projectCardType, titleVisibility) => {
+export const addCards = (
+  num,
+  cardType,
+  projectCardType,
+  titleVisibility
+) => {
   if (cardType === 'project') {
     return Array.from({ length: num }, (e, i) => (
       <ProjectCard

@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 
-import { media } from '../../theme/globalStyle'
+import { media } from '../theme/globalStyle'
 
 const StyledCardContainer = styled.div`
   display: grid;
@@ -20,12 +20,14 @@ const StyledStories = styled.div`
   grid-template-columns: ${props => `repeat(${props.cols}, 1fr)`};
   grid-template-rows: auto;
   grid-gap: 0.5rem;
-  border: 2px solid ${props => props.theme.primary.dark};
+  border: ${props => `2px solid ${props.theme.primary.dark}`};
   border-radius: 2px;
   padding: 0.6rem;
   & > div:last-child {
     display: ${props =>
-      props.cols < props.cards ? 'none' : props.story ? 'grid' : 'flex'};
+      props.cols < props.cards
+        ? 'none'
+        : props.story ? 'grid' : 'flex'};
   }
   ${media.giant`
     grid-column: 1 / span 12;
@@ -69,7 +71,10 @@ const StyledStories = styled.div`
 
 const CardContainer = props => (
   <StyledCardContainer>
-    <StyledStories cols={props.cols} cards={props.cards} story={props.story}>
+    <StyledStories
+      cols={props.cols}
+      cards={props.cards}
+      story={props.story}>
       {props.children}
     </StyledStories>
   </StyledCardContainer>
@@ -82,4 +87,4 @@ CardContainer.propTypes = {
   children: PropTypes.array
 }
 
-export default CardContainer
+export default withTheme(CardContainer)

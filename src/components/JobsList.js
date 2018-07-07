@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Link from 'gatsby-link'
 import PropTypes from 'prop-types'
 
-import { StyledH3, StyledP, media } from '../../theme/globalStyle'
+import { StyledH3, StyledP, media } from '../theme/globalStyle'
 import Quote from './Quote'
 
 const Wrapper = styled.div`
@@ -87,8 +87,12 @@ class JobsList extends React.Component {
             </JobTitle>
             <Quote />
             <Items>
-              <JobItem>{`Starting date: ${this.props.text.date}`}</JobItem>
-              <JobItem>{`Duration: ${this.props.text.period}`}</JobItem>
+              <JobItem>{`Starting date: ${
+                this.props.text.date
+              }`}</JobItem>
+              <JobItem>{`Duration: ${
+                this.props.text.period
+              }`}</JobItem>
               <JobItem>{`Level: ${this.props.text.level}`}</JobItem>
               <JobItem>{`Topic: ${this.props.text.topic}`}</JobItem>
             </Items>
@@ -104,7 +108,9 @@ class JobsList extends React.Component {
               <JobItem>{`Type: ${this.props.text.type}`}</JobItem>
               <JobItem>{`Role: ${this.props.text.role}`}</JobItem>
               <JobItem>{`Level: ${this.props.text.level}`}</JobItem>
-              <JobItem>{`Location: ${this.props.text.location}`}</JobItem>
+              <JobItem>{`Location: ${
+                this.props.text.location
+              }`}</JobItem>
             </Items>
             <JobText>{this.props.text.description}</JobText>
           </JobLi>

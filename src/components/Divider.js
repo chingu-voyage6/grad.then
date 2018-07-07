@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { media } from '../../theme/globalStyle'
+import styled, { withTheme } from 'styled-components'
+import { media } from '../theme/globalStyle'
 
 const validJustifyValues = [
   'center',
@@ -13,11 +13,13 @@ const validJustifyValues = [
 const Wrapper = styled.div`
   color: white;
   margin: 3rem 0 1rem 0;
-  background-color: ${props => props.color || props.theme.secondary.green};
+  background-color: ${props =>
+    props.color || props.theme.secondary.green};
   padding: 10px 20px;
   display: flex;
   justify-content: ${props =>
-    (validJustifyValues.includes(props.set) && props.set) || 'flex-end'};
+    (validJustifyValues.includes(props.set) && props.set) ||
+    'flex-end'};
   ${media.desktop`
     padding: 0.5em;
     margin-top: 2.5rem;
@@ -42,4 +44,4 @@ Divider.propTypes = {
   children: PropTypes.node
 }
 
-export default Divider
+export default withTheme(Divider)

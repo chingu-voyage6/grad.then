@@ -3,13 +3,13 @@ import styled from 'styled-components'
 import { withTheme } from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { media } from '../../theme/globalStyle'
+import { media } from '../theme/globalStyle'
 import FilterAndSearch from './FilterAndSearch'
 import CardContainer from './CardContainer'
-import StoryCard from './StoryCard'
-import { LoadingContent } from './Titles'
+import ProjectCard from './ProjectCard'
 import Pagination from './Pagination'
-import { fakeStoriesAPI, fakeStoriesAPISearch } from '../utils/api'
+import { LoadingContent } from './Titles'
+import { fakeEventsAPI, fakeEventsAPISearch } from '../utils/api'
 
 const Wrapper = styled.div`
   display: grid;
@@ -39,7 +39,7 @@ const Container = styled.div`
   align-content: center;
 `
 
-class StoriesContainer extends React.Component {
+class EventsContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -49,11 +49,14 @@ class StoriesContainer extends React.Component {
         {
           title: '',
           image: '',
+          date: '',
+          city: '',
+          country: '',
           description: ''
         }
       ]
     }
-    this.CARDS = { cols: 2, items: 6 }
+    this.CARDS = { cols: 5, items: 6 }
 
     this.changePage = this.changePage.bind(this)
     this.handleDates = this.handleDates.bind(this)
@@ -63,7 +66,7 @@ class StoriesContainer extends React.Component {
 
   componentDidMount() {
     const loading = false
-    fakeStoriesAPI(this.CARDS.items).then(query =>
+    fakeEventsAPI(this.CARDS.items).then(query =>
       this.setState({ loading, query })
     )
   }
@@ -75,9 +78,14 @@ class StoriesContainer extends React.Component {
       let result
       if (this.state.searchQuery) {
         const searchQuery = this.state.searchQuery
-        result = fakeStoriesAPI(length, searchQuery)
+        result = fakeEventsAPI(
+          length,
+          undefined,
+          undefined,
+          searchQuery
+        )
       } else {
-        result = fakeStoriesAPI(length)
+        result = fakeEventsAPI(length)
       }
       result.then(query => this.setState({ query }))
     }
@@ -96,16 +104,19 @@ class StoriesContainer extends React.Component {
 
   handleDates(str) {
     // immitation of new query
-    const random = Math.floor(Math.random() * (this.CARDS.items + 1))
     const length =
-      str === 'all' ? this.CARDS.items : random % 2 === 0 ? random : random + 1
+        str === 'all'
+          ? this.CARDS.items
+          : Math.floor(Math.random() * (this.CARDS.items + 1)),
+      city = str === 'my area' ? 'My City' : '',
+      country = str === 'my area' ? 'My Country' : ''
     let result
 
     if (this.state.searchQuery) {
       const searchQuery = this.state.searchQuery
-      result = fakeStoriesAPI(length, searchQuery)
+      result = fakeEventsAPI(length, city, country, searchQuery)
     } else {
-      result = fakeStoriesAPI(length)
+      result = fakeEventsAPI(length, city, country)
     }
 
     result.then(query => this.setState({ query }))
@@ -115,7 +126,7 @@ class StoriesContainer extends React.Component {
     //immitation of search query
     if (this.state.searchQuery) {
       const searchStr = this.state.searchQuery
-      fakeStoriesAPISearch(searchStr, this.CARDS.items).then(query =>
+      fakeEventsAPISearch(searchStr, this.CARDS.items).then(query =>
         this.setState({ query })
       )
     }
@@ -143,13 +154,17 @@ class StoriesContainer extends React.Component {
           <LoadingContent area="cont">Loading...</LoadingContent>
         ) : (
           <Container>
-            <CardContainer cols={this.CARDS.cols} story={true}>
+            <CardContainer
+              cols={this.CARDS.cols}
+              cards={this.CARDS.items}>
               {arr.map((elem, index) => (
-                <StoryCard
+                <ProjectCard
                   key={index}
+                  type="list"
                   title={elem.title}
                   text={elem.description}
                   img={elem.image}
+                  list={[elem.date, elem.city, elem.country]}
                 />
               ))}
             </CardContainer>
@@ -164,9 +179,12 @@ class StoriesContainer extends React.Component {
     )
   }
 }
-export default withTheme(StoriesContainer)
+export default withTheme(EventsContainer)
 
-StoriesContainer.propTypes = {
+EventsContainer.propTypes = {
   menuFilter: PropTypes.array.isRequired,
-  theme: PropTypes.PropTypes.oneOfType([PropTypes.func, PropTypes.object])
+  theme: PropTypes.PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.object
+  ])
 }

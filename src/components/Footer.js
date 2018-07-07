@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { media } from '../../theme/globalStyle'
+import { media } from '../theme/globalStyle'
 import PageNav from './PageNav.js'
 import BearsTeam from './BearsTeam'
 

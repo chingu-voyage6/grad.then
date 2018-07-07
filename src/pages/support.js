@@ -1,12 +1,12 @@
 import React from 'react'
-import Hero from '../layouts/components/Hero'
+import Hero from '../components/Hero'
 
 import { StyledH3, StyledP, media } from '../theme/globalStyle'
-import CardContainer from '../layouts/components/CardContainer'
-import { addCards } from '../layouts/utils/helpers'
-import Divider from '../layouts/components/Divider'
-import { SectionTitle } from '../layouts/components/Titles'
-import SupportContainer from '../layouts/components/SupportContainer'
+import CardContainer from '../components/CardContainer'
+import { addCards } from '../utils/helpers'
+import Divider from '../components/Divider'
+import { SectionTitle } from '../components/Titles'
+import SupportContainer from '../components/SupportContainer'
 
 import faker from 'faker'
 
@@ -45,7 +45,7 @@ const SupportPage = ({ data }) => (
 
     <SectionTitle> how to support</SectionTitle>
 
-    <CardContainer cols={3}>
+    <CardContainer cols={3} cards={2}>
       <SectionP>{faker.lorem.paragraph()}</SectionP>
       {addCards(2, 'project', undefined, 'none')}
     </CardContainer>
