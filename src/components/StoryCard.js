@@ -2,7 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { StyledH3, StyledP, media } from '../theme/globalStyle'
+import {
+  StyledH3,
+  StyledH4,
+  StyledP,
+  media
+} from '../theme/globalStyle'
 import { ButtonBig } from '../components/Button'
 
 const Wrapper = styled.div`
@@ -26,9 +31,9 @@ const Image = styled.img`
   justify-self: center;
   margin: 1.3rem 0.5rem 0.5rem 0.5rem;
   border-radius: 90px;
-  border: 1px solid #000;
-  width: 6.25rem;
-  height: 6.25rem;
+  border: 1px solid ${props => props.theme.secondary.yellow};
+  width: 8rem;
+  height: 8rem;
   ${media.desktop`
     width: 6rem;
     height: 6rem;
@@ -60,25 +65,52 @@ const StoryTitle = StyledH3.extend`
   grid-column: 1 / span 4;
   color: ${props => props.theme.white};
   margin: 0.5rem 0;
-  padding: 0rem;
+  padding: 0;
+  text-align: center;
+  font-size: 1.5rem;
   ${media.desktop`
     font-size: 1.2rem;
   `} ${media.phone`
-    padding: 0.5rem;
+    padding: 0.5rem 0.5rem 0 0.5rem;
     font-size: 1.25rem;
   `};
+`
+
+const StoryAuthor = StyledH4.extend`
+  grid-column: 1 / span 4;
+  color: ${props => props.theme.secondary.green};
+  margin: 0.25em;
+  padding: 0;
+  font-size: 1.1rem;
+  text-align: center;
+  ${media.desktop`
+    font-size: 1rem;
+  `} ${media.phone`
+    margin: 0.5rem;
+  `};
+`
+
+const StoryDate = StyledP.extend`
+  grid-column: 1 / span 4;
+  color: ${props => props.theme.secondary.yellow};
+  padding: 0;
+  margin: 0.25rem;
+  font-size: 1rem;
+  text-align: center;
 `
 
 const StoryText = StyledP.extend`
   grid-column: 1 / span 4;
   color: ${props => props.theme.white};
   margin: 0.2rem 0.2rem 1.2rem 0.2rem;
-  padding: 0;
+  padding: 0 0.5em;
+  min-height: 8rem;
+  font-size: 1.125rem;
   ${media.giant`
     font-size: 1.1rem;
+    min-height: 6rem;
   `} ${media.desktop`
     font-size: 1rem;
-  `} ${media.tablet`
   `} ${media.phone`
     margin-top:0;
     padding: 0 0.25rem;
@@ -102,17 +134,47 @@ const ButtonContainer = styled.div`
 `
 
 class StoryCard extends React.Component {
+  formatDate(date) {
+    const publishDate = new Date(date),
+      months = [
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov',
+        'Dec'
+      ]
+
+    return `Published: ${publishDate.getDate()} ${
+      months[publishDate.getMonth()]
+    } ${publishDate.getFullYear()}`
+  }
+
+  readStory(event) {
+    console.log('button is clicked')
+  }
+
   render() {
+    const { img, title, author, date, text } = this.props
     return (
       <Wrapper>
-        <Image src={this.props.img} />
+        <Image src={img} alt={title} />
         <Text>
-          <StoryTitle>{this.props.title}</StoryTitle>
-          <StoryText>{this.props.text}</StoryText>
+          <StoryTitle>{title}</StoryTitle>
+          <StoryAuthor>{`Author: ${author}`}</StoryAuthor>
+          <StoryDate>{this.formatDate(date)}</StoryDate>
+          <StoryText>{text}</StoryText>
           <ButtonContainer>
             <ButtonBig
               color={props => props.theme.white}
-              border={props => props.theme.white}>
+              border={props => props.theme.white}
+              onClick={e => this.readStory(e)}>
               read more
             </ButtonBig>
           </ButtonContainer>
@@ -124,6 +186,8 @@ class StoryCard extends React.Component {
 
 StoryCard.propTypes = {
   title: PropTypes.string,
+  author: PropTypes.string,
+  date: PropTypes.string,
   text: PropTypes.string,
   img: PropTypes.string
 }

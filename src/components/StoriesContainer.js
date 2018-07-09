@@ -7,9 +7,8 @@ import { media } from '../theme/globalStyle'
 import FilterAndSearch from './FilterAndSearch'
 import CardContainer from './CardContainer'
 import StoryCard from './StoryCard'
-import { LoadingContent } from './Titles'
 import Pagination from './Pagination'
-import { fakeStoriesAPI, fakeStoriesAPISearch } from '../utils/api'
+import { fakeStoriesAPISearch } from '../utils/api'
 
 const Wrapper = styled.div`
   display: grid;
@@ -31,7 +30,6 @@ const Wrapper = styled.div`
       'cont cont cont cont cont cont cont cont cont cont cont cont';
   `};
 `
-
 const Container = styled.div`
   grid-area: cont;
   display: flex;
@@ -43,84 +41,88 @@ class StoriesContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      loading: true,
       searchQuery: '',
-      query: [
-        {
-          title: '',
-          image: '',
-          description: ''
-        }
-      ]
+      blog: this.props.initialBlog,
+      firstItem: 0,
+      activePage: 0
     }
     this.CARDS = { cols: 2, items: 6 }
 
     this.changePage = this.changePage.bind(this)
-    this.handleDates = this.handleDates.bind(this)
+    this.handleSort = this.handleSort.bind(this)
     this.handleSearch = this.handleSearch.bind(this)
     this.handleInput = this.handleInput.bind(this)
   }
 
-  componentDidMount() {
-    const loading = false
-    fakeStoriesAPI(this.CARDS.items).then(query =>
-      this.setState({ loading, query })
-    )
-  }
-
+  // "in-page" pagination
   changePage(num) {
-    //for now it immitates querying different pages
-    const fakePage = () => {
-      const length = this.CARDS.items
-      let result
-      if (this.state.searchQuery) {
-        const searchQuery = this.state.searchQuery
-        result = fakeStoriesAPI(length, searchQuery)
-      } else {
-        result = fakeStoriesAPI(length)
-      }
-      result.then(query => this.setState({ query }))
-    }
+    const { firstItem, blog, activePage } = this.state,
+      { numStories, pages } = this.props
 
-    if (num === -1) {
-      //get previous page
-      fakePage()
-    } else if (num === 0) {
-      // get next page
-      fakePage()
-    } else {
-      //get page #num
-      fakePage()
+    const maxLength = blog.length - 1
+
+    let previous = firstItem - numStories
+    previous = previous < 0 ? 0 : previous
+
+    let next = firstItem + numStories
+    next = next > maxLength ? maxLength : next
+
+    switch (num) {
+      case -1: //get previous page
+        this.setState({
+          firstItem: previous,
+          activePage: activePage - 1 < 0 ? 0 : activePage - 1
+        })
+        return
+      case 0: //get next page
+        this.setState({
+          firstItem: next,
+          activePage:
+            activePage + 2 > pages ? pages - 1 : activePage + 1
+        })
+        return
+      default:
+        //get page #num
+        this.setState({
+          firstItem: numStories * (num - 1),
+          activePage: num - 1
+        })
+        return
     }
   }
 
-  handleDates(str) {
-    // immitation of new query
-    const random = Math.floor(Math.random() * (this.CARDS.items + 1))
-    const length =
-      str === 'all'
-        ? this.CARDS.items
-        : random % 2 === 0 ? random : random + 1
-    let result
+  // handles sort by 'all', 'by author', and 'top rated'
+  ///!!! implement the case for 'top rated'
+  handleSort(str) {
+    const blog = [...this.state.blog],
+      loadedBlog = [...this.props.initialBlog]
 
-    if (this.state.searchQuery) {
-      const searchQuery = this.state.searchQuery
-      result = fakeStoriesAPI(length, searchQuery)
-    } else {
-      result = fakeStoriesAPI(length)
+    switch (str) {
+      case 'all':
+        //show all cards
+        this.setState({ blog: loadedBlog })
+        return
+      case 'by author':
+        // sort by author
+        this.setState({ blog: this.sortByAuthor(blog) })
+        return
+      case 'top rated':
+        //sort by rating
+        return
+      default:
+        return
     }
-
-    result.then(query => this.setState({ query }))
   }
 
+  //!!! must be changed for usage of Contentful
   handleSearch() {
-    //immitation of search query
-    if (this.state.searchQuery) {
-      const searchStr = this.state.searchQuery
-      fakeStoriesAPISearch(searchStr, this.CARDS.items).then(query =>
-        this.setState({ query })
-      )
-    }
+    //imitation of search query
+    // if (this.state.searchQuery) {
+    //   const searchStr = this.state.searchQuery
+    //   fakeStoriesAPISearch(searchStr, this.CARDS.items).then(query =>
+    //     this.setState({ query })
+    //   )
+    // }
   }
 
   handleInput(val) {
@@ -129,47 +131,72 @@ class StoriesContainer extends React.Component {
     })
   }
 
+  // slice the array of stories according the limit(numStories) per page
+  setPagination() {
+    const { numStories } = this.props,
+      { firstItem, blog } = this.state
+    return blog.slice(firstItem, firstItem + numStories)
+  }
+
+  sortByAuthor(arr) {
+    const sorted = arr.sort((a, b) => {
+      const authorA = a.node.author.lastName,
+        authorB = b.node.author.lastName
+      if (authorA < authorB) {
+        return -1
+      }
+      if (authorA > authorB) {
+        return 1
+      }
+      return 0
+    })
+    return sorted
+  }
+
   render() {
-    const arr = [...this.state.query]
-    const loading = this.state.loading
+    const arr = this.setPagination()
+    //console.log(arr)
     return (
       <Wrapper>
         <FilterAndSearch
           area="fs"
           items={this.props.menuFilter}
-          changeDates={this.handleDates}
+          changeDates={this.handleSort}
           search={this.handleSearch}
           input={this.handleInput}
         />
-        {loading ? (
-          <LoadingContent area="cont">Loading...</LoadingContent>
-        ) : (
-          <Container>
-            <CardContainer cols={this.CARDS.cols} story={true}>
-              {arr.map((elem, index) => (
-                <StoryCard
-                  key={index}
-                  title={elem.title}
-                  text={elem.description}
-                  img={elem.image}
-                />
-              ))}
-            </CardContainer>
-            <Pagination
-              onChange={this.changePage}
-              background={this.props.theme.white}
-              pageNum={2}
-            />
-          </Container>
-        )}
+        <Container>
+          <CardContainer cols={this.CARDS.cols} story={true}>
+            {arr.map(elem => (
+              <StoryCard
+                key={elem.node.id}
+                title={elem.node.title}
+                author={elem.node.author.fullName}
+                date={elem.node.publishDate}
+                text={elem.node.excerpt.excerpt}
+                img={elem.node.featureImage.resolutions.src}
+              />
+            ))}
+          </CardContainer>
+          <Pagination
+            onChange={this.changePage}
+            background={this.props.theme.white}
+            pageNum={this.props.pages}
+            active={this.state.activePage}
+          />
+        </Container>
       </Wrapper>
     )
   }
 }
+
 export default withTheme(StoriesContainer)
 
 StoriesContainer.propTypes = {
+  initialBlog: PropTypes.array,
   menuFilter: PropTypes.array.isRequired,
+  pages: PropTypes.number.isRequired,
+  numStories: PropTypes.number.isRequired,
   theme: PropTypes.PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.object
