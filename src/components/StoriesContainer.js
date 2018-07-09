@@ -43,7 +43,7 @@ class StoriesContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      loading: true,
+      loading: false,
       searchQuery: '',
       query: [
         {
@@ -61,15 +61,15 @@ class StoriesContainer extends React.Component {
     this.handleInput = this.handleInput.bind(this)
   }
 
-  componentDidMount() {
-    const loading = false
-    fakeStoriesAPI(this.CARDS.items).then(query =>
-      this.setState({ loading, query })
-    )
-  }
+  // componentDidMount() {
+  //   const loading = false
+  //   fakeStoriesAPI(this.CARDS.items).then(query =>
+  //     this.setState({ loading, query })
+  //   )
+  // }
 
   changePage(num) {
-    //for now it immitates querying different pages
+    //for now it imitates querying different pages
     const fakePage = () => {
       const length = this.CARDS.items
       let result
@@ -95,7 +95,7 @@ class StoriesContainer extends React.Component {
   }
 
   handleDates(str) {
-    // immitation of new query
+    // imitation of new query
     const random = Math.floor(Math.random() * (this.CARDS.items + 1))
     const length =
       str === 'all'
@@ -114,7 +114,7 @@ class StoriesContainer extends React.Component {
   }
 
   handleSearch() {
-    //immitation of search query
+    //imitation of search query
     if (this.state.searchQuery) {
       const searchStr = this.state.searchQuery
       fakeStoriesAPISearch(searchStr, this.CARDS.items).then(query =>
@@ -130,8 +130,10 @@ class StoriesContainer extends React.Component {
   }
 
   render() {
-    const arr = [...this.state.query]
+    const arr = this.props.blog
+    //const arr = [...this.state.query]
     const loading = this.state.loading
+    console.log(arr)
     return (
       <Wrapper>
         <FilterAndSearch
@@ -146,12 +148,13 @@ class StoriesContainer extends React.Component {
         ) : (
           <Container>
             <CardContainer cols={this.CARDS.cols} story={true}>
-              {arr.map((elem, index) => (
+              {arr.map(elem => (
                 <StoryCard
-                  key={index}
-                  title={elem.title}
-                  text={elem.description}
-                  img={elem.image}
+                  key={elem.node.id}
+                  title={elem.node.title}
+                  author={elem.node.author.fullName}
+                  text={elem.node.excerpt.excerpt}
+                  img={elem.node.featureImage.resolutions.src}
                 />
               ))}
             </CardContainer>
@@ -169,6 +172,7 @@ class StoriesContainer extends React.Component {
 export default withTheme(StoriesContainer)
 
 StoriesContainer.propTypes = {
+  blog: PropTypes.array,
   menuFilter: PropTypes.array.isRequired,
   theme: PropTypes.PropTypes.oneOfType([
     PropTypes.func,

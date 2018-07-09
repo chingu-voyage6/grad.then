@@ -38,11 +38,14 @@ export const query = graphql`
               bio
             }
           }
+          excerpt {
+            excerpt
+          }
           content {
             content
           }
           featureImage {
-            resolutions(width: 100, height: 100) {
+            resolutions(width: 130, height: 130) {
               src
             }
           }
