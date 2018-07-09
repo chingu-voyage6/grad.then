@@ -31,7 +31,6 @@ const Wrapper = styled.div`
       'cont cont cont cont cont cont cont cont cont cont cont cont';
   `};
 `
-
 const Container = styled.div`
   grid-area: cont;
   display: flex;
@@ -39,34 +38,37 @@ const Container = styled.div`
   align-content: center;
 `
 
+const sortByAuthor = arr => {
+  const sorted = arr.sort((a, b) => {
+    const authorA = a.node.author.lastName,
+      authorB = b.node.author.lastName
+    console.log(authorA, authorB)
+    if (authorA < authorB) {
+      return -1
+    }
+    if (authorA > authorB) {
+      return 1
+    }
+    return 0
+  })
+  console.log(sorted)
+  return sorted
+}
+
 class StoriesContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      loading: false,
       searchQuery: '',
-      query: [
-        {
-          title: '',
-          image: '',
-          description: ''
-        }
-      ]
+      blog: this.props.blog
     }
     this.CARDS = { cols: 2, items: 6 }
 
     this.changePage = this.changePage.bind(this)
-    this.handleDates = this.handleDates.bind(this)
+    this.handleSort = this.handleSort.bind(this)
     this.handleSearch = this.handleSearch.bind(this)
     this.handleInput = this.handleInput.bind(this)
   }
-
-  // componentDidMount() {
-  //   const loading = false
-  //   fakeStoriesAPI(this.CARDS.items).then(query =>
-  //     this.setState({ loading, query })
-  //   )
-  // }
 
   changePage(num) {
     //for now it imitates querying different pages
@@ -94,23 +96,26 @@ class StoriesContainer extends React.Component {
     }
   }
 
-  handleDates(str) {
-    // imitation of new query
-    const random = Math.floor(Math.random() * (this.CARDS.items + 1))
-    const length =
-      str === 'all'
-        ? this.CARDS.items
-        : random % 2 === 0 ? random : random + 1
-    let result
+  // handles sort by 'ALL', 'BY AUTHOR', and 'TOP RATED'
+  handleSort(str) {
+    const blog = [...this.state.blog],
+      loadedBlog = [...this.props.blog]
 
-    if (this.state.searchQuery) {
-      const searchQuery = this.state.searchQuery
-      result = fakeStoriesAPI(length, searchQuery)
-    } else {
-      result = fakeStoriesAPI(length)
+    switch (str) {
+      case 'all':
+        //show all cards
+        this.setState({ blog: loadedBlog })
+        return
+      case 'by author':
+        // sort by author
+        this.setState({ blog: sortByAuthor(blog) })
+        return
+      case 'top rated':
+        //sort by rating
+        return
+      default:
+        return
     }
-
-    result.then(query => this.setState({ query }))
   }
 
   handleSearch() {
@@ -130,45 +135,41 @@ class StoriesContainer extends React.Component {
   }
 
   render() {
-    const arr = this.props.blog
-    //const arr = [...this.state.query]
-    const loading = this.state.loading
-    console.log(arr)
+    const arr = [...this.state.blog]
+    //console.log(arr)
     return (
       <Wrapper>
         <FilterAndSearch
           area="fs"
           items={this.props.menuFilter}
-          changeDates={this.handleDates}
+          changeDates={this.handleSort}
           search={this.handleSearch}
           input={this.handleInput}
         />
-        {loading ? (
-          <LoadingContent area="cont">Loading...</LoadingContent>
-        ) : (
-          <Container>
-            <CardContainer cols={this.CARDS.cols} story={true}>
-              {arr.map(elem => (
-                <StoryCard
-                  key={elem.node.id}
-                  title={elem.node.title}
-                  author={elem.node.author.fullName}
-                  text={elem.node.excerpt.excerpt}
-                  img={elem.node.featureImage.resolutions.src}
-                />
-              ))}
-            </CardContainer>
-            <Pagination
-              onChange={this.changePage}
-              background={this.props.theme.white}
-              pageNum={2}
-            />
-          </Container>
-        )}
+        <Container>
+          <CardContainer cols={this.CARDS.cols} story={true}>
+            {arr.map(elem => (
+              <StoryCard
+                key={elem.node.id}
+                title={elem.node.title}
+                author={elem.node.author.fullName}
+                date={elem.node.publishDate}
+                text={elem.node.excerpt.excerpt}
+                img={elem.node.featureImage.resolutions.src}
+              />
+            ))}
+          </CardContainer>
+          <Pagination
+            onChange={this.changePage}
+            background={this.props.theme.white}
+            pageNum={2}
+          />
+        </Container>
       </Wrapper>
     )
   }
 }
+
 export default withTheme(StoriesContainer)
 
 StoriesContainer.propTypes = {
