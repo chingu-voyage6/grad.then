@@ -24,6 +24,9 @@ const PaginationButton = styled.button`
   cursor: pointer;
   outline: none;
   transition: all 0.2s;
+  &.active {
+    color: ${props => props.theme.secondary.red};
+  }
   &:hover {
     color: ${props => props.background};
     background: ${props => props.color || props.theme.primary.light};
@@ -72,13 +75,17 @@ const PaginationContainer = styled.div`
   margin: 1rem auto;
   padding: 0;
 `
+
 const Pagination = props => {
-  const pageNum = props.pageNum
+  const { pageNum, active } = props
   const numButtons = Array.from({ length: pageNum }, (v, k) => (
     <PaginationButton
       key={k.toString()}
       background={props.background}
       color={props.color}
+      className={
+        k === active ? 'digit-button active' : 'digit-button'
+      }
       onClick={() => goPage(k)}>
       {k + 1}
     </PaginationButton>
@@ -119,6 +126,7 @@ Pagination.propTypes = {
   background: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   color: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   pageNum: PropTypes.number,
+  active: PropTypes.number,
   backward: PropTypes.bool,
   forward: PropTypes.bool,
   onChange: PropTypes.func
