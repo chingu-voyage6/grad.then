@@ -37,23 +37,6 @@ const Container = styled.div`
   align-content: center;
 `
 
-const sortByAuthor = arr => {
-  const sorted = arr.sort((a, b) => {
-    const authorA = a.node.author.lastName,
-      authorB = b.node.author.lastName
-    console.log(authorA, authorB)
-    if (authorA < authorB) {
-      return -1
-    }
-    if (authorA > authorB) {
-      return 1
-    }
-    return 0
-  })
-  console.log(sorted)
-  return sorted
-}
-
 class StoriesContainer extends React.Component {
   constructor(props) {
     super(props)
@@ -61,7 +44,7 @@ class StoriesContainer extends React.Component {
       searchQuery: '',
       blog: this.props.initialBlog,
       firstItem: 0,
-      currPage: 1
+      activePage: 0
     }
     this.CARDS = { cols: 2, items: 6 }
 
@@ -71,26 +54,39 @@ class StoriesContainer extends React.Component {
     this.handleInput = this.handleInput.bind(this)
   }
 
+  // "in-page" pagination
   changePage(num) {
-    const { firstItem, blog } = this.state,
-      { numStories } = this.props
+    const { firstItem, blog, activePage } = this.state,
+      { numStories, pages } = this.props
+
+    const maxLength = blog.length - 1
 
     let previous = firstItem - numStories
     previous = previous < 0 ? 0 : previous
 
     let next = firstItem + numStories
-    next = next > blog.length - 1 ? blog.length - 1 : next
+    next = next > maxLength ? maxLength : next
 
     switch (num) {
       case -1: //get previous page
-        this.setState({ firstItem: previous })
+        this.setState({
+          firstItem: previous,
+          activePage: activePage - 1 < 0 ? 0 : activePage - 1
+        })
         return
       case 0: //get next page
-        this.setState({ firstItem: next })
+        this.setState({
+          firstItem: next,
+          activePage:
+            activePage + 2 > pages ? pages - 1 : activePage + 1
+        })
         return
       default:
         //get page #num
-        this.setState({ firstItem: numStories * (num - 1) })
+        this.setState({
+          firstItem: numStories * (num - 1),
+          activePage: num - 1
+        })
         return
     }
   }
@@ -108,7 +104,7 @@ class StoriesContainer extends React.Component {
         return
       case 'by author':
         // sort by author
-        this.setState({ blog: sortByAuthor(blog) })
+        this.setState({ blog: this.sortByAuthor(blog) })
         return
       case 'top rated':
         //sort by rating
@@ -118,14 +114,15 @@ class StoriesContainer extends React.Component {
     }
   }
 
+  //!!! must be changed for usage of Contentful
   handleSearch() {
     //imitation of search query
-    if (this.state.searchQuery) {
-      const searchStr = this.state.searchQuery
-      fakeStoriesAPISearch(searchStr, this.CARDS.items).then(query =>
-        this.setState({ query })
-      )
-    }
+    // if (this.state.searchQuery) {
+    //   const searchStr = this.state.searchQuery
+    //   fakeStoriesAPISearch(searchStr, this.CARDS.items).then(query =>
+    //     this.setState({ query })
+    //   )
+    // }
   }
 
   handleInput(val) {
@@ -134,10 +131,26 @@ class StoriesContainer extends React.Component {
     })
   }
 
+  // slice the array of stories according the limit(numStories) per page
   setPagination() {
     const { numStories } = this.props,
       { firstItem, blog } = this.state
     return blog.slice(firstItem, firstItem + numStories)
+  }
+
+  sortByAuthor(arr) {
+    const sorted = arr.sort((a, b) => {
+      const authorA = a.node.author.lastName,
+        authorB = b.node.author.lastName
+      if (authorA < authorB) {
+        return -1
+      }
+      if (authorA > authorB) {
+        return 1
+      }
+      return 0
+    })
+    return sorted
   }
 
   render() {
@@ -169,6 +182,7 @@ class StoriesContainer extends React.Component {
             onChange={this.changePage}
             background={this.props.theme.white}
             pageNum={this.props.pages}
+            active={this.state.activePage}
           />
         </Container>
       </Wrapper>

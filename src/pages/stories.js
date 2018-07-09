@@ -6,7 +6,7 @@ import StoriesContainer from '../components/StoriesContainer'
 // "in page" pagination of stories
 // can be changed when the number of stories would grow significantly
 // example: https://www.gatsbycentral.com/pagination-in-gatsby
-const storiesPerPage = 2
+const storiesPerPage = 4
 
 const StoriesPage = ({ data }) => {
   const { site, allContentfulBlog: blog } = data,
