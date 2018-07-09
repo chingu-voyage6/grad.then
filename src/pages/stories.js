@@ -3,14 +3,23 @@ import React from 'react'
 import Hero from '../components/Hero'
 import StoriesContainer from '../components/StoriesContainer'
 
+// "in page" pagination of stories
+// can be changed when the number of stories would grow significantly
+// example: https://www.gatsbycentral.com/pagination-in-gatsby
+const storiesPerPage = 2
+
 const StoriesPage = ({ data }) => {
-  const { site, allContentfulBlog: blog } = data
+  const { site, allContentfulBlog: blog } = data,
+    pages = Math.ceil(blog.edges.length / storiesPerPage)
+
   return (
     <div>
       <Hero type="stories" />
       <StoriesContainer
         menuFilter={site.siteMetadata.filterOptions.stories}
-        blog={blog.edges}
+        initialBlog={blog.edges}
+        pages={pages}
+        numStories={storiesPerPage}
       />
     </div>
   )

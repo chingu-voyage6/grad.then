@@ -7,9 +7,8 @@ import { media } from '../theme/globalStyle'
 import FilterAndSearch from './FilterAndSearch'
 import CardContainer from './CardContainer'
 import StoryCard from './StoryCard'
-import { LoadingContent } from './Titles'
 import Pagination from './Pagination'
-import { fakeStoriesAPI, fakeStoriesAPISearch } from '../utils/api'
+import { fakeStoriesAPISearch } from '../utils/api'
 
 const Wrapper = styled.div`
   display: grid;
@@ -60,7 +59,9 @@ class StoriesContainer extends React.Component {
     super(props)
     this.state = {
       searchQuery: '',
-      blog: this.props.blog
+      blog: this.props.initialBlog,
+      firstItem: 0,
+      currPage: 1
     }
     this.CARDS = { cols: 2, items: 6 }
 
@@ -71,35 +72,34 @@ class StoriesContainer extends React.Component {
   }
 
   changePage(num) {
-    //for now it imitates querying different pages
-    const fakePage = () => {
-      const length = this.CARDS.items
-      let result
-      if (this.state.searchQuery) {
-        const searchQuery = this.state.searchQuery
-        result = fakeStoriesAPI(length, searchQuery)
-      } else {
-        result = fakeStoriesAPI(length)
-      }
-      result.then(query => this.setState({ query }))
-    }
+    const { firstItem, blog } = this.state,
+      { numStories } = this.props
 
-    if (num === -1) {
-      //get previous page
-      fakePage()
-    } else if (num === 0) {
-      // get next page
-      fakePage()
-    } else {
-      //get page #num
-      fakePage()
+    let previous = firstItem - numStories
+    previous = previous < 0 ? 0 : previous
+
+    let next = firstItem + numStories
+    next = next > blog.length - 1 ? blog.length - 1 : next
+
+    switch (num) {
+      case -1: //get previous page
+        this.setState({ firstItem: previous })
+        return
+      case 0: //get next page
+        this.setState({ firstItem: next })
+        return
+      default:
+        //get page #num
+        this.setState({ firstItem: numStories * (num - 1) })
+        return
     }
   }
 
-  // handles sort by 'ALL', 'BY AUTHOR', and 'TOP RATED'
+  // handles sort by 'all', 'by author', and 'top rated'
+  ///!!! implement the case for 'top rated'
   handleSort(str) {
     const blog = [...this.state.blog],
-      loadedBlog = [...this.props.blog]
+      loadedBlog = [...this.props.initialBlog]
 
     switch (str) {
       case 'all':
@@ -134,8 +134,14 @@ class StoriesContainer extends React.Component {
     })
   }
 
+  setPagination() {
+    const { numStories } = this.props,
+      { firstItem, blog } = this.state
+    return blog.slice(firstItem, firstItem + numStories)
+  }
+
   render() {
-    const arr = [...this.state.blog]
+    const arr = this.setPagination()
     //console.log(arr)
     return (
       <Wrapper>
@@ -162,7 +168,7 @@ class StoriesContainer extends React.Component {
           <Pagination
             onChange={this.changePage}
             background={this.props.theme.white}
-            pageNum={2}
+            pageNum={this.props.pages}
           />
         </Container>
       </Wrapper>
@@ -173,8 +179,10 @@ class StoriesContainer extends React.Component {
 export default withTheme(StoriesContainer)
 
 StoriesContainer.propTypes = {
-  blog: PropTypes.array,
+  initialBlog: PropTypes.array,
   menuFilter: PropTypes.array.isRequired,
+  pages: PropTypes.number.isRequired,
+  numStories: PropTypes.number.isRequired,
   theme: PropTypes.PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.object
