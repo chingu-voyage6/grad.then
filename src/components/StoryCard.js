@@ -81,11 +81,22 @@ const StoryAuthor = StyledH4.extend`
   color: ${props => props.theme.secondary.green};
   margin: 0.25em;
   padding: 0;
-  font-size: 1rem;
+  font-size: 1.1rem;
   text-align: center;
-  ${media.phone`
+  ${media.desktop`
+    font-size: 1rem;
+  `} ${media.phone`
     margin: 0.5rem;
   `};
+`
+
+const StoryDate = StyledP.extend`
+  grid-column: 1 / span 4;
+  color: ${props => props.theme.secondary.yellow};
+  padding: 0;
+  margin: 0.25rem;
+  font-size: 1rem;
+  text-align: center;
 `
 
 const StoryText = StyledP.extend`
@@ -123,17 +134,42 @@ const ButtonContainer = styled.div`
 `
 
 class StoryCard extends React.Component {
+  formatDate(date) {
+    const publishDate = new Date(date),
+      months = [
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov',
+        'Dec'
+      ]
+
+    return `Published: ${publishDate.getDate()} ${
+      months[publishDate.getMonth()]
+    } ${publishDate.getFullYear()}`
+  }
+
   readStory(event) {
     console.log('button is clicked')
   }
+
   render() {
+    const { img, title, author, date, text } = this.props
     return (
       <Wrapper>
-        <Image src={this.props.img} alt={this.props.title} />
+        <Image src={img} alt={title} />
         <Text>
-          <StoryTitle>{this.props.title}</StoryTitle>
-          <StoryAuthor>{`Author: ${this.props.author}`}</StoryAuthor>
-          <StoryText>{this.props.text}</StoryText>
+          <StoryTitle>{title}</StoryTitle>
+          <StoryAuthor>{`Author: ${author}`}</StoryAuthor>
+          <StoryDate>{this.formatDate(date)}</StoryDate>
+          <StoryText>{text}</StoryText>
           <ButtonContainer>
             <ButtonBig
               color={props => props.theme.white}
@@ -151,6 +187,7 @@ class StoryCard extends React.Component {
 StoryCard.propTypes = {
   title: PropTypes.string,
   author: PropTypes.string,
+  date: PropTypes.string,
   text: PropTypes.string,
   img: PropTypes.string
 }

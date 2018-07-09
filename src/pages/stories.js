@@ -25,7 +25,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulBlog {
+    allContentfulBlog(sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {
           id
@@ -34,6 +34,8 @@ export const query = graphql`
           publishDate
           author {
             fullName
+            lastName
+            contact
             bio {
               bio
             }
