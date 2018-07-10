@@ -8,7 +8,6 @@ import FilterAndSearch from './FilterAndSearch'
 import CardContainer from './CardContainer'
 import StoryCard from './StoryCard'
 import Pagination from './Pagination'
-import { fakeStoriesAPISearch } from '../utils/api'
 
 const Wrapper = styled.div`
   display: grid;
@@ -173,7 +172,8 @@ class StoriesContainer extends React.Component {
                 title={elem.node.title}
                 author={elem.node.author.fullName}
                 date={elem.node.publishDate}
-                text={elem.node.excerpt.excerpt}
+                text={elem.node.content.childMarkdownRemark.excerpt}
+                tags={elem.node.tags}
                 img={elem.node.featureImage.resolutions.src}
               />
             ))}

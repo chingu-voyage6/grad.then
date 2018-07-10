@@ -1,5 +1,5 @@
 import React from 'react'
-
+import PropTypes from 'prop-types'
 import Hero from '../components/Hero'
 import StoriesContainer from '../components/StoriesContainer'
 
@@ -41,6 +41,7 @@ export const query = graphql`
           title
           slug
           publishDate(formatString: "MMMM DD, YYYY")
+          tags
           author {
             fullName
             lastName
@@ -49,11 +50,12 @@ export const query = graphql`
               bio
             }
           }
-          excerpt {
-            excerpt
-          }
           content {
-            content
+            childMarkdownRemark {
+              excerpt
+              timeToRead
+              html
+            }
           }
           featureImage {
             resolutions(width: 130, height: 130) {
@@ -65,5 +67,9 @@ export const query = graphql`
     }
   }
 `
+
+StoriesPage.propTypes = {
+  data: PropTypes.object
+}
 
 export default StoriesPage

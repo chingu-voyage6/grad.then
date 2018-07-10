@@ -6,6 +6,8 @@ import {
   StyledH3,
   StyledH4,
   StyledP,
+  StyledUl,
+  StyledLi,
   media
 } from '../theme/globalStyle'
 import { ButtonBig } from '../components/Button'
@@ -102,17 +104,15 @@ const StoryDate = StyledP.extend`
 const StoryText = StyledP.extend`
   grid-column: 1 / span 4;
   color: ${props => props.theme.white};
-  margin: 0.2rem 0.2rem 1.2rem 0.2rem;
+  margin: 0.7rem 0.2rem;
   padding: 0 0.5em;
-  min-height: 8rem;
   font-size: 1.125rem;
+  min-height: 4.375rem;
   ${media.giant`
     font-size: 1.1rem;
-    min-height: 6rem;
   `} ${media.desktop`
     font-size: 1rem;
   `} ${media.phone`
-    margin-top:0;
     padding: 0 0.25rem;
     font-size: 1.05rem;
   `};
@@ -132,6 +132,38 @@ const ButtonContainer = styled.div`
     }
   `};
 `
+const StyledTagContainer = StyledUl.extend`
+  align-self: start;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  padding: 0;
+  margin-bottom: 1em;
+  list-style-type: none;
+`
+const StyledTag = StyledLi.extend`
+  font-size: 0.9rem;
+  color: ${props => props.theme.secondary.yellow};
+  padding: 0.2rem 0.25rem;
+  margin: 0.25rem;
+  border: 1px solid ${props => props.theme.secondary.yellow};
+  border-radius: 2px;
+  ${media.phone`
+    font-size: 0.8rem;
+  `};
+`
+
+const Tag = ({ tags }) => (
+  <StyledTagContainer>
+    {tags.map(elem => (
+      <StyledTag key={elem}>{elem.toLowerCase()}</StyledTag>
+    ))}
+  </StyledTagContainer>
+)
+
+Tag.propTypes = {
+  tags: PropTypes.array
+}
 
 class StoryCard extends React.Component {
   readStory(event) {
@@ -139,7 +171,7 @@ class StoryCard extends React.Component {
   }
 
   render() {
-    const { img, title, author, date, text } = this.props
+    const { img, title, author, date, text, tags } = this.props
     return (
       <Wrapper>
         <Image src={img} alt={title} />
@@ -148,6 +180,7 @@ class StoryCard extends React.Component {
           <StoryAuthor>{`Author: ${author}`}</StoryAuthor>
           <StoryDate>{date}</StoryDate>
           <StoryText>{text}</StoryText>
+          <Tag tags={tags} />
           <ButtonContainer>
             <ButtonBig
               color={props => props.theme.white}
@@ -167,6 +200,7 @@ StoryCard.propTypes = {
   author: PropTypes.string,
   date: PropTypes.string,
   text: PropTypes.string,
+  tags: PropTypes.array,
   img: PropTypes.string
 }
 
