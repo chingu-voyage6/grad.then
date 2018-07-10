@@ -134,28 +134,6 @@ const ButtonContainer = styled.div`
 `
 
 class StoryCard extends React.Component {
-  formatDate(date) {
-    const publishDate = new Date(date),
-      months = [
-        'Jan',
-        'Feb',
-        'Mar',
-        'Apr',
-        'May',
-        'Jun',
-        'Jul',
-        'Aug',
-        'Sep',
-        'Oct',
-        'Nov',
-        'Dec'
-      ]
-
-    return `Published: ${publishDate.getDate()} ${
-      months[publishDate.getMonth()]
-    } ${publishDate.getFullYear()}`
-  }
-
   readStory(event) {
     console.log('button is clicked')
   }
@@ -168,7 +146,7 @@ class StoryCard extends React.Component {
         <Text>
           <StoryTitle>{title}</StoryTitle>
           <StoryAuthor>{`Author: ${author}`}</StoryAuthor>
-          <StoryDate>{this.formatDate(date)}</StoryDate>
+          <StoryDate>{date}</StoryDate>
           <StoryText>{text}</StoryText>
           <ButtonContainer>
             <ButtonBig

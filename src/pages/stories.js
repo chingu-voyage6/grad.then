@@ -40,7 +40,7 @@ export const query = graphql`
           id
           title
           slug
-          publishDate
+          publishDate(formatString: "MMMM DD, YYYY")
           author {
             fullName
             lastName
