@@ -115,13 +115,13 @@ class StoriesContainer extends React.Component {
 
   //!!! must be changed for usage of Contentful
   handleSearch() {
-    //imitation of search query
-    // if (this.state.searchQuery) {
-    //   const searchStr = this.state.searchQuery
-    //   fakeStoriesAPISearch(searchStr, this.CARDS.items).then(query =>
-    //     this.setState({ query })
-    //   )
-    // }
+    //search in 'this.props.initialBlog'
+    const loadedBlog = [...this.props.initialBlog],
+      { searchQuery } = this.state
+
+    if (searchQuery) {
+      //
+    }
   }
 
   handleInput(val) {
@@ -170,6 +170,7 @@ class StoriesContainer extends React.Component {
               <StoryCard
                 key={elem.node.id}
                 title={elem.node.title}
+                slug={elem.node.slug}
                 author={elem.node.author.fullName}
                 date={elem.node.publishDate}
                 text={elem.node.content.childMarkdownRemark.excerpt}

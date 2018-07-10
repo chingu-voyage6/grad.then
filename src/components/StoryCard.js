@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { navigateTo } from 'gatsby-link'
 
 import {
   StyledH3,
@@ -166,8 +167,8 @@ Tag.propTypes = {
 }
 
 class StoryCard extends React.Component {
-  readStory(event) {
-    console.log('button is clicked')
+  readStory() {
+    navigateTo(`/stories/${this.props.slug}`)
   }
 
   render() {
@@ -185,7 +186,7 @@ class StoryCard extends React.Component {
             <ButtonBig
               color={props => props.theme.white}
               border={props => props.theme.white}
-              onClick={e => this.readStory(e)}>
+              onClick={() => this.readStory()}>
               read more
             </ButtonBig>
           </ButtonContainer>
@@ -197,6 +198,7 @@ class StoryCard extends React.Component {
 
 StoryCard.propTypes = {
   title: PropTypes.string,
+  slug: PropTypes.string,
   author: PropTypes.string,
   date: PropTypes.string,
   text: PropTypes.string,
