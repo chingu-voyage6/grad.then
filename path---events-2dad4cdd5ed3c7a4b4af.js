@@ -1,2 +1,2 @@
-webpackJsonp([44713349584700],{1435:function(t,a){t.exports={data:{site:{siteMetadata:{filterOptions:{events:["all","by country","by location","annual"]}}}},pathContext:{}}}});
+webpackJsonp([44713349584700],{1432:function(t,a){t.exports={data:{site:{siteMetadata:{filterOptions:{events:["all","by country","by location","annual"]}}}},pathContext:{}}}});
 //# sourceMappingURL=path---events-2dad4cdd5ed3c7a4b4af.js.map

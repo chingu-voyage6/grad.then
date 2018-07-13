@@ -1,2 +1,0 @@
-webpackJsonp([36931190144229],{1437:function(a,e){a.exports={data:{contentfulProduct:{productName:{productName:"Hudson Wall Cup"},slug:"hudson-wall-cup",productDescription:{childMarkdownRemark:{html:"<p>Wall Hanging Glass Flower Vase and Terrarium</p>"}},image:[{responsiveResolution:{src:"//images.ctfassets.net/wexwb9rlszk9/Xc0ny7GWsMEMCeASWO2um/1c50f87788efabbef6390a2cbc29097e/jqvtazcyfwseah9fmysz.jpg?w=100&h=100&q=50&fit=fill"}}]}},pathContext:{slug:"hudson-wall-cup"}}}});
-//# sourceMappingURL=path---hudson-wall-cup-61a4af15c57477a4ac9d.js.map
