@@ -144,26 +144,31 @@ const StyledTagContainer = StyledUl.extend`
 `
 const StyledTag = StyledLi.extend`
   font-size: 0.9rem;
-  color: ${props => props.theme.secondary.yellow};
+  color: ${props => props.color || props.theme.secondary.yellow};
   padding: 0.2rem 0.25rem;
   margin: 0.25rem;
-  border: 1px solid ${props => props.theme.secondary.yellow};
+  border: 1px solid
+    ${props => props.color || props.theme.secondary.yellow};
   border-radius: 2px;
   ${media.phone`
     font-size: 0.8rem;
   `};
 `
 
-const Tag = ({ tags }) => (
-  <StyledTagContainer>
+export const Tag = ({ tags, color, className }) => (
+  <StyledTagContainer className={className}>
     {tags.map(elem => (
-      <StyledTag key={elem}>{elem.toLowerCase()}</StyledTag>
+      <StyledTag key={elem} color={color}>
+        {elem.toLowerCase()}
+      </StyledTag>
     ))}
   </StyledTagContainer>
 )
 
 Tag.propTypes = {
-  tags: PropTypes.array
+  tags: PropTypes.array,
+  color: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+  className: PropTypes.string
 }
 
 class StoryCard extends React.Component {
@@ -181,7 +186,10 @@ class StoryCard extends React.Component {
           <StoryAuthor>{`Author: ${author}`}</StoryAuthor>
           <StoryDate>{date}</StoryDate>
           <StoryText>{text}</StoryText>
-          <Tag tags={tags} />
+          <Tag
+            tags={tags}
+            color={props => props.theme.secondary.yellow}
+          />
           <ButtonContainer>
             <ButtonBig
               color={props => props.theme.white}
