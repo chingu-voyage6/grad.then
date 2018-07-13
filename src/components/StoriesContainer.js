@@ -9,7 +9,7 @@ import CardContainer from './CardContainer'
 import StoryCard from './StoryCard'
 import Pagination from './Pagination'
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
