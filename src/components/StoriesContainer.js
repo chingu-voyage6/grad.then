@@ -176,6 +176,9 @@ class StoriesContainer extends React.Component {
                 text={elem.node.content.childMarkdownRemark.excerpt}
                 tags={elem.node.tags}
                 img={elem.node.featureImage.resolutions.src}
+                time={
+                  elem.node.content.childMarkdownRemark.timeToRead
+                }
               />
             ))}
           </CardContainer>

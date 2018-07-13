@@ -102,6 +102,11 @@ const StoryDate = StyledP.extend`
   text-align: center;
 `
 
+const StoryTime = StoryDate.extend`
+  color: ${props => props.theme.black};
+  font-size: 0.9rem;
+`
+
 const StoryText = StyledP.extend`
   grid-column: 1 / span 4;
   color: ${props => props.theme.white};
@@ -177,7 +182,7 @@ class StoryCard extends React.Component {
   }
 
   render() {
-    const { img, title, author, date, text, tags } = this.props
+    const { img, title, author, date, text, tags, time } = this.props
     return (
       <Wrapper>
         <Image src={img} alt={title} />
@@ -185,6 +190,7 @@ class StoryCard extends React.Component {
           <StoryTitle>{title}</StoryTitle>
           <StoryAuthor>{`Author: ${author}`}</StoryAuthor>
           <StoryDate>{date}</StoryDate>
+          <StoryTime>{`Time to read: ${time} min`}</StoryTime>
           <StoryText>{text}</StoryText>
           <Tag
             tags={tags}
@@ -211,7 +217,8 @@ StoryCard.propTypes = {
   date: PropTypes.string,
   text: PropTypes.string,
   tags: PropTypes.array,
-  img: PropTypes.string
+  img: PropTypes.string,
+  time: PropTypes.number
 }
 
 export default StoryCard
