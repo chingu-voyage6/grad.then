@@ -138,6 +138,17 @@ const ButtonContainer = styled.div`
     }
   `};
 `
+
+const ReadButton = ButtonBig.extend`
+  transition: all 0.2s;
+  &:hover {
+    transform: translateY(-2px);
+  }
+  &:active {
+    transform: translateY(2px);
+  }
+`
+
 const StyledTagContainer = StyledUl.extend`
   align-self: start;
   display: flex;
@@ -147,6 +158,7 @@ const StyledTagContainer = StyledUl.extend`
   margin-bottom: 1em;
   list-style-type: none;
 `
+
 const StyledTag = StyledLi.extend`
   font-size: 0.9rem;
   color: ${props => props.color || props.theme.secondary.yellow};
@@ -197,12 +209,12 @@ class StoryCard extends React.Component {
             color={props => props.theme.secondary.yellow}
           />
           <ButtonContainer>
-            <ButtonBig
+            <ReadButton
               color={props => props.theme.white}
               border={props => props.theme.white}
               onClick={() => this.readStory()}>
               read more
-            </ButtonBig>
+            </ReadButton>
           </ButtonContainer>
         </Text>
       </Wrapper>
