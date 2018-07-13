@@ -1,11 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { navigateTo } from 'gatsby-link'
 
 import {
   StyledH3,
   StyledH4,
   StyledP,
+  StyledUl,
+  StyledLi,
   media
 } from '../theme/globalStyle'
 import { ButtonBig } from '../components/Button'
@@ -99,20 +102,23 @@ const StoryDate = StyledP.extend`
   text-align: center;
 `
 
+const StoryTime = StoryDate.extend`
+  color: ${props => props.theme.black};
+  font-size: 0.9rem;
+`
+
 const StoryText = StyledP.extend`
   grid-column: 1 / span 4;
   color: ${props => props.theme.white};
-  margin: 0.2rem 0.2rem 1.2rem 0.2rem;
+  margin: 0.7rem 0.2rem;
   padding: 0 0.5em;
-  min-height: 8rem;
   font-size: 1.125rem;
+  min-height: 4.375rem;
   ${media.giant`
     font-size: 1.1rem;
-    min-height: 6rem;
   `} ${media.desktop`
     font-size: 1rem;
   `} ${media.phone`
-    margin-top:0;
     padding: 0 0.25rem;
     font-size: 1.05rem;
   `};
@@ -133,50 +139,82 @@ const ButtonContainer = styled.div`
   `};
 `
 
-class StoryCard extends React.Component {
-  formatDate(date) {
-    const publishDate = new Date(date),
-      months = [
-        'Jan',
-        'Feb',
-        'Mar',
-        'Apr',
-        'May',
-        'Jun',
-        'Jul',
-        'Aug',
-        'Sep',
-        'Oct',
-        'Nov',
-        'Dec'
-      ]
-
-    return `Published: ${publishDate.getDate()} ${
-      months[publishDate.getMonth()]
-    } ${publishDate.getFullYear()}`
+const ReadButton = ButtonBig.extend`
+  transition: all 0.2s;
+  &:hover {
+    transform: translateY(-2px);
   }
+  &:active {
+    transform: translateY(2px);
+  }
+`
 
-  readStory(event) {
-    console.log('button is clicked')
+const StyledTagContainer = StyledUl.extend`
+  align-self: start;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  padding: 0;
+  margin-bottom: 1em;
+  list-style-type: none;
+`
+
+const StyledTag = StyledLi.extend`
+  font-size: 0.9rem;
+  color: ${props => props.color || props.theme.secondary.yellow};
+  padding: 0.2rem 0.25rem;
+  margin: 0.25rem;
+  border: 1px solid
+    ${props => props.color || props.theme.secondary.yellow};
+  border-radius: 2px;
+  ${media.phone`
+    font-size: 0.8rem;
+  `};
+`
+
+export const Tag = ({ tags, color, className }) => (
+  <StyledTagContainer className={className}>
+    {tags.map(elem => (
+      <StyledTag key={elem} color={color}>
+        {elem.toLowerCase()}
+      </StyledTag>
+    ))}
+  </StyledTagContainer>
+)
+
+Tag.propTypes = {
+  tags: PropTypes.array,
+  color: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+  className: PropTypes.string
+}
+
+class StoryCard extends React.Component {
+  readStory() {
+    navigateTo(`/stories/${this.props.slug}`)
   }
 
   render() {
-    const { img, title, author, date, text } = this.props
+    const { img, title, author, date, text, tags, time } = this.props
     return (
       <Wrapper>
         <Image src={img} alt={title} />
         <Text>
           <StoryTitle>{title}</StoryTitle>
           <StoryAuthor>{`Author: ${author}`}</StoryAuthor>
-          <StoryDate>{this.formatDate(date)}</StoryDate>
+          <StoryDate>{date}</StoryDate>
+          <StoryTime>{`Time to read: ${time} min`}</StoryTime>
           <StoryText>{text}</StoryText>
+          <Tag
+            tags={tags}
+            color={props => props.theme.secondary.yellow}
+          />
           <ButtonContainer>
-            <ButtonBig
+            <ReadButton
               color={props => props.theme.white}
               border={props => props.theme.white}
-              onClick={e => this.readStory(e)}>
+              onClick={() => this.readStory()}>
               read more
-            </ButtonBig>
+            </ReadButton>
           </ButtonContainer>
         </Text>
       </Wrapper>
@@ -186,10 +224,13 @@ class StoryCard extends React.Component {
 
 StoryCard.propTypes = {
   title: PropTypes.string,
+  slug: PropTypes.string,
   author: PropTypes.string,
   date: PropTypes.string,
   text: PropTypes.string,
-  img: PropTypes.string
+  tags: PropTypes.array,
+  img: PropTypes.string,
+  time: PropTypes.number
 }
 
 export default StoryCard

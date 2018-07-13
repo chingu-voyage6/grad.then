@@ -1,0 +1,169 @@
+/* css for programmatically created pages with user story */
+.user-article h2 {
+  color: #ff8463;
+  padding: 0.5rem;
+}
+
+.user-article h3 {
+  color: #755f9f;
+  padding: 0.5rem;
+}
+
+.user-article h4 {
+  color: #8ac3a9;
+  padding: 0.5rem;
+}
+
+.user-article img {
+  display: block;
+  max-width: 400px;
+  margin: 1.5rem auto;
+}
+
+.user-article > p.caption {
+  text-align: center;
+  font-size: 0.9em;
+  font-style: italic;
+  color: #666;
+  margin-top: 0;
+}
+
+.user-article > ul {
+  list-style: circle inside;
+}
+
+.user-article > ul > li {
+  padding: 0.5rem;
+}
+
+.user-article > p > a:active,
+.user-article a:hover {
+  color: #ff8463;
+  text-decoration: underline;
+}
+
+.user-article > p > a {
+  color: #755f9f;
+}
+
+.user-article > p > a:visited {
+  color: #755f9f;
+}
+
+.user-article code {
+  color: rgba(69, 52, 99, 0.7);
+  font-size: 1rem;
+}
+
+.user-article blockquote {
+  color: #666;
+  font-size: 1.15rem;
+  font-style: italic;
+}
+
+.user-article pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* desktop & tablet sizes */
+@media screen and (min-width: 461px) and (max-width: 992px) {
+  .user-article h2 {
+    font-size: 1.8rem;
+    margin: 0.75rem 0;
+  }
+
+  .user-article h3 {
+    font-size: 1.5rem;
+    margin: 0.75rem 0;
+  }
+
+  .user-article h4 {
+    font-size: 1.25rem;
+    margin: 0.75em 0;
+  }
+
+  .user-article h5,
+  .user-article h6 {
+    margin: 0.75em 0;
+  }
+
+  .user-article p {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+  }
+
+  .user-article > p.caption {
+    font-size: 0.85em;
+  }
+
+  .user-article > ul {
+    padding: 0.5rem 0.5rem 0.5rem 0.75rem;
+  }
+
+  .user-article > ul > li {
+    padding: 0.5rem;
+    font-size: 1.2rem;
+  }
+}
+
+/* tablet size */
+@media screen and (min-width: 461px) and (max-width: 768px) {
+  .user-article {
+    padding: 0 0.5rem;
+    width: 85%;
+    margin: 0 auto;
+  }
+}
+
+/* phone size */
+@media screen and (max-width: 460px) {
+  .user-article {
+    padding: 0 0.5rem;
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  .user-article h2 {
+    font-size: 1.8rem;
+    margin: 0.7em 0;
+  }
+
+  .user-article h3 {
+    font-size: 1.5rem;
+    margin: 0.5em 0;
+  }
+
+  .user-article h4 {
+    font-size: 1.25rem;
+    margin: 0.5em 0;
+  }
+
+  .user-article h5,
+  .user-article h6 {
+    margin: 0.5em 0;
+  }
+
+  .user-article p {
+    font-size: 1rem;
+    margin: 0.5em 0;
+  }
+
+  .user-article > p.caption {
+    font-size: 0.85em;
+  }
+
+  .user-article img {
+    max-width: 250px;
+    margin: 1rem auto;
+  }
+
+  .user-article > ul {
+    padding: 0.5rem;
+  }
+
+  .user-article > ul > li {
+    font-size: 1rem;
+  }
+}
