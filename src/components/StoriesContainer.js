@@ -8,9 +8,8 @@ import FilterAndSearch from './FilterAndSearch'
 import CardContainer from './CardContainer'
 import StoryCard from './StoryCard'
 import Pagination from './Pagination'
-import { fakeStoriesAPISearch } from '../utils/api'
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
@@ -91,8 +90,7 @@ class StoriesContainer extends React.Component {
     }
   }
 
-  // handles sort by 'all', 'by author', and 'top rated'
-  ///!!! implement the case for 'top rated'
+  // handles sort by 'all', 'by author', 'by title', 'by length'
   handleSort(str) {
     const blog = [...this.state.blog],
       loadedBlog = [...this.props.initialBlog]
@@ -104,10 +102,15 @@ class StoriesContainer extends React.Component {
         return
       case 'by author':
         // sort by author
-        this.setState({ blog: this.sortByAuthor(blog) })
+        this.setState({ blog: this.sortBy('author', blog) })
         return
-      case 'top rated':
-        //sort by rating
+      case 'by title':
+        //sort by title
+        this.setState({ blog: this.sortBy('title', blog) })
+        return
+      case 'by length':
+        // sort by timeToRead
+        this.setState({ blog: this.sortBy('timeToRead', blog) })
         return
       default:
         return
@@ -116,13 +119,13 @@ class StoriesContainer extends React.Component {
 
   //!!! must be changed for usage of Contentful
   handleSearch() {
-    //imitation of search query
-    // if (this.state.searchQuery) {
-    //   const searchStr = this.state.searchQuery
-    //   fakeStoriesAPISearch(searchStr, this.CARDS.items).then(query =>
-    //     this.setState({ query })
-    //   )
-    // }
+    //search in 'this.props.initialBlog'
+    const loadedBlog = [...this.props.initialBlog],
+      { searchQuery } = this.state
+
+    if (searchQuery) {
+      //
+    }
   }
 
   handleInput(val) {
@@ -138,14 +141,24 @@ class StoriesContainer extends React.Component {
     return blog.slice(firstItem, firstItem + numStories)
   }
 
-  sortByAuthor(arr) {
+  sortBy(sortField, arr) {
     const sorted = arr.sort((a, b) => {
-      const authorA = a.node.author.lastName,
-        authorB = b.node.author.lastName
-      if (authorA < authorB) {
+      let elemA, elemB
+      if (sortField === 'author') {
+        elemA = a.node[sortField].lastName
+        elemB = b.node[sortField].lastName
+      } else if (sortField === 'title') {
+        elemA = a.node[sortField]
+        elemB = b.node[sortField]
+      } else {
+        elemA = a.node.content.childMarkdownRemark[sortField]
+        elemB = b.node.content.childMarkdownRemark[sortField]
+      }
+
+      if (elemA < elemB) {
         return -1
       }
-      if (authorA > authorB) {
+      if (elemA > elemB) {
         return 1
       }
       return 0
@@ -171,10 +184,15 @@ class StoriesContainer extends React.Component {
               <StoryCard
                 key={elem.node.id}
                 title={elem.node.title}
+                slug={elem.node.slug}
                 author={elem.node.author.fullName}
                 date={elem.node.publishDate}
-                text={elem.node.excerpt.excerpt}
+                text={elem.node.content.childMarkdownRemark.excerpt}
+                tags={elem.node.tags}
                 img={elem.node.featureImage.resolutions.src}
+                time={
+                  elem.node.content.childMarkdownRemark.timeToRead
+                }
               />
             ))}
           </CardContainer>
