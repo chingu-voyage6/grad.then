@@ -61,6 +61,11 @@
   font-style: italic;
 }
 
+.user-article pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
 /* desktop & tablet sizes */
 @media screen and (min-width: 461px) and (max-width: 992px) {
   .user-article h2 {
