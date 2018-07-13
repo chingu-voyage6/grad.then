@@ -12,7 +12,7 @@ module.exports = {
       learn: ['all', 'new', 'courses', 'interviews'],
       events: ['all', 'by country', 'by location', 'annual'],
       support: ['all', 'popular', 'latest'],
-      stories: ['all', 'by author', 'top rated']
+      stories: ['all', 'by author', 'by title', 'by length']
     }
   },
   plugins: [
