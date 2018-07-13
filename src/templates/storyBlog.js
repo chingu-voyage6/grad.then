@@ -22,6 +22,15 @@ const FollowButton = Button.extend`
   text-transform: none;
   font-size: 0.85rem;
   vertical-align: top;
+  &:hover {
+    color: ${props => props.theme.secondary.green};
+    transform: none;
+  }
+  ${media.phone`
+    font-size: 0.8rem;
+    padding: 0.1rem 0.2rem;
+    vertical-align: middle;
+  `};
 `
 
 const ArticleContainer = Wrapper.extend`
@@ -72,6 +81,8 @@ const ArticleAuthor = StyledH3.extend`
     margin: 0.25rem;
   `} ${media.tablet`
     font-size: 1.25rem;
+  `} ${media.phone`
+    line-height: 1.35;
   `};
 `
 
