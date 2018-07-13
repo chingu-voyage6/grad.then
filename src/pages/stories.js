@@ -45,16 +45,11 @@ export const query = graphql`
           author {
             fullName
             lastName
-            contact
-            bio {
-              bio
-            }
           }
           content {
             childMarkdownRemark {
               excerpt
               timeToRead
-              html
             }
           }
           featureImage {
