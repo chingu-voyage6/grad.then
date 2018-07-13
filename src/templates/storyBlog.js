@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { withComponent } from 'styled-components'
+import styled from 'styled-components'
+import { navigateTo } from 'gatsby-link'
 import Hero from '../components/Hero'
 import { Wrapper } from '../components/StoriesContainer'
 import { Tag } from '../components/StoryCard'
-import { ButtonSmall } from '../components/Button'
+import { ButtonSmall, Button } from '../components/Button'
 import {
   StyledH1,
   StyledH3,
@@ -15,8 +16,8 @@ import {
 
 import contentStyles from '../css/storyBlog-module.css'
 
-const Button = ButtonSmall.withComponent('a')
-const FollowButton = Button.extend`
+const ArticleButton = ButtonSmall.withComponent('a')
+const FollowButton = ArticleButton.extend`
   padding: 0.25rem;
   margin-left: 0.3rem;
   text-transform: none;
@@ -32,19 +33,39 @@ const FollowButton = Button.extend`
     vertical-align: middle;
   `};
 `
+const BackButton = Button.extend`
+  padding: 0.5rem;
+  border-width: 2px;
+  font-size: 1.25em;
+  &:hover {
+    color: ${props => props.theme.secondary.red};
+  }
+  ${media.phone`
+    font-size: 1em;
+  `};
+`
+const BackButtonContainer = styled.div`
+  grid-area: btn;
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0.5rem 2rem 0.5rem;
+`
 
 const ArticleContainer = Wrapper.extend`
   grid-template-areas:
     '. panel panel panel panel panel panel panel panel panel panel.'
-    '. . cont cont cont cont cont cont cont cont . .';
+    '. . cont cont cont cont cont cont cont cont . .'
+    '. btn btn btn btn btn btn btn btn btn btn.';
   ${media.giant`
   grid-template-areas:
   '. panel panel panel panel panel panel panel panel panel panel .'
-  '. cont cont cont cont cont cont cont cont cont cont .';  
+  '. cont cont cont cont cont cont cont cont cont cont .'
+  '. btn btn btn btn btn btn btn btn btn btn.';  
   `} ${media.tablet`
   grid-template-areas:
   'panel panel panel panel panel panel panel panel panel panel panel panel'
-  'cont cont cont cont cont cont cont cont cont cont cont cont';
+  'cont cont cont cont cont cont cont cont cont cont cont cont'
+  'btn btn btn btn btn btn btn btn btn btn btn btn';
   `};
 `
 
@@ -139,6 +160,7 @@ const ArticleContent = styled.article`
 
 const StoryBlog = ({ data, location }) => {
   //console.log(data)
+  const goBack = () => navigateTo('/stories')
   const {
     title,
     publishDate,
@@ -179,6 +201,13 @@ const StoryBlog = ({ data, location }) => {
           }}
           className="user-article"
         />
+        <BackButtonContainer>
+          <BackButton
+            color={props => props.theme.secondary.green}
+            onClick={goBack}>
+            Back to Stories
+          </BackButton>
+        </BackButtonContainer>
       </ArticleContainer>
     </div>
   )
