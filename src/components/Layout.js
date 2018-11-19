@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import styled, { ThemeProvider } from 'styled-components'
 
-import Header from '../components/Header.js'
-import Footer from '../components/Footer.js'
+import Header from './Header.js'
+import Footer from './Footer.js'
 
 import { theme } from '../theme/globalStyle'
 
@@ -23,7 +23,7 @@ const Main = styled.div`
   margin-top: 4.625rem;
 `
 
-const TemplateWrapper = ({ data, children }) => (
+const Layout = ({ data, children }) => (
   <ThemeProvider theme={theme}>
     <PageContainer>
       <Helmet
@@ -39,14 +39,14 @@ const TemplateWrapper = ({ data, children }) => (
       />
       <Header navItems={data.site.siteMetadata.pages} />
 
-      <Main>{children()}</Main>
+      <Main>{children}</Main>
 
       <Footer navItems={data.site.siteMetadata.pages} />
     </PageContainer>
   </ThemeProvider>
 )
 
-TemplateWrapper.propTypes = {
+Layout.propTypes = {
   data: PropTypes.object,
   children: PropTypes.func
 }
@@ -61,4 +61,4 @@ export const query = graphql`
   }
 `
 
-export default TemplateWrapper
+export default Layout
