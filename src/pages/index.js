@@ -7,6 +7,7 @@ import { StyledH2, StyledP, media } from '../theme/globalStyle'
 import { ICONS } from '../theme/constants.js'
 import Icon from '../components/Icon.js'
 import Hero from '../components/Hero'
+import Layout from '../components/Layout'
 
 const PageContainer = styled.div`
   display: grid;
@@ -113,7 +114,7 @@ const IconText = StyledP.extend`
 `
 
 const IndexPage = ({ data }) => (
-  <div>
+  <Layout>
     <Hero type="main" title={data.site.siteMetadata.title} />
     <PageContainer>
       <MainTitle>explore what is next</MainTitle>
@@ -171,7 +172,7 @@ const IndexPage = ({ data }) => (
         </IconWrapper>
       </IconContainer>
     </PageContainer>
-  </div>
+  </Layout>
 )
 
 IndexPage.propTypes = {
