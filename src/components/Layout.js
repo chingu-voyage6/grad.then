@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import styled, { ThemeProvider } from 'styled-components'
+import { StaticQuery, graphql } from 'gatsby'
 
 import Header from './Header.js'
 import Footer from './Footer.js'
@@ -51,14 +52,17 @@ Layout.propTypes = {
   children: PropTypes.func
 }
 
-export const query = graphql`
-  query NavQuery {
-    site {
-      siteMetadata {
-        pages
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query NavQuery {
+        site {
+          siteMetadata {
+            pages
+          }
+        }
       }
-    }
-  }
-`
-
-export default Layout
+    `}
+    render={data => <Layout data={data} {...props} />}
+  />
+)
