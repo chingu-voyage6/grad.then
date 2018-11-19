@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { navigateTo } from 'gatsby-link'
+import { navigate } from 'gatsby'
 
 import {
   StyledH3,
@@ -25,7 +25,8 @@ const Wrapper = styled.div`
     'img img img'
     'text text text';
     //grid-template-rows: 30% minmax(17em, auto);
-  `} ${media.phone`
+  `};
+  ${media.phone`
     margin: 0;
   `};
 `
@@ -54,11 +55,13 @@ const Text = styled.div`
   align-items: center;
   ${media.desktop`
     justify-content: space-between;
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     padding-top: 0;
     margin-top: 0.5rem;
     //margin-bottom: auto;
-  `} ${media.phone`
+  `};
+  ${media.phone`
     padding: 0 0.3rem;
     margin-top: 0;
   `};
@@ -73,7 +76,8 @@ const StoryTitle = StyledH3.extend`
   font-size: 1.5rem;
   ${media.desktop`
     font-size: 1.2rem;
-  `} ${media.phone`
+  `};
+  ${media.phone`
     padding: 0.5rem 0.5rem 0 0.5rem;
     font-size: 1.25rem;
   `};
@@ -88,7 +92,8 @@ const StoryAuthor = StyledH4.extend`
   text-align: center;
   ${media.desktop`
     font-size: 1rem;
-  `} ${media.phone`
+  `};
+  ${media.phone`
     margin: 0.5rem;
   `};
 `
@@ -116,9 +121,11 @@ const StoryText = StyledP.extend`
   min-height: 4.375rem;
   ${media.giant`
     font-size: 1.1rem;
-  `} ${media.desktop`
+  `};
+  ${media.desktop`
     font-size: 1rem;
-  `} ${media.phone`
+  `};
+  ${media.phone`
     padding: 0 0.25rem;
     font-size: 1.05rem;
   `};
@@ -131,7 +138,8 @@ const ButtonContainer = styled.div`
   margin-top: auto;
   ${media.desktop`
     margin-bottom: 1rem;
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     margin-bottom: 0.5rem;
     & > button {
       padding: 0.75rem 1.5rem;
@@ -190,7 +198,7 @@ Tag.propTypes = {
 
 class StoryCard extends React.Component {
   readStory() {
-    navigateTo(`/stories/${this.props.slug}`)
+    navigate(`/stories/${this.props.slug}`)
   }
 
   render() {

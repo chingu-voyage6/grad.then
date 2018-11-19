@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { navigateTo } from 'gatsby-link'
+import { navigate } from 'gatsby'
 import Hero from '../components/Hero'
 import { Wrapper } from '../components/StoriesContainer'
 import { Tag } from '../components/StoryCard'
@@ -166,7 +166,7 @@ const ArticleContent = styled.article`
 
 const StoryBlog = ({ data, location }) => {
   //console.log(data)
-  const goBack = () => navigateTo('/stories')
+  const goBack = () => navigate('/stories')
   const {
     title,
     publishDate,
