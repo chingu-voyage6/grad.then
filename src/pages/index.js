@@ -15,9 +15,11 @@ const PageContainer = styled.div`
   margin: 3rem 0;
   ${media.giant`
     margin: 1.5rem 0 0 0;
-  `} ${media.desktop`
+  `} 
+  ${media.desktop`
     margin: 1rem 0 0 0;
-  `} ${media.tablet`
+  `} 
+  ${media.tablet`
     margin: 1rem 0;
   `};
 `
@@ -64,10 +66,12 @@ const IconContainer = styled.div`
   ${media.giant`
     grid-column: 3 / span 8;
     justify-content: space-around;
-  `} ${media.tablet`
+  `} 
+  ${media.tablet`
     grid-column: 1 / span 12;
     margin: 0.5rem 0;
-  `} ${media.phone`
+  `} 
+  ${media.phone`
     margin: 0;
   `};
 `
@@ -89,9 +93,11 @@ const IconWrapper = styled(Link)`
   }
   ${media.giant`
     min-width: 180px;
-  `} ${media.tablet`
+  `} 
+  ${media.tablet`
     margin: 0.2rem;
-  `} ${media.phone`
+  `} 
+  ${media.phone`
     margin: 0.2rem;
     padding: 0.2rem;
   `};
