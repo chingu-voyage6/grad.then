@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 
 import { StyledH2, StyledP, media } from '../theme/globalStyle'
 import { ICONS } from '../theme/constants.js'

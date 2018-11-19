@@ -1,6 +1,7 @@
 import React from 'react'
-import Hero from '../components/Hero'
+import { graphql } from 'gatsby'
 
+import Hero from '../components/Hero'
 import JobsContainer from '../components/JobsContainer'
 
 const JobsPage = ({ data }) => (

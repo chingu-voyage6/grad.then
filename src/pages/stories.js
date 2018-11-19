@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Hero from '../components/Hero'
 import StoriesContainer from '../components/StoriesContainer'
+import { graphql } from 'gatsby'
 
 // "in page" pagination of stories
 // can be changed when the number of stories would grow significantly

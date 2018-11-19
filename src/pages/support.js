@@ -1,5 +1,6 @@
 import React from 'react'
 import Hero from '../components/Hero'
+import { graphql } from 'gatsby'
 
 import { StyledH3, StyledP, media } from '../theme/globalStyle'
 import CardContainer from '../components/CardContainer'

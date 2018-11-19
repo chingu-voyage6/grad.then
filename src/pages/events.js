@@ -1,6 +1,7 @@
 import React from 'react'
 import Hero from '../components/Hero'
 import EventsContainer from '../components/EventsContainer'
+import { graphql } from 'gatsby'
 
 const EventsPage = ({ data }) => (
   <div>

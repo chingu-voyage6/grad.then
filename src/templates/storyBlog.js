@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { navigate } from 'gatsby'
+import { navigate, graphql } from 'gatsby'
+
 import Hero from '../components/Hero'
 import { Wrapper } from '../components/StoriesContainer'
 import { Tag } from '../components/StoryCard'
