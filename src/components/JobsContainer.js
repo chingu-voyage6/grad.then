@@ -25,7 +25,8 @@ const Wrapper = styled.div`
     grid-template-areas:
       'fs fs fs fs fs fs fs fs fs fs fs fs'
       'filt filt filt filt lst lst lst lst lst lst lst .';
-  `} ${media.phone`
+  `};
+  ${media.phone`
     grid-column-gap: 0.5rem;
     grid-template-areas:
       'fs fs fs fs fs fs fs fs fs fs fs fs'

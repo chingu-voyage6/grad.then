@@ -24,11 +24,13 @@ const Wrapper = styled.div`
     grid-template-areas:
       '. fs fs fs fs fs fs fs fs fs fs .'
       '. lst lst lst lst lst lst lst lst lst lst .';
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     grid-template-areas:
       'fs fs fs fs fs fs fs fs fs fs fs fs'
       '. lst lst lst lst lst lst lst lst lst lst .';
-  `} ${media.phone`
+  `};
+  ${media.phone`
     grid-template-areas:
       'fs fs fs fs fs fs fs fs fs fs fs fs'
       '. lst lst lst lst lst lst lst lst lst lst .';

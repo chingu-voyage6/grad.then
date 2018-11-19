@@ -23,7 +23,8 @@ export const Wrapper = styled.div`
     grid-template-areas:
       '. fs fs fs fs fs fs fs fs fs fs .'
       'cont cont cont cont cont cont cont cont cont cont cont cont';
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     grid-template-areas:
       'fs fs fs fs fs fs fs fs fs fs fs fs'
       'cont cont cont cont cont cont cont cont cont cont cont cont';
@@ -67,26 +68,26 @@ class StoriesContainer extends React.Component {
     next = next > maxLength ? maxLength : next
 
     switch (num) {
-      case -1: //get previous page
-        this.setState({
-          firstItem: previous,
-          activePage: activePage - 1 < 0 ? 0 : activePage - 1
-        })
-        return
-      case 0: //get next page
-        this.setState({
-          firstItem: next,
-          activePage:
+    case -1: //get previous page
+      this.setState({
+        firstItem: previous,
+        activePage: activePage - 1 < 0 ? 0 : activePage - 1
+      })
+      return
+    case 0: //get next page
+      this.setState({
+        firstItem: next,
+        activePage:
             activePage + 2 > pages ? pages - 1 : activePage + 1
-        })
-        return
-      default:
-        //get page #num
-        this.setState({
-          firstItem: numStories * (num - 1),
-          activePage: num - 1
-        })
-        return
+      })
+      return
+    default:
+      //get page #num
+      this.setState({
+        firstItem: numStories * (num - 1),
+        activePage: num - 1
+      })
+      return
     }
   }
 
@@ -96,24 +97,24 @@ class StoriesContainer extends React.Component {
       loadedBlog = [...this.props.initialBlog]
 
     switch (str) {
-      case 'all':
-        //show all cards
-        this.setState({ blog: loadedBlog })
-        return
-      case 'by author':
-        // sort by author
-        this.setState({ blog: this.sortBy('author', blog) })
-        return
-      case 'by title':
-        //sort by title
-        this.setState({ blog: this.sortBy('title', blog) })
-        return
-      case 'by length':
-        // sort by timeToRead
-        this.setState({ blog: this.sortBy('timeToRead', blog) })
-        return
-      default:
-        return
+    case 'all':
+      //show all cards
+      this.setState({ blog: loadedBlog })
+      return
+    case 'by author':
+      // sort by author
+      this.setState({ blog: this.sortBy('author', blog) })
+      return
+    case 'by title':
+      //sort by title
+      this.setState({ blog: this.sortBy('title', blog) })
+      return
+    case 'by length':
+      // sort by timeToRead
+      this.setState({ blog: this.sortBy('timeToRead', blog) })
+      return
+    default:
+      return
     }
   }
 

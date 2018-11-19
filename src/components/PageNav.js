@@ -21,9 +21,11 @@ const NavMenu = StyledUl.extend`
   grid-column-gap: 10px;
   ${media.giant`
     grid-template-columns: repeat(5, auto);
-  `} ${media.desktop`
+  `};
+  ${media.desktop`
     margin: 0.5rem;
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     position: relative;
@@ -54,9 +56,11 @@ const NavItem = StyledLi.extend`
     font-size: 1.25rem;
     margin: 0;
     padding: 0;
-  `} ${media.desktop`
+  `};
+  ${media.desktop`
     font-size: 1.2rem;
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     display: none;
     font-size: 1.3rem;
     &.icon {

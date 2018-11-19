@@ -20,19 +20,24 @@ const StyledMainHero = styled.div`
   min-height: 600px;
   max-height: 750px;
   grid-column: 2 / span 10;
-  ${media.giant`min-height: 500px;`} ${media.desktop`
+  ${media.giant`
+    min-height: 500px;
+  `};
+  ${media.desktop`
     grid-column: 2 / span 8;
     min-height: 400px;
     display:grid;
     grid-template-columns: 3fr 2fr;
     grid-template-rows: minmax(40px, auto);
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     grid-column: none;
     min-height: 400px;
     display: flex;
     flex-direction: column;
     padding: 1rem;
-  `} ${media.phone`
+  `};
+  ${media.phone`
     grid-column: none;
     min-height: 450px;
   `};
@@ -48,14 +53,17 @@ const HeroTitle = StyledH1.extend`
     font-size: 2.8rem;
     padding: 1.75rem 0;
     margin: 0.5rem 0;
-  `} ${media.desktop`
+  `};
+  ${media.desktop`
     grid-column: 1 / span 2;
     padding: 1rem;
     font-size: 2.4rem;
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     grid-column: none;
     font-size: 2.2rem;
-  `} ${media.phone`
+  `};
+  ${media.phone`
     text-align: center;
     padding: 0rem 0.8rem;
     margin-bottom: 1rem;
@@ -71,10 +79,12 @@ const HeroUl = StyledUl.extend`
   ${media.desktop`
     grid-column: 1 / span 1;
     max-width: 80%;
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     grid-column: none;
     max-width: 65%;
-  `} ${media.phone`
+  `};
+  ${media.phone`
     max-width: 90%;
     background-color: ${props => props.theme.shades.dark};
     border: 1px solid transparent;
@@ -101,7 +111,8 @@ const HeroLi = StyledLi.extend`
     &:before {
       padding-right: 0.2rem;
     }
-  `} ${media.desktop`
+  `};
+  ${media.desktop`
       font-size: 1.2rem;
       padding: 0.2rem;
       margin: 0.2rem;
@@ -109,7 +120,8 @@ const HeroLi = StyledLi.extend`
       &:before {
         padding-right: 0.2rem;
       }
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
       font-size: 1.3rem;
       padding: 0.2rem;
       margin: 0.2rem;
@@ -117,7 +129,8 @@ const HeroLi = StyledLi.extend`
       &:before {
         padding-right: 0.2rem;
       }
-  `} ${media.phone`
+  `};
+  ${media.phone`
     font-size: 1.2rem;
     margin: 0.3rem;
   `};
@@ -150,19 +163,24 @@ const StyledSimpleHero = StyledMainHero.extend`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
-  ${media.giant`min-height: 200px;`} ${media.desktop`
+  ${media.giant`
+    min-height: 200px;
+  `};
+  ${media.desktop`
     grid-column: 2 / span 10;
     min-height: 200px;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: auto;
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     grid-column: none;
     min-height: 200px;
     height: auto;
     display: flex;
     flex-direction: column;
     padding: 0rem;
-  `} ${media.phone`
+  `};
+  ${media.phone`
     grid-column: none;
     min-height: 200px;
     height: auto;
@@ -180,14 +198,17 @@ const SimpleHeroTitle = HeroTitle.extend`
   ${media.giant`
     font-size: 3.4rem;
     padding: 0.5rem 0 0 0;
-  `} ${media.desktop`
+  `};
+  ${media.desktop`
     grid-column: 1 / span 12;
     padding: 0.5rem 0 0 0;
     font-size: 3.4rem;
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     font-size: 3.4rem;
     padding: 0.5rem 0 1.4rem 0;
-  `} ${media.phone`
+  `};
+  ${media.phone`
     font-size: 3.4rem;
     margin-bottom: 0;
     padding-bottom: 0.5rem;
@@ -209,7 +230,8 @@ const ButtonContainer = styled.div`
       padding: 0.75rem 1.2rem;
 
     }
-  `} ${media.phone`
+  `};
+  ${media.phone`
     margin-top: 1rem;
   `};
 `
@@ -225,20 +247,20 @@ const SimpleHero = props =>
   props.page === 'stories' ||
   props.page === 'support' ||
   props.page === 'events' ? (
-    <StyledSimpleHero>
-      <SimpleHeroTitle>{props.page}</SimpleHeroTitle>
-      <ButtonContainer>
-        <HeroButton color={props => props.theme.white}>
-          {buttonText[`${props.page}`]}
-        </HeroButton>
-      </ButtonContainer>
-    </StyledSimpleHero>
-  ) : (
-    <StyledSimpleHero>
-      <SimpleHeroTitle>{props.page}</SimpleHeroTitle>
-      <SimpleHeroP>{faker.lorem.sentence()}</SimpleHeroP>
-    </StyledSimpleHero>
-  )
+      <StyledSimpleHero>
+        <SimpleHeroTitle>{props.page}</SimpleHeroTitle>
+        <ButtonContainer>
+          <HeroButton color={props => props.theme.white}>
+            {buttonText[`${props.page}`]}
+          </HeroButton>
+        </ButtonContainer>
+      </StyledSimpleHero>
+    ) : (
+      <StyledSimpleHero>
+        <SimpleHeroTitle>{props.page}</SimpleHeroTitle>
+        <SimpleHeroP>{faker.lorem.sentence()}</SimpleHeroP>
+      </StyledSimpleHero>
+    )
 
 // --------HERO---------------------------------------------
 const StyledHero = styled.div`
@@ -255,11 +277,12 @@ const StyledHero = styled.div`
     display: flex;
     flex-direction: column;
     margin-bottom: 1.5rem;
-  `} ${media.phone`
+  `};
+  ${media.phone`
     background: ${props =>
-      props.bg === 'main'
-        ? `url(${BGmob})`
-        : props.theme.secondary.green};
+    props.bg === 'main'
+      ? `url(${BGmob})`
+      : props.theme.secondary.green};
     background-size: 100% 100%;
     margin-bottom: 1rem;
   `};

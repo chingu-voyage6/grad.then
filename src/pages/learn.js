@@ -25,11 +25,13 @@ const IconWrapper = styled.div`
     min-width: 3em;
     width: 7em;
     margin: 0.3rem 0 0 0;
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     width: 6em;
     padding: 0.3rem;
     margin-top: 1rem;
-  `} ${media.phone`
+  `};
+  ${media.phone`
     width: 4em;
   `};
 `
@@ -46,7 +48,8 @@ const IconText = StyledP.extend`
   }
   ${media.desktop`
     font-size: 1rem;
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     font-size: 0.9rem;
   `};
 `

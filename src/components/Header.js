@@ -22,9 +22,11 @@ const StyledHeader = styled.div`
 
   ${media.giant`
     grid-template-areas: '. brand brand . . nav nav nav nav nav nav nav';
-  `} ${media.desktop`
+  `};
+  ${media.desktop`
     grid-template-areas: 'brand brand brand . . nav nav nav nav nav nav nav';
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     grid-template-areas: 'brand brand brand brand brand brand nav nav nav nav nav nav';
   `};
 `

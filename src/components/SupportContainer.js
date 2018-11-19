@@ -26,7 +26,8 @@ const Wrapper = styled.div`
     grid-template-areas:
       '. fs fs fs fs fs fs fs fs fs fs .'
       'cont cont cont cont cont cont cont cont cont cont cont cont';
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     grid-template-areas:
       'fs fs fs fs fs fs fs fs fs fs fs fs'
       'cont cont cont cont cont cont cont cont cont cont cont cont';

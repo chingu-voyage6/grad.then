@@ -25,26 +25,29 @@ const StyledStories = styled.div`
   padding: 0.6rem;
   & > div:last-child {
     display: ${props =>
-      props.cols < props.cards
-        ? 'none'
-        : props.story ? 'grid' : 'flex'};
+    props.cols < props.cards
+      ? 'none'
+      : props.story ? 'grid' : 'flex'};
   }
   ${media.giant`
     grid-column: 1 / span 12;
     margin: 0 1.5rem;
-  `} ${media.desktop`
+  `};
+  ${media.desktop`
     grid-column: 1 / span 12;
     margin: 0 1.5rem;
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     margin: 0.5rem 2rem;
     grid-template-columns: ${props =>
-      props.cols > 3
-        ? `repeat(${Math.floor(props.cols / 2)}, 1fr)`
-        : `repeat(${props.cols}, 1fr)`};
+    props.cols > 3
+      ? `repeat(${Math.floor(props.cols / 2)}, 1fr)`
+      : `repeat(${props.cols}, 1fr)`};
     & > div:last-child {
       display: ${props => (props.story ? 'grid' : 'flex')};
     }
-  `} ${media.phone`
+  `};
+  ${media.phone`
     margin: 0;
     grid-column: 2 / span 10;
     grid-template-columns: repeat(1, 1fr);

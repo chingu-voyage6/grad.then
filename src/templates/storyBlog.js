@@ -61,7 +61,8 @@ const ArticleContainer = Wrapper.extend`
   '. panel panel panel panel panel panel panel panel panel panel .'
   '. cont cont cont cont cont cont cont cont cont cont .'
   '. btn btn btn btn btn btn btn btn btn btn.';  
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
   grid-template-areas:
   'panel panel panel panel panel panel panel panel panel panel panel panel'
   'cont cont cont cont cont cont cont cont cont cont cont cont'
@@ -88,7 +89,8 @@ const ArticleTitle = StyledH1.extend`
   ${media.desktop`
     font-size: 2.125rem;
     padding-bottom: 0;
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     font-size: 2rem;
     padding: 0 0.5rem;
   `};
@@ -100,9 +102,11 @@ const ArticleAuthor = StyledH3.extend`
   ${media.desktop`
     font-size: 1.375rem;
     margin: 0.25rem;
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     font-size: 1.25rem;
-  `} ${media.phone`
+  `};
+  ${media.phone`
     line-height: 1.35;
   `};
 `
@@ -125,7 +129,8 @@ const ArticleDate = StyledP.extend`
   ${media.desktop`
     font-size: 1rem;
     margin: 0.25rem;
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     font-size: 1rem;
   `};
 `
@@ -133,7 +138,8 @@ const ArticleDate = StyledP.extend`
 const ArticleSource = ArticleDate.extend`
   ${media.desktop`
     margin: 0.25rem;
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     font-size: 0.95rem;
   `};
 `

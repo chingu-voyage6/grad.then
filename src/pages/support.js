@@ -16,13 +16,16 @@ const DividerText = StyledH3.extend`
   margin: 1rem;
   ${media.giant`
     padding: 1.25rem 1rem;
-  `} ${media.desktop`
+  `};
+  ${media.desktop`
     padding: 1rem;
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     font-size: 1.5rem;
     margin: 0.5rem 0;
     padding: 0.75rem;
-  `} ${media.phone`
+  `};
+  ${media.phone`
     font-size: 1.25rem;
     padding: 0.5rem;
   `};
@@ -33,7 +36,8 @@ const SectionP = StyledP.extend`
   ${media.tablet`
     font-size: 1rem;
     padding: 0.3rem;
-  `} ${media.phone`
+  `};
+  ${media.phone`
     font-size: 1.125rem;
     padding: 0.25rem;
   `};

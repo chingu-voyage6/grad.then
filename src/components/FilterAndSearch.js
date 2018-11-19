@@ -11,7 +11,8 @@ const StyledFilter = styled.div`
   ${media.desktop`
     max-width: 260px;
     flex-wrap: wrap;
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     max-width: 100%;
     width: 100%;
     justify-content: center;
@@ -41,9 +42,11 @@ const FilterButton = styled.button`
   }
   ${media.giant`
     min-width: 100px;
-  `} ${media.desktop`
+  `};
+  ${media.desktop`
     min-width: 120px;
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     min-width: 110px;
     font-size: 0.9rem;
   `};
