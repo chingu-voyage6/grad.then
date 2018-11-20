@@ -1,15 +1,15 @@
 import React from 'react'
-import Hero from '../components/Hero'
 import { graphql } from 'gatsby'
+import faker from 'faker'
 
+import Layout from '../components/Layout'
+import Hero from '../components/Hero'
 import { StyledH3, StyledP, media } from '../theme/globalStyle'
 import CardContainer from '../components/CardContainer'
 import { addCards } from '../utils/helpers'
 import Divider from '../components/Divider'
 import { SectionTitle } from '../components/Titles'
 import SupportContainer from '../components/SupportContainer'
-
-import faker from 'faker'
 
 const DividerText = StyledH3.extend`
   font-size: 1.5em;
@@ -45,7 +45,7 @@ const SectionP = StyledP.extend`
 `
 
 const SupportPage = ({ data }) => (
-  <div>
+  <Layout>
     <Hero type="support" />
 
     <SectionTitle> how to support</SectionTitle>
@@ -72,7 +72,7 @@ const SupportPage = ({ data }) => (
     <SupportContainer
       menuFilter={data.site.siteMetadata.filterOptions.support}
     />
-  </div>
+  </Layout>
 )
 
 // inject data.site.siteMetadata.filterOptions.support into

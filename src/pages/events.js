@@ -1,15 +1,17 @@
 import React from 'react'
-import Hero from '../components/Hero'
-import EventsContainer from '../components/EventsContainer'
 import { graphql } from 'gatsby'
 
+import Hero from '../components/Hero'
+import EventsContainer from '../components/EventsContainer'
+import Layout from '../components/Layout'
+
 const EventsPage = ({ data }) => (
-  <div>
+  <Layout>
     <Hero type="events" />
     <EventsContainer
       menuFilter={data.site.siteMetadata.filterOptions.events}
     />
-  </div>
+  </Layout>
 )
 
 export const query = graphql`

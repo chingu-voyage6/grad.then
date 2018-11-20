@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { withTheme } from 'styled-components'
 import { graphql } from 'gatsby'
 
+import Layout from '../components/Layout'
 import Hero from '../components/Hero'
 import { StyledP, media } from '../theme/globalStyle'
 import CardContainer from '../components/CardContainer'
@@ -56,7 +57,7 @@ const IconText = StyledP.extend`
 `
 
 const LearnPage = ({ theme, data }) => (
-  <div>
+  <Layout>
     <Hero type="learn" />
     <SectionTitle>featured courses</SectionTitle>
 
@@ -113,7 +114,7 @@ const LearnPage = ({ theme, data }) => (
     <CoursesContainer
       menuFilter={data.site.siteMetadata.filterOptions.learn}
     />
-  </div>
+  </Layout>
 )
 
 LearnPage.propTypes = {

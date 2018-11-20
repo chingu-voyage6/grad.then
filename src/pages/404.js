@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
+
+import Layout from '../components/Layout'
 import { ICONS } from '../theme/constants'
 import { StyledH1, StyledH2, media } from '../theme/globalStyle'
 
@@ -19,9 +21,11 @@ const Main = styled.div`
   ${media.giant`
     grid-column: 2 / span 10;
     margin: 0 0 18% 0;
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     margin: 0 0 10% 0;
-  `} ${media.phone`
+  `};
+  ${media.phone`
     grid-column: 1 / span 12;
     margin: 0 1rem 10% 1rem;
   `};
@@ -35,7 +39,8 @@ const PageTitle = StyledH1.extend`
   ${media.tablet`
     font-size: 2.5em;
     padding: 0.5rem;
-  `} ${media.phone`
+  `};
+  ${media.phone`
     padding-bottom: 0;
   `};
 `
@@ -51,7 +56,8 @@ const PageContainer = styled.div`
   ${media.tablet`
     flex-wrap: wrap;
     justify-content: center;
-  `} ${media.phone`
+  `};
+  ${media.phone`
     padding: 1rem 0.5rem;
   `};
 `
@@ -74,7 +80,8 @@ const PageText = StyledH2.extend`
   }
   ${media.desktop`
     font-size: 1.2em;
-  `} ${media.phone`
+  `};
+  ${media.phone`
     font-size: 1em;
     padding: 0 0.3rem;
   `};
@@ -94,7 +101,8 @@ const StyledLink = styled(Link)`
   }
   ${media.desktop`
     font-size: 1.2em;
-  `} ${media.phone`
+  `};
+  ${media.phone`
     font-size: 1.1em;
   `};
 `
@@ -133,7 +141,8 @@ const IconsContainer = styled.div`
   }
   ${media.desktop`
     margin-left: 0;
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     width: 240px;
     height: 480px;
     flex: 0 0 12em;
@@ -150,7 +159,8 @@ const IconsContainer = styled.div`
       top: 12rem;
       left: 0;
     }
-  `} ${media.phone`
+  `};
+  ${media.phone`
     height: 466px;
   `};
 `
@@ -174,23 +184,25 @@ const GradBear = () => (
 )
 
 const NotFoundPage = () => (
-  <Wrapper>
-    <Main>
-      <PageTitle>404</PageTitle>
-      <PageContainer>
-        <GradBear />
-        <TextContainer>
-          <PageText>
-            <span>Hi there!</span>
-          </PageText>
-          <PageText>
-            The page you are looking for does not exist!
-          </PageText>
-          <StyledLink to="/">Back to Homepage</StyledLink>
-        </TextContainer>
-      </PageContainer>
-    </Main>
-  </Wrapper>
+  <Layout>
+    <Wrapper>
+      <Main>
+        <PageTitle>404</PageTitle>
+        <PageContainer>
+          <GradBear />
+          <TextContainer>
+            <PageText>
+              <span>Hi there!</span>
+            </PageText>
+            <PageText>
+              The page you are looking for does not exist!
+            </PageText>
+            <StyledLink to="/">Back to Homepage</StyledLink>
+          </TextContainer>
+        </PageContainer>
+      </Main>
+    </Wrapper>
+  </Layout>
 )
 
 export default NotFoundPage

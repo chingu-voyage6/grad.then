@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
+
+import Layout from '../components/Layout'
 import Hero from '../components/Hero'
 import StoriesContainer from '../components/StoriesContainer'
-import { graphql } from 'gatsby'
 
 // "in page" pagination of stories
 // can be changed when the number of stories would grow significantly
@@ -14,7 +16,7 @@ const StoriesPage = ({ data }) => {
     pages = Math.ceil(blog.edges.length / storiesPerPage)
 
   return (
-    <div>
+    <Layout>
       <Hero type="stories" />
       <StoriesContainer
         menuFilter={site.siteMetadata.filterOptions.stories}
@@ -22,7 +24,7 @@ const StoriesPage = ({ data }) => {
         pages={pages}
         numStories={storiesPerPage}
       />
-    </div>
+    </Layout>
   )
 }
 

@@ -161,7 +161,8 @@ const StyledForm = styled.form`
     margin-top: 0.2rem;
     margin-bottom: 1rem;
     align-items: center;
-  `} ${media.tablet`
+  `};
+  ${media.tablet`
     flex-wrap: wrap;
     justify-content: center;
   `};
