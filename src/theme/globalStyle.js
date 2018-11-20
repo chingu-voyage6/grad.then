@@ -13,7 +13,7 @@ const sizes = {
   phone: 460
 }
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto|VT323');
 
   html {
@@ -65,7 +65,7 @@ const GlobalStyle = createGlobalStyle`
       font-size: 16px;
     }
   }
-`;
+`
 
 // iterate through the sizes and create a media template
 export const media = Object.keys(sizes).reduce(
@@ -157,5 +157,5 @@ export const StyledA = styled.a`
 `
 
 throw new Error(
-  "An injectGlobal usage was converted to createGlobalStyles via codemod but needs to be hooked up. See https://www.styled-components.com/docs/api#createglobalstyle for instructions."
-);
+  'An injectGlobal usage was converted to createGlobalStyles via codemod but needs to be hooked up. See https://www.styled-components.com/docs/api#createglobalstyle for instructions.'
+)

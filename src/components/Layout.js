@@ -7,7 +7,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import Header from './Header.js'
 import Footer from './Footer.js'
 
-import { theme } from '../theme/globalStyle'
+import { theme, GlobalStyle } from '../theme/globalStyle'
 
 const PageContainer = styled.div`
   display: grid;
@@ -26,6 +26,7 @@ const Main = styled.div`
 
 const Layout = ({ data, children }) => (
   <ThemeProvider theme={theme}>
+    <GlobalStyle />
     <PageContainer>
       <Helmet
         title="grad.then()"
