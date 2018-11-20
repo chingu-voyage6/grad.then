@@ -6,7 +6,7 @@ import { StyledA, media } from '../theme/globalStyle'
 import { ICONS } from '../theme/constants'
 import Icon from './Icon'
 
-const StyledLink = StyledA.extend`
+const StyledLink = styled(StyledA)`
   display: block;
   justify-self: start;
   margin: 10px 0 10px 10px;

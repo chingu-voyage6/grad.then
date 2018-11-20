@@ -31,7 +31,7 @@ const Main = styled.div`
   `};
 `
 
-const PageTitle = StyledH1.extend`
+const PageTitle = styled(StyledH1)`
   color: ${props => props.theme.tints.brightred};
   font-size: 3.5em;
   font-weight: 600;
@@ -70,7 +70,7 @@ const TextContainer = styled.div`
   margin: 0 1rem;
 `
 
-const PageText = StyledH2.extend`
+const PageText = styled(StyledH2)`
   color: ${props => props.theme.text};
   font-size: 1.4em;
   font-weight: 600;

@@ -49,7 +49,7 @@ const PaginationButton = styled.button`
   padding: 1px 6px;
   `};
 `
-const ButtonRight = PaginationButton.extend`
+const ButtonRight = styled(PaginationButton)`
   display: flex;
   align-items: center;
   border-radius: 0px 4px 4px 0px;
@@ -58,7 +58,7 @@ const ButtonRight = PaginationButton.extend`
     padding: 0 6px;
   `};
 `
-const ButtonLeft = PaginationButton.extend`
+const ButtonLeft = styled(PaginationButton)`
   display: flex;
   align-items: center;
   border-radius: 4px 0px 0px 4px;

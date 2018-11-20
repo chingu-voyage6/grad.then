@@ -38,7 +38,7 @@ const Image = styled.img`
   `};
 `
 
-const ProjectTitle = StyledH3.extend`
+const ProjectTitle = styled(StyledH3)`
   min-height: 3.5em;
   color: ${props => props.theme.white};
   margin: 0.5rem;
@@ -58,7 +58,7 @@ const ProjectTitle = StyledH3.extend`
   `};
 `
 
-const ProjectP = StyledP.extend`
+const ProjectP = styled(StyledP)`
   color: ${props => props.theme.white};
   margin-top: 0.5rem;
   margin-bottom: auto;
@@ -73,7 +73,7 @@ const ProjectP = StyledP.extend`
   `};
 `
 
-const CardUl = StyledUl.extend`
+const CardUl = styled(StyledUl)`
   color: ${props => props.theme.white};
   list-style-type: circle;
   margin: 1rem;
@@ -91,7 +91,7 @@ const CardUl = StyledUl.extend`
   `};
 `
 
-const CardLi = StyledLi.extend`
+const CardLi = styled(StyledLi)`
   padding: 0;
   font-size: 1.125rem;
   hyphens: auto;

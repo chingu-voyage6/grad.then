@@ -37,7 +37,7 @@ const IconWrapper = styled.div`
     width: 4em;
   `};
 `
-const IconText = StyledP.extend`
+const IconText = styled(StyledP)`
   font-size: 1.25rem;
   text-align: center;
   color: ${props => props.theme.primary.dark};

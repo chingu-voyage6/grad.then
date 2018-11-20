@@ -18,7 +18,7 @@ import {
 import contentStyles from '../css/storyBlog-module.css'
 
 const ArticleButton = ButtonSmall.withComponent('a')
-const FollowButton = ArticleButton.extend`
+const FollowButton = styled(ArticleButton)`
   padding: 0.25rem;
   margin-left: 0.3rem;
   text-transform: none;
@@ -34,7 +34,7 @@ const FollowButton = ArticleButton.extend`
     vertical-align: middle;
   `};
 `
-const BackButton = Button.extend`
+const BackButton = styled(Button)`
   padding: 0.5rem;
   border-width: 2px;
   font-size: 1.25em;
@@ -52,7 +52,7 @@ const BackButtonContainer = styled.div`
   margin: 1rem 0.5rem 2rem 0.5rem;
 `
 
-const ArticleContainer = Wrapper.extend`
+const ArticleContainer = styled(Wrapper)`
   grid-template-areas:
     '. panel panel panel panel panel panel panel panel panel panel.'
     '. . cont cont cont cont cont cont cont cont . .'
@@ -83,7 +83,7 @@ const ArticlePanel = styled.div`
   `};
 `
 
-const ArticleTitle = StyledH1.extend`
+const ArticleTitle = styled(StyledH1)`
   text-align: center;
   color: ${props => props.theme.primary.light};
   padding: 0.5rem;
@@ -97,7 +97,7 @@ const ArticleTitle = StyledH1.extend`
   `};
 `
 
-const ArticleAuthor = StyledH3.extend`
+const ArticleAuthor = styled(StyledH3)`
   padding: 0 0.5rem;
   text-align: center;
   ${media.desktop`
@@ -112,7 +112,7 @@ const ArticleAuthor = StyledH3.extend`
   `};
 `
 
-const AuthorBio = StyledP.extend`
+const AuthorBio = styled(StyledP)`
   padding: 0 0.5rem;
   text-align: center;
   font-size: 1rem;
@@ -123,7 +123,7 @@ const AuthorBio = StyledP.extend`
   `};
 `
 
-const ArticleDate = StyledP.extend`
+const ArticleDate = styled(StyledP)`
   padding: 0 0.5rem;
   text-align: center;
   font-size: 1.1rem;
@@ -136,7 +136,7 @@ const ArticleDate = StyledP.extend`
   `};
 `
 
-const ArticleSource = ArticleDate.extend`
+const ArticleSource = styled(ArticleDate)`
   ${media.desktop`
     margin: 0.25rem;
   `};
@@ -145,7 +145,7 @@ const ArticleSource = ArticleDate.extend`
   `};
 `
 
-const StyledLink = StyledA.extend`
+const StyledLink = styled(StyledA)`
   padding: 0 0.25rem;
   color: ${props => props.theme.tints.brightgreen};
   &:active,

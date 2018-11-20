@@ -31,7 +31,7 @@ const StyledHeader = styled.div`
   `};
 `
 
-const BrandTitle = StyledH1.extend`
+const BrandTitle = styled(StyledH1)`
   grid-area: brand;
   color: ${props => props.theme.primary.light};
   font-size: 1.6em;

@@ -32,7 +32,7 @@ const JobLi = styled.div`
   padding: 0rem;
 `
 
-const JobTitle = StyledH3.extend`
+const JobTitle = styled(StyledH3)`
   color: ${props => props.theme.primary.light};
   margin: 0.2rem 0.2rem 0.2rem 0;
   padding: 0.2rem 0.2rem 0.2rem 0;
@@ -51,7 +51,7 @@ const Items = styled.div`
   `};
 `
 
-const JobItem = StyledP.extend`
+const JobItem = styled(StyledP)`
   font-weight: 600;
   font-size: 1rem;
   color: ${props => props.theme.text};
@@ -66,7 +66,7 @@ const JobItem = StyledP.extend`
   `};
 `
 
-const JobText = StyledP.extend`
+const JobText = styled(StyledP)`
   font-size: 1.1rem;
   color: ${props => props.theme.text};
   margin: 0.2rem 0.2rem 0.2rem 0;

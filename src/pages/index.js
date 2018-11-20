@@ -25,7 +25,7 @@ const PageContainer = styled.div`
   `};
 `
 
-const MainTitle = StyledH2.extend`
+const MainTitle = styled(StyledH2)`
   grid-column: 2 / span 10;
   justify-self: center;
   font-size: 3rem;
@@ -42,7 +42,7 @@ const MainTitle = StyledH2.extend`
   `};
 `
 
-const MainSubtitle = StyledP.extend`
+const MainSubtitle = styled(StyledP)`
   grid-column: 2 / span 10;
   justify-self: center;
   font-size: 1.6rem;
@@ -105,7 +105,7 @@ const IconWrapper = styled(Link)`
     padding: 0.2rem;
   `};
 `
-const IconText = StyledP.extend`
+const IconText = styled(StyledP)`
   font-size: 1.25rem;
   text-align: center;
   color: ${props => props.theme.primary.light};

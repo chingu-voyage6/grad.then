@@ -67,7 +67,7 @@ const Text = styled.div`
   `};
 `
 
-const StoryTitle = StyledH3.extend`
+const StoryTitle = styled(StyledH3)`
   grid-column: 1 / span 4;
   color: ${props => props.theme.white};
   margin: 0.5rem 0;
@@ -83,7 +83,7 @@ const StoryTitle = StyledH3.extend`
   `};
 `
 
-const StoryAuthor = StyledH4.extend`
+const StoryAuthor = styled(StyledH4)`
   grid-column: 1 / span 4;
   color: ${props => props.theme.secondary.green};
   margin: 0.25em;
@@ -98,7 +98,7 @@ const StoryAuthor = StyledH4.extend`
   `};
 `
 
-const StoryDate = StyledP.extend`
+const StoryDate = styled(StyledP)`
   grid-column: 1 / span 4;
   color: ${props => props.theme.secondary.yellow};
   padding: 0;
@@ -107,12 +107,12 @@ const StoryDate = StyledP.extend`
   text-align: center;
 `
 
-const StoryTime = StoryDate.extend`
+const StoryTime = styled(StoryDate)`
   color: ${props => props.theme.black};
   font-size: 0.9rem;
 `
 
-const StoryText = StyledP.extend`
+const StoryText = styled(StyledP)`
   grid-column: 1 / span 4;
   color: ${props => props.theme.white};
   margin: 0.7rem 0.2rem;
@@ -147,7 +147,7 @@ const ButtonContainer = styled.div`
   `};
 `
 
-const ReadButton = ButtonBig.extend`
+const ReadButton = styled(ButtonBig)`
   transition: all 0.2s;
   &:hover {
     transform: translateY(-2px);
@@ -157,7 +157,7 @@ const ReadButton = ButtonBig.extend`
   }
 `
 
-const StyledTagContainer = StyledUl.extend`
+const StyledTagContainer = styled(StyledUl)`
   align-self: start;
   display: flex;
   flex-flow: row wrap;
@@ -167,7 +167,7 @@ const StyledTagContainer = StyledUl.extend`
   list-style-type: none;
 `
 
-const StyledTag = StyledLi.extend`
+const StyledTag = styled(StyledLi)`
   font-size: 0.9rem;
   color: ${props => props.color || props.theme.secondary.yellow};
   padding: 0.2rem 0.25rem;

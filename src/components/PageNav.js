@@ -13,7 +13,7 @@ import { ICONS } from '../theme/constants'
 import Icon from './Icon'
 
 //same for Header & Footer
-const NavMenu = StyledUl.extend`
+const NavMenu = styled(StyledUl)`
   grid-area: nav;
   padding: 0;
   display: inline-grid;
@@ -43,7 +43,7 @@ const NavMenu = StyledUl.extend`
 `
 
 // different colors for links
-const NavItem = StyledLi.extend`
+const NavItem = styled(StyledLi)`
   display: inline;
   justify-self: center;
   align-self: center;
@@ -106,7 +106,7 @@ NavLink.propTypes = {
   'data-header': PropTypes.bool.isRequired
 }
 
-const StyledLink = StyledA.extend`
+const StyledLink = styled(StyledA)`
   color: inherit;
   margin: 0;
   padding: 0;

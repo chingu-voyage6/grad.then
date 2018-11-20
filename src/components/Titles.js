@@ -1,6 +1,7 @@
+import styled from "styled-components";
 import { StyledH2, StyledH3, media } from '../theme/globalStyle'
 
-export const SectionTitle = StyledH2.extend`
+export const SectionTitle = styled(StyledH2)`
   text-align: center;
   text-transform: uppercase;
   color: ${props => props.theme.primary.light};
@@ -17,7 +18,7 @@ export const SectionTitle = StyledH2.extend`
   `};
 `
 
-export const LoadingContent = StyledH3.extend`
+export const LoadingContent = styled(StyledH3)`
   grid-area: ${props => props.area};
   color: ${props => props.theme.primary.light};
   text-align: center;

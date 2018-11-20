@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import React from 'react'
 import { graphql } from 'gatsby'
 import faker from 'faker'
@@ -11,7 +12,7 @@ import Divider from '../components/Divider'
 import { SectionTitle } from '../components/Titles'
 import SupportContainer from '../components/SupportContainer'
 
-const DividerText = StyledH3.extend`
+const DividerText = styled(StyledH3)`
   font-size: 1.5em;
   text-align: center;
   margin: 1rem;
@@ -32,7 +33,7 @@ const DividerText = StyledH3.extend`
   `};
 `
 
-const SectionP = StyledP.extend`
+const SectionP = styled(StyledP)`
   color: ${props => props.theme.text};
   ${media.tablet`
     font-size: 1rem;

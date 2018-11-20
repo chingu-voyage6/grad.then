@@ -1,4 +1,4 @@
-import styled, { injectGlobal, css } from 'styled-components'
+import styled, { css, createGlobalStyle } from 'styled-components'
 
 /* TODO
   take a look at using
@@ -13,7 +13,7 @@ const sizes = {
   phone: 460
 }
 
-injectGlobal`
+const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto|VT323');
 
   html {
@@ -65,7 +65,7 @@ injectGlobal`
       font-size: 16px;
     }
   }
-`
+`;
 
 // iterate through the sizes and create a media template
 export const media = Object.keys(sizes).reduce(
@@ -155,3 +155,7 @@ export const StyledA = styled.a`
   padding: 1.75rem;
   margin: 0.5rem;
 `
+
+throw new Error(
+  "An injectGlobal usage was converted to createGlobalStyles via codemod but needs to be hooked up. See https://www.styled-components.com/docs/api#createglobalstyle for instructions."
+);

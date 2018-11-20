@@ -33,7 +33,7 @@ const StyledFilter = styled.div`
   `};
 `
 
-const FilterTitle = StyledH3.extend`
+const FilterTitle = styled(StyledH3)`
   text-transform: uppercase;
   font-size: 1.2rem;
   color: ${props => props.theme.primary.light};
@@ -113,7 +113,7 @@ const OptionContainer = styled.div`
   `};
 `
 
-const FilterOption = StyledA.extend`
+const FilterOption = styled(StyledA)`
   padding: 12px 16px;
   margin: 0;
   display: block;
@@ -139,7 +139,7 @@ const FilterOption = StyledA.extend`
     text-transform: lowercase;
   `};
 `
-const SubmitButton = Button.extend`
+const SubmitButton = styled(Button)`
   display: block;
   min-width: 10rem;
   padding: 1rem;

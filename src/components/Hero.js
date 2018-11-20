@@ -43,7 +43,7 @@ const StyledMainHero = styled.div`
   `};
 `
 
-const HeroTitle = StyledH1.extend`
+const HeroTitle = styled(StyledH1)`
   font-size: 4rem;
   color: ${props => props.theme.secondary.yellow};
   span {
@@ -70,7 +70,7 @@ const HeroTitle = StyledH1.extend`
   `};
 `
 
-const HeroUl = StyledUl.extend`
+const HeroUl = styled(StyledUl)`
   color: ${props => props.theme.secondary.yellow};
   padding: 0.5rem 1.5rem;
   margin: 0 0 1rem 0;
@@ -93,7 +93,7 @@ const HeroUl = StyledUl.extend`
   `};
 `
 
-const HeroLi = StyledLi.extend`
+const HeroLi = styled(StyledLi)`
   font-size: 1.8rem;
   padding: 0.5rem;
   margin: 1rem;
@@ -157,7 +157,7 @@ const buttonText = {
   events: 'add event'
 }
 
-const StyledSimpleHero = StyledMainHero.extend`
+const StyledSimpleHero = styled(StyledMainHero)`
   min-height: 200px;
   height: 200px;
   display: grid;
@@ -188,7 +188,7 @@ const StyledSimpleHero = StyledMainHero.extend`
   `};
 `
 
-const SimpleHeroTitle = HeroTitle.extend`
+const SimpleHeroTitle = styled(HeroTitle)`
   grid-column: 1 / span 12;
   color: ${props => props.theme.white};
   text-align: center;
@@ -215,7 +215,7 @@ const SimpleHeroTitle = HeroTitle.extend`
   `};
 `
 
-const SimpleHeroP = StyledP.extend`
+const SimpleHeroP = styled(StyledP)`
   grid-column: 1 / span 12;
   color: ${props => props.theme.white};
   padding: 0.5rem 0;
@@ -236,7 +236,7 @@ const ButtonContainer = styled.div`
   `};
 `
 
-const HeroButton = ButtonBig.extend`
+const HeroButton = styled(ButtonBig)`
   display: block;
   font-size: 1.6rem;
   margin: 0 auto;
