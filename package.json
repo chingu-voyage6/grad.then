@@ -16,10 +16,10 @@
     "react": "16.6.3",
     "react-dom": "16.6.3",
     "react-helmet": "5.2.0",
-    "styled-components": "^2.4.1"
+    "styled-components": "2.4.1"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.5.1",
+    "babel-plugin-styled-components": "1.8.0",
     "eslint": "5.9.0",
     "eslint-plugin-graphql": "3.0.1",
     "eslint-plugin-react": "^7.10.0",
